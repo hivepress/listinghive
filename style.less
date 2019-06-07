@@ -1,6 +1,8 @@
 /*--------------------------------------------------------------
 Variables
 --------------------------------------------------------------*/
+@heading-font-family: 'Quicksand', sans-serif;
+@heading-font-weight: 500;
 @border-color: rgba(0,0,0,0.06);
 /*--------------------------------------------------------------
 Normalize
@@ -13,6 +15,46 @@ html {
 body {
 	display: flex;
 	flex-direction: column;
+}
+/*--------------------------------------------------------------
+Typography
+--------------------------------------------------------------*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: @heading-font-family;
+	font-weight: @heading-font-weight;
+}
+
+h1 {
+	font-size: 3rem;
+}
+
+h2 {
+	font-size: 2.5rem;
+}
+
+h3 {
+	font-size: 2rem;
+}
+
+h4 {
+	font-size: 1.5rem;
+}
+
+h5 {
+	font-size: 1.25rem;
+}
+
+h6 {
+	font-size: 1rem;
+}
+
+.title {
+	font-weight: @heading-font-weight;
 }
 /*--------------------------------------------------------------
 Layout
@@ -32,6 +74,14 @@ Footer
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
+}
+/*--------------------------------------------------------------
+Buttons
+--------------------------------------------------------------*/
+.button,
+button,
+input[type=submit] {
+	border-radius: 290486px;
 }
 /*--------------------------------------------------------------
 Listings

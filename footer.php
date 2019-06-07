@@ -10,7 +10,15 @@
 						</div>
 					</div>
 					<div class="level-right">
-						todo
+						<?php
+						wp_nav_menu(
+							[
+								'theme_location' => 'footer',
+								'container'      => 'ul',
+								'menu_class'     => 'level-item',
+							]
+						);
+						?>
 					</div>
 				</nav>
 			</div>

@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
 		<link rel="stylesheet/less" type="text/css" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.less" />
 		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+		<link href="https://fonts.googleapis.com/css?family=Quicksand:500&display=swap" rel="stylesheet">
 
 		<?php wp_head(); ?>
 	</head>
@@ -26,19 +27,16 @@
 					</a>
 				</div>
 				<div class="navbar-menu">
-					<div class="navbar-start">
-						<a class="navbar-item">Home</a>
-						<a class="navbar-item">Documentation</a>
-						<div class="navbar-item has-dropdown is-hoverable">
-							<a class="navbar-link">More</a>
-							<div class="navbar-dropdown">
-								<a class="navbar-item">About</a>
-								<a class="navbar-item">Jobs</a>
-								<a class="navbar-item">Contact</a>
-							</div>
-						</div>
-					</div>
 					<div class="navbar-end">
+						<?php
+						wp_nav_menu(
+							[
+								'theme_location' => 'header',
+								'container'      => 'ul',
+								'menu_class'     => 'navbar-item',
+							]
+						);
+						?>
 						<div class="navbar-item">
 							<div class="buttons">
 								<a class="button is-primary"><strong>Sign up</strong></a>
