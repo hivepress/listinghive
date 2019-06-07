@@ -1,7 +1,7 @@
 				</div>
 			</section>
 		</div>
-		<footer class="site-footer footer">
+		<footer class="site-footer footer has-background-white">
 			<div class="container">
 				<nav class="level">
 					<div class="level-left">

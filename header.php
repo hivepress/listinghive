@@ -13,7 +13,7 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<div class="site-container">
-			<nav class="navbar is-spaced">
+			<nav class="header-nav navbar is-spaced">
 				<div class="navbar-brand">
 					<a href="<?php echo esc_url( home_url() ); ?>" class="navbar-item">
 						<?php
