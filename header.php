@@ -6,16 +6,19 @@
 
 		<!-- todo remove -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+
 		<link rel="stylesheet/less" type="text/css" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.less" />
 		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+
 		<link href="https://fonts.googleapis.com/css?family=Quicksand:500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
 
 		<?php wp_head(); ?>
 	</head>
 	<body <?php body_class(); ?>>
 		<div class="site-container">
-			<nav class="header-nav navbar is-spaced">
-				<div class="navbar-brand">
+			<nav class="header-navbar navbar is-spaced">
+				<div class="header-navbar__logo navbar-brand">
 					<a href="<?php echo esc_url( home_url() ); ?>" class="navbar-item">
 						<?php
 						if ( has_custom_logo() ) :
@@ -50,7 +53,7 @@
 			<section class="hero is-large is-primary is-bold">
 				<div class="hero-body">
 					<div class="container">
-						<h1 class="title">Primary bold title</h1>
+						<h1 class="title is-1">Primary bold title</h1>
 						<h2 class="subtitle">Primary bold subtitle</h2>
 					</div>
 				</div>

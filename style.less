@@ -3,6 +3,7 @@ Variables
 --------------------------------------------------------------*/
 @heading-font-family: 'Quicksand', sans-serif;
 @heading-font-weight: 500;
+@body-font-family: 'Nunito Sans', sans-serif;
 @border-color: rgba(0,0,0,0.06);
 /*--------------------------------------------------------------
 Normalize
@@ -19,6 +20,10 @@ body {
 /*--------------------------------------------------------------
 Typography
 --------------------------------------------------------------*/
+body {
+	font-family: @content-font-family;
+}
+
 h1,
 h2,
 h3,
@@ -65,8 +70,14 @@ Layout
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
-.header-nav {
+.header-navbar {
 	border-bottom: 1px solid @border-color;
+
+	&__logo {
+		img {
+			max-height:none;
+		}
+	}
 }
 /*--------------------------------------------------------------
 Footer
