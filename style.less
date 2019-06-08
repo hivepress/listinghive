@@ -5,6 +5,7 @@ Variables
 @heading-font-weight: 500;
 @body-font-family: 'Nunito Sans', sans-serif;
 @border-color: rgba(0,0,0,0.06);
+@border-radius:4px;
 /*--------------------------------------------------------------
 Normalize
 --------------------------------------------------------------*/
@@ -21,7 +22,7 @@ body {
 Typography
 --------------------------------------------------------------*/
 body {
-	font-family: @content-font-family;
+	font-family: @body-font-family;
 }
 
 h1,
@@ -78,6 +79,20 @@ Header
 			max-height:none;
 		}
 	}
+
+	&__menu {
+		ul {
+			li {
+				ul {
+					display:none;
+				}
+			}
+		}
+
+		> ul {
+			display:flex;
+		}
+	}
 }
 /*--------------------------------------------------------------
 Footer
@@ -85,6 +100,22 @@ Footer
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
+}
+
+.footer-navbar {
+	&__menu {
+		ul {
+			li {
+				ul {
+					display:none;
+				}
+			}
+		}
+
+		> ul {
+			display:flex;
+		}
+	}
 }
 /*--------------------------------------------------------------
 Buttons
@@ -101,6 +132,11 @@ Listings
 	&-listing {
 		&--view-block {
 			border: 1px solid @border-color;
+			border-radius:@border-radius;
+		}
+
+		&--view-block &__footer {
+			padding:1rem 2rem;
 		}
 	}
 }

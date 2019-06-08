@@ -31,20 +31,19 @@
 				</div>
 				<div class="navbar-menu">
 					<div class="navbar-end">
-						<?php
-						wp_nav_menu(
-							[
-								'theme_location' => 'header',
-								'container'      => 'ul',
-								'menu_class'     => 'navbar-item',
-							]
-						);
-						?>
+						<div class="header-navbar__menu navbar-item">
+							<?php
+							wp_nav_menu(
+								[
+									'theme_location' => 'header',
+									'container'      => 'ul',
+									'menu_class'     => '',
+								]
+							);
+							?>
+						</div>
 						<div class="navbar-item">
-							<div class="buttons">
-								<a class="button is-primary"><strong>Sign up</strong></a>
-								<a class="button is-light">Log in</a>
-							</div>
+							<?php do_action( 'hivepress/v1/todo' ); ?>
 						</div>
 					</div>
 				</div>
