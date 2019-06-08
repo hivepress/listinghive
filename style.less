@@ -4,16 +4,16 @@ Variables
 @heading-font-family: 'Poppins', sans-serif;
 @heading-font-weight: 500;
 @body-font-family: 'Open Sans', sans-serif;
-@heading-font-color:rgba(0,0,0,0.8);
-@body-font-color:rgba(0,0,0,0.6);
-@primary-font-color:#ffc107;
-@secondary-font-color:rgba(0,0,0,0.4);
+@heading-font-color: rgba(0,0,0,0.8);
+@body-font-color: rgba(0,0,0,0.6);
+@primary-font-color: #ffc107;
+@secondary-font-color: rgba(0,0,0,0.4);
 @border-color: rgba(0,0,0,0.06);
-@border-radius:3px;
-@box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-/*--------------------------------------------------------------
+@border-radius: 3px;
+@box-shadow: 0 2px 4px 0 rgba(0,0,0,.06); /*--------------------------------------------------------------
 Normalize
 --------------------------------------------------------------*/
+
 body,
 html {
 	height: 100%;
@@ -26,9 +26,10 @@ body {
 /*--------------------------------------------------------------
 Typography
 --------------------------------------------------------------*/
+
 body {
 	font-family: @body-font-family;
-	color:@body-font-color;
+	color: @body-font-color;
 }
 
 h1,
@@ -39,7 +40,7 @@ h5,
 h6 {
 	font-family: @heading-font-family;
 	font-weight: @heading-font-weight;
-	color:@heading-font-color;
+	color: @heading-font-color;
 }
 
 h1 {
@@ -71,50 +72,58 @@ h6 {
 }
 
 p {
-	line-height:1.875;
+	line-height: 1.875;
 
 	&:not(:last-child) {
-		margin-bottom:1rem;
+		margin-bottom: 1rem;
 	}
 }
 /*--------------------------------------------------------------
 Layout
 --------------------------------------------------------------*/
+
 .site-container {
 	flex: 1 0 auto;
+}
+
+.container {
+	@media screen and (min-width: 1408px) {
+		max-width: 1152px;
+	}
 }
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
+
 .header-navbar {
 	border-bottom: 1px solid @border-color;
 
 	&__logo {
 		img {
-			max-height:none;
+			max-height: none;
 		}
 	}
 
 	&__menu {
 		ul {
 			li {
-				> a:hover,
-				&.current-menu-item > a {
+				&.current-menu-item > a,
+				> a:hover {
 					color: @primary-font-color;
 				}
 
 				ul {
-					display:none;
+					display: none;
 				}
 			}
 		}
 
 		> ul {
-			display:flex;
+			display: flex;
 
 			> li {
 				> a {
-					padding:0 1rem;
+					padding: 0 1rem;
 				}
 			}
 		}
@@ -123,6 +132,7 @@ Header
 /*--------------------------------------------------------------
 Footer
 --------------------------------------------------------------*/
+
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -130,32 +140,39 @@ Footer
 
 .footer-navbar {
 	&__copyright {
-		color:@secondary-font-color;
+		color: @secondary-font-color;
 	}
 
 	&__menu {
 		ul {
 			li {
 				ul {
-					display:none;
+					display: none;
 				}
 			}
 		}
 
 		> ul {
-			display:flex;
+			display: flex;
 
 			> li {
 				&:not(:last-child) {
-					margin-right:2rem;
+					margin-right: 2rem;
 				}
 			}
 		}
 	}
 }
 /*--------------------------------------------------------------
+Popup
+--------------------------------------------------------------*/
+.fancybox-content {
+	border-radius:@border-radius;
+}
+/*--------------------------------------------------------------
 Buttons
 --------------------------------------------------------------*/
+
 .button,
 button,
 input[type=submit] {
@@ -164,16 +181,17 @@ input[type=submit] {
 /*--------------------------------------------------------------
 HivePress
 --------------------------------------------------------------*/
+
 .hp {
 	&-result-count {
-		color:@secondary-font-color;
+		color: @secondary-font-color;
 	}
 
 	&-link {
-		color:@primary-font-color;
+		color: @primary-font-color;
 
 		&:not(:hover) {
-			color:@secondary-font-color;
+			color: @secondary-font-color;
 		}
 	}
 	/*--------------------------------------------------------------
@@ -182,26 +200,54 @@ HivePress
 	&-listing {
 		&--view-block {
 			border: 1px solid @border-color;
-			border-radius:@border-radius;
-			box-shadow:@box-shadow;
+			border-radius: @border-radius;
+			box-shadow: @box-shadow;
 		}
 
 		&--view-block &__content,
 		&--view-block &__footer,
 		&--view-block &__header {
 			&:not(:last-child) {
-				margin-bottom:0;
+				margin-bottom: 0;
 			}
 		}
 
 		&--view-block &__content,
 		&--view-block &__footer {
-			padding:1rem 2rem;
+			padding: 1rem 1.5rem;
+		}
+
+		&--view-block &__image {
+			img {
+				border-top-left-radius: @border-radius;
+				border-top-right-radius: @border-radius;
+			}
+		}
+
+		&--view-page &__images {
+			&-slider {
+				border-radius:@border-radius;
+			}
+
+			&-carousel {
+				img {
+					border-radius:@border-radius;
+				}
+			}
 		}
 
 		&--view-block &__date,
 		&--view-page &__date {
-			color:@secondary-font-color;
+			color: @secondary-font-color;
+		}
+	}
+
+	&-form {
+		&--listing-search {
+			border: 1px solid @border-color;
+			border-radius: 290486px;
+			box-shadow: @box-shadow;
+			padding:0.5rem;
 		}
 	}
 	/*--------------------------------------------------------------
@@ -210,8 +256,8 @@ HivePress
 	&-vendor {
 		&--view-block {
 			border: 1px solid @border-color;
-			border-radius:@border-radius;
-			box-shadow:@box-shadow;
+			border-radius: @border-radius;
+			box-shadow: @box-shadow;
 		}
 	}
 }
