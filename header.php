@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<?php wp_head(); ?>
 
 		<!-- todo remove -->
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
@@ -10,10 +11,8 @@
 		<link rel="stylesheet/less" type="text/css" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.less" />
 		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
 
-		<link href="https://fonts.googleapis.com/css?family=Quicksand:500&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap" rel="stylesheet">
-
-		<?php wp_head(); ?>
+		<link href="https://fonts.googleapis.com/css?family=Poppins:500&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 	</head>
 	<body <?php body_class(); ?>>
 		<div class="site-container">
@@ -51,6 +50,19 @@
 			<?php if ( is_home() ) : ?>
 			<section class="hero is-large is-primary is-bold">
 				<div class="hero-body">
+					<div class="container">
+						<h1 class="title is-1">Primary bold title</h1>
+						<h2 class="subtitle">Primary bold subtitle</h2>
+					</div>
+				</div>
+			</section>
+			<?php endif; ?>
+			<?php
+			// todo
+			if(is_single() && has_post_thumbnail()): ?>
+			<section class="hero is-large is-primary is-bold" style="background:url(https://images.unsplash.com/photo-1559945282-0f3eeafbd255?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1220&q=80) center center no-repeat;background-size:cover;">
+				<div class="hero-body"></div>
+				<div class="hero-foot">
 					<div class="container">
 						<h1 class="title is-1">Primary bold title</h1>
 						<h2 class="subtitle">Primary bold subtitle</h2>

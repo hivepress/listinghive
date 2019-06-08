@@ -1,11 +1,16 @@
 /*--------------------------------------------------------------
 Variables
 --------------------------------------------------------------*/
-@heading-font-family: 'Quicksand', sans-serif;
+@heading-font-family: 'Poppins', sans-serif;
 @heading-font-weight: 500;
-@body-font-family: 'Nunito Sans', sans-serif;
+@body-font-family: 'Open Sans', sans-serif;
+@heading-font-color:rgba(0,0,0,0.8);
+@body-font-color:rgba(0,0,0,0.6);
+@primary-font-color:#ffc107;
+@secondary-font-color:rgba(0,0,0,0.4);
 @border-color: rgba(0,0,0,0.06);
-@border-radius:4px;
+@border-radius:3px;
+@box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
 /*--------------------------------------------------------------
 Normalize
 --------------------------------------------------------------*/
@@ -23,6 +28,7 @@ Typography
 --------------------------------------------------------------*/
 body {
 	font-family: @body-font-family;
+	color:@body-font-color;
 }
 
 h1,
@@ -33,6 +39,7 @@ h5,
 h6 {
 	font-family: @heading-font-family;
 	font-weight: @heading-font-weight;
+	color:@heading-font-color;
 }
 
 h1 {
@@ -62,6 +69,14 @@ h6 {
 .title {
 	font-weight: @heading-font-weight;
 }
+
+p {
+	line-height:1.875;
+
+	&:not(:last-child) {
+		margin-bottom:1rem;
+	}
+}
 /*--------------------------------------------------------------
 Layout
 --------------------------------------------------------------*/
@@ -83,6 +98,11 @@ Header
 	&__menu {
 		ul {
 			li {
+				> a:hover,
+				&.current-menu-item > a {
+					color: @primary-font-color;
+				}
+
 				ul {
 					display:none;
 				}
@@ -91,6 +111,12 @@ Header
 
 		> ul {
 			display:flex;
+
+			> li {
+				> a {
+					padding:0 1rem;
+				}
+			}
 		}
 	}
 }
@@ -103,6 +129,10 @@ Footer
 }
 
 .footer-navbar {
+	&__copyright {
+		color:@secondary-font-color;
+	}
+
 	&__menu {
 		ul {
 			li {
@@ -114,6 +144,12 @@ Footer
 
 		> ul {
 			display:flex;
+
+			> li {
+				&:not(:last-child) {
+					margin-right:2rem;
+				}
+			}
 		}
 	}
 }
@@ -126,17 +162,56 @@ input[type=submit] {
 	border-radius: 290486px;
 }
 /*--------------------------------------------------------------
-Listings
+HivePress
 --------------------------------------------------------------*/
 .hp {
+	&-result-count {
+		color:@secondary-font-color;
+	}
+
+	&-link {
+		color:@primary-font-color;
+
+		&:not(:hover) {
+			color:@secondary-font-color;
+		}
+	}
+	/*--------------------------------------------------------------
+	Listings
+	--------------------------------------------------------------*/
 	&-listing {
 		&--view-block {
 			border: 1px solid @border-color;
 			border-radius:@border-radius;
+			box-shadow:@box-shadow;
 		}
 
+		&--view-block &__content,
+		&--view-block &__footer,
+		&--view-block &__header {
+			&:not(:last-child) {
+				margin-bottom:0;
+			}
+		}
+
+		&--view-block &__content,
 		&--view-block &__footer {
 			padding:1rem 2rem;
+		}
+
+		&--view-block &__date,
+		&--view-page &__date {
+			color:@secondary-font-color;
+		}
+	}
+	/*--------------------------------------------------------------
+	Vendors
+	--------------------------------------------------------------*/
+	&-vendor {
+		&--view-block {
+			border: 1px solid @border-color;
+			border-radius:@border-radius;
+			box-shadow:@box-shadow;
 		}
 	}
 }
