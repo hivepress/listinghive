@@ -11,9 +11,18 @@ Variables
 @border-color: rgba(0,0,0,0.06);
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06); /*--------------------------------------------------------------
-Normalize
+Mixins
 --------------------------------------------------------------*/
 
+.block {
+	border: 1px solid @border-color;
+	border-radius: @border-radius;
+	box-shadow: @box-shadow;
+	background-color: #fff;
+}
+/*--------------------------------------------------------------
+Normalize
+--------------------------------------------------------------*/
 body,
 html {
 	height: 100%;
@@ -26,7 +35,6 @@ body {
 /*--------------------------------------------------------------
 Typography
 --------------------------------------------------------------*/
-
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -81,9 +89,13 @@ p {
 /*--------------------------------------------------------------
 Layout
 --------------------------------------------------------------*/
-
 .site-container {
 	flex: 1 0 auto;
+}
+
+.site-content {
+	padding-top:4rem;
+	padding-bottom:4rem;
 }
 
 .container {
@@ -91,10 +103,14 @@ Layout
 		max-width: 1152px;
 	}
 }
+
+// todo
+.home .hp-form--listing-search {
+	margin-top:-6rem;
+}
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
-
 .header-navbar {
 	border-bottom: 1px solid @border-color;
 
@@ -107,8 +123,8 @@ Header
 	&__menu {
 		ul {
 			li {
-				&.current-menu-item > a,
-				> a:hover {
+				> a:hover,
+				&.current-menu-item > a {
 					color: @primary-font-color;
 				}
 
@@ -129,10 +145,39 @@ Header
 		}
 	}
 }
+
+.header-hero {
+	background:url(http://localhost/hivepress/wp-content/uploads/2019/06/joel-filipe-166058-unsplash.jpg) center center no-repeat;
+	background-size:cover;
+	position:relative;
+
+	&::after {
+		content:'';
+		position:absolute;
+		left:0;
+		right:0;
+		top:0;
+		bottom:0;
+		background-color:rgba(0,0,0,0.35);
+	}
+
+	&__content {
+		position:relative;
+		z-index:1;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: inherit;
+	}
+}
 /*--------------------------------------------------------------
 Footer
 --------------------------------------------------------------*/
-
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -166,22 +211,21 @@ Footer
 /*--------------------------------------------------------------
 Popup
 --------------------------------------------------------------*/
+
 .fancybox-content {
-	border-radius:@border-radius;
+	border-radius: @border-radius;
 }
 /*--------------------------------------------------------------
 Buttons
 --------------------------------------------------------------*/
-
 .button,
 button,
 input[type=submit] {
-	border-radius: 290486px;
+	border-radius: @border-radius;
 }
 /*--------------------------------------------------------------
 HivePress
 --------------------------------------------------------------*/
-
 .hp {
 	&-result-count {
 		color: @secondary-font-color;
@@ -199,9 +243,7 @@ HivePress
 	--------------------------------------------------------------*/
 	&-listing {
 		&--view-block {
-			border: 1px solid @border-color;
-			border-radius: @border-radius;
-			box-shadow: @box-shadow;
+			.block;
 		}
 
 		&--view-block &__content,
@@ -217,6 +259,10 @@ HivePress
 			padding: 1rem 1.5rem;
 		}
 
+		&--view-block &__footer {
+			border-top: 1px solid @border-color;
+		}
+
 		&--view-block &__image {
 			img {
 				border-top-left-radius: @border-radius;
@@ -226,12 +272,13 @@ HivePress
 
 		&--view-page &__images {
 			&-slider {
-				border-radius:@border-radius;
+				border-radius: @border-radius;
+				overflow: hidden;
 			}
 
 			&-carousel {
 				img {
-					border-radius:@border-radius;
+					border-radius: @border-radius;
 				}
 			}
 		}
@@ -244,10 +291,8 @@ HivePress
 
 	&-form {
 		&--listing-search {
-			border: 1px solid @border-color;
-			border-radius: 290486px;
-			box-shadow: @box-shadow;
-			padding:0.5rem;
+			.block;
+			padding: 0.5rem;
 		}
 	}
 	/*--------------------------------------------------------------
@@ -255,9 +300,7 @@ HivePress
 	--------------------------------------------------------------*/
 	&-vendor {
 		&--view-block {
-			border: 1px solid @border-color;
-			border-radius: @border-radius;
-			box-shadow: @box-shadow;
+			.block;
 		}
 	}
 }

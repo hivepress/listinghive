@@ -16,59 +16,51 @@
 	</head>
 	<body <?php body_class(); ?>>
 		<div class="site-container">
-			<nav class="header-navbar navbar is-spaced">
-				<div class="header-navbar__logo navbar-brand">
-					<a href="<?php echo esc_url( home_url() ); ?>" class="navbar-item">
-						<?php
-						if ( has_custom_logo() ) :
-							the_custom_logo();
-						else :
-							?>
-							<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo.svg" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-						<?php endif; ?>
-					</a>
-				</div>
-				<div class="navbar-menu">
-					<div class="navbar-end">
-						<div class="header-navbar__menu navbar-item">
+			<div class="site-header">
+				<nav class="header-navbar navbar is-spaced">
+					<div class="header-navbar__logo navbar-brand">
+						<a href="<?php echo esc_url( home_url() ); ?>" class="navbar-item">
 							<?php
-							wp_nav_menu(
-								[
-									'theme_location' => 'header',
-									'container'      => 'ul',
-									'menu_class'     => '',
-								]
-							);
-							?>
+							if ( has_custom_logo() ) :
+								the_custom_logo();
+							else :
+								?>
+								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo.svg" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+							<?php endif; ?>
+						</a>
+					</div>
+					<div class="navbar-menu">
+						<div class="navbar-end">
+							<div class="header-navbar__menu navbar-item">
+								<?php
+								wp_nav_menu(
+									[
+										'theme_location' => 'header',
+										'container'      => 'ul',
+										'menu_class'     => '',
+									]
+								);
+								?>
+							</div>
+							<div class="navbar-item">
+								<?php do_action( 'hivepress/v1/todo' ); ?>
+							</div>
 						</div>
-						<div class="navbar-item">
-							<?php do_action( 'hivepress/v1/todo' ); ?>
+					</div>
+				</nav>
+				<?php
+				// todo
+				if ( is_front_page() ) :
+				?>
+				<section class="header-hero hero is-medium is-primary">
+					<div class="header-hero__content hero-body">
+						<div class="container">
+							<h1 style="text-align:center;">Find anything, anywhere.</h1>
+							<p style="text-align:center;">Yep yu can simply find anything here.</p>
 						</div>
 					</div>
-				</div>
-			</nav>
-			<?php if ( is_home() ) : ?>
-			<section class="hero is-large is-primary is-bold">
-				<div class="hero-body">
-					<div class="container">
-						<h1 class="title is-1">Primary bold title</h1>
-						<h2 class="subtitle">Primary bold subtitle</h2>
-					</div>
-				</div>
-			</section>
-			<?php endif; ?>
-			<?php
-			// todo
-			if(is_single() && has_post_thumbnail()): ?>
-			<section class="hero is-large is-primary is-bold" style="background:url(https://images.unsplash.com/photo-1559945282-0f3eeafbd255?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1220&q=80) center center no-repeat;background-size:cover;">
-				<div class="hero-body"></div>
-				<div class="hero-foot">
-					<div class="container">
-						<h1 class="title is-1">Primary bold title</h1>
-						<h2 class="subtitle">Primary bold subtitle</h2>
-					</div>
-				</div>
-			</section>
-			<?php endif; ?>
-			<section class="section">
+				</section>
+				<?php endif; ?>
+			</div>
+			<section class="site-content section">
 				<div class="container">
