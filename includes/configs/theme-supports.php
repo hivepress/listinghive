@@ -9,6 +9,8 @@
 defined( 'ABSPATH' ) || exit;
 
 return [
+	'title-tag',
+	'automatic-feed-links',
 	'custom-logo',
 	'post-thumbnails',
 	'editor-styles',
