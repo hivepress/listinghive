@@ -7,10 +7,12 @@ Variables
 @heading-font-color: rgba(0,0,0,0.8);
 @body-font-color: rgba(0,0,0,0.6);
 @primary-font-color: #ffc107;
+@primary-background-color:#ffc107;
 @secondary-font-color: rgba(0,0,0,0.4);
 @border-color: rgba(0,0,0,0.06);
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
+@animation-speed:.3s;
 /*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
@@ -34,6 +36,7 @@ Mixins
 
 .overlay {
 	content: '';
+	display:block;
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -162,6 +165,15 @@ Header
 			display: flex;
 
 			> li {
+				position:relative;
+				border:3px solid transparent;
+				border-left-width: 0;
+				border-right-width: 0;
+
+				&.current-menu-item {
+					border-bottom-color:@primary-background-color;
+				}
+
 				> a {
 					padding: 0 1rem;
 				}
@@ -308,6 +320,15 @@ HivePress
 		&--view-page &__attributes--primary &__attribute {
 			background-color: transparent;
 		}
+
+		&--view-page &__actions--primary &__action,
+		&--view-block &__actions--primary &__action {
+			&--favorite[data-state=active] {
+				i {
+					color:#ff5a65;
+				}
+			}
+		}
 	}
 
 	&-form {
@@ -323,6 +344,11 @@ HivePress
 		&--view-block {
 			border-radius: @border-radius;
 			position: relative;
+			transition: transform @animation-speed;
+
+			&:hover {
+				transform:translateY(-10px);
+			}
 		}
 
 		&--view-block &__content,
@@ -369,6 +395,7 @@ HivePress
 			line-height: 1;
 			font-size: 0.75rem;
 			padding: 0.25rem 0.3125rem;
+			letter-spacing:.5px;
 		}
 	}
 	/*--------------------------------------------------------------

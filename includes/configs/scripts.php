@@ -2,7 +2,7 @@
 /**
  * Scripts configuration.
  *
- * @package HivePress\Configs
+ * @package HiveTheme\Configs
  */
 
 // Exit if accessed directly.
