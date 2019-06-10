@@ -4,6 +4,9 @@
 		<?php
 		the_post();
 		the_content();
+
+		// todo.
+		comments_template();
 		?>
 	</main>
 </div>

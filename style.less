@@ -43,6 +43,14 @@ Mixins
 	top: 0;
 	bottom: 0;
 }
+
+.caption {
+	text-transform: uppercase;
+	white-space: nowrap;
+	line-height: 1;
+	font-size: 0.6875rem;
+	letter-spacing: 0.5px;
+}
 /*--------------------------------------------------------------
 Normalize
 --------------------------------------------------------------*/
@@ -257,6 +265,55 @@ input[type=submit] {
 	border-radius: @border-radius;
 }
 /*--------------------------------------------------------------
+Posts
+--------------------------------------------------------------*/
+.post {
+	&__categories,
+	&__details {
+		display:flex;
+		flex-wrap:wrap;
+		justify-content: center;
+	}
+
+	&__categories {
+		margin-bottom:-.5rem;
+
+		a {
+			.caption;
+			border:1px solid #fff;
+			border-radius:@border-radius;
+			color:#fff;
+			padding: 0.25rem 0.3125rem;
+			margin-bottom:.5rem;
+
+			&:not(:last-child) {
+				margin-right:.5rem;
+			}
+		}
+	}
+
+	&__details {
+		> * {
+			.caption;
+
+			&:not(:last-child) {
+				margin-right:.5rem;
+
+				&::after {
+					content:'';
+					display:inline-block;
+					background-color:rgba(255,255,255,.8);
+    				border-radius: 50%;
+					width:4px;
+					height:4px;
+					vertical-align: middle;
+					margin:-2px 0 0 .5rem;
+				}
+			}
+		}
+	}
+}
+/*--------------------------------------------------------------
 Tags
 --------------------------------------------------------------*/
 .tagcloud {
@@ -426,13 +483,8 @@ HivePress
 
 		&--view-block &__count {
 			border: 1px solid #fff;
-			text-transform: uppercase;
 			border-radius: @border-radius;
-			white-space: nowrap;
-			line-height: 1;
-			font-size: 0.75rem;
 			padding: 0.25rem 0.3125rem;
-			letter-spacing: 0.5px;
 		}
 	}
 	/*--------------------------------------------------------------
