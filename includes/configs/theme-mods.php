@@ -8,4 +8,13 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-return [];
+return [
+	'title_tagline' => [
+		'fields' => [
+			'copyright_notice' => [
+				'label' => esc_html__( 'Copyright Notice', 'listinghive' ),
+				'type'  => 'textarea',
+			],
+		],
+	],
+];

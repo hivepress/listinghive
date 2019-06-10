@@ -84,7 +84,7 @@ final class Core {
 			array_shift( $parts );
 			array_pop( $parts );
 
-			$filepath = rtrim( get_template_directory() . '/includes/' . implode( '/', $parts ), '/' ) . '/' . $filename;
+			$filepath = rtrim( HT_THEME_DIR . '/includes/' . implode( '/', $parts ), '/' ) . '/' . $filename;
 
 			if ( file_exists( $filepath ) ) {
 				require_once $filepath;
@@ -101,13 +101,39 @@ final class Core {
 	 */
 	public function setup() {
 
+		// Define constants.
+		$this->define_constants();
+
 		// Include helper functions.
-		require_once get_template_directory() . '/includes/helpers.php';
+		require_once HT_THEME_DIR . '/includes/helpers.php';
 
 		// Load textdomain.
 		// todo.
 		// Set components.
 		$this->objects['components'] = $this->get_components();
+	}
+
+	/**
+	 * Defines constants.
+	 */
+	private function define_constants() {
+		$theme = wp_get_theme( get_template() );
+
+		if ( ! defined( 'HT_THEME_NAME' ) ) {
+			define( 'HT_THEME_NAME', $theme->get( 'Name' ) );
+		}
+
+		if ( ! defined( 'HT_THEME_VERSION' ) ) {
+			define( 'HT_THEME_VERSION', $theme->get( 'Version' ) );
+		}
+
+		if ( ! defined( 'HT_THEME_DIR' ) ) {
+			define( 'HT_THEME_DIR', get_template_directory() );
+		}
+
+		if ( ! defined( 'HT_THEME_URL' ) ) {
+			define( 'HT_THEME_URL', get_template_directory_uri() );
+		}
 	}
 
 	/**
@@ -123,7 +149,7 @@ final class Core {
 			if ( ! isset( $this->objects[ $object_type ] ) ) {
 				$this->objects[ $object_type ] = [];
 
-				foreach ( glob( get_template_directory() . '/includes/' . $object_type . '/*.php' ) as $filepath ) {
+				foreach ( glob( HT_THEME_DIR . '/includes/' . $object_type . '/*.php' ) as $filepath ) {
 					$object_name  = str_replace( '-', '_', str_replace( 'class-', '', str_replace( '.php', '', basename( $filepath ) ) ) );
 					$object_class = '\HiveTheme\\' . $object_type . '\\' . $object_name;
 
@@ -160,7 +186,7 @@ final class Core {
 
 		// Get new configuration.
 		if ( is_null( $config ) ) {
-			$filepath = get_template_directory() . '/includes/configs/' . ht\sanitize_slug( $name ) . '.php';
+			$filepath = HT_THEME_DIR . '/includes/configs/' . ht\sanitize_slug( $name ) . '.php';
 
 			if ( file_exists( $filepath ) ) {
 				$config = include $filepath;

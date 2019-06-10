@@ -7,15 +7,15 @@ Variables
 @heading-font-color: rgba(0,0,0,0.8);
 @body-font-color: rgba(0,0,0,0.6);
 @primary-font-color: #ffc107;
-@primary-background-color:#ffc107;
+@primary-background-color: #ffc107;
 @secondary-font-color: rgba(0,0,0,0.4);
 @border-color: rgba(0,0,0,0.06);
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-@animation-speed:.3s;
-/*--------------------------------------------------------------
+@animation-speed: 0.3s; /*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
+
 .block {
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
@@ -36,7 +36,7 @@ Mixins
 
 .overlay {
 	content: '';
-	display:block;
+	display: block;
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -46,7 +46,6 @@ Mixins
 /*--------------------------------------------------------------
 Normalize
 --------------------------------------------------------------*/
-
 body,
 html {
 	height: 100%;
@@ -59,7 +58,6 @@ body {
 /*--------------------------------------------------------------
 Typography
 --------------------------------------------------------------*/
-
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -114,7 +112,6 @@ p {
 /*--------------------------------------------------------------
 Layout
 --------------------------------------------------------------*/
-
 .site-container {
 	flex: 1 0 auto;
 }
@@ -137,7 +134,6 @@ Layout
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
-
 .header-navbar {
 	border-bottom: 1px solid @border-color;
 
@@ -150,8 +146,8 @@ Header
 	&__menu {
 		ul {
 			li {
-				&.current-menu-item > a,
-				> a:hover {
+				> a:hover,
+				&.current-menu-item > a {
 					color: @primary-font-color;
 				}
 
@@ -165,13 +161,13 @@ Header
 			display: flex;
 
 			> li {
-				position:relative;
-				border:3px solid transparent;
+				position: relative;
+				border: 3px solid transparent;
 				border-left-width: 0;
 				border-right-width: 0;
 
 				&.current-menu-item {
-					border-bottom-color:@primary-background-color;
+					border-bottom-color: @primary-background-color;
 				}
 
 				> a {
@@ -201,10 +197,17 @@ Header
 /*--------------------------------------------------------------
 Footer
 --------------------------------------------------------------*/
-
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
+}
+
+.footer-widgets {
+	&:not(:last-child) {
+		border-bottom: 1px solid @border-color;
+		padding-bottom: 3rem;
+		margin-bottom: 2rem;
+	}
 }
 
 .footer-navbar {
@@ -235,13 +238,13 @@ Footer
 /*--------------------------------------------------------------
 Popup
 --------------------------------------------------------------*/
+
 .fancybox-content {
 	border-radius: @border-radius;
 }
 /*--------------------------------------------------------------
 Buttons
 --------------------------------------------------------------*/
-
 .button,
 button,
 input[type=submit] {
@@ -250,7 +253,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 HivePress
 --------------------------------------------------------------*/
-
 .hp {
 	&-result-count {
 		color: @secondary-font-color;
@@ -321,11 +323,11 @@ HivePress
 			background-color: transparent;
 		}
 
-		&--view-page &__actions--primary &__action,
-		&--view-block &__actions--primary &__action {
+		&--view-block &__actions--primary &__action,
+		&--view-page &__actions--primary &__action {
 			&--favorite[data-state=active] {
 				i {
-					color:#ff5a65;
+					color: #ff5a65;
 				}
 			}
 		}
@@ -347,7 +349,7 @@ HivePress
 			transition: transform @animation-speed;
 
 			&:hover {
-				transform:translateY(-10px);
+				transform: translateY(-10px);
 			}
 		}
 
@@ -395,7 +397,7 @@ HivePress
 			line-height: 1;
 			font-size: 0.75rem;
 			padding: 0.25rem 0.3125rem;
-			letter-spacing:.5px;
+			letter-spacing: 0.5px;
 		}
 	}
 	/*--------------------------------------------------------------

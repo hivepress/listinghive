@@ -6,9 +6,7 @@
 		<?php wp_head(); ?>
 
 		<!-- todo remove -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
-
-		<link rel="stylesheet/less" type="text/css" href="<?php echo esc_url( get_template_directory_uri() ); ?>/style.less" />
+		<link rel="stylesheet/less" type="text/css" href="<?php echo esc_url( HT_THEME_URL ); ?>/style.less" />
 		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
 
 		<link href="https://fonts.googleapis.com/css?family=Poppins:500&display=swap" rel="stylesheet">
@@ -25,7 +23,7 @@
 								the_custom_logo();
 							else :
 								?>
-								<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/assets/images/logo.svg" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
+								<img src="<?php echo esc_url( HT_THEME_URL ); ?>/assets/images/logo.svg" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 							<?php endif; ?>
 						</a>
 					</div>

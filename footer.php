@@ -3,6 +3,13 @@
 		</div>
 		<footer class="site-footer footer has-background-white">
 			<div class="container">
+				<?php if ( is_active_sidebar( 'footer' ) ) : ?>
+				<div class="footer-widgets">
+					<div class="columns">
+						<?php dynamic_sidebar( 'footer' ); ?>
+					</div>
+				</div>				
+				<?php endif; ?>
 				<nav class="footer-navbar level">
 					<div class="level-left">
 						<div class="footer-navbar__copyright level-item">
