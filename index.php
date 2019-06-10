@@ -17,9 +17,7 @@
 		endwhile;
 		?>
 	</main>
-	<aside class="column is-4">
-		<?php dynamic_sidebar(); ?>
-	</aside>
+	<?php get_sidebar(); ?>
 </div>
 <?php
 get_footer();
