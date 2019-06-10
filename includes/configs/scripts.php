@@ -9,8 +9,8 @@
 defined( 'ABSPATH' ) || exit;
 
 return [
-	'theme_frontend' => [
-		'handle' => 'ht-theme-frontend',
+	'frontend' => [
+		'handle' => 'ht-frontend',
 		'src'    => HT_THEME_URL . '/assets/js/frontend.js',
 		'deps'   => [ 'jquery', 'comment-reply' ],
 	],

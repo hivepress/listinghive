@@ -54,7 +54,7 @@
 					<div class="header-hero__content hero-body">
 						<div class="container">
 							<h1 style="text-align:center;">Find a place to call home.</h1>
-							<p style="text-align:center;">Yep yu can simply find anything here.</p>
+							<p style="text-align:center;">Handpicked houses, apartments and rooms for long-term rent.</p>
 						</div>
 					</div>
 				</section>

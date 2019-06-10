@@ -53,7 +53,7 @@ final class Core {
 		spl_autoload_register( [ $this, 'autoload' ] );
 
 		// Setup HiveTheme.
-		add_action( 'after_setup_theme', [ $this, 'setup' ] );
+		$this->setup();
 	}
 
 	/**
@@ -100,25 +100,9 @@ final class Core {
 	 * Setups HiveTheme.
 	 */
 	public function setup() {
-
-		// Define constants.
-		$this->define_constants();
-
-		// Include helper functions.
-		require_once HT_THEME_DIR . '/includes/helpers.php';
-
-		// Load textdomain.
-		// todo.
-		// Set components.
-		$this->objects['components'] = $this->get_components();
-	}
-
-	/**
-	 * Defines constants.
-	 */
-	private function define_constants() {
 		$theme = wp_get_theme( get_template() );
 
+		// Define constants.
 		if ( ! defined( 'HT_THEME_NAME' ) ) {
 			define( 'HT_THEME_NAME', $theme->get( 'Name' ) );
 		}
@@ -133,6 +117,20 @@ final class Core {
 
 		if ( ! defined( 'HT_THEME_URL' ) ) {
 			define( 'HT_THEME_URL', get_template_directory_uri() );
+		}
+
+		// Include helper functions.
+		require_once HT_THEME_DIR . '/includes/helpers.php';
+
+		// Load textdomain.
+		load_theme_textdomain( $theme->get( 'Text Domain' ), HT_THEME_DIR . '/languages' );
+
+		// Set components.
+		$this->objects['components'] = $this->get_components();
+
+		// Set content width.
+		if ( ! isset( $GLOBALS['content_width'] ) ) {
+			$GLOBALS['content_width'] = 1152;
 		}
 	}
 

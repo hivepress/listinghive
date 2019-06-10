@@ -24,6 +24,9 @@ final class Asset {
 	 */
 	public function __construct() {
 
+		// Add image sizes.
+		add_action( 'after_setup_theme', [ $this, 'add_image_sizes' ] );
+
 		// Enqueue styles.
 		add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_styles' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ] );
@@ -35,6 +38,15 @@ final class Asset {
 
 		// Filter scripts.
 		add_filter( 'script_loader_tag', [ $this, 'filter_script' ], 10, 2 );
+	}
+
+	/**
+	 * Adds image sizes.
+	 */
+	public function add_image_sizes() {
+		foreach ( hivetheme()->get_config( 'image_sizes' ) as $image_size => $image_size_args ) {
+			add_image_size( ht\prefix( $image_size ), $image_size_args['width'], ht\get_array_value( $image_size_args, 'height', 9999 ), ht\get_array_value( $image_size_args, 'crop', false ) );
+		}
 	}
 
 	/**
@@ -89,11 +101,6 @@ final class Asset {
 		// Enqueue scripts.
 		foreach ( $scripts as $script ) {
 			wp_enqueue_script( $script['handle'], $script['src'], ht\get_array_value( $script, 'deps', [] ), ht\get_array_value( $script, 'version', HT_THEME_VERSION ), ht\get_array_value( $script, 'in_footer', true ) );
-
-			// Add script data.
-			if ( isset( $script['data'] ) ) {
-				wp_localize_script( $script['handle'], lcfirst( str_replace( ' ', '', ucwords( str_replace( '-', ' ', $script['handle'] ) ) ) ) . 'Data', $script['data'] );
-			}
 		}
 	}
 

@@ -32,6 +32,12 @@ final class Template {
 
 		// Register widget areas.
 		add_action( 'widgets_init', [ $this, 'register_widget_areas' ] );
+
+		if ( ! is_admin() ) {
+
+			// Set hero background.
+			add_action( 'wp_enqueue_scripts', [ $this, 'set_hero_background' ] );
+		}
 	}
 
 	/**
@@ -58,6 +64,24 @@ final class Template {
 	public function register_widget_areas() {
 		foreach ( hivetheme()->get_config( 'widget_areas' ) as $name => $args ) {
 			register_sidebar( array_merge( $args, [ 'id' => $name ] ) );
+		}
+	}
+
+	/**
+	 * Sets hero background.
+	 */
+	public function set_hero_background() {
+
+		// Get image URL.
+		$image_url = '';
+
+		if ( is_singular() && has_post_thumbnail() ) {
+			$image_url = get_the_post_thumbnail_url( null, 'ht_cover_large' );
+		}
+
+		// Add inline style.
+		if ( ! empty( $image_url ) ) {
+			wp_add_inline_style( 'ht-frontend', '.header-hero { background-image: url(' . esc_url( $image_url ) . '); }' );
 		}
 	}
 }

@@ -8,4 +8,14 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-return [];
+return [
+	[
+		'name' => 'One Click Demo Import',
+		'slug' => 'one-click-demo-import',
+	],
+
+	[
+		'name' => 'HivePress',
+		'slug' => 'hivepress',
+	],
+];

@@ -11,6 +11,29 @@ namespace HiveTheme\Helpers;
 defined( 'ABSPATH' ) || exit;
 
 /**
+ * Adds HiveTheme prefix.
+ *
+ * @param mixed $names Names to prefix.
+ * @return mixed
+ */
+function prefix( $names ) {
+	$prefixed = '';
+
+	if ( is_array( $names ) ) {
+		$prefixed = array_map(
+			function( $name ) {
+				return 'ht_' . $name;
+			},
+			$names
+		);
+	} else {
+		$prefixed = 'ht_' . $names;
+	}
+
+	return $prefixed;
+}
+
+/**
  * Gets array item value by key.
  *
  * @param array  $array Source array.
