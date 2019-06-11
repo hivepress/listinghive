@@ -6,9 +6,10 @@ Variables
 @body-font-family: 'Open Sans', sans-serif;
 @heading-font-color: rgba(0,0,0,0.8);
 @body-font-color: rgba(0,0,0,0.6);
-@primary-font-color: #ffc107;
-@primary-background-color: #ffc107;
+@primary-font-color: #ffd700;
+@primary-background-color: #ffd700;
 @secondary-font-color: rgba(0,0,0,0.4);
+@icon-color: rgba(0,0,0,0.4);
 @border-color: rgba(0,0,0,0.06);
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
@@ -73,6 +74,10 @@ body {
 	color: @body-font-color;
 }
 
+a {
+	color: #0087d0;
+}
+
 h1,
 h2,
 h3,
@@ -120,6 +125,54 @@ p {
 	}
 }
 /*--------------------------------------------------------------
+Forms
+--------------------------------------------------------------*/
+input[type='color'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='password'],
+input[type='range'],
+input[type='min'],
+input[type='max'],
+input[type='value'],
+input[type='step'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='time'],
+input[type='url'],
+select,
+textarea {
+	border: 1px solid @border-color;
+	border-radius: @border-radius;
+	box-shadow: none;
+	font-size: 1rem;
+	line-height: 1.5;
+	padding: 0.5rem 1rem;
+	color: @body-font-color;
+
+	&:focus {
+		outline: none;
+	}
+
+	&[disabled] {
+		cursor: not-allowed;
+	}
+}
+
+select,
+textarea {
+	max-width: 100%;
+}
+
+::placeholder {
+	color: @secondary-font-color;
+}
+/*--------------------------------------------------------------
 Layout
 --------------------------------------------------------------*/
 
@@ -130,6 +183,8 @@ Layout
 .site-content {
 	padding-top: 4rem;
 	padding-bottom: 4rem;
+	position: relative;
+	z-index: 1;
 }
 
 .container {
@@ -147,7 +202,9 @@ Header
 --------------------------------------------------------------*/
 
 .header-navbar {
-	border-bottom: 1px solid @border-color;
+	&:last-child {
+		border-bottom: 1px solid @border-color;
+	}
 
 	&__logo {
 		img {
@@ -192,8 +249,8 @@ Header
 
 .header-hero {
 	.inherit;
-	background-position:center center;
-	background-repeat:no-repeat;
+	background-position: center top;
+	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
 
@@ -270,24 +327,24 @@ Posts
 .post {
 	&__categories,
 	&__details {
-		display:flex;
-		flex-wrap:wrap;
+		display: flex;
+		flex-wrap: wrap;
 		justify-content: center;
 	}
 
 	&__categories {
-		margin-bottom:-.5rem;
+		margin-bottom: -.5rem;
 
 		a {
 			.caption;
-			border:1px solid #fff;
-			border-radius:@border-radius;
-			color:#fff;
+			border: 1px solid #fff;
+			border-radius: @border-radius;
+			color: #fff;
 			padding: 0.25rem 0.3125rem;
-			margin-bottom:.5rem;
+			margin-bottom: 0.5rem;
 
 			&:not(:last-child) {
-				margin-right:.5rem;
+				margin-right: 0.5rem;
 			}
 		}
 	}
@@ -297,17 +354,17 @@ Posts
 			.caption;
 
 			&:not(:last-child) {
-				margin-right:.5rem;
+				margin-right: 0.5rem;
 
 				&::after {
-					content:'';
-					display:inline-block;
-					background-color:rgba(255,255,255,.8);
-    				border-radius: 50%;
-					width:4px;
-					height:4px;
+					content: '';
+					display: inline-block;
+					background-color: rgba(255,255,255,.8);
+					border-radius: 50%;
+					width: 4px;
+					height: 4px;
 					vertical-align: middle;
-					margin:-2px 0 0 .5rem;
+					margin: -2px 0 0 0.5rem;
 				}
 			}
 		}
@@ -321,7 +378,8 @@ Tags
 	flex-wrap: wrap;
 
 	a {
-		font-size:1rem!important;
+		.caption;
+		font-size: 0.6875rem!important;
 	}
 }
 /*--------------------------------------------------------------
@@ -342,7 +400,7 @@ HivePress
 	}
 
 	&-map {
-		border-radius:@border-radius;
+		border-radius: @border-radius;
 	}
 	/*--------------------------------------------------------------
 	Listings
@@ -422,14 +480,37 @@ HivePress
 	&-form {
 		&--listing-search {
 			.block;
-			padding: 0.5rem;
+			padding: 0.625rem;
+			align-items: center;
+		}
+
+		&--listing-search &__field,
+		&--listing-search &__fields {
+			&:not(:last-child) {
+				margin-right: 0.625rem;
+			}
 		}
 
 		&--listing-search &__field {
 			&:not(:last-child) {
-				border-right:1px solid @border-color;
+				border-right: 1px solid @border-color;
 			}
 		}
+
+		&--listing-search &__button {
+			height: 3.125rem;
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+	}
+
+	&-form--listing-search &-form__fields &-field {
+		padding-top: 0;
+		padding-bottom: 0;
+		border: none;
+		line-height: 3rem;
+		height: 3rem;
+		font-size: 1.125rem;
 	}
 	/*--------------------------------------------------------------
 	Listing Categories

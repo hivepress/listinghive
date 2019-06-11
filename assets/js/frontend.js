@@ -19,6 +19,20 @@ var hivetheme = {
 	'use strict';
 
 	$(document).ready(function() {
-		// todo.
+
+		// Parallax
+		hivetheme.getComponent('parallax').each(function() {
+			var container = $(this),
+				offset = container.offset().top - $('#wpadminbar').height(),
+				speed = 0.25;
+
+			if ($(window).width() > 1024) {
+				container.css('background-position-y', ($(window).scrollTop() - offset) * speed);
+
+				$(window).on('scroll', function() {
+					container.css('background-position-y', ($(window).scrollTop() - offset) * speed);
+				});
+			}
+		});
 	});
 })(jQuery);

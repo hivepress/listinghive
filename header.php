@@ -50,7 +50,7 @@
 				// todo
 				if ( is_front_page() ) :
 					?>
-				<section class="header-hero hero is-medium is-primary">
+				<section class="header-hero hero is-medium is-primary" data-component="parallax">
 					<div class="header-hero__content hero-body">
 						<div class="container">
 							<h1 style="text-align:center;">Find a place to call home.</h1>
@@ -64,7 +64,7 @@
 				if ( is_singular() && has_post_thumbnail() && !is_front_page() ) :
 					the_post();
 					?>
-				<section class="header-hero hero is-medium is-primary">
+				<section class="header-hero hero is-medium is-primary" data-component="parallax">
 					<div class="header-hero__content hero-body">
 						<div class="container">
 							<div class="columns">
