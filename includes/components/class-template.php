@@ -8,6 +8,7 @@
 namespace HiveTheme\Components;
 
 use HiveTheme\Helpers as ht;
+use HivePress\Helpers as hp;
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -37,6 +38,9 @@ final class Template {
 
 			// Set hero background.
 			add_action( 'wp_enqueue_scripts', [ $this, 'set_hero_background' ] );
+
+			// Alter templates.
+			add_filter( 'hivepress/v1/templates/listing_category_view_block', [ $this, 'alter_listing_category_view_block' ] );
 		}
 	}
 
@@ -83,5 +87,29 @@ final class Template {
 		if ( ! empty( $image_url ) ) {
 			wp_add_inline_style( 'ht-frontend', '.header-hero { background-image: url(' . esc_url( $image_url ) . '); }' );
 		}
+	}
+
+	/**
+	 * Alters listing category view block.
+	 *
+	 * @param array $template Template arguments.
+	 * @return array
+	 */
+	public function alter_listing_category_view_block( $template ) {
+		$count = hp\search_array_value( $template, [ 'blocks', 'listing_category_count' ] );
+
+		return hp\merge_trees(
+			$template,
+			[
+				'blocks' => [
+					'listing_category_header' => [
+						'blocks' => [
+							'listing_category_count' => $count,
+						],
+					],
+				],
+			],
+			'blocks'
+		);
 	}
 }

@@ -15,7 +15,7 @@
 	<body <?php body_class(); ?>>
 		<div class="site-container">
 			<div class="site-header">
-				<nav class="header-navbar navbar is-spaced">
+				<nav class="header-navbar navbar">
 					<div class="header-navbar__logo navbar-brand">
 						<a href="<?php echo esc_url( home_url() ); ?>" class="navbar-item">
 							<?php
@@ -61,7 +61,7 @@
 				<?php endif; ?>
 				<?php
 				// todo
-				if ( is_singular() && has_post_thumbnail() && !is_front_page() ) :
+				if ( is_singular( [ 'post', 'page' ] ) && has_post_thumbnail() && ! is_front_page() ) :
 					the_post();
 					?>
 				<section class="header-hero hero is-medium is-primary" data-component="parallax">
@@ -76,8 +76,8 @@
 										<?php
 									endif;
 
-									if ( '' !== get_the_title() ) :
-										?>
+if ( '' !== get_the_title() ) :
+	?>
 										<h1 class="post__title title is-1 has-text-centered"><?php the_title(); ?></h1>
 									<?php endif; ?>
 									<div class="post__details">

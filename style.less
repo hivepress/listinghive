@@ -6,17 +6,20 @@ Variables
 @body-font-family: 'Open Sans', sans-serif;
 @heading-font-color: rgba(0,0,0,0.8);
 @body-font-color: rgba(0,0,0,0.6);
-@primary-font-color: #ffd700;
-@primary-background-color: #ffd700;
+@primary-font-color: #ffc107;
+@primary-background-color: #ffc107;
+@secondary-background-color-alt: rgba(255,255,255,.2);
 @secondary-font-color: rgba(0,0,0,0.4);
-@icon-color: rgba(0,0,0,0.4);
+@icon-color: rgba(0,0,0,0.15);
+@icon-color-alt: rgba(0,0,0,0.25);
 @border-color: rgba(0,0,0,0.06);
+@border-color-alt: rgba(255,255,255,.2);
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-@animation-speed: 0.3s;
-/*--------------------------------------------------------------
+@animation-speed: 0.3s; /*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
+
 .block {
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
@@ -50,12 +53,23 @@ Mixins
 	white-space: nowrap;
 	line-height: 1;
 	font-size: 0.6875rem;
-	letter-spacing: 0.5px;
+	letter-spacing: 1px;
+}
+
+.icon {
+	font-family: 'Font Awesome 5 Free';
+	font-weight: 900;
+	font-style: normal;
+	font-variant: normal;
+	line-height: 1;
+	display: inline-block;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: auto;
 }
 /*--------------------------------------------------------------
 Normalize
 --------------------------------------------------------------*/
-
 body,
 html {
 	height: 100%;
@@ -68,7 +82,6 @@ body {
 /*--------------------------------------------------------------
 Typography
 --------------------------------------------------------------*/
-
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -127,6 +140,7 @@ p {
 /*--------------------------------------------------------------
 Forms
 --------------------------------------------------------------*/
+
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -175,7 +189,6 @@ textarea {
 /*--------------------------------------------------------------
 Layout
 --------------------------------------------------------------*/
-
 .site-container {
 	flex: 1 0 auto;
 }
@@ -195,15 +208,17 @@ Layout
 // todo
 
 .home .hp-form--listing-search {
-	margin-top: -6rem;
+	margin-top: -6.25rem;
 }
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
-
 .header-navbar {
+	padding: 0 2rem;
+	border-bottom: 1px solid transparent;
+
 	&:last-child {
-		border-bottom: 1px solid @border-color;
+		border-bottom-color: @border-color;
 	}
 
 	&__logo {
@@ -213,10 +228,15 @@ Header
 	}
 
 	&__menu {
+		display: flex;
+		height: 5rem;
+		align-items: stretch;
+		padding: 0;
+
 		ul {
 			li {
-				&.current-menu-item > a,
-				> a:hover {
+				> a:hover,
+				&.current-menu-item > a {
 					color: @primary-font-color;
 				}
 
@@ -231,12 +251,21 @@ Header
 
 			> li {
 				position: relative;
-				border: 3px solid transparent;
-				border-left-width: 0;
-				border-right-width: 0;
+				display: flex;
+				align-items: center;
 
 				&.current-menu-item {
-					border-bottom-color: @primary-background-color;
+					&::after {
+						position: absolute;
+						bottom: -1px;
+						left: 0;
+						right: 0;
+						display: block;
+						height: 3px;
+						content: '';
+						background-color: @primary-background-color;
+						background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+					}
 				}
 
 				> a {
@@ -267,7 +296,6 @@ Header
 /*--------------------------------------------------------------
 Footer
 --------------------------------------------------------------*/
-
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -302,6 +330,10 @@ Footer
 				&:not(:last-child) {
 					margin-right: 2rem;
 				}
+
+				> a {
+					color: @secondary-font-color;
+				}
 			}
 		}
 	}
@@ -309,21 +341,88 @@ Footer
 /*--------------------------------------------------------------
 Popup
 --------------------------------------------------------------*/
+
 .fancybox-content {
 	border-radius: @border-radius;
 }
 /*--------------------------------------------------------------
+Widgets
+--------------------------------------------------------------*/
+.widget {
+	&--sidebar {
+		.block;
+		padding: 2rem;
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+
+	&--footer &__title {
+		position: relative;
+
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: block;
+			width: 30px;
+			height: 3px;
+			content: '';
+			background-color: @primary-background-color;
+			background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+		}
+	}
+
+	&_search {
+		padding: 0;
+		box-shadow: none;
+		border: none;
+
+		form {
+			display: flex;
+			align-items: center;
+
+			&::before {
+				.icon;
+				content: '\f002';
+				color: @icon-color;
+				font-size: 18px;
+				flex: 0 0 3rem;
+				text-align: center;
+				margin-right: -3rem;
+				position: relative;
+				z-index: 1;
+			}
+
+			input[type=search] {
+				display: block;
+				width: 100%;
+				padding-left: 3rem;
+				flex: 1;
+			}
+
+			input[type=submit] {
+				display: none;
+			}
+		}
+	}
+}
+/*--------------------------------------------------------------
 Buttons
 --------------------------------------------------------------*/
-
 .button,
 button,
 input[type=submit] {
 	border-radius: @border-radius;
+	font-family: @heading-font-family;
+	font-weight: @heading-font-weight;
+	background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2));
 }
 /*--------------------------------------------------------------
 Posts
 --------------------------------------------------------------*/
+
 .post {
 	&__categories,
 	&__details {
@@ -373,6 +472,7 @@ Posts
 /*--------------------------------------------------------------
 Tags
 --------------------------------------------------------------*/
+
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -385,7 +485,6 @@ Tags
 /*--------------------------------------------------------------
 HivePress
 --------------------------------------------------------------*/
-
 .hp {
 	&-result-count {
 		color: @secondary-font-color;
@@ -401,6 +500,36 @@ HivePress
 
 	&-map {
 		border-radius: @border-radius;
+	}
+
+	&-field {
+		&--location {
+			a {
+				color: @icon-color;
+
+				&:hover {
+					color: @primary-background-color;
+				}
+			}
+		}
+	}
+
+	&-page {
+		&__title {
+			position: relative;
+
+			&::before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				display: block;
+				width: 45px;
+				height: 4px;
+				content: '';
+				background-color: @primary-background-color;
+				background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+			}
+		}
 	}
 	/*--------------------------------------------------------------
 	Listings
@@ -469,6 +598,19 @@ HivePress
 
 		&--view-block &__actions--primary &__action,
 		&--view-page &__actions--primary &__action {
+			opacity: 1;
+
+			i {
+				color: @icon-color;
+			}
+
+			&:hover,
+			&[data-state=active] {
+				i {
+					color: @icon-color-alt;
+				}
+			}
+
 			&--favorite[data-state=active] {
 				i {
 					color: #ff5a65;
@@ -501,6 +643,7 @@ HivePress
 			height: 3.125rem;
 			padding-left: 2rem;
 			padding-right: 2rem;
+			font-size: 1.125rem;
 		}
 	}
 
@@ -520,9 +663,10 @@ HivePress
 			border-radius: @border-radius;
 			position: relative;
 			transition: transform @animation-speed;
+			color: #fff;
 
 			&:hover {
-				transform: translateY(-10px);
+				transform: translateY(-7px);
 			}
 		}
 
@@ -538,7 +682,6 @@ HivePress
 			position: absolute;
 			left: 0;
 			bottom: 0;
-			color: #fff;
 			padding: 2rem;
 			display: flex;
 			flex-direction: column;
@@ -557,15 +700,23 @@ HivePress
 			}
 		}
 
-		&--view-block &__count,
 		&--view-block &__name {
 			text-align: left;
 		}
 
 		&--view-block &__count {
-			border: 1px solid #fff;
-			border-radius: @border-radius;
-			padding: 0.25rem 0.3125rem;
+			.caption;
+			background-color: @secondary-background-color-alt;
+			border-radius: 290486px;
+			padding: 0.5rem 0.75rem;
+			position: absolute;
+			left: 2rem;
+			top: 2rem;
+			z-index: 1;
+		}
+		// todo
+		&--view-block &__content &__count {
+			display: none;
 		}
 	}
 	/*--------------------------------------------------------------
