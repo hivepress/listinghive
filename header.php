@@ -29,7 +29,7 @@
 					</div>
 					<div class="navbar-menu">
 						<div class="navbar-end">
-							<div class="header-navbar__menu navbar-item">
+							<div class="header-navbar__menu navbar-item" data-component="dropdown-menu">
 								<?php
 								wp_nav_menu(
 									[
@@ -92,5 +92,5 @@ if ( '' !== get_the_title() ) :
 				</section>
 				<?php endif; ?>
 			</div>
-			<section class="site-content section">
+			<div class="site-content section">
 				<div class="container">

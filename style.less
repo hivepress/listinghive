@@ -100,6 +100,10 @@ h6 {
 	font-family: @heading-font-family;
 	font-weight: @heading-font-weight;
 	color: @heading-font-color;
+
+	a {
+		color: inherit;
+	}
 }
 
 h1 {
@@ -215,7 +219,9 @@ Header
 --------------------------------------------------------------*/
 .header-navbar {
 	padding: 0 2rem;
-	border-bottom: 1px solid transparent;
+	border: 1px solid transparent;
+	border-left-width: 0;
+	border-right-width: 0;
 
 	&:last-child {
 		border-bottom-color: @border-color;
@@ -235,13 +241,55 @@ Header
 
 		ul {
 			li {
+				position: relative;
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+
+				&.parent::after {
+					.icon;
+					content: '\f105';
+					color: @icon-color;
+					font-size: 16px;
+				}
+
 				> a:hover,
+				&.active > a,
 				&.current-menu-item > a {
 					color: @primary-font-color;
 				}
 
 				ul {
 					display: none;
+					position: absolute;
+					z-index: 1000;
+					top: 100%;
+					left: 0;
+					background-color: #fff;
+					border-bottom-left-radius: @border-radius;
+					border-bottom-right-radius: @border-radius;
+					box-shadow: @box-shadow;
+					min-width: 14rem;
+					align-self: stretch;
+					padding: 1rem 0;
+
+					li {
+						padding: 0.25rem 1.5rem;
+						font-size: 0.93rem;
+
+						ul {
+							left: 100%;
+							top: -1rem;
+
+							&.left {
+								border-top-left-radius: @border-radius;
+							}
+
+							&.right {
+								border-top-right-radius: @border-radius;
+							}
+						}
+					}
 				}
 			}
 		}
@@ -250,14 +298,12 @@ Header
 			display: flex;
 
 			> li {
-				position: relative;
-				display: flex;
-				align-items: center;
+				padding: 0 1.25rem;
 
 				&.current-menu-item {
-					&::after {
+					&::before {
 						position: absolute;
-						bottom: -1px;
+						top: -1px;
 						left: 0;
 						right: 0;
 						display: block;
@@ -268,8 +314,9 @@ Header
 					}
 				}
 
-				> a {
-					padding: 0 1rem;
+				&.parent::after {
+					content: '\f107';
+					margin-left: 0.5rem;
 				}
 			}
 		}
@@ -424,8 +471,34 @@ Posts
 --------------------------------------------------------------*/
 
 .post {
-	&__categories,
-	&__details {
+	&--archive &__header {
+		.inherit;
+		color: #fff;
+		position: relative;
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+
+	&--archive &__image {
+		position: relative;
+
+		img {
+			width: 100%;
+			display: block;
+			border-radius: @border-radius;
+		}
+
+		a::after {
+			.overlay;
+			border-radius: @border-radius;
+			background-image: linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.5));
+		}
+	}
+
+	&--single &__categories,
+	&--single &__details {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
@@ -436,16 +509,30 @@ Posts
 
 		a {
 			.caption;
-			border: 1px solid #fff;
-			border-radius: @border-radius;
-			color: #fff;
-			padding: 0.25rem 0.3125rem;
+			background-color: @secondary-background-color-alt;
+			border-radius: 290486px;
+			padding: 0.5rem 0.75rem;
 			margin-bottom: 0.5rem;
+			color: #fff;
 
 			&:not(:last-child) {
 				margin-right: 0.5rem;
 			}
 		}
+	}
+
+	&--archive &__categories {
+		position: absolute;
+		left: 2rem;
+		top: 2rem;
+		z-index: 1;
+	}
+
+	&--archive &__title {
+		position: absolute;
+		z-index: 1;
+		left: 2rem;
+		bottom: 2rem;
 	}
 
 	&__details {
@@ -613,7 +700,7 @@ HivePress
 
 			&--favorite[data-state=active] {
 				i {
-					color: #ff5a65;
+					color: #f15151;
 				}
 			}
 		}

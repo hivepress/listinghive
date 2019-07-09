@@ -5,8 +5,6 @@
  * @package HiveTheme\Configs
  */
 
-use HiveTheme\Helpers as ht;
-
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
@@ -19,7 +17,7 @@ return [
 
 	'landscape_large' => [
 		'width'  => 800,
-		'height' => 600,
+		'height' => 450,
 		'crop'   => true,
 	],
 

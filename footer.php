@@ -1,5 +1,5 @@
 				</div>
-			</section>
+			</div>
 		</div>
 		<footer class="site-footer footer has-background-white">
 			<div class="container">
@@ -8,7 +8,7 @@
 					<div class="columns">
 						<?php dynamic_sidebar( 'footer' ); ?>
 					</div>
-				</div>				
+				</div>
 				<?php endif; ?>
 				<nav class="footer-navbar level">
 					<div class="level-left">

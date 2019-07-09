@@ -9,9 +9,14 @@
 defined( 'ABSPATH' ) || exit;
 
 return [
-	'frontend' => [
+	'hoverintent' => [
+		'handle' => 'hoverintent',
+		'src'    => HT_THEME_URL . '/assets/js/jquery.hoverintent.min.js',
+	],
+
+	'frontend'    => [
 		'handle' => 'ht-frontend',
 		'src'    => HT_THEME_URL . '/assets/js/frontend.js',
-		'deps'   => [ 'jquery', 'comment-reply' ],
+		'deps'   => [ 'jquery', 'hoverintent', 'comment-reply' ],
 	],
 ];
