@@ -26,10 +26,26 @@
 								<img src="<?php echo esc_url( HT_THEME_URL ); ?>/assets/images/logo.svg" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
 							<?php endif; ?>
 						</a>
+						<div id="mobile_menu" class="header-navbar__burger" data-component="burger">
+							<?php
+							wp_nav_menu(
+								[
+									'theme_location' => 'header',
+									'container'      => 'ul',
+									'menu_class'     => '',
+								]
+							);
+							?>
+						</div>
+						<a href="#mobile_menu" class="navbar-burger">
+							<span></span>
+							<span></span>
+							<span></span>
+						</a>
 					</div>
 					<div class="navbar-menu">
 						<div class="navbar-end">
-							<div class="header-navbar__menu navbar-item" data-component="dropdown-menu">
+							<div class="header-navbar__menu navbar-item" data-component="menu">
 								<?php
 								wp_nav_menu(
 									[
@@ -61,7 +77,21 @@
 				<?php endif; ?>
 				<?php
 				// todo
-				if ( is_singular( [ 'post', 'page' ] ) && has_post_thumbnail() && ! is_front_page() ) :
+				if ( is_tax( 'hp_listing_category' ) ) :
+					?>
+				<section class="header-hero">
+					<div class="header-hero__content hero-body">
+						<div class="container">
+							<div class="columns">
+								<div class="column is-8 is-offset-2">
+									<h1 class="title is-1 has-text-centered"><?php single_cat_title(); ?></h1>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+					<?php
+				elseif ( is_singular( [ 'post', 'page' ] ) && has_post_thumbnail() && ! is_front_page() ) :
 					the_post();
 					?>
 				<section class="header-hero hero is-medium is-primary" data-component="parallax">

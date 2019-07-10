@@ -21,7 +21,7 @@ var hivetheme = {
 	$(document).ready(function() {
 
 		// Dropdown menu
-		hivetheme.getComponent('dropdown-menu').each(function() {
+		hivetheme.getComponent('menu').each(function() {
 			$(this).find('li').each(function() {
 				var item = $(this);
 
@@ -52,6 +52,50 @@ var hivetheme = {
 							});
 						}
 					);
+				}
+
+				item.children('a').on('click', function(e) {
+					if ($(this).attr('href') === '#') {
+						e.preventDefault();
+					}
+				});
+			});
+		});
+
+		// Mobile menu
+		hivetheme.getComponent('burger').each(function() {
+			var menu = $(this);
+
+			menu.css('top', $('#wpadminbar').height());
+
+			$('a[href="#' + menu.attr('id') + '"]').on('click', function(e) {
+				$('body').css('overflow-y', 'hidden');
+
+				menu.fadeIn(150);
+
+				e.preventDefault();
+			});
+
+			menu.on('click', function(e) {
+				if (!$(e.target).is('a') && !$(e.target).is('li.parent')) {
+					$('body').css('overflow-y', 'auto');
+
+					menu.fadeOut(150);
+				}
+			});
+
+			menu.find('li').each(function() {
+				var item = $(this);
+
+				if (item.children('ul').length) {
+					item.addClass('parent');
+
+					item.on('click', function(e) {
+						if ($(e.target).is(item)) {
+							item.toggleClass('active');
+							item.children('ul').slideToggle(150);
+						}
+					});
 				}
 
 				item.children('a').on('click', function(e) {

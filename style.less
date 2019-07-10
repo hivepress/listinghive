@@ -16,10 +16,10 @@ Variables
 @border-color-alt: rgba(255,255,255,.2);
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-@animation-speed: 0.3s; /*--------------------------------------------------------------
+@animation-speed: 0.3s;
+/*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
-
 .block {
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
@@ -70,6 +70,7 @@ Mixins
 /*--------------------------------------------------------------
 Normalize
 --------------------------------------------------------------*/
+
 body,
 html {
 	height: 100%;
@@ -82,6 +83,7 @@ body {
 /*--------------------------------------------------------------
 Typography
 --------------------------------------------------------------*/
+
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -142,9 +144,25 @@ p {
 	}
 }
 /*--------------------------------------------------------------
-Forms
+Accessibility
 --------------------------------------------------------------*/
 
+.screen-reader-text {
+	position: absolute;
+	overflow: hidden;
+	clip: rect(1px, 1px, 1px, 1px);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	word-wrap: normal !important;
+	border: 0;
+	-webkit-clip-path: inset(50%);
+	clip-path: inset(50%);
+}
+/*--------------------------------------------------------------
+Forms
+--------------------------------------------------------------*/
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -193,6 +211,7 @@ textarea {
 /*--------------------------------------------------------------
 Layout
 --------------------------------------------------------------*/
+
 .site-container {
 	flex: 1 0 auto;
 }
@@ -217,6 +236,7 @@ Layout
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
+
 .header-navbar {
 	padding: 0 2rem;
 	border: 1px solid transparent;
@@ -246,16 +266,18 @@ Header
 				align-items: center;
 				justify-content: space-between;
 
-				&.parent::after {
-					.icon;
-					content: '\f105';
-					color: @icon-color;
-					font-size: 16px;
+				&.parent {
+					&::after {
+						.icon;
+						content: '\f105';
+						color: @icon-color;
+						font-size: 16px;
+					}
 				}
 
-				> a:hover,
 				&.active > a,
-				&.current-menu-item > a {
+				&.current-menu-item > a,
+				> a:hover {
 					color: @primary-font-color;
 				}
 
@@ -275,7 +297,6 @@ Header
 
 					li {
 						padding: 0.25rem 1.5rem;
-						font-size: 0.93rem;
 
 						ul {
 							left: 100%;
@@ -318,6 +339,69 @@ Header
 					content: '\f107';
 					margin-left: 0.5rem;
 				}
+
+				> ul {
+					border-top: 1px solid @border-color;
+				}
+			}
+		}
+	}
+
+	&__burger {
+		position: fixed;
+		z-index: 10000;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		overflow-x: hidden;
+		overflow-y: auto;
+		display: none;
+		background-color: #fff;
+		padding:2rem 2.5rem;
+
+		&::before {
+			.icon;
+			font-size: 18px;
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			width: 18px;
+			height: 18px;
+			text-align: center;
+			display: block;
+			content: '\f00d';
+			color: @icon-color;
+		}
+
+		ul {
+			li {
+				display:flex;
+				align-items: center;
+				justify-content: space-between;
+
+				&:not(:last-child) {
+					margin-bottom: 0.5rem;
+				}
+
+				&.parent {
+					&::after {
+						.icon;
+						content: '\f105';
+						color: @icon-color;
+						font-size: 18px;
+						transition: transform @animation-speed;
+					}
+
+					&.active::after {
+						transform: rotate(90deg);
+					}
+				}
+
+				ul {
+					align-self: stretch;
+					display: none;
+				}
 			}
 		}
 	}
@@ -343,6 +427,7 @@ Header
 /*--------------------------------------------------------------
 Footer
 --------------------------------------------------------------*/
+
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -388,13 +473,13 @@ Footer
 /*--------------------------------------------------------------
 Popup
 --------------------------------------------------------------*/
-
 .fancybox-content {
 	border-radius: @border-radius;
 }
 /*--------------------------------------------------------------
 Widgets
 --------------------------------------------------------------*/
+
 .widget {
 	&--sidebar {
 		.block;
@@ -458,6 +543,7 @@ Widgets
 /*--------------------------------------------------------------
 Buttons
 --------------------------------------------------------------*/
+
 .button,
 button,
 input[type=submit] {
@@ -469,7 +555,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 Posts
 --------------------------------------------------------------*/
-
 .post {
 	&--archive &__header {
 		.inherit;
@@ -559,7 +644,6 @@ Posts
 /*--------------------------------------------------------------
 Tags
 --------------------------------------------------------------*/
-
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -572,6 +656,7 @@ Tags
 /*--------------------------------------------------------------
 HivePress
 --------------------------------------------------------------*/
+
 .hp {
 	&-result-count {
 		color: @secondary-font-color;
