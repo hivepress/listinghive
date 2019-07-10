@@ -20,7 +20,7 @@ var hivetheme = {
 
 	$(document).ready(function() {
 
-		// Dropdown menu
+		// Menu
 		hivetheme.getComponent('menu').each(function() {
 			$(this).find('li').each(function() {
 				var item = $(this);
@@ -62,7 +62,7 @@ var hivetheme = {
 			});
 		});
 
-		// Mobile menu
+		// Burger
 		hivetheme.getComponent('burger').each(function() {
 			var menu = $(this);
 
@@ -120,5 +120,22 @@ var hivetheme = {
 				});
 			}
 		});
+
+		// Sticky
+		if (typeof hivepress === 'undefined') {
+			$(window).on('load', function() {
+				hivetheme.getComponent('sticky').each(function() {
+					var container = $(this),
+						spacing = 32 + $('#wpadminbar').height();
+
+					container.wrapInner('<div />');
+
+					container.children('div').stickySidebar({
+						topSpacing: spacing,
+						bottomSpacing: spacing,
+					});
+				});
+			});
+		}
 	});
 })(jQuery);
