@@ -60,3 +60,21 @@ function get_array_value( $array, $key, $default = null ) {
 function sanitize_slug( $text ) {
 	return str_replace( '_', '-', strtolower( $text ) );
 }
+
+/**
+ * Gets post excerpt.
+ *
+ * @param int $post_id Post ID.
+ * @return string
+ */
+function get_excerpt( $post_id ) {
+	$excerpt = '';
+
+	$parts = get_extended( get_post_field( 'post_content', $post_id ) );
+
+	if ( '' !== $parts['extended'] ) {
+		$excerpt = apply_filters( 'the_content', $parts['main'] );
+	}
+
+	return $excerpt;
+}

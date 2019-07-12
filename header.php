@@ -63,64 +63,14 @@
 					</div>
 				</nav>
 				<?php
-				// todo
-				if ( is_front_page() ) :
-					?>
-				<section class="header-hero hero is-medium is-primary" data-component="parallax">
-					<div class="header-hero__content hero-body">
-						<div class="container">
-							<h1 style="text-align:center;">Find a place to call home.</h1>
-							<p style="text-align:center;">Handpicked houses, apartments and rooms for long-term rent.</p>
-						</div>
-					</div>
-				</section>
-				<?php endif; ?>
-				<?php
-				// todo
-				if ( is_tax( 'hp_listing_category' ) ) :
-					?>
-				<section class="header-hero">
-					<div class="header-hero__content hero-body">
-						<div class="container">
-							<div class="columns">
-								<div class="column is-8 is-offset-2">
-									<h1 class="title is-1 has-text-centered"><?php single_cat_title(); ?></h1>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-					<?php
-				elseif ( is_singular( [ 'post', 'page' ] ) && has_post_thumbnail() && ! is_front_page() ) :
-					the_post();
-					?>
-				<section class="header-hero hero is-medium is-primary" data-component="parallax">
-					<div class="header-hero__content hero-body">
-						<div class="container">
-							<div class="columns">
-								<div class="column is-8 is-offset-2">
-									<?php if ( has_category() ) : ?>
-										<div class="post__categories">
-											<?php the_category( ' ' ); ?>
-										</div>
-										<?php
-									endif;
-
-if ( '' !== get_the_title() ) :
-	?>
-										<h1 class="post__title title is-1 has-text-centered"><?php the_title(); ?></h1>
-									<?php endif; ?>
-									<div class="post__details">
-										<time datetime="<?php echo esc_attr( get_the_time( 'Y-m-d' ) ); ?>" class="post__date"><?php echo esc_html( get_the_date() ); ?></time>
-										<div class="post__author"><?php printf( esc_html__( 'By %s', 'listinghive' ), get_the_author() ); ?></div>
-										<div class="post__comments"><?php comments_number(); ?></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<?php endif; ?>
+				if ( is_page() ) :
+					get_template_part( 'templates/page/header' );
+				elseif ( is_singular( 'post' ) ) :
+					get_template_part( 'templates/post/header' );
+				elseif ( is_tax( 'hp_listing_category' ) ) :
+					get_template_part( 'templates/todo/header' );
+				endif;
+				?>
 			</div>
 			<div class="site-content section">
 				<div class="container">
