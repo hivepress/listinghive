@@ -62,19 +62,13 @@ function sanitize_slug( $text ) {
 }
 
 /**
- * Gets post excerpt.
+ * Gets page excerpt.
  *
- * @param int $post_id Post ID.
+ * @param int $page_id Page ID.
  * @return string
  */
-function get_excerpt( $post_id ) {
-	$excerpt = '';
+function get_page_excerpt( $page_id ) {
+	$parts = get_extended( get_post_field( 'post_content', $page_id ) );
 
-	$parts = get_extended( get_post_field( 'post_content', $post_id ) );
-
-	if ( '' !== $parts['extended'] ) {
-		$excerpt = apply_filters( 'the_content', $parts['main'] );
-	}
-
-	return $excerpt;
+	return '' !== $parts['extended'] ? apply_filters( 'the_content', $parts['main'] ) : '';
 }

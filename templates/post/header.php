@@ -1,5 +1,6 @@
-<section class="header-hero hero is-medium is-primary" data-component="parallax">
-	<div class="header-hero__content hero-body">
+<?php the_post(); ?>
+<section class="header-hero post post--single hero <?php if ( has_post_thumbnail() ) : ?>is-medium is-dark<?php endif; ?>" data-component="parallax">
+	<div class="header-hero__content post__header hero-body <?php if ( has_post_thumbnail() ) : ?>post__header--cover<?php endif; ?>">
 		<div class="container">
 			<div class="columns">
 				<div class="column is-8 is-offset-2">

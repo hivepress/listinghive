@@ -8,6 +8,7 @@ Variables
 @body-font-color: rgba(0,0,0,0.6);
 @primary-font-color: #ffc107;
 @primary-background-color: #ffc107;
+@secondary-background-color: rgba(0,0,0,0.06);
 @secondary-background-color-alt: rgba(255,255,255,.2);
 @secondary-font-color: rgba(0,0,0,0.4);
 @icon-color: rgba(0,0,0,0.15);
@@ -67,6 +68,12 @@ Mixins
 	-webkit-font-smoothing: antialiased;
 	text-rendering: auto;
 }
+
+.center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
 /*--------------------------------------------------------------
 Normalize
 --------------------------------------------------------------*/
@@ -102,6 +109,7 @@ h6 {
 	font-family: @heading-font-family;
 	font-weight: @heading-font-weight;
 	color: @heading-font-color;
+	line-height: 1.125;
 
 	a {
 		color: inherit;
@@ -272,6 +280,14 @@ Header
 						content: '\f105';
 						color: @icon-color;
 						font-size: 16px;
+					}
+				}
+
+				a {
+					transition:color @animation-speed;
+
+					&:hover {
+						color:@primary-font-color;
 					}
 				}
 
@@ -465,6 +481,11 @@ Footer
 
 				> a {
 					color: @secondary-font-color;
+					transition:color @animation-speed;
+
+					&:hover {
+						color:@primary-font-color;
+					}
 				}
 			}
 		}
@@ -492,6 +513,7 @@ Widgets
 
 	&--footer &__title {
 		position: relative;
+		padding-top: 1rem;
 
 		&::before {
 			position: absolute;
@@ -556,13 +578,27 @@ input[type=submit] {
 Posts
 --------------------------------------------------------------*/
 .post {
-	&--archive &__header {
-		.inherit;
-		color: #fff;
-		position: relative;
-
+	&--archive {
 		&:not(:last-child) {
 			margin-bottom: 2rem;
+			padding-bottom:2rem;
+			border-bottom:1px solid @border-color;
+		}
+	}
+
+	&--archive &__header {
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+
+		&--cover {
+			.inherit;
+			color: #fff;
+			position: relative;
+
+			&:not(:last-child) {
+				margin-bottom: 2rem;
+			}
 		}
 	}
 
@@ -582,11 +618,11 @@ Posts
 		}
 	}
 
-	&--single &__categories,
-	&--single &__details {
+	&__categories,
+	&__details {
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: center;
+		align-items: center;
 	}
 
 	&__categories {
@@ -594,11 +630,12 @@ Posts
 
 		a {
 			.caption;
-			background-color: @secondary-background-color-alt;
+			background-color: @secondary-background-color;
+			color:@secondary-font-color;
+			transition: color @animation-speed, background-color @animation-speed;
 			border-radius: 290486px;
 			padding: 0.5rem 0.75rem;
 			margin-bottom: 0.5rem;
-			color: #fff;
 
 			&:not(:last-child) {
 				margin-right: 0.5rem;
@@ -606,23 +643,54 @@ Posts
 		}
 	}
 
-	&--archive &__categories {
-		position: absolute;
-		left: 2rem;
-		top: 2rem;
-		z-index: 1;
+	&__header--cover &__categories {
+		a {
+			background-color: @secondary-background-color-alt;
+			color: #fff;
+
+			&:hover {
+				background-color: #fff;
+				color: rgba(0,0,0,0.8);
+			}
+		}
 	}
 
-	&--archive &__title {
+	&--archive &__header--cover &__categories,
+	&--archive &__header--cover &__title {
 		position: absolute;
 		z-index: 1;
 		left: 2rem;
+	}
+
+	&--archive &__header--cover &__categories {
+		top: 2rem;
+	}
+
+	&--archive &__header--cover &__title {
 		bottom: 2rem;
+	}
+
+	&--single &__categories,
+	&--single &__details {
+		justify-content: center;
+	}
+
+	&--single &__categories {
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+	}
+
+	&--archive &__categories {
+		&:not(:last-child) {
+			margin-bottom: .5rem;
+		}
 	}
 
 	&__details {
 		> * {
 			.caption;
+			color: @secondary-font-color;
 
 			&:not(:last-child) {
 				margin-right: 0.5rem;
@@ -630,7 +698,7 @@ Posts
 				&::after {
 					content: '';
 					display: inline-block;
-					background-color: rgba(255,255,255,.8);
+					background-color: @icon-color;
 					border-radius: 50%;
 					width: 4px;
 					height: 4px;
@@ -640,6 +708,34 @@ Posts
 			}
 		}
 	}
+
+	&__header--cover &__details {
+		> * {
+			color: #fff;
+
+			&:not(:last-child) {
+				&::after {
+					background-color: rgba(255,255,255,.8);
+				}
+			}
+		}
+	}
+
+	&__readmore {
+		display: flex;
+		align-items: center;
+
+		i {
+			font-size: 16px;
+			margin-left: 0.5rem;
+		}
+	}
+
+	&--archive &__text {
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+	}
 }
 /*--------------------------------------------------------------
 Tags
@@ -647,10 +743,16 @@ Tags
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
+	margin-bottom:-.5rem;
 
 	a {
 		.caption;
+		margin-bottom:.5rem;
 		font-size: 0.6875rem!important;
+
+		&:not(:last-child) {
+			margin-right:.5rem;
+		}
 	}
 }
 /*--------------------------------------------------------------
@@ -667,6 +769,87 @@ Comments
 
 		img {
 			border-radius: 50%;
+		}
+	}
+}
+/*--------------------------------------------------------------
+Pagination
+--------------------------------------------------------------*/
+
+.pagination {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	&:not(:first-child) {
+		padding-top: 2rem;
+	}
+
+	.nav-links {
+		display: flex;
+		align-items: center;
+	}
+
+	> span,
+	.nav-links > a,
+	.nav-links > span,
+	> a {
+		.center;
+		border: 2px solid transparent;
+		border-radius: 50%;
+		color: inherit;
+		width: 3rem;
+		height: 3rem;
+		font-family: @heading-font-family;
+		font-weight: @heading-font-weight;
+
+		&.page-numbers:not(:last-child),
+		&:not(:last-child) {
+			margin-right: 0.5rem;
+		}
+
+		&.page-numbers:not(.prev):not(.next),
+		&:not(.prev):not(.next) {
+			font-size: 1.125rem;
+		}
+
+		&.next,
+		&.prev {
+			font-size: 0;
+			color: @icon-color;
+
+			&::before {
+				.icon;
+				font-size: 16px;
+			}
+
+			i {
+				display: none;
+			}
+		}
+
+		&.prev::before {
+			content: '\f053';
+		}
+
+		&.next::before {
+			content: '\f054';
+		}
+	}
+
+	.nav-links > span,
+	> span {
+		&:not(.dots) {
+			border-color: @border-color;
+		}
+	}
+
+	.nav-links > a,
+	> a {
+		transition: color @animation-speed;
+
+		&:hover {
+			color: @primary-font-color;
 		}
 	}
 }
