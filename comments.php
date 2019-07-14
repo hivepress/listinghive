@@ -2,7 +2,7 @@
 	<div id="comments">
 		<h2 class="title is-2 has-text-centered"><?php esc_html_e( 'Comments', 'listinghive' ); ?></h2>
 		<?php if ( have_comments() ) : ?>
-			<div class="todo">
+			<div class="comments">
 				<ul>
 					<?php
 					wp_list_comments(
