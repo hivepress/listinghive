@@ -40,6 +40,8 @@ final class Template {
 			add_action( 'wp_enqueue_scripts', [ $this, 'set_hero_background' ] );
 
 			// Alter templates.
+			add_filter( 'hivepress/v1/templates/listing_view_block', [ $this, 'alter_listing_view_block' ] );
+			add_filter( 'hivepress/v1/templates/listing_view_page', [ $this, 'alter_listing_view_page' ] );
 			add_filter( 'hivepress/v1/templates/listing_category_view_block', [ $this, 'alter_listing_category_view_block' ] );
 		}
 	}
@@ -97,6 +99,64 @@ final class Template {
 		if ( ! empty( $image_url ) ) {
 			wp_add_inline_style( 'ht-frontend', '.header-hero { background-image: url(' . esc_url( $image_url ) . '); }' );
 		}
+	}
+
+	/**
+	 * Alters listing view block.
+	 *
+	 * @param array $template Template arguments.
+	 * @return array
+	 */
+	public function alter_listing_view_block( $template ) {
+		$category = hp\search_array_value( $template, [ 'blocks', 'listing_category' ] );
+
+		return hp\merge_trees(
+			$template,
+			[
+				'blocks' => [
+					'listing_content' => [
+						'blocks' => [
+							'listing_category' => array_merge(
+								$category,
+								[
+									'order' => 5,
+								]
+							),
+						],
+					],
+				],
+			],
+			'blocks'
+		);
+	}
+
+	/**
+	 * Alters listing view page.
+	 *
+	 * @param array $template Template arguments.
+	 * @return array
+	 */
+	public function alter_listing_view_page( $template ) {
+		$category = hp\search_array_value( $template, [ 'blocks', 'listing_category' ] );
+
+		return hp\merge_trees(
+			$template,
+			[
+				'blocks' => [
+					'page_content' => [
+						'blocks' => [
+							'listing_category' => array_merge(
+								$category,
+								[
+									'order' => 5,
+								]
+							),
+						],
+					],
+				],
+			],
+			'blocks'
+		);
 	}
 
 	/**

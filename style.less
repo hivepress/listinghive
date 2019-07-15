@@ -111,8 +111,15 @@ h6 {
 	color: @heading-font-color;
 	line-height: 1.125;
 
+	&:not(:last-child) {
+		margin-bottom:1rem;
+	}
+
 	a {
-		color: inherit;
+		&,
+		&:hover {
+			color: inherit;
+		}
 	}
 }
 
@@ -563,23 +570,99 @@ Widgets
 		}
 	}
 
-	&_recent_comments {
+	&_archive,
+	&_categories,
+	&_meta,
+	&_nav_menu,
+	&_pages,
+	&_recent_entries {
 		ul {
 			li {
-				padding-left:1.5rem;
-				position:relative;
+				display: flex;
+				color: @secondary-font-color;
+				align-items: flex-start;
+				flex-wrap: wrap;
 
 				&:not(:last-child) {
 					margin-bottom:.5rem;
 				}
 
 				&::before {
+					font-size: 16px;
+					color: @primary-font-color;
+					.icon;
+				}
+
+				a {
+					transition: color @animation-speed;
+					color: @body-font-color;
+
+					&:hover {
+						color: @primary-font-color;
+					}
+				}
+
+				ul {
+					margin-top: 0.5rem;
+					padding-left: 1rem;
+					flex: 0 0 100%;
+
+					li {
+						&::before {
+							color: @icon-color;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	&_archive,
+	&_categories {
+		select {
+			width: 100%;
+		}
+	}
+
+	&_pages,
+	&_recent_entries {
+		ul {
+			li {
+				&::before {
+					content: '\f15b';
+				}
+			}
+		}
+	}
+
+	&_archive,
+	&_categories,
+	&_meta,
+	&_nav_menu {
+		li {
+			&::before {
+				content: '\f105';
+			}
+		}
+	}
+
+	&_recent_comments {
+		ul {
+			li {
+				padding-left: 1.5rem;
+				position: relative;
+
+				&:not(:last-child) {
+					margin-bottom: 0.5rem;
+				}
+
+				&::before {
 					.icon;
 					content: '\f075';
-					color:@icon-color;
-					position:absolute;
-					left:0;
-					top:.25rem;
+					color: @icon-color;
+					position: absolute;
+					left: 0;
+					top: 0.25rem;
 				}
 			}
 		}
@@ -788,7 +871,7 @@ Tags
 		border: 1px solid @border-color;
 		border-radius: @border-radius;
 		padding: 0.4rem 0.5rem;
-		color: rgba(0,0,0,0.5);
+		color: inherit;
 		transition: color @animation-speed, border-color @animation-speed;
 
 		&:not(:last-child) {
@@ -804,6 +887,12 @@ Tags
 /*--------------------------------------------------------------
 Comments
 --------------------------------------------------------------*/
+#comments {
+	&:not(:first-child) {
+		margin-top: 3rem;
+	}
+}
+
 .comments {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -914,6 +1003,12 @@ Comments
 }
 
 .comment-respond {
+	#comments > &,
+	.comments > ul > & {
+		.block;
+		padding: 2rem;
+	}
+
 	.comments > ul > & {
 		&:not(:last-child) {
 			margin-bottom: 2rem;
@@ -941,6 +1036,20 @@ Comments
 			i {
 				font-size: 18px;
 				display: block;
+			}
+		}
+	}
+
+	.comment-notes,
+	.logged-in-as {
+		color: @secondary-font-color;
+	}
+
+	.logged-in-as {
+		a {
+			&:first-child {
+				color: inherit;
+				pointer-events: none;
 			}
 		}
 	}
@@ -1008,7 +1117,6 @@ Pagination
 		height: 3rem;
 		font-family: @heading-font-family;
 		font-weight: @heading-font-weight;
-		color: @heading-font-color;
 
 		&.page-numbers:not(:last-child),
 		&:not(:last-child) {
@@ -1105,11 +1213,96 @@ HivePress
 				}
 			}
 		}
+
+		input[type=checkbox],
+		input[type=radio] {
+			display: none;
+
+			& + span {
+				position: relative;
+				display: inline-flex;
+				cursor: pointer;
+				align-items: flex-start;
+
+				&::after,
+				&::before {
+					display: block;
+					content: '';
+				}
+
+				&::before {
+					width: 18px;
+					height: 18px;
+					margin-right: 0.6rem;
+					margin-top: 3px;
+					transition: background-color @animation-speed, border-color @animation-speed;
+					border: 2px solid @border-color;
+					flex: 0 0 18px;
+				}
+
+				&::after {
+					position: absolute;
+					top: 7px;
+					left: 4px;
+					transition: opacity @animation-speed;
+					opacity: 0;
+				}
+			}
+
+			&:checked + span {
+				&::before {
+					border-color: @primary-background-color;
+				}
+
+				&::after {
+					opacity: 1;
+				}
+			}
+		}
+
+		input[type=checkbox] {
+			& + span {
+				&::before {
+					border-radius: 3px;
+				}
+
+				&::after {
+					width: 10px;
+					height: 6px;
+					transform: rotate(-45deg);
+					border: 2px solid #fff;
+					border-top-width: 0;
+					border-right-width: 0;
+				}
+			}
+
+			&:checked + span {
+				&::before {
+					background-color: @primary-background-color;
+				}
+			}
+		}
+
+		input[type=radio] {
+			& + span {
+				&::before {
+					border-radius: 50%;
+				}
+
+				&::after {
+					width: 10px;
+					height: 10px;
+					border-radius: 50%;
+					background-color: @primary-background-color;
+				}
+			}
+		}
 	}
 
 	&-page {
 		&__title {
 			position: relative;
+			padding-top:1rem;
 
 			&::before {
 				position: absolute;
@@ -1167,9 +1360,40 @@ HivePress
 				border-radius: @border-radius;
 			}
 		}
+		// todo
+		&__details &__category {
+			display: none!important;
+		}
+
+		&--view-block &__category,
+		&--view-page &__category {
+			display: flex;
+			flex-wrap: wrap;
+			margin-bottom: -.5rem;
+
+			a {
+				.caption;
+				background-color: @secondary-background-color;
+				color: @secondary-font-color;
+				border-radius: 290486px;
+				padding: 0.5rem 0.75rem;
+				margin-bottom: 0.5rem;
+
+				&:not(:last-child) {
+					margin-right: 0.5rem;
+				}
+			}
+		}
+
+		&--view-page &__category {
+			&:not(:last-child) {
+				margin-bottom: 0.5rem;
+			}
+		}
 
 		&--view-block &__date,
 		&--view-page &__date {
+			.caption;
 			color: @secondary-font-color;
 		}
 
@@ -1320,6 +1544,29 @@ HivePress
 	&-vendor {
 		&--view-block {
 			.block;
+		}
+
+		&--view-block &__header {
+			padding:3rem 2rem 0;
+		}
+
+		&--view-block &__content {
+			padding:0 2rem 3rem;
+
+			&:not(:last-child) {
+				margin-bottom:0;
+			}
+		}
+
+		&--view-block &__footer {
+			border-top:1px solid @border-color;
+			padding:1rem 1.5rem;
+		}
+
+		&--view-block &__date,
+		&--view-page &__date {
+			.caption;
+			color: @secondary-font-color;
 		}
 	}
 	/*--------------------------------------------------------------
