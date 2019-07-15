@@ -1,6 +1,17 @@
+<?php get_header(); ?>
+<div class="todo">
+	<?php the_content(); ?>
+</div>
 <?php
-get_header();
+wp_link_pages(
+	[
+		'before'      => '<nav class="pagination"><div class="nav-links">',
+		'after'       => '</div></nav>',
+		'link_before' => '<span class="page-numbers">',
+		'link_after'  => '</span>',
+	]
+);
 
-the_content();
+comments_template();
 
 get_footer();
