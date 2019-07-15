@@ -173,6 +173,41 @@ Accessibility
 	clip-path: inset(50%);
 }
 /*--------------------------------------------------------------
+Media
+--------------------------------------------------------------*/
+.wp-caption {
+	max-width: 100%;
+
+	> img,
+	> a > img {
+		width: 100%;
+		display:block;
+	}
+
+	&-text {
+		font-size: 0.875rem;
+		color: @secondary-font-color;
+		margin-top:.5rem;
+	}
+}
+
+.mejs {
+	&-audio &-controls,
+	&-audio&-container {
+		border-radius: @border-radius;
+	}
+
+	&-audio &-button {
+		> button {
+			border-radius: 0;
+
+			&::before {
+				display: none;
+			}
+		}
+	}
+}
+/*--------------------------------------------------------------
 Forms
 --------------------------------------------------------------*/
 
@@ -501,7 +536,7 @@ Header
 	background-size: cover;
 	position: relative;
 
-	&::after {
+	&.is-dark::after {
 		.overlay;
 		background-color: rgba(0,0,0,0.35);
 	}
@@ -1232,7 +1267,11 @@ Pagination
 	justify-content: center;
 
 	&:not(:first-child) {
-		padding-top: 2rem;
+		margin-top: 2rem;
+	}
+
+	&:not(:last-child) {
+		margin-bottom:2rem;
 	}
 
 	.nav-links {

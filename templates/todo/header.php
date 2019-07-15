@@ -1,4 +1,4 @@
-<section class="header-hero hero is-medium is-dark" data-component="parallax">
+<section class="header-hero hero is-medium <?php if ( get_term_meta( get_queried_object_id(), 'hp_image_id', true ) ) :	?>is-dark<?php else : ?>is-light<?php endif; ?>" data-component="parallax">
 	<div class="header-hero__content hero-body">
 		<div class="container">
 			<div class="columns">

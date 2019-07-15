@@ -1,5 +1,5 @@
 <li id="comment-<?php comment_ID(); ?>">
-	<div <?php comment_class(); ?>>
+	<div <?php comment_class( 'comment' ); ?>>
 		<header class="comment__header">
 			<?php if ( 'comment' === get_comment_type() ) : ?>
 				<div class="comment__image">
