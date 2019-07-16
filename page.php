@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="todo">
+<div class="content is-clearfix">
 	<?php the_content(); ?>
 </div>
 <?php

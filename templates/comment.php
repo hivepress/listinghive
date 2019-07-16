@@ -22,7 +22,7 @@
 				</div>
 			</div>
 		</header>
-		<div class="comment__text">
+		<div class="comment__text content">
 			<?php comment_text(); ?>
 		</div>
 	</div>

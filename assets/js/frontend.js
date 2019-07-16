@@ -120,22 +120,29 @@ var hivetheme = {
 				});
 			}
 		});
+	});
 
-		// Sticky
-		if (typeof hivepress === 'undefined') {
-			$(window).on('load', function() {
-				hivetheme.getComponent('sticky').each(function() {
-					var container = $(this),
-						spacing = 32 + $('#wpadminbar').height();
+	// Sticky
+	if (typeof hivepress === 'undefined') {
+		$(window).on('load', function() {
+			hivetheme.getComponent('sticky').each(function() {
+				var container = $(this),
+					spacing = 32 + $('#wpadminbar').height();
 
-					container.wrapInner('<div />');
+				container.wrapInner('<div />');
 
-					container.children('div').stickySidebar({
-						topSpacing: spacing,
-						bottomSpacing: spacing,
-					});
+				container.children('div').stickySidebar({
+					topSpacing: spacing,
+					bottomSpacing: spacing,
 				});
 			});
-		}
+		});
+	}
+
+	// Loader
+	$(window).on('load', function() {
+		setTimeout(function() {
+			hivetheme.getComponent('loader').fadeOut();
+		}, 100);
 	});
 })(jQuery);

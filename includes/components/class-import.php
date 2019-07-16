@@ -28,8 +28,8 @@ final class Import {
 			// Add theme demos.
 			add_filter( 'pt-ocdi/import_files', [ $this, 'add_demos' ] );
 
-			// Import settings.
-			add_action( 'pt-ocdi/after_all_import_execution', [ $this, 'import_settings' ] );
+			// Import configuration.
+			add_action( 'pt-ocdi/after_all_import_execution', [ $this, 'import_config' ] );
 		}
 	}
 
@@ -43,9 +43,9 @@ final class Import {
 	}
 
 	/**
-	 * Imports theme settings.
+	 * Imports theme configuration.
 	 */
-	public function import_settings() {
+	public function import_config() {
 
 		// Get demos.
 		$demos = hivetheme()->get_config( 'demos' );
@@ -53,26 +53,18 @@ final class Import {
 		if ( ! empty( $demos ) ) {
 			$demo = reset( $demos );
 
-			// Get settings.
-			$response = wp_remote_get( esc_url_raw( $demo['import_settings_file_url'] ) );
+			// Get configuration.
+			$response = wp_remote_get( esc_url_raw( $demo['import_config_file_url'] ) );
 
 			if ( ! is_wp_error( $response ) ) {
-				$settings = json_decode( wp_remote_retrieve_body( $response ), true );
+				$config = json_decode( wp_remote_retrieve_body( $response ), true );
 
-				if ( ! empty( $settings ) ) {
+				if ( ! empty( $config ) ) {
 
 					// Set theme options.
-					if ( isset( $settings['theme_options'] ) ) {
-						foreach ( $settings['theme_options'] as $option_name => $option_value ) {
+					if ( isset( $config['options'] ) ) {
+						foreach ( $config['options'] as $option_name => $option_value ) {
 							if ( strpos( $option_name, 'page_' ) !== false ) {
-								if ( 'page_on_front' === $option_name ) {
-									if ( class_exists( 'WP_Block_Type' ) && ! class_exists( 'Classic_Editor' ) ) {
-										$option_value .= '-blocks';
-									} else {
-										$option_value .= '-shortcodes';
-									}
-								}
-
 								$page = get_page_by_path( $option_value );
 
 								if ( ! is_null( $page ) ) {
@@ -85,17 +77,17 @@ final class Import {
 					}
 
 					// Set theme mods.
-					if ( isset( $settings['theme_mods'] ) ) {
-						foreach ( $settings['theme_mods'] as $mod_name => $mod_value ) {
+					if ( isset( $config['theme_mods'] ) ) {
+						foreach ( $config['theme_mods'] as $mod_name => $mod_value ) {
 							set_theme_mod( $mod_name, $mod_value );
 						}
 					}
 
 					// Set menu locations.
-					if ( isset( $settings['menu_locations'] ) ) {
+					if ( isset( $config['menu_locations'] ) ) {
 						$menu_locations = get_theme_mod( 'nav_menu_locations' );
 
-						foreach ( $settings['menu_locations'] as $location_name => $menu_name ) {
+						foreach ( $config['menu_locations'] as $location_name => $menu_name ) {
 							$menu = wp_get_nav_menu_object( $menu_name );
 
 							if ( false !== $menu ) {
@@ -107,8 +99,8 @@ final class Import {
 					}
 
 					// Set term meta.
-					if ( isset( $settings['term_meta'] ) ) {
-						foreach ( $settings['term_meta'] as $meta ) {
+					if ( isset( $config['term_meta'] ) ) {
+						foreach ( $config['term_meta'] as $meta ) {
 							$term = get_term_by( 'slug', $meta['term_slug'], $meta['taxonomy'] );
 
 							if ( false !== $term ) {

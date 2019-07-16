@@ -1,6 +1,6 @@
 <div <?php post_class( 'post--single' ); ?>>
 	<?php if ( '' !== get_the_content() ) : ?>
-		<div class="post__text">
+		<div class="post__text content is-clearfix">
 			<?php the_content(); ?>
 		</div>
 		<?php

@@ -1,15 +1,23 @@
 <?php get_header(); ?>
 <div class="columns">
 	<main class="column is-8 <?php if ( ! is_active_sidebar( 'sidebar' ) ) : ?>is-offset-2<?php endif; ?>">
-		<div class="posts">
+		<?php if ( have_posts() ) : ?>
+			<div class="posts">
+				<?php
+				while ( have_posts() ) :
+					the_post();
+					get_template_part( 'templates/post/content', 'archive' );
+				endwhile;
+				?>
+			</div>
 			<?php
-			while ( have_posts() ) :
-				the_post();
-				get_template_part( 'templates/post/content', 'archive' );
-			endwhile;
+			the_posts_pagination();
+
+		else :
 			?>
-		</div>
-		<?php the_posts_pagination(); ?>
+			<h2><?php esc_html_e( 'Nothing found', 'listinghive' ); ?></h2>
+			<p><?php esc_html_e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'listinghive' ); ?></p>
+		<?php endif; ?>
 	</main>
 	<?php get_sidebar(); ?>
 </div>

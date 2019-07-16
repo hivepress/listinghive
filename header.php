@@ -13,6 +13,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 	</head>
 	<body <?php body_class(); ?>>
+		<?php get_template_part( 'templates/loader' ); ?>
 		<div class="site-container">
 			<div class="site-header">
 				<nav class="header-navbar navbar">

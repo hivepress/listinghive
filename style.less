@@ -1,3 +1,15 @@
+/*
+Theme Name: ListingHive
+Author: HivePress
+Author URI: https://hivepress.io
+Description: Directory & Listing WordPress Theme
+Version: 1.0.0
+License: GNU General Public License
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: right-sidebar, custom-colors, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, blog
+Text Domain: listinghive
+*/
+
 /*--------------------------------------------------------------
 Variables
 --------------------------------------------------------------*/
@@ -173,6 +185,55 @@ Accessibility
 	clip-path: inset(50%);
 }
 /*--------------------------------------------------------------
+Alignments
+--------------------------------------------------------------*/
+.aligncenter,
+.alignnone {
+	clear: both;
+}
+
+.alignnone {
+	&:not(:first-child) {
+		margin-top:2rem;
+	}
+
+	&:not(:last-child) {
+		margin-bottom:2rem;
+	}
+}
+
+.alignleft {
+	float: left;
+	margin-right:2rem;
+
+	&:not(:last-child) {
+		margin-bottom:2rem;
+	}
+}
+
+.alignright {
+	float: right;
+	margin-left:2rem;
+
+	&:not(:last-child) {
+		margin-bottom:2rem;
+	}
+}
+
+.aligncenter {
+	display: block;
+	margin: 0 auto;
+	text-align: center;
+
+	&:not(:first-child) {
+		margin-top:2rem;
+	}
+
+	&:not(:last-child) {
+		margin-bottom:2rem;
+	}
+}
+/*--------------------------------------------------------------
 Media
 --------------------------------------------------------------*/
 .wp-caption {
@@ -188,6 +249,30 @@ Media
 		font-size: 0.875rem;
 		color: @secondary-font-color;
 		margin-top:.5rem;
+	}
+}
+
+.gallery {
+	&:not(:last-child) {
+		margin-bottom:2rem!important;
+	}
+
+	&-item {
+		margin-top:2rem!important;
+	}
+
+	&-icon {
+		img {
+			border: none!important;
+			border-radius: @border-radius;
+			display:block;
+			margin:0 auto;
+		}
+	}
+
+	&-caption {
+		font-size: 0.875rem;
+		color: @secondary-font-color;
 	}
 }
 
@@ -443,6 +528,7 @@ Header
 
 		> ul {
 			display: flex;
+			flex-wrap:wrap;
 
 			> li {
 				padding: 0 1.25rem;
@@ -536,6 +622,10 @@ Header
 	background-size: cover;
 	position: relative;
 
+	&.is-dark {
+		color:#fff;
+	}
+
 	&.is-dark::after {
 		.overlay;
 		background-color: rgba(0,0,0,0.35);
@@ -604,6 +694,36 @@ Popup
 	border-radius: @border-radius;
 }
 /*--------------------------------------------------------------
+Loader
+--------------------------------------------------------------*/
+.site-loader {
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: flex;
+	overflow: hidden;
+	background-color: #fff;
+	justify-content: center;
+	align-items: center;
+
+	svg {
+		animation: spin 0.5s linear infinite;
+	}
+}
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}
+/*--------------------------------------------------------------
 Widgets
 --------------------------------------------------------------*/
 .widget {
@@ -668,6 +788,10 @@ Widgets
 	}
 
 	&_calendar {
+		table {
+			width:100%;
+		}
+
 		tfoot {
 			td {
 				padding-bottom: 0;
@@ -915,6 +1039,11 @@ Posts
 			&:not(:last-child) {
 				margin-right: 0.5rem;
 			}
+
+			&:hover {
+				background-color:@primary-background-color;
+				color:#fff;
+			}
 		}
 	}
 
@@ -934,15 +1063,18 @@ Posts
 	&--archive &__header--cover &__title {
 		position: absolute;
 		z-index: 1;
-		left: 2rem;
+		left: 0;
+		padding:0 2rem;
 	}
 
 	&--archive &__header--cover &__categories {
-		top: 2rem;
+		top: 0;
+		padding-top:2rem;
 	}
 
 	&--archive &__header--cover &__title {
-		bottom: 2rem;
+		bottom: 0;
+		padding-bottom:2rem;
 	}
 
 	&--single &__categories,
@@ -963,9 +1095,12 @@ Posts
 	}
 
 	&__details {
+		margin-bottom:-.75rem;
+
 		> * {
 			.caption;
 			color: @secondary-font-color;
+			margin-bottom:.75rem;
 
 			&:not(:last-child) {
 				margin-right: 0.5rem;
@@ -1004,18 +1139,30 @@ Posts
 		}
 	}
 
-	&__readmore {
+	&__readmore,
+	&__sticky {
 		display: flex;
 		align-items: center;
 
 		i {
-			font-size: 12px;
+			font-size:12px;
+		}
+	}
+
+	&__readmore {
+		i {
 			margin-left: 0.4rem;
 			transition: transform @animation-speed;
 		}
 
 		&:hover i {
 			transform: translateX(5px);
+		}
+	}
+
+	&__sticky {
+		i {
+			margin-right:.3rem;
 		}
 	}
 
@@ -1079,6 +1226,14 @@ Comments
 
 			ul {
 				padding-left: 5.5rem;
+
+				ul {
+					ul {
+						ul {
+							padding-left:0;
+						}
+					}
+				}
 			}
 
 			> ul {
@@ -1346,12 +1501,43 @@ Pagination
 Blocks
 --------------------------------------------------------------*/
 .wp-block {
+	&-embed {
+		margin-bottom:1rem;
+
+		&:last-child {
+			margin-bottom:0;
+		}
+	}
+
+	&-gallery {
+		&:not(:last-child) {
+			margin-bottom:1rem;
+		}
+
+		.blocks-gallery-item {
+			img,
+			figcaption {
+				border-radius:@border-radius;
+			}
+
+			figcaption {
+				overflow-x:hidden;
+			}
+		}
+	}
+
 	&-quote {
 		font-size: 1.125rem;
 
 		&:not(.is-large):not(.is-style-large) {
 			padding-left: 1.5rem;
 			border-left: 3px solid @primary-background-color;
+		}
+	}
+
+	&-cover {
+		& &-text {
+			padding:2rem;
 		}
 	}
 }
@@ -1554,9 +1740,15 @@ HivePress
 				border-radius: 290486px;
 				padding: 0.5rem 0.75rem;
 				margin-bottom: 0.5rem;
+				transition:color @animation-speed, background-color @animation-speed;
 
 				&:not(:last-child) {
 					margin-right: 0.5rem;
+				}
+
+				&:hover {
+					background-color:@primary-background-color;
+					color:#fff;
 				}
 			}
 		}
