@@ -17,7 +17,7 @@
 
 		if ( '' !== get_the_title() ) :
 			?>
-			<h3 class="post__title title is-3"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+			<h2 class="post__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 		<?php endif; ?>
 	</header>
 	<div class="post__content">

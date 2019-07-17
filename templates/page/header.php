@@ -15,7 +15,7 @@ if ( ! is_front_page() || ht\get_page_excerpt( get_the_ID() ) !== '' ) :
 					?>
 					<div class="columns">
 						<div class="column is-8 is-offset-2">
-							<h1 class="title is-1 has-text-centered"><?php the_title(); ?></h1>
+							<h1 class="has-text-centered"><?php the_title(); ?></h1>
 						</div>
 					</div>
 				<?php endif; ?>

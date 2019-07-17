@@ -13,7 +13,7 @@
 
 					if ( '' !== get_the_title() ) :
 						?>
-						<h1 class="post__title title is-1 has-text-centered"><?php the_title(); ?></h1>
+						<h1 class="post__title has-text-centered"><?php the_title(); ?></h1>
 						<?php
 					endif;
 
