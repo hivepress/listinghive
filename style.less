@@ -19,7 +19,7 @@ Variables
 @body-font-color: rgba(0,0,0,0.6);
 @primary-font-color: #ffc107;
 @primary-background-color: #ffc107;
-@secondary-background-color: rgba(0,0,0,0.06);
+@secondary-background-color: rgba(0,0,0,0.02);
 @secondary-background-color-alt: rgba(255,255,255,.2);
 @secondary-font-color: rgba(0,0,0,0.4);
 @todo-color: #15cd72;
@@ -372,6 +372,7 @@ textarea {
 Tables
 --------------------------------------------------------------*/
 
+.table,
 table {
 	background-color: #fff;
 	color: inherit;
@@ -466,14 +467,11 @@ Layout
 Header
 --------------------------------------------------------------*/
 .header-navbar {
-	padding: 0 2rem;
-	border: 1px solid transparent;
-	border-left-width: 0;
-	border-right-width: 0;
-	min-height:0;
+	padding: 0.75rem 1.25rem;
+	min-height: 0;
 
 	&:last-child {
-		border-bottom-color: @border-color;
+		border-bottom: 1px solid @border-color;
 	}
 
 	&__logo {
@@ -661,6 +659,10 @@ Header
 	&__content {
 		position: relative;
 		z-index: 1;
+
+		h1 {
+			font-size: 3rem;
+		}
 	}
 }
 /*--------------------------------------------------------------
@@ -906,6 +908,17 @@ Widgets
 		}
 	}
 
+	&_nav_menu {
+		li {
+			&.current-menu-item {
+				&::before,
+				a {
+					color: @primary-font-color;
+				}
+			}
+		}
+	}
+
 	&_categories {
 		ul {
 			li {
@@ -989,6 +1002,9 @@ input[type=submit] {
 	font-family: @heading-font-family;
 	font-weight: @heading-font-weight;
 	background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2));
+	height: 2.5rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
 
 	&.is-link {
 		background-color: @todo-color;
@@ -1588,7 +1604,7 @@ HivePress
 		}
 
 		&:not(:hover) {
-			color: @secondary-font-color;
+			color: inherit;
 
 			i {
 				color: @icon-color;
@@ -1716,14 +1732,14 @@ HivePress
 			padding-top: 1rem;
 
 			&:not(:last-child) {
-				margin-bottom:1.75rem;
+				margin-bottom: 1.75rem;
 			}
 
 			&::before {
 				position: absolute;
 				top: 0;
 				left: 0;
-				height:4px;
+				height: 4px;
 				width: 45px;
 				display: block;
 				content: '';
@@ -1850,6 +1866,27 @@ HivePress
 			}
 		}
 
+		&--edit-block &__status {
+			span {
+				.caption;
+				font-size: 0.6875rem;
+				border: 1px solid @border-color;
+				border-radius: @border-radius;
+				padding: 0.4rem 0.5rem;
+				display: inline-block;
+			}
+
+			&--draft span {
+				color: #ff3860;
+				border-color: #ff3860;
+			}
+
+			&--pending span {
+				color: #ffcb00;
+				border-color: #ffcb00;
+			}
+		}
+
 		&--view-block &__attributes--secondary {
 			margin-bottom: -.25rem;
 
@@ -1885,6 +1922,11 @@ HivePress
 		&--view-block &__date,
 		&--view-page &__date {
 			.caption;
+			color: @secondary-font-color;
+		}
+
+		&--edit-block &__date {
+			font-size: 0.875rem;
 			color: @secondary-font-color;
 		}
 
@@ -1950,6 +1992,10 @@ HivePress
 				transition: color @animation-speed;
 			}
 		}
+
+		&--edit-block &__actions {
+			text-align: right;
+		}
 	}
 
 	&-form {
@@ -1988,7 +2034,7 @@ HivePress
 
 		&__label {
 			.caption;
-			margin-bottom:.75rem;
+			margin-bottom: 0.75rem;
 		}
 	}
 
@@ -2137,6 +2183,66 @@ HivePress
 		&__count {
 			opacity: 1;
 			color: @secondary-font-color;
+		}
+	}
+	/*--------------------------------------------------------------
+	Messages
+	--------------------------------------------------------------*/
+	&-message {
+		&--view-block {
+			border-radius: @border-radius;
+			background-color: @secondary-background-color;
+			padding: 1.25rem 1.5rem;
+			position: relative;
+		}
+
+		&--view-block &__details {
+			flex-direction: column;
+			align-items: flex-start;
+		}
+
+		&--view-block &__date,
+		&--view-block &__sender {
+			&:not(:last-child) {
+				margin-bottom: 0.25rem;
+			}
+		}
+
+		&--view-block &__sender {
+			font-size: 1.125rem;
+			font-weight: @heading-font-weight;
+			font-family: @heading-font-family;
+			color: @heading-font-color;
+
+			&::before {
+				border: 8px solid transparent;
+				position: absolute;
+				width: 0;
+				height: 0;
+				content: '';
+				display: block;
+				top: 1.6rem;
+				left: -16px;
+				border-right-color: @secondary-background-color;
+			}
+
+			&--current::before {
+				left: auto;
+				border-right-color: transparent;
+				right: -16px;
+				border-left-color: @secondary-background-color;
+			}
+		}
+
+		&--view-block &__date {
+			.caption;
+			color: @secondary-font-color;
+		}
+
+		&--thread-block &__date {
+			font-size: 0.875rem;
+			color: @secondary-font-color;
+			text-align: right;
 		}
 	}
 }
