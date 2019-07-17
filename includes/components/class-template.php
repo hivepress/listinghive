@@ -50,6 +50,9 @@ final class Template {
 	 * Adds theme supports.
 	 */
 	public function add_theme_supports() {
+		add_theme_support( 'title-tag' );
+		add_theme_support( 'automatic-feed-links' );
+
 		foreach ( hivetheme()->get_config( 'theme_supports' ) as $name ) {
 			add_theme_support( $name );
 		}
@@ -79,7 +82,7 @@ final class Template {
 	public function set_hero_background() {
 
 		// Get image URL.
-		$image_url = '';
+		$image_url = get_header_image();
 
 		if ( is_singular() && has_post_thumbnail() ) {
 			$image_url = get_the_post_thumbnail_url( null, 'ht_cover_large' );

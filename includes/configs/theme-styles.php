@@ -8,4 +8,33 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-return [];
+return [
+	[
+		'selector'   => '
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			h6
+		',
+
+		'properties' => [
+			[
+				'name'      => 'font-family',
+				'theme_mod' => 'heading_font',
+			],
+		],
+	],
+
+	[
+		'selector'   => 'body',
+
+		'properties' => [
+			[
+				'name'      => 'font-family',
+				'theme_mod' => 'body_font',
+			],
+		],
+	],
+];

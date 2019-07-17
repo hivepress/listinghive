@@ -3,14 +3,14 @@ Contributors: hivepress
 Requires at least: 4.7
 Tested up to: 5.2.1
 Requires PHP: 5.6
-License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Todo.
+A free multipurpose WordPress theme that allows you to build any type of directory or listing website.
 
 == Description ==
 
-Todo.
+ListingHive is a free multipurpose WordPress theme that allows you to build any type of directory or listing website.
 
 [Demo](https://demo.hivepress.io/) | [Documentation](https://hivepress.io/docs/themes/listinghive) | [Support](https://hivepress.io/support/forum/themes/listinghive)
 

@@ -1,6 +1,6 @@
 <?php the_post(); ?>
-<section class="header-hero post post--single hero <?php if ( has_post_thumbnail() ) : ?>is-medium is-dark<?php else : ?>is-light<?php endif; ?>" data-component="parallax">
-	<div class="header-hero__content post__header hero-body <?php if ( has_post_thumbnail() ) : ?>post__header--cover<?php endif; ?>">
+<section class="header-hero post post--single hero <?php if ( get_header_image() || has_post_thumbnail() ) : ?>is-medium is-dark<?php else : ?>is-light<?php endif; ?>" data-component="parallax">
+	<div class="header-hero__content post__header hero-body <?php if ( get_header_image() || has_post_thumbnail() ) : ?>post__header--cover<?php endif; ?>">
 		<div class="container">
 			<div class="columns">
 				<div class="column is-8 is-offset-2">
