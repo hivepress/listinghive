@@ -8,9 +8,6 @@
 		<!-- todo remove -->
 		<link rel="stylesheet/less" type="text/css" href="<?php echo esc_url( HT_THEME_URL ); ?>/style.less" />
 		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
-
-		<link href="https://fonts.googleapis.com/css?family=Poppins:500&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 	</head>
 	<body <?php body_class(); ?>>
 		<?php get_template_part( 'templates/loader' ); ?>
@@ -58,7 +55,7 @@
 								?>
 							</div>
 							<div class="navbar-item">
-								<?php do_action( 'hivepress/v1/todo' ); ?>
+								<?php do_action( 'hivetheme/v1/render/site_header' ); ?>
 							</div>
 						</div>
 					</div>

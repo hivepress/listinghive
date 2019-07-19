@@ -105,8 +105,10 @@ var hivetheme = {
 				});
 			});
 		});
+	});
 
-		// Parallax
+	// Parallax
+	$(window).on('load', function() {
 		hivetheme.getComponent('parallax').each(function() {
 			var container = $(this),
 				offset = container.offset().top - $('#wpadminbar').height(),

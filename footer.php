@@ -3,10 +3,10 @@
 		</div>
 		<footer class="site-footer footer has-background-white">
 			<div class="container">
-				<?php if ( is_active_sidebar( 'footer' ) ) : ?>
+				<?php if ( is_active_sidebar( 'site_footer' ) ) : ?>
 				<div class="footer-widgets">
 					<div class="columns">
-						<?php dynamic_sidebar( 'footer' ); ?>
+						<?php dynamic_sidebar( 'site_footer' ); ?>
 					</div>
 				</div>
 				<?php endif; ?>

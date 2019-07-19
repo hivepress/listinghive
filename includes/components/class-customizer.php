@@ -233,7 +233,7 @@ final class Customizer {
 
 		// Enqueue fonts.
 		if ( ! empty( $fonts ) ) {
-			wp_enqueue_style( 'google-fonts', esc_url( 'https://fonts.googleapis.com/css?family=' . rawurlencode( implode( '|', $fonts ) ) ), [], null );
+			wp_enqueue_style( 'google-fonts', esc_url( 'https://fonts.googleapis.com/css?family=' . rawurlencode( implode( '|', $fonts ) ) . '&display=swap' ), [], null );
 		}
 	}
 
@@ -247,7 +247,7 @@ final class Customizer {
 
 		// Enqueue fonts.
 		if ( ! empty( $fonts ) ) {
-			add_editor_style( esc_url( 'https://fonts.googleapis.com/css?family=' . rawurlencode( implode( '|', $fonts ) ) ) );
+			add_editor_style( esc_url( 'https://fonts.googleapis.com/css?family=' . rawurlencode( implode( '|', $fonts ) ) . '&display=swap' ) );
 		}
 	}
 }

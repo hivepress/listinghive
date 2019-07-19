@@ -26,13 +26,14 @@ Variables
 @icon-color: rgba(0,0,0,0.15);
 @icon-color-alt: rgba(0,0,0,0.25);
 @border-color: rgba(0,0,0,.06);
+@border-color-hover: rgba(0,0,0,0.1);
 @border-color-alt: rgba(255,255,255,.2);
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-@animation-speed: 0.3s; /*--------------------------------------------------------------
+@animation-speed: 0.3s;
+/*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
-
 .block {
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
@@ -65,7 +66,6 @@ Mixins
 	text-transform: uppercase;
 	white-space: nowrap;
 	line-height: 1;
-	font-size: 0.6875rem;
 	letter-spacing: 1px;
 }
 
@@ -89,6 +89,7 @@ Mixins
 /*--------------------------------------------------------------
 Normalize
 --------------------------------------------------------------*/
+
 body,
 html {
 	height: 100%;
@@ -101,6 +102,7 @@ body {
 /*--------------------------------------------------------------
 Typography
 --------------------------------------------------------------*/
+
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -138,6 +140,28 @@ h6 {
 		&,
 		&:hover {
 			color: inherit;
+		}
+	}
+}
+
+h1,
+h2,
+h3 {
+	&,
+	.content & {
+		&:not(:first-child) {
+			margin-top: 2rem;
+		}
+	}
+
+	.content h1+&,
+	.content h2+&,
+	.content h3+&,
+	h1+ &,
+	h2+&,
+	h3+& {
+		&:not(:first-child) {
+			margin-top: 0;
 		}
 	}
 }
@@ -184,20 +208,28 @@ h6 {
 	}
 }
 
-.title {
-	font-weight: @heading-font-weight;
+p {
+	&,
+	.content & {
+		line-height: 1.875;
+
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+	}
 }
 
-p {
-	line-height: 1.875;
-
-	&:not(:last-child) {
-		margin-bottom: 1rem;
+blockquote {
+	&,
+	.content & {
+		background-color: transparent;
+		border-left: 3px solid @primary-background-color;
 	}
 }
 /*--------------------------------------------------------------
 Accessibility
 --------------------------------------------------------------*/
+
 .screen-reader-text {
 	position: absolute;
 	overflow: hidden;
@@ -214,6 +246,7 @@ Accessibility
 /*--------------------------------------------------------------
 Alignments
 --------------------------------------------------------------*/
+
 .aligncenter,
 .alignnone {
 	clear: both;
@@ -263,11 +296,12 @@ Alignments
 /*--------------------------------------------------------------
 Media
 --------------------------------------------------------------*/
+
 .wp-caption {
 	max-width: 100%;
 
-	> img,
-	> a > img {
+	> a > img,
+	> img {
 		width: 100%;
 		display: block;
 	}
@@ -322,7 +356,6 @@ Media
 /*--------------------------------------------------------------
 Forms
 --------------------------------------------------------------*/
-
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -371,7 +404,6 @@ textarea {
 /*--------------------------------------------------------------
 Tables
 --------------------------------------------------------------*/
-
 .table,
 table {
 	background-color: #fff;
@@ -439,6 +471,7 @@ table {
 /*--------------------------------------------------------------
 Layout
 --------------------------------------------------------------*/
+
 .site-container {
 	flex: 1 0 auto;
 }
@@ -466,6 +499,7 @@ Layout
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
+
 .header-navbar {
 	padding: 0.75rem 1.25rem;
 	min-height: 0;
@@ -475,6 +509,8 @@ Header
 	}
 
 	&__logo {
+		align-items: center;
+
 		img {
 			max-height: none;
 		}
@@ -510,9 +546,9 @@ Header
 					}
 				}
 
-				> a:hover,
 				&.active > a,
-				&.current-menu-item > a {
+				&.current-menu-item > a,
+				> a:hover {
 					color: @primary-font-color;
 				}
 
@@ -668,6 +704,7 @@ Header
 /*--------------------------------------------------------------
 Footer
 --------------------------------------------------------------*/
+
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -718,13 +755,13 @@ Footer
 /*--------------------------------------------------------------
 Popup
 --------------------------------------------------------------*/
-
 .fancybox-content {
 	border-radius: @border-radius;
 }
 /*--------------------------------------------------------------
 Loader
 --------------------------------------------------------------*/
+
 .site-loader {
 	position: fixed;
 	z-index: 10000;
@@ -754,6 +791,7 @@ Loader
 /*--------------------------------------------------------------
 Widgets
 --------------------------------------------------------------*/
+
 .widget {
 	&--sidebar {
 		.block;
@@ -799,14 +837,16 @@ Widgets
 				text-align: center;
 				margin-right: -3rem;
 				position: relative;
+				left: 3px;
 				z-index: 1;
 			}
 
 			input[type=search] {
 				display: block;
 				width: 100%;
-				padding-left: 3rem;
+				padding: 0.75rem 1rem 0.75rem 3rem;
 				flex: 1;
+				font-size: 1.125rem;
 			}
 
 			input[type=submit] {
@@ -829,103 +869,11 @@ Widgets
 				}
 			}
 		}
-	}
 
-	&_archive,
-	&_categories,
-	&_meta,
-	&_nav_menu,
-	&_pages,
-	&_recent_entries {
-		ul {
-			li {
-				display: flex;
-				color: @secondary-font-color;
-				align-items: flex-start;
-				flex-wrap: wrap;
-
-				&:not(:last-child) {
-					margin-bottom: 0.5rem;
-				}
-
-				&::before {
-					color: @icon-color;
-					.icon;
-				}
-
-				a {
-					transition: color @animation-speed;
-					color: @body-font-color;
-
-					&:hover {
-						color: @primary-font-color;
-					}
-				}
-
-				ul {
-					margin-top: 0.5rem;
-					padding-left: 1rem;
-					flex: 0 0 100%;
-				}
-			}
-		}
-	}
-
-	&_archive,
-	&_categories {
-		select {
-			width: 100%;
-		}
-	}
-
-	&_pages,
-	&_recent_entries {
-		ul {
-			li {
-				&::before {
-					font-size: 16px;
-					content: '\f15b';
-					margin: 0.25rem 0.6rem 0 0;
-				}
-
-				ul {
-					padding-left: 1.4rem;
-				}
-			}
-		}
-	}
-
-	&_archive,
-	&_categories,
-	&_meta,
-	&_nav_menu {
-		li {
-			&::before {
-				font-size: 14px;
-				margin: 0.3rem 0.5rem 0 0;
-				content: '\f054';
-			}
-		}
-	}
-
-	&_nav_menu {
-		li {
-			&.current-menu-item {
-				&::before,
-				a {
-					color: @primary-font-color;
-				}
-			}
-		}
-	}
-
-	&_categories {
-		ul {
-			li {
-				a {
-					margin-right: 0.25rem;
-				}
-			}
+		caption {
+			.caption;
+			font-size: 0.75rem;
+			margin-bottom: 0.5rem;
 		}
 	}
 
@@ -959,6 +907,10 @@ Widgets
 					content: '\f075';
 				}
 			}
+
+			.comment-author-link {
+				color: @body-font-color;
+			}
 		}
 	}
 
@@ -977,6 +929,7 @@ Widgets
 
 				.rss-date {
 					.caption;
+					font-size: 0.6875rem;
 				}
 
 				div {
@@ -992,9 +945,147 @@ Widgets
 		}
 	}
 }
+
+.widget_archive,
+.widget_categories,
+.widget_meta,
+.widget_nav_menu,
+.widget_pages,
+.widget_recent_entries,
+.wp-block-archives,
+.wp-block-categories,
+.wp-block-latest-posts {
+	ul,
+	ul & {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+
+	li {
+		display: flex;
+		color: @secondary-font-color;
+		align-items: flex-start;
+		flex-wrap: wrap;
+
+		&:not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
+
+		&::before {
+			color: @icon-color;
+			transition: color @animation-speed;
+			.icon;
+		}
+
+		a {
+			transition: color @animation-speed;
+			color: @body-font-color;
+
+			&:hover {
+				color: @primary-font-color;
+			}
+		}
+
+		&.current-cat,
+		&.current-menu-item,
+		&:hover {
+			> a,
+			&::before {
+				color: @primary-font-color;
+			}
+		}
+
+		ul {
+			margin-top: 0.5rem;
+			padding-left: 1rem;
+			flex: 0 0 100%;
+		}
+	}
+}
+
+.widget_archive,
+.widget_categories {
+	select {
+		width: 100%;
+	}
+}
+
+.widget_pages,
+.widget_recent_entries,
+.wp-block-latest-posts {
+	li {
+		&::before {
+			font-size: 16px;
+			content: '\f15b';
+			margin: 0.25rem 0.6rem 0 0;
+		}
+
+		ul {
+			padding-left: 1.4rem;
+		}
+	}
+}
+
+.wp-block-latest-posts {
+	&__post-date {
+		color: @secondary-font-color;
+		font-size: 0.875rem;
+		align-self: center;
+		margin-left: 0.3rem;
+	}
+}
+
+.widget_archive,
+.widget_categories,
+.widget_meta,
+.widget_nav_menu,
+.wp-block-archives,
+.wp-block-categories {
+	li {
+		&::before {
+			font-size: 14px;
+			margin: 0.3rem 0.5rem 0 0;
+			content: '\f054';
+		}
+	}
+}
+
+.widget_categories,
+.wp-block-categories {
+	li {
+		a {
+			margin-right: 0.25rem;
+		}
+	}
+}
+
+.wp-block-latest-comments {
+	ol & {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+}
+
+.wp-block {
+	&-archives,
+	&-categories,
+	&-latest-comments,
+	&-latest-posts {
+		div &,
+		ol&,
+		ul & {
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+		}
+	}
+}
 /*--------------------------------------------------------------
 Buttons
 --------------------------------------------------------------*/
+
 .button,
 button,
 input[type=submit] {
@@ -1002,18 +1093,73 @@ input[type=submit] {
 	font-family: @heading-font-family;
 	font-weight: @heading-font-weight;
 	background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2));
-	height: 2.5rem;
-	padding-left: 1rem;
-	padding-right: 1rem;
+	background-color: @todo-color;
+	padding: 0.5rem 1rem;
+	height: auto;
+	color: #fff;
+	font-size: 1rem;
+	border: none;
+	cursor: pointer;
+	position: relative;
+	line-height: 1.5;
+	display: inline-block;
+	text-align: center;
 
 	&.is-link {
-		background-color: @todo-color;
+		&,
+		&:hover {
+			background-color: @todo-color;
+		}
+	}
+}
+
+input[type="submit"],
+button[type="submit"],
+.button.is-primary {
+	&,
+	&:hover {
+		background-color: @primary-font-color;
+	}
+}
+
+.button,
+button {
+	overflow: hidden;
+
+	&::before {
+		.overlay;
+		transition: opacity @animation-speed;
+		opacity: 0;
+		background-color: rgba(255,255,255,.1);
+	}
+
+	&:hover::before {
+		opacity: 1;
+	}
+}
+
+.wp-block-button {
+	&__link {
+		.button;
+		font-size: 1rem;
+	}
+
+	&.is-style-outline &__link {
+		border-color: @border-color;
+		color: @body-font-color;
+		padding-top: 0.375rem;
+		padding-bottom: 0.375rem;
+		transition: color @animation-speed, border-color @animation-speed;
+
+		&:hover {
+			color: @heading-font-color;
+			border-color: @border-color-hover;
+		}
 	}
 }
 /*--------------------------------------------------------------
 Posts
 --------------------------------------------------------------*/
-
 .posts {
 	+ .pagination {
 		padding-top: 2rem;
@@ -1075,6 +1221,7 @@ Posts
 
 		a {
 			.caption;
+			font-size: 0.6875rem;
 			background-color: @secondary-background-color;
 			color: @secondary-font-color;
 			transition: color @animation-speed, background-color @animation-speed;
@@ -1145,6 +1292,7 @@ Posts
 
 		> * {
 			.caption;
+			font-size: 0.6875rem;
 			color: @secondary-font-color;
 			margin-bottom: 0.75rem;
 
@@ -1221,7 +1369,6 @@ Posts
 /*--------------------------------------------------------------
 Tags
 --------------------------------------------------------------*/
-
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -1229,6 +1376,7 @@ Tags
 
 	a {
 		.caption;
+		font-size: 0.6875rem;
 		margin-bottom: 0.5rem;
 		font-size: 0.6875rem!important;
 		border: 1px solid @border-color;
@@ -1250,7 +1398,6 @@ Tags
 /*--------------------------------------------------------------
 Comments
 --------------------------------------------------------------*/
-
 #comments {
 	&:not(:first-child) {
 		margin-top: 3rem;
@@ -1350,6 +1497,7 @@ Comments
 
 		> * {
 			.caption;
+			font-size: 0.6875rem;
 
 			&:not(:last-child) {
 				margin-right: 0.75rem;
@@ -1461,6 +1609,7 @@ Comments
 /*--------------------------------------------------------------
 Pagination
 --------------------------------------------------------------*/
+
 .pagination {
 	display: flex;
 	align-items: center;
@@ -1479,10 +1628,10 @@ Pagination
 		align-items: center;
 	}
 
-	> a,
+	> span,
 	.nav-links > a,
 	.nav-links > span,
-	> span {
+	> a {
 		.center;
 		border: 2px solid transparent;
 		border-radius: 50%;
@@ -1526,15 +1675,15 @@ Pagination
 		}
 	}
 
-	> span,
-	.nav-links > span {
+	.nav-links > span,
+	> span {
 		&:not(.dots) {
 			border-color: @border-color;
 		}
 	}
 
-	> a,
-	.nav-links > a {
+	.nav-links > a,
+	> a {
 		transition: color @animation-speed;
 
 		&:hover {
@@ -1545,6 +1694,7 @@ Pagination
 /*--------------------------------------------------------------
 Blocks
 --------------------------------------------------------------*/
+
 .wp-block {
 	&-embed {
 		margin-bottom: 1rem;
@@ -1567,6 +1717,7 @@ Blocks
 
 			figcaption {
 				overflow-x: hidden;
+				font-style: normal;
 			}
 		}
 	}
@@ -1589,9 +1740,11 @@ Blocks
 /*--------------------------------------------------------------
 HivePress
 --------------------------------------------------------------*/
+
 .hp {
 	&-result-count {
 		.caption;
+		font-size: 0.6875rem;
 		color: @secondary-font-color;
 	}
 
@@ -1677,7 +1830,7 @@ HivePress
 
 			&:checked + span {
 				&::before {
-					border-color: @primary-background-color;
+					border-color: @todo-color;
 				}
 
 				&::after {
@@ -1704,7 +1857,7 @@ HivePress
 
 			&:checked + span {
 				&::before {
-					background-color: @primary-background-color;
+					background-color: @todo-color;
 				}
 			}
 		}
@@ -1719,7 +1872,7 @@ HivePress
 					width: 10px;
 					height: 10px;
 					border-radius: 50%;
-					background-color: @primary-background-color;
+					background-color: @todo-color;
 				}
 			}
 		}
@@ -1822,6 +1975,7 @@ HivePress
 
 			a {
 				.caption;
+				font-size: 0.6875rem;
 				background-color: @secondary-background-color;
 				color: @secondary-font-color;
 				border-radius: 290486px;
@@ -1869,6 +2023,7 @@ HivePress
 		&--edit-block &__status {
 			span {
 				.caption;
+				font-size: 0.6875rem;
 				font-size: 0.6875rem;
 				border: 1px solid @border-color;
 				border-radius: @border-radius;
@@ -1922,6 +2077,7 @@ HivePress
 		&--view-block &__date,
 		&--view-page &__date {
 			.caption;
+			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
 
@@ -2028,13 +2184,28 @@ HivePress
 		&--listing-sort {
 			select {
 				.caption;
+				font-size: 0.6875rem;
 				padding: 0.25rem;
 			}
 		}
 
 		&__label {
 			.caption;
+			font-size: 0.6875rem;
 			margin-bottom: 0.75rem;
+		}
+
+		&--narrow &__button {
+			font-size: 1.125rem;
+			padding: 0.75rem 1.25rem;
+		}
+
+		&--narrow &__action {
+			line-height: 1.5;
+		}
+
+		&__action--request-password {
+			font-size: 0.875rem;
 		}
 	}
 
@@ -2093,10 +2264,12 @@ HivePress
 
 		&--view-block &__name {
 			text-align: left;
+			font-size: 1.5rem;
 		}
 
 		&__count {
 			.caption;
+			font-size: 0.6875rem;
 			background-color: @secondary-background-color-alt;
 			border-radius: 290486px;
 			padding: 0.5rem 0.75rem;
@@ -2141,6 +2314,7 @@ HivePress
 		&--view-block &__date,
 		&--view-page &__date {
 			.caption;
+			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
 	}
@@ -2169,6 +2343,7 @@ HivePress
 
 		&__date {
 			.caption;
+			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
 	}
@@ -2236,6 +2411,7 @@ HivePress
 
 		&--view-block &__date {
 			.caption;
+			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
 
