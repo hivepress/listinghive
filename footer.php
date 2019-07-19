@@ -13,7 +13,7 @@
 				<nav class="footer-navbar level">
 					<div class="level-left">
 						<div class="footer-navbar__copyright level-item">
-							<?php echo esc_html( get_theme_mod( 'copyright_notice', '&copy; ' . date( 'Y' ) . ' ListingHive' ) ); ?>
+							<?php echo esc_html( get_theme_mod( 'copyright_notice', '&copy; ' . date( 'Y' ) . ' ' . get_bloginfo( 'name' ) ) ); ?>
 						</div>
 					</div>
 					<div class="level-right">

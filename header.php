@@ -15,14 +15,19 @@
 			<div class="site-header">
 				<nav class="header-navbar navbar">
 					<div class="header-navbar__logo navbar-brand">
-						<a href="<?php echo esc_url( home_url() ); ?>" class="navbar-item">
+						<a href="<?php echo esc_url( home_url() ); ?>" class="header-logo navbar-item">
 							<?php
 							if ( has_custom_logo() ) :
 								the_custom_logo();
 							else :
 								?>
-								<img src="<?php echo esc_url( HT_THEME_URL ); ?>/assets/images/logo.svg" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-							<?php endif; ?>
+								<div class="header-logo__name"><?php bloginfo( 'name' ); ?></div>
+								<?php if ( get_bloginfo( 'description' ) ) : ?>
+									<div class="header-logo__description"><?php bloginfo( 'description' ); ?></div>
+									<?php
+								endif;
+							endif;
+							?>
 						</a>
 						<div id="mobile_menu" class="header-navbar__burger" data-component="burger">
 							<?php

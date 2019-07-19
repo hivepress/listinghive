@@ -6,11 +6,11 @@ Requires PHP: 5.6
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-A free multipurpose WordPress theme that allows you to build any type of directory or listing website.
+A clean & modern WordPress theme that allows you to build any type of directory or listing website.
 
 == Description ==
 
-ListingHive is a free multipurpose WordPress theme that allows you to build any type of directory or listing website.
+ListingHive is a clean & modern WordPress theme that allows you to build any type of directory or listing website.
 
 [Demo](https://demo.hivepress.io/) | [Documentation](https://hivepress.io/docs/themes/listinghive) | [Support](https://hivepress.io/support/forum/themes/listinghive)
 

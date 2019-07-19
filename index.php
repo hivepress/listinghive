@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 <div class="columns">
-	<main class="column is-8 <?php if ( ! is_active_sidebar( 'sidebar' ) ) : ?>is-offset-2<?php endif; ?>">
+	<main class="column is-8 <?php if ( ! is_active_sidebar( 'blog_sidebar' ) ) : ?>is-offset-2<?php endif; ?>">
 		<?php if ( have_posts() ) : ?>
 			<div class="posts">
 				<?php
