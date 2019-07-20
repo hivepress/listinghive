@@ -19,10 +19,10 @@ Variables
 @body-font-color: rgba(0,0,0,0.6);
 @primary-font-color: #ffc107;
 @primary-background-color: #ffc107;
-@secondary-background-color: rgba(0,0,0,0.02);
+@secondary-background-color: rgba(0,0,0,0.03);
 @secondary-background-color-alt: rgba(255,255,255,.2);
 @secondary-font-color: rgba(0,0,0,0.4);
-@todo-color: #15cd72;
+@ternary-background-color: #15cd72;
 @icon-color: rgba(0,0,0,0.15);
 @icon-color-alt: rgba(0,0,0,0.25);
 @border-color: rgba(0,0,0,.06);
@@ -30,10 +30,10 @@ Variables
 @border-color-alt: rgba(255,255,255,.2);
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-@animation-speed: 0.3s;
-/*--------------------------------------------------------------
+@animation-speed: 0.3s; /*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
+
 .block {
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
@@ -49,6 +49,12 @@ Mixins
 	h5,
 	h6 {
 		color: inherit;
+
+		a {
+			&:hover {
+				color: inherit;
+			}
+		}
 	}
 }
 
@@ -89,7 +95,6 @@ Mixins
 /*--------------------------------------------------------------
 Normalize
 --------------------------------------------------------------*/
-
 body,
 html {
 	height: 100%;
@@ -102,7 +107,6 @@ body {
 /*--------------------------------------------------------------
 Typography
 --------------------------------------------------------------*/
-
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -136,14 +140,12 @@ h6 {
 		line-height: 1.25;
 	}
 
-	&:not(:last-child) {
-		margin-bottom: 1.25rem;
-	}
-
 	a {
-		&,
+		color: inherit;
+		transition: color @animation-speed;
+
 		&:hover {
-			color: inherit;
+			color: #000;
 		}
 	}
 }
@@ -163,6 +165,27 @@ h3 {
 		&:not(:first-child) {
 			margin-top: 0;
 		}
+	}
+}
+
+h1,
+h2 {
+	&:not(:last-child) {
+		margin-bottom: 1.25rem;
+	}
+}
+
+h3,
+h4 {
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}
+
+h5,
+h6 {
+	&:not(:last-child) {
+		margin-bottom: 0.75rem;
 	}
 }
 
@@ -254,12 +277,25 @@ blockquote {
 	.content & {
 		background-color: transparent;
 		border-left: 3px solid @primary-background-color;
+		padding: 1rem 0 1rem 1.5rem;
+		margin: 0;
+
+		&:not(:last-child) {
+			margin-bottom: 1rem;
+		}
+	}
+}
+
+figure {
+	&,
+	.content & {
+		margin-left:0;
+		margin-right:0;
 	}
 }
 /*--------------------------------------------------------------
 Accessibility
 --------------------------------------------------------------*/
-
 .screen-reader-text {
 	position: absolute;
 	overflow: hidden;
@@ -276,7 +312,6 @@ Accessibility
 /*--------------------------------------------------------------
 Alignments
 --------------------------------------------------------------*/
-
 .aligncenter,
 .alignnone {
 	clear: both;
@@ -326,12 +361,11 @@ Alignments
 /*--------------------------------------------------------------
 Media
 --------------------------------------------------------------*/
-
 .wp-caption {
 	max-width: 100%;
 
-	> a > img,
-	> img {
+	> img,
+	> a > img {
 		width: 100%;
 		display: block;
 	}
@@ -386,6 +420,7 @@ Media
 /*--------------------------------------------------------------
 Forms
 --------------------------------------------------------------*/
+
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -439,74 +474,76 @@ input[type=radio] {
 /*--------------------------------------------------------------
 Tables
 --------------------------------------------------------------*/
-.table,
+
 table {
-	background-color: #fff;
-	color: inherit;
+	&,
+	.content & {
+		background-color: #fff;
+		color: inherit;
 
-	&:not(:last-child) {
-		margin-bottom: 2rem;
-	}
-
-	tbody,
-	tfoot,
-	thead {
-		background-color: transparent;
-	}
-
-	td,
-	th {
-		border: 1px solid @border-color;
-		border-width: 0 0 1px;
-		padding: 0.5em 0.75em;
-		vertical-align: top;
-
-		&:first-child {
-			padding-left: 0;
+		&:not(:last-child) {
+			margin-bottom: 2rem;
 		}
 
-		&:last-child {
-			padding-right: 0;
+		tbody,
+		tfoot,
+		thead {
+			background-color: transparent;
 		}
-	}
 
-	th {
-		color: @heading-font-color;
+		td,
+		th {
+			border: 1px solid @border-color;
+			border-width: 0 0 1px;
+			padding: 0.5em 0.75em;
+			vertical-align: top;
 
-		&:not([align]) {
-			text-align: left;
-		}
-	}
+			&:first-child {
+				padding-left: 0;
+			}
 
-	tbody {
-		tr:last-child {
-			td,
-			th {
-				border-bottom-width: 0;
+			&:last-child {
+				padding-right: 0;
 			}
 		}
-	}
 
-	thead {
-		td,
 		th {
-			border-width: 0 0 2px;
 			color: @heading-font-color;
+
+			&:not([align]) {
+				text-align: left;
+			}
 		}
-	}
 
-	tfoot {
-		td,
-		th {
-			border-width: 2px 0 0;
-			color: @heading-font-color;
+		tbody {
+			tr:last-child {
+				td,
+				th {
+					border-bottom-width: 0;
+				}
+			}
+		}
+
+		thead {
+			td,
+			th {
+				border-width: 0 0 2px;
+				color: @heading-font-color;
+			}
+		}
+
+		tfoot {
+			td,
+			th {
+				border-width: 2px 0 0;
+				color: @heading-font-color;
+			}
 		}
 	}
 }
 /*--------------------------------------------------------------
 Layout
 --------------------------------------------------------------*/
-
 .site-container {
 	flex: 1 0 auto;
 }
@@ -548,7 +585,6 @@ Layout
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
-
 .header-navbar {
 	padding: 0.75rem 1.25rem;
 	min-height: 0;
@@ -569,6 +605,11 @@ Header
 		display: flex;
 		align-items: stretch;
 		padding: 0;
+		margin: -.75rem 0;
+
+		&:last-child {
+			margin-right: -.25rem;
+		}
 
 		ul {
 			li {
@@ -595,9 +636,9 @@ Header
 					}
 				}
 
+				> a:hover,
 				&.active > a,
-				&.current-menu-item > a,
-				> a:hover {
+				&.current-menu-item > a {
 					color: @primary-font-color;
 				}
 
@@ -606,7 +647,7 @@ Header
 					position: absolute;
 					z-index: 1000;
 					top: 100%;
-					left: 0;
+					left: -.5rem;
 					background-color: #fff;
 					border-bottom-left-radius: @border-radius;
 					border-bottom-right-radius: @border-radius;
@@ -677,7 +718,7 @@ Header
 		overflow-y: auto;
 		display: none;
 		background-color: #fff;
-		padding: 2rem 2.5rem;
+		padding: 2rem;
 
 		&::before {
 			.icon;
@@ -727,6 +768,13 @@ Header
 				}
 			}
 		}
+
+		& + a {
+			span {
+				background-color: @icon-color;
+				height: 2px;
+			}
+		}
 	}
 }
 
@@ -743,6 +791,11 @@ Header
 		color: @heading-font-color;
 		line-height: 1.25;
 		font-size: 1.5rem;
+		transition: color @animation-speed;
+	}
+
+	&:hover &__name {
+		color: #000;
 	}
 
 	&__description {
@@ -757,18 +810,20 @@ Header
 }
 
 .header-hero {
-	.inherit;
 	background-position: center top;
 	background-repeat: no-repeat;
 	background-size: cover;
 	position: relative;
 
 	&.is-light {
-		background-color: @secondary-background-color;
+		background-color: transparent;
+		background-image: linear-gradient(to right, @secondary-background-color,rgba(0,0,0,.08));
+		background-repeat: repeat-y;
 	}
 
 	&.is-dark {
 		color: #fff;
+		.inherit;
 	}
 
 	&.is-dark::after {
@@ -789,11 +844,17 @@ Header
 			}
 		}
 	}
+
+	&.is-regular &__content {
+		@media screen and (max-width: 768px) {
+			padding-top: 2rem;
+			padding-bottom: 2rem;
+		}
+	}
 }
 /*--------------------------------------------------------------
 Footer
 --------------------------------------------------------------*/
-
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -853,13 +914,13 @@ Footer
 /*--------------------------------------------------------------
 Popup
 --------------------------------------------------------------*/
+
 .fancybox-content {
 	border-radius: @border-radius;
 }
 /*--------------------------------------------------------------
 Loader
 --------------------------------------------------------------*/
-
 .site-loader {
 	position: fixed;
 	z-index: 10000;
@@ -889,7 +950,6 @@ Loader
 /*--------------------------------------------------------------
 Widgets
 --------------------------------------------------------------*/
-
 .widget {
 	&--sidebar {
 		.block;
@@ -1008,6 +1068,11 @@ Widgets
 
 			.comment-author-link {
 				color: @body-font-color;
+
+				a {
+					color: inherit;
+					pointer-events: none;
+				}
 			}
 		}
 	}
@@ -1053,8 +1118,8 @@ Widgets
 .wp-block-archives,
 .wp-block-categories,
 .wp-block-latest-posts {
-	ul,
-	ul & {
+	.content &,
+	ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
@@ -1088,8 +1153,8 @@ Widgets
 		&.current-cat,
 		&.current-menu-item,
 		&:hover {
-			> a,
-			&::before {
+			&::before,
+			> a {
 				color: @primary-font-color;
 			}
 		}
@@ -1159,7 +1224,7 @@ Widgets
 }
 
 .wp-block-latest-comments {
-	ol & {
+	.content & {
 		list-style: none;
 		padding: 0;
 		margin: 0;
@@ -1171,9 +1236,7 @@ Widgets
 	&-categories,
 	&-latest-comments,
 	&-latest-posts {
-		div &,
-		ol&,
-		ul & {
+		.content & {
 			&:not(:last-child) {
 				margin-bottom: 1rem;
 			}
@@ -1183,7 +1246,6 @@ Widgets
 /*--------------------------------------------------------------
 Buttons
 --------------------------------------------------------------*/
-
 .button,
 button,
 input[type=submit] {
@@ -1191,7 +1253,7 @@ input[type=submit] {
 	font-family: @heading-font-family;
 	font-weight: @heading-font-weight;
 	background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2));
-	background-color: @todo-color;
+	background-color: @ternary-background-color;
 	padding: 0.5rem 1.25rem;
 	height: auto;
 	color: #fff;
@@ -1206,7 +1268,7 @@ input[type=submit] {
 	&.is-link {
 		&,
 		&:hover {
-			background-color: @todo-color;
+			background-color: @ternary-background-color;
 		}
 	}
 }
@@ -1258,6 +1320,7 @@ button {
 /*--------------------------------------------------------------
 Posts
 --------------------------------------------------------------*/
+
 .posts {
 	+ .pagination {
 		padding-top: 2rem;
@@ -1307,6 +1370,10 @@ Posts
 		}
 	}
 
+	&__title {
+		word-wrap: break-word;
+	}
+
 	&__categories,
 	&__details {
 		display: flex;
@@ -1320,7 +1387,7 @@ Posts
 		a {
 			.caption;
 			font-size: 0.6875rem;
-			background-color: @secondary-background-color;
+			background-color: rgba(0,0,0,0.06);
 			color: @secondary-font-color;
 			transition: color @animation-speed, background-color @animation-speed;
 			border-radius: 290486px;
@@ -1332,7 +1399,7 @@ Posts
 			}
 
 			&:hover {
-				background-color: @todo-color;
+				background-color: @ternary-background-color;
 				color: #fff;
 			}
 		}
@@ -1467,6 +1534,7 @@ Posts
 /*--------------------------------------------------------------
 Tags
 --------------------------------------------------------------*/
+
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -1496,6 +1564,7 @@ Tags
 /*--------------------------------------------------------------
 Comments
 --------------------------------------------------------------*/
+
 #comments {
 	&:not(:first-child) {
 		margin-top: 3rem;
@@ -1516,12 +1585,14 @@ Comments
 			}
 
 			ul {
-				padding-left: 5.5rem;
+				@media screen and (min-width: 769px) {
+					padding-left: 5.5rem;
 
-				ul {
 					ul {
 						ul {
-							padding-left: 0;
+							ul {
+								padding-left: 0;
+							}
 						}
 					}
 				}
@@ -1590,12 +1661,15 @@ Comments
 
 	&__details {
 		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: -0.5rem;
 		align-items: center;
 		color: @secondary-font-color;
 
 		> * {
 			.caption;
 			font-size: 0.6875rem;
+			margin-bottom: 0.5rem;
 
 			&:not(:last-child) {
 				margin-right: 0.75rem;
@@ -1634,7 +1708,10 @@ Comments
 	}
 
 	.comments ul li & {
-		padding: 0 2rem 2rem 5.5rem;
+		padding: 0 2rem 2rem 0;
+		@media screen and (min-width: 769px) {
+			padding-left: 5.5rem;
+		}
 	}
 
 	.comment-reply-title {
@@ -1711,12 +1788,19 @@ Comments
 
 	.form-submit {
 		margin: 0;
+
+		.button {
+			@media screen and (max-width: 768px) {
+				font-size: 1.125rem;
+				padding: 0.75rem 1.5rem;
+				width: 100%;
+			}
+		}
 	}
 }
 /*--------------------------------------------------------------
 Pagination
 --------------------------------------------------------------*/
-
 .pagination {
 	display: flex;
 	align-items: center;
@@ -1735,10 +1819,10 @@ Pagination
 		align-items: center;
 	}
 
-	> span,
+	> a,
 	.nav-links > a,
 	.nav-links > span,
-	> a {
+	> span {
 		.center;
 		border: 2px solid transparent;
 		border-radius: 50%;
@@ -1782,15 +1866,15 @@ Pagination
 		}
 	}
 
-	.nav-links > span,
-	> span {
+	> span,
+	.nav-links > span {
 		&:not(.dots) {
 			border-color: @border-color;
 		}
 	}
 
-	.nav-links > a,
-	> a {
+	> a,
+	.nav-links > a {
 		transition: color @animation-speed;
 
 		&:hover {
@@ -1801,7 +1885,6 @@ Pagination
 /*--------------------------------------------------------------
 Blocks
 --------------------------------------------------------------*/
-
 .wp-block {
 	&-embed {
 		margin-bottom: 1rem;
@@ -1812,8 +1895,20 @@ Blocks
 	}
 
 	&-gallery {
-		&:not(:last-child) {
-			margin-bottom: 1rem;
+		&,
+		.content & {
+			list-style:none;
+			padding:0;
+			margin-left:0;
+			margin-top:0;
+
+			&:not(:first-child) {
+				margin-top: 2rem;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 2rem;
+			}
 		}
 
 		.blocks-gallery-item {
@@ -1835,6 +1930,23 @@ Blocks
 		&:not(.is-large):not(.is-style-large) {
 			padding-left: 1.5rem;
 			border-left: 3px solid @primary-background-color;
+
+			&[style*="text-align:right"] {
+				border-left-width:0;
+				border-right: 3px solid @primary-background-color;
+				padding-right:1.5rem;
+				padding-left:0;
+			}
+		}
+	}
+
+	&-pullquote {
+		border-top-width:3px;
+		border-bottom-width:3px;
+
+		blockquote {
+			border:none;
+			padding:0;
 		}
 	}
 
@@ -1852,11 +1964,32 @@ Blocks
 			margin-bottom: 2rem;
 		}
 	}
+
+	&-image {
+		&,
+		.content & {
+			margin:0;
+
+			&:not(:first-child) {
+				margin-top:2rem;
+			}
+
+			&:not(:last-child) {
+				margin-bottom:2rem;
+			}
+
+			figcaption {
+				margin:.5rem 0 0 0;
+				font-size:.875rem;
+				font-style: normal;
+				color: @secondary-font-color;
+			}
+		}
+	}
 }
 /*--------------------------------------------------------------
 HivePress
 --------------------------------------------------------------*/
-
 .hp {
 	&-result-count {
 		.caption;
@@ -1946,7 +2079,7 @@ HivePress
 
 			&:checked + span {
 				&::before {
-					border-color: @todo-color;
+					border-color: @ternary-background-color;
 				}
 
 				&::after {
@@ -1973,7 +2106,7 @@ HivePress
 
 			&:checked + span {
 				&::before {
-					background-color: @todo-color;
+					background-color: @ternary-background-color;
 				}
 			}
 		}
@@ -1988,7 +2121,7 @@ HivePress
 					width: 10px;
 					height: 10px;
 					border-radius: 50%;
-					background-color: @todo-color;
+					background-color: @ternary-background-color;
 				}
 			}
 		}
@@ -2092,7 +2225,7 @@ HivePress
 			a {
 				.caption;
 				font-size: 0.6875rem;
-				background-color: @secondary-background-color;
+				background-color: rgba(0,0,0,0.06);
 				color: @secondary-font-color;
 				border-radius: 290486px;
 				padding: 0.5rem 0.75rem;
@@ -2104,7 +2237,7 @@ HivePress
 				}
 
 				&:hover {
-					background-color: @todo-color;
+					background-color: @ternary-background-color;
 					color: #fff;
 				}
 			}
@@ -2119,7 +2252,7 @@ HivePress
 
 		&__location {
 			i {
-				color: @todo-color;
+				color: @ternary-background-color;
 			}
 		}
 

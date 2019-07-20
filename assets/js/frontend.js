@@ -105,6 +105,13 @@ var hivetheme = {
 				});
 			});
 		});
+
+		// Embeds
+		$('iframe').each(function() {
+			if ($(this).is('[height]')) {
+				$(this).css('height', $(this).attr('height'));
+			}
+		});
 	});
 
 	// Parallax

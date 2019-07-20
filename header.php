@@ -59,9 +59,11 @@
 								);
 								?>
 							</div>
-							<div class="navbar-item">
-								<?php do_action( 'hivetheme/v1/render/site_header' ); ?>
-							</div>
+							<?php if ( has_action( 'hivetheme/v1/render/site_header' ) ) : ?>
+								<div class="navbar-item">
+									<?php do_action( 'hivetheme/v1/render/site_header' ); ?>
+								</div>
+							<?php endif; ?>
 						</div>
 					</div>
 				</nav>

@@ -72,7 +72,9 @@ final class Template {
 	 */
 	public function register_widget_areas() {
 		foreach ( hivetheme()->get_config( 'widget_areas' ) as $name => $args ) {
-			register_sidebar( array_merge( $args, [ 'id' => $name ] ) );
+			if ( strpos( $name, 'hp_' ) !== 0 || function_exists( 'hivepress' ) ) {
+				register_sidebar( array_merge( $args, [ 'id' => $name ] ) );
+			}
 		}
 	}
 
@@ -100,7 +102,13 @@ final class Template {
 
 		// Add inline style.
 		if ( ! empty( $image_url ) ) {
-			wp_add_inline_style( 'ht-frontend', '.header-hero { background-image: url(' . esc_url( $image_url ) . '); }' );
+			$style = '.header-hero { background-image: url(' . esc_url( $image_url ) . '); }';
+
+			if ( get_header_textcolor() ) {
+				$style .= '.header-hero.is-dark { color: #' . esc_html( get_header_textcolor() ) . '; }';
+			}
+
+			wp_add_inline_style( 'ht-frontend', $style );
 		}
 	}
 
