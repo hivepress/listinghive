@@ -27,7 +27,7 @@ Variables
 @secondary-background-color-invert: rgba(255,255,255,.2);
 @ternary-background-color: #15cd72;
 @border-color: rgba(0,0,0,.06);
-@border-color-hover:rgba(0,0,0,0.1);
+@border-color-hover: rgba(0,0,0,0.1);
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
 @animation-duration: 0.25s; /*--------------------------------------------------------------
@@ -223,7 +223,6 @@ a {
 		color: #1db1fc;
 	}
 }
-
 /*--------------------------------------------------------------
 Accessibility
 --------------------------------------------------------------*/
@@ -240,7 +239,6 @@ Accessibility
 	-webkit-clip-path: inset(50%);
 	clip-path: inset(50%);
 }
-
 /*--------------------------------------------------------------
 Alignments
 --------------------------------------------------------------*/
@@ -290,7 +288,6 @@ Alignments
 		margin-bottom: 2rem;
 	}
 }
-
 /*--------------------------------------------------------------
 Media
 --------------------------------------------------------------*/
@@ -373,7 +370,7 @@ input[type=submit] {
 	line-height: 1.5;
 	display: inline-block;
 	cursor: pointer;
-	border:none;
+	border: none;
 }
 
 .button--primary,
@@ -518,10 +515,10 @@ Header
 
 	&__burger {
 		> a {
-			color:@icon-color;
+			color: @icon-color;
 
 			&:hover {
-				color:@icon-color-hover;
+				color: @icon-color-hover;
 			}
 		}
 
@@ -588,7 +585,7 @@ Header
 				color: @icon-color;
 
 				&:hover {
-					color:@icon-color-hover;
+					color: @icon-color-hover;
 				}
 			}
 		}
@@ -596,7 +593,7 @@ Header
 
 	&__actions {
 		&:not(:last-child) {
-			margin-right:2rem;
+			margin-right: 2rem;
 		}
 	}
 }
@@ -626,7 +623,7 @@ Header
 	// todo uncomment
 	// background-image: linear-gradient(to right, @secondary-background-color,rgba(0,0,0,.08));
 	background-color: @secondary-background-color;
-	padding:3rem 0;
+	padding: 3rem 0;
 
 	&--cover {
 		.inherit-container;
@@ -634,7 +631,7 @@ Header
 		background-repeat: no-repeat;
 		background-size: cover;
 		position: relative;
-		color:#fff;
+		color: #fff;
 
 		&::after {
 			.overlay;
@@ -643,7 +640,7 @@ Header
 	}
 
 	&--large {
-		padding:9rem 0;
+		padding: 9rem 0;
 	}
 
 	&__content {
@@ -651,7 +648,7 @@ Header
 		z-index: 1;
 
 		h1 {
-			font-size:3rem;
+			font-size: 3rem;
 		}
 	}
 }
@@ -661,6 +658,8 @@ Content
 
 .site-content {
 	padding: 4rem 0;
+	position: relative;
+	z-index: 1;
 }
 /*--------------------------------------------------------------
 Footer
@@ -673,7 +672,7 @@ Footer
 }
 
 .footer-widgets {
-	padding:1rem 0;
+	padding: 1rem 0;
 
 	&:not(:last-child) {
 		border-bottom: 1px solid @border-color;
@@ -733,6 +732,34 @@ Modal
 .fancybox {
 	&-content {
 		border-radius: @border-radius;
+	}
+}
+/*--------------------------------------------------------------
+Loader
+--------------------------------------------------------------*/
+
+.site-loader {
+	.center-container;
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	background-color: #fff;
+
+	svg {
+		animation: spin 0.5s linear infinite;
+	}
+}
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
 	}
 }
 /*--------------------------------------------------------------
@@ -906,7 +933,7 @@ Posts
 
 		> * {
 			.caption;
-			display:flex;
+			display: flex;
 			align-items: center;
 			font-size: 0.6875rem;
 			color: @secondary-font-color;
@@ -922,7 +949,7 @@ Posts
 					border-radius: 50%;
 					width: 4px;
 					height: 4px;
-					margin-left:.5rem;
+					margin-left: 0.5rem;
 				}
 			}
 
@@ -1267,15 +1294,15 @@ HivePress
 .hp {
 	&-link {
 		&:hover {
-			color:@primary-font-color;
+			color: @primary-font-color;
 		}
 
 		i {
-			color:@icon-color;
+			color: @icon-color;
 		}
 
 		&:hover i {
-			color:@primary-font-color;
+			color: @primary-font-color;
 		}
 	}
 }
