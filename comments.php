@@ -8,7 +8,7 @@
 					wp_list_comments(
 						[
 							'callback' => function( $comment, $args, $depth ) {
-								include locate_template( 'templates/comment.php' );
+								include locate_template( 'templates/comment/content.php' );
 							},
 						]
 					);

@@ -6,9 +6,40 @@ Description: Directory & Listing WordPress Theme
 Version: 1.0.0
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
-Tags: right-sidebar, custom-colors, custom-menu, custom-logo, custom-header, featured-image-header, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready, blog
+Tags: right-sidebar, custom-colors, custom-menu, custom-logo, custom-header, featured-image-header, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready
 Text Domain: listinghive
 */
+/*--------------------------------------------------------------
+TABLE OF CONTENTS
+----------------------------------------------------------------
+1.0 Normalize
+2.0 Typography
+3.0 Accessibility
+4.0 Alignments
+5.0 Media
+6.0 Forms
+7.0 Tables
+8.0 Buttons
+9.0 Layout
+	9.1 Header
+	9.2 Footer
+	9.3 Modal
+	9.4 Loader
+10.0 Widgets
+11.0 Blocks
+12.0 Posts
+13.0 Tags
+14.0 Comments
+15.0 Pagination
+16.0 HivePress
+	16.1 Forms
+	16.2 Listings
+	16.3 Categories
+	16.4 Vendors
+	16.5 Reviews
+	16.6 Ratings
+	16.7 Messages
+--------------------------------------------------------------*/
 /*--------------------------------------------------------------
 Variables
 --------------------------------------------------------------*/
@@ -30,10 +61,10 @@ Variables
 @border-color-alt: rgba(255,255,255,.2);
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-@animation-speed: 0.3s; /*--------------------------------------------------------------
+@animation-speed: 0.3s;
+/*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
-
 .block {
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
@@ -93,8 +124,9 @@ Mixins
 	justify-content: center;
 }
 /*--------------------------------------------------------------
-Normalize
+1.0 Normalize
 --------------------------------------------------------------*/
+
 body,
 html {
 	height: 100%;
@@ -105,8 +137,9 @@ body {
 	flex-direction: column;
 }
 /*--------------------------------------------------------------
-Typography
+2.0 Typography
 --------------------------------------------------------------*/
+
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -289,13 +322,14 @@ blockquote {
 figure {
 	&,
 	.content & {
-		margin-left:0;
-		margin-right:0;
+		margin-left: 0;
+		margin-right: 0;
 	}
 }
 /*--------------------------------------------------------------
-Accessibility
+3.0 Accessibility
 --------------------------------------------------------------*/
+
 .screen-reader-text {
 	position: absolute;
 	overflow: hidden;
@@ -310,8 +344,9 @@ Accessibility
 	clip-path: inset(50%);
 }
 /*--------------------------------------------------------------
-Alignments
+4.0 Alignments
 --------------------------------------------------------------*/
+
 .aligncenter,
 .alignnone {
 	clear: both;
@@ -359,13 +394,14 @@ Alignments
 	}
 }
 /*--------------------------------------------------------------
-Media
+5.0 Media
 --------------------------------------------------------------*/
+
 .wp-caption {
 	max-width: 100%;
 
-	> img,
-	> a > img {
+	> a > img,
+	> img {
 		width: 100%;
 		display: block;
 	}
@@ -418,9 +454,8 @@ Media
 	}
 }
 /*--------------------------------------------------------------
-Forms
+6.0 Forms
 --------------------------------------------------------------*/
-
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -472,9 +507,8 @@ input[type=radio] {
 	color: @secondary-font-color;
 }
 /*--------------------------------------------------------------
-Tables
+7.0 Tables
 --------------------------------------------------------------*/
-
 table {
 	&,
 	.content & {
@@ -542,31 +576,86 @@ table {
 	}
 }
 /*--------------------------------------------------------------
-Layout
+8.0 Buttons
 --------------------------------------------------------------*/
-.site-container {
-	flex: 1 0 auto;
-}
 
-.site-content {
+.button,
+button,
+input[type=submit] {
+	border-radius: @border-radius;
+	font-family: @heading-font-family;
+	font-weight: @heading-font-weight;
+	background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2));
+	background-color: @ternary-background-color;
+	padding: 0.5rem 1.25rem;
+	height: auto;
+	color: #fff;
+	font-size: 1rem;
+	border: none;
+	cursor: pointer;
 	position: relative;
-	z-index: 1;
-	@media screen and (min-width: 769px) {
-		padding-top: 4rem;
-		padding-bottom: 4rem;
-	}
-	@media screen and (max-width: 768px) {
-		padding-left: 2rem;
-		padding-right: 2rem;
-	}
-}
+	line-height: 1.5;
+	display: inline-block;
+	text-align: center;
 
-.site-sidebar {
-	@media screen and (max-width: 768px) {
-		&:not(:first-child) {
-			margin-top: 1.5rem;
+	&.is-link {
+		&,
+		&:hover {
+			background-color: @ternary-background-color;
 		}
 	}
+}
+
+input[type="submit"],
+button[type="submit"],
+.button.is-primary {
+	&,
+	&:hover {
+		background-color: @primary-font-color;
+	}
+}
+
+.button,
+button {
+	overflow: hidden;
+
+	&::before {
+		.overlay;
+		transition: opacity @animation-speed;
+		opacity: 0;
+		background-color: rgba(255,255,255,.1);
+	}
+
+	&:hover::before {
+		opacity: 1;
+	}
+}
+
+.wp-block-button {
+	&__link {
+		.button;
+		font-size: 1rem;
+	}
+
+	&.is-style-outline &__link {
+		border-color: @border-color;
+		color: @body-font-color;
+		padding-top: 0.375rem;
+		padding-bottom: 0.375rem;
+		transition: color @animation-speed, border-color @animation-speed;
+
+		&:hover {
+			color: @heading-font-color;
+			border-color: @border-color-hover;
+		}
+	}
+}
+/*--------------------------------------------------------------
+9.0 Layout
+--------------------------------------------------------------*/
+
+.site-container {
+	flex: 1 0 auto;
 }
 
 .container {
@@ -574,17 +663,10 @@ Layout
 		max-width: 1152px;
 	}
 }
-// todo
-
-.home,
-.tax-hp_listing_category {
-	.hp-form--listing-search {
-		margin-top: -6.25rem;
-	}
-}
 /*--------------------------------------------------------------
-Header
+9.1 Header
 --------------------------------------------------------------*/
+
 .header-navbar {
 	padding: 0.75rem 1.25rem;
 	min-height: 0;
@@ -636,9 +718,9 @@ Header
 					}
 				}
 
-				> a:hover,
 				&.active > a,
-				&.current-menu-item > a {
+				&.current-menu-item > a,
+				> a:hover {
 					color: @primary-font-color;
 				}
 
@@ -853,8 +935,33 @@ Header
 	}
 }
 /*--------------------------------------------------------------
-Footer
+9.2 Content
 --------------------------------------------------------------*/
+
+.site-content {
+	position: relative;
+	z-index: 1;
+	@media screen and (min-width: 769px) {
+		padding-top: 4rem;
+		padding-bottom: 4rem;
+	}
+	@media screen and (max-width: 768px) {
+		padding-left: 2rem;
+		padding-right: 2rem;
+	}
+}
+
+.site-sidebar {
+	@media screen and (max-width: 768px) {
+		&:not(:first-child) {
+			margin-top: 1.5rem;
+		}
+	}
+}
+/*--------------------------------------------------------------
+9.3 Footer
+--------------------------------------------------------------*/
+
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -912,15 +1019,15 @@ Footer
 	}
 }
 /*--------------------------------------------------------------
-Popup
+9.4 Modal
 --------------------------------------------------------------*/
-
 .fancybox-content {
 	border-radius: @border-radius;
 }
 /*--------------------------------------------------------------
-Loader
+9.5 Loader
 --------------------------------------------------------------*/
+
 .site-loader {
 	position: fixed;
 	z-index: 10000;
@@ -948,8 +1055,9 @@ Loader
 	}
 }
 /*--------------------------------------------------------------
-Widgets
+10.0 Widgets
 --------------------------------------------------------------*/
+
 .widget {
 	&--sidebar {
 		.block;
@@ -1153,8 +1261,8 @@ Widgets
 		&.current-cat,
 		&.current-menu-item,
 		&:hover {
-			&::before,
-			> a {
+			> a,
+			&::before {
 				color: @primary-font-color;
 			}
 		}
@@ -1244,81 +1352,113 @@ Widgets
 	}
 }
 /*--------------------------------------------------------------
-Buttons
+11.0 Blocks
 --------------------------------------------------------------*/
-.button,
-button,
-input[type=submit] {
-	border-radius: @border-radius;
-	font-family: @heading-font-family;
-	font-weight: @heading-font-weight;
-	background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2));
-	background-color: @ternary-background-color;
-	padding: 0.5rem 1.25rem;
-	height: auto;
-	color: #fff;
-	font-size: 1rem;
-	border: none;
-	cursor: pointer;
-	position: relative;
-	line-height: 1.5;
-	display: inline-block;
-	text-align: center;
 
-	&.is-link {
-		&,
-		&:hover {
-			background-color: @ternary-background-color;
+.wp-block {
+	&-embed {
+		margin-bottom: 1rem;
+
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
-}
 
-input[type="submit"],
-button[type="submit"],
-.button.is-primary {
-	&,
-	&:hover {
-		background-color: @primary-font-color;
-	}
-}
+	&-gallery {
+		&,
+		.content & {
+			list-style: none;
+			padding: 0;
+			margin-left: 0;
+			margin-top: 0;
 
-.button,
-button {
-	overflow: hidden;
+			&:not(:first-child) {
+				margin-top: 2rem;
+			}
 
-	&::before {
-		.overlay;
-		transition: opacity @animation-speed;
-		opacity: 0;
-		background-color: rgba(255,255,255,.1);
-	}
+			&:not(:last-child) {
+				margin-bottom: 2rem;
+			}
+		}
 
-	&:hover::before {
-		opacity: 1;
-	}
-}
+		.blocks-gallery-item {
+			figcaption,
+			img {
+				border-radius: @border-radius;
+			}
 
-.wp-block-button {
-	&__link {
-		.button;
-		font-size: 1rem;
+			figcaption {
+				overflow-x: hidden;
+				font-style: normal;
+			}
+		}
 	}
 
-	&.is-style-outline &__link {
-		border-color: @border-color;
-		color: @body-font-color;
-		padding-top: 0.375rem;
-		padding-bottom: 0.375rem;
-		transition: color @animation-speed, border-color @animation-speed;
+	&-quote {
+		font-size: 1.125rem;
 
-		&:hover {
-			color: @heading-font-color;
-			border-color: @border-color-hover;
+		&:not(.is-large):not(.is-style-large) {
+			padding-left: 1.5rem;
+			border-left: 3px solid @primary-background-color;
+
+			&[style*="text-align:right"] {
+				border-left-width: 0;
+				border-right: 3px solid @primary-background-color;
+				padding-right: 1.5rem;
+				padding-left: 0;
+			}
+		}
+	}
+
+	&-pullquote {
+		border-top-width: 3px;
+		border-bottom-width: 3px;
+
+		blockquote {
+			border: none;
+			padding: 0;
+		}
+	}
+
+	&-cover {
+		& &-text {
+			padding: 2rem;
+		}
+	}
+
+	&-cover,
+	&-cover-image {
+		margin-bottom: 0;
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+
+	&-image {
+		&,
+		.content & {
+			margin: 0;
+
+			&:not(:first-child) {
+				margin-top: 2rem;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 2rem;
+			}
+
+			figcaption {
+				margin: 0.5rem 0 0;
+				font-size: 0.875rem;
+				font-style: normal;
+				color: @secondary-font-color;
+			}
 		}
 	}
 }
 /*--------------------------------------------------------------
-Posts
+12.0 Posts
 --------------------------------------------------------------*/
 
 .posts {
@@ -1532,9 +1672,8 @@ Posts
 	}
 }
 /*--------------------------------------------------------------
-Tags
+13.0 Tags
 --------------------------------------------------------------*/
-
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -1562,9 +1701,8 @@ Tags
 	}
 }
 /*--------------------------------------------------------------
-Comments
+14.0 Comments
 --------------------------------------------------------------*/
-
 #comments {
 	&:not(:first-child) {
 		margin-top: 3rem;
@@ -1799,8 +1937,9 @@ Comments
 	}
 }
 /*--------------------------------------------------------------
-Pagination
+15.0 Pagination
 --------------------------------------------------------------*/
+
 .pagination {
 	display: flex;
 	align-items: center;
@@ -1819,10 +1958,10 @@ Pagination
 		align-items: center;
 	}
 
-	> a,
+	> span,
 	.nav-links > a,
 	.nav-links > span,
-	> span {
+	> a {
 		.center;
 		border: 2px solid transparent;
 		border-radius: 50%;
@@ -1866,15 +2005,15 @@ Pagination
 		}
 	}
 
-	> span,
-	.nav-links > span {
+	.nav-links > span,
+	> span {
 		&:not(.dots) {
 			border-color: @border-color;
 		}
 	}
 
-	> a,
-	.nav-links > a {
+	.nav-links > a,
+	> a {
 		transition: color @animation-speed;
 
 		&:hover {
@@ -1883,120 +2022,10 @@ Pagination
 	}
 }
 /*--------------------------------------------------------------
-Blocks
+16.0 HivePress
 --------------------------------------------------------------*/
-.wp-block {
-	&-embed {
-		margin-bottom: 1rem;
 
-		&:last-child {
-			margin-bottom: 0;
-		}
-	}
-
-	&-gallery {
-		&,
-		.content & {
-			list-style:none;
-			padding:0;
-			margin-left:0;
-			margin-top:0;
-
-			&:not(:first-child) {
-				margin-top: 2rem;
-			}
-
-			&:not(:last-child) {
-				margin-bottom: 2rem;
-			}
-		}
-
-		.blocks-gallery-item {
-			figcaption,
-			img {
-				border-radius: @border-radius;
-			}
-
-			figcaption {
-				overflow-x: hidden;
-				font-style: normal;
-			}
-		}
-	}
-
-	&-quote {
-		font-size: 1.125rem;
-
-		&:not(.is-large):not(.is-style-large) {
-			padding-left: 1.5rem;
-			border-left: 3px solid @primary-background-color;
-
-			&[style*="text-align:right"] {
-				border-left-width:0;
-				border-right: 3px solid @primary-background-color;
-				padding-right:1.5rem;
-				padding-left:0;
-			}
-		}
-	}
-
-	&-pullquote {
-		border-top-width:3px;
-		border-bottom-width:3px;
-
-		blockquote {
-			border:none;
-			padding:0;
-		}
-	}
-
-	&-cover {
-		& &-text {
-			padding: 2rem;
-		}
-	}
-
-	&-cover,
-	&-cover-image {
-		margin-bottom: 0;
-
-		&:not(:last-child) {
-			margin-bottom: 2rem;
-		}
-	}
-
-	&-image {
-		&,
-		.content & {
-			margin:0;
-
-			&:not(:first-child) {
-				margin-top:2rem;
-			}
-
-			&:not(:last-child) {
-				margin-bottom:2rem;
-			}
-
-			figcaption {
-				margin:.5rem 0 0 0;
-				font-size:.875rem;
-				font-style: normal;
-				color: @secondary-font-color;
-			}
-		}
-	}
-}
-/*--------------------------------------------------------------
-HivePress
---------------------------------------------------------------*/
 .hp {
-	&-result-count {
-		.caption;
-		font-size: 0.6875rem;
-		color: @secondary-font-color;
-	}
-
 	&-link {
 		color: @primary-font-color;
 
@@ -2014,8 +2043,100 @@ HivePress
 		}
 	}
 
+	&-result-count {
+		.caption;
+		font-size: 0.6875rem;
+		color: @secondary-font-color;
+	}
+
 	&-map {
 		border-radius: @border-radius;
+	}
+
+	&-page,
+	&-section {
+		&__title {
+			position: relative;
+			padding-top: 1rem;
+
+			&:not(:last-child) {
+				margin-bottom: 1.75rem;
+			}
+
+			&::before {
+				position: absolute;
+				top: 0;
+				left: 0;
+				height: 4px;
+				width: 45px;
+				display: block;
+				content: '';
+				background-color: @primary-background-color;
+				background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+			}
+		}
+	}
+	/*--------------------------------------------------------------
+	16.1 Forms
+	--------------------------------------------------------------*/
+	&-form {
+		&--listing-search {
+			.block;
+			padding: 0.625rem;
+			align-items: center;
+
+			.home .site-content > div > div > &:first-child,
+			.tax-hp_listing_category .site-content > div > div > &:first-child {
+				margin-top: -6.25rem;
+			}
+		}
+
+		&--listing-search &__field,
+		&--listing-search &__fields {
+			&:not(:last-child) {
+				margin-right: 0.625rem;
+			}
+		}
+
+		&--listing-search &__field {
+			&:not(:last-child) {
+				border-right: 1px solid @border-color;
+			}
+		}
+
+		&--listing-search &__button {
+			height: 3.125rem;
+			padding-left: 2rem;
+			padding-right: 2rem;
+			font-size: 1.125rem;
+		}
+
+		&--listing-sort {
+			select {
+				.caption;
+				font-size: 0.6875rem;
+				padding: 0.25rem;
+			}
+		}
+
+		&__label {
+			.caption;
+			font-size: 0.6875rem;
+			margin-bottom: 0.75rem;
+		}
+
+		&--narrow &__button {
+			font-size: 1.125rem;
+			padding: 0.75rem 1.5rem;
+		}
+
+		&--narrow &__action {
+			line-height: 1.5;
+		}
+
+		&__action--request-password {
+			font-size: 0.875rem;
+		}
 	}
 
 	&-field {
@@ -2127,31 +2248,16 @@ HivePress
 		}
 	}
 
-	&-page,
-	&-section {
-		&__title {
-			position: relative;
-			padding-top: 1rem;
-
-			&:not(:last-child) {
-				margin-bottom: 1.75rem;
-			}
-
-			&::before {
-				position: absolute;
-				top: 0;
-				left: 0;
-				height: 4px;
-				width: 45px;
-				display: block;
-				content: '';
-				background-color: @primary-background-color;
-				background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
-			}
-		}
+	&-form--listing-search &-form__fields &-field {
+		padding-top: 0;
+		padding-bottom: 0;
+		border: none;
+		line-height: 3rem;
+		height: 3rem;
+		font-size: 1.125rem;
 	}
 	/*--------------------------------------------------------------
-	Listings
+	16.2 Listings
 	--------------------------------------------------------------*/
 	&-listing {
 		&--view-block {
@@ -2212,7 +2318,7 @@ HivePress
 				}
 			}
 		}
-		// todo
+
 		&__details &__category {
 			display: none!important;
 		}
@@ -2402,72 +2508,8 @@ HivePress
 			text-align: right;
 		}
 	}
-
-	&-form {
-		&--listing-search {
-			.block;
-			padding: 0.625rem;
-			align-items: center;
-		}
-
-		&--listing-search &__field,
-		&--listing-search &__fields {
-			&:not(:last-child) {
-				margin-right: 0.625rem;
-			}
-		}
-
-		&--listing-search &__field {
-			&:not(:last-child) {
-				border-right: 1px solid @border-color;
-			}
-		}
-
-		&--listing-search &__button {
-			height: 3.125rem;
-			padding-left: 2rem;
-			padding-right: 2rem;
-			font-size: 1.125rem;
-		}
-
-		&--listing-sort {
-			select {
-				.caption;
-				font-size: 0.6875rem;
-				padding: 0.25rem;
-			}
-		}
-
-		&__label {
-			.caption;
-			font-size: 0.6875rem;
-			margin-bottom: 0.75rem;
-		}
-
-		&--narrow &__button {
-			font-size: 1.125rem;
-			padding: 0.75rem 1.5rem;
-		}
-
-		&--narrow &__action {
-			line-height: 1.5;
-		}
-
-		&__action--request-password {
-			font-size: 0.875rem;
-		}
-	}
-
-	&-form--listing-search &-form__fields &-field {
-		padding-top: 0;
-		padding-bottom: 0;
-		border: none;
-		line-height: 3rem;
-		height: 3rem;
-		font-size: 1.125rem;
-	}
 	/*--------------------------------------------------------------
-	Listing Categories
+	16.3 Categories
 	--------------------------------------------------------------*/
 	&-listing-category {
 		&--view-block {
@@ -2530,13 +2572,13 @@ HivePress
 			top: 2rem;
 			z-index: 1;
 		}
-		// todo
+
 		&--view-block &__content &__count {
 			display: none;
 		}
 	}
 	/*--------------------------------------------------------------
-	Vendors
+	16.4 Vendors
 	--------------------------------------------------------------*/
 	&-vendor {
 		&--view-block {
@@ -2568,7 +2610,7 @@ HivePress
 		}
 	}
 	/*--------------------------------------------------------------
-	Reviews
+	16.5 Reviews
 	--------------------------------------------------------------*/
 	&-review {
 		&--view-block {
@@ -2597,7 +2639,7 @@ HivePress
 		}
 	}
 	/*--------------------------------------------------------------
-	Ratings
+	16.6 Ratings
 	--------------------------------------------------------------*/
 	&-rating {
 		&__details {
@@ -2610,7 +2652,7 @@ HivePress
 		}
 	}
 	/*--------------------------------------------------------------
-	Messages
+	16.7 Messages
 	--------------------------------------------------------------*/
 	&-message {
 		&--view-block {

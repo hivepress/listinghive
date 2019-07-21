@@ -73,7 +73,7 @@
 				elseif ( is_singular( 'post' ) ) :
 					get_template_part( 'templates/post/header' );
 				elseif ( is_tax( 'hp_listing_category' ) ) :
-					get_template_part( 'templates/todo/header' );
+					get_template_part( 'templates/listing-category/header' );
 				endif;
 				?>
 			</div>
