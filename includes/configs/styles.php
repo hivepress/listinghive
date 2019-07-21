@@ -14,6 +14,11 @@ return [
 		'src'    => HT_THEME_URL . '/assets/css/minireset.min.css',
 	],
 
+	'flexboxgrid'       => [
+		'handle' => 'flexboxgrid',
+		'src'    => HT_THEME_URL . '/assets/css/flexboxgrid.min.css',
+	],
+
 	'fontawesome'       => [
 		'handle' => 'fontawesome',
 		'src'    => HT_THEME_URL . '/assets/css/fontawesome.min.css',
