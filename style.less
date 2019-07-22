@@ -30,10 +30,10 @@ Variables
 @border-color-hover: rgba(0,0,0,0.1);
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-@animation-duration: 0.25s; /*--------------------------------------------------------------
+@animation-duration: 0.25s;
+/*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
-
 .image-container {
 	img {
 		display: block;
@@ -65,7 +65,7 @@ Mixins
 	list-style: none;
 
 	li {
-		margin:0;
+		margin: 0;
 	}
 }
 
@@ -137,7 +137,6 @@ Mixins
 /*--------------------------------------------------------------
 Normalize
 --------------------------------------------------------------*/
-
 body,
 html {
 	height: 100%;
@@ -160,7 +159,6 @@ body {
 /*--------------------------------------------------------------
 Typography
 --------------------------------------------------------------*/
-
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -177,13 +175,14 @@ h6 {
 	font-weight: @heading-font-weight;
 	color: @heading-font-color;
 	line-height: 1.25;
+	margin-top: 2rem;
 
-	&:not(:first-child) {
-		margin-top:2rem;
+	&:first-child {
+		margin-top: 0;
 	}
 
 	&:not(:last-child) {
-		margin-bottom:1rem;
+		margin-bottom: 1rem;
 	}
 
 	a {
@@ -237,35 +236,36 @@ a {
 }
 
 ul {
-	list-style:disc outside;
+	list-style: disc outside;
 }
 
 ol {
 	list-style-position: outside;
 }
 
-ul,
-ol {
-	margin-left:2rem;
+ol,
+ul {
+	margin-left: 2rem;
 
 	&:not(:last-child) {
-		margin-bottom:1rem;
+		margin-bottom: 1rem;
 	}
 
 	li {
 		&:not(:last-child) {
-			margin-bottom:.5rem;
+			margin-bottom: 0.5rem;
 		}
 	}
 
-	ul,
-	ol {
-		margin-top:.5rem;
+	ol,
+	ul {
+		margin-top: 0.5rem;
 	}
 }
 /*--------------------------------------------------------------
 Accessibility
 --------------------------------------------------------------*/
+
 .screen-reader-text {
 	position: absolute;
 	overflow: hidden;
@@ -282,6 +282,7 @@ Accessibility
 /*--------------------------------------------------------------
 Alignments
 --------------------------------------------------------------*/
+
 .aligncenter,
 .alignnone {
 	clear: both;
@@ -331,11 +332,21 @@ Alignments
 /*--------------------------------------------------------------
 Media
 --------------------------------------------------------------*/
+
 .wp-caption {
+	max-width: 100%;
+
+	> img,
+	> a > img {
+		width: 100%;
+		display: block;
+	}
+
 	&-text {
 		font-size: 0.875rem;
 		color: @secondary-font-color;
 		margin-top: 0.5rem;
+		line-height: 1.5;
 	}
 }
 
@@ -358,7 +369,6 @@ Media
 /*--------------------------------------------------------------
 Forms
 --------------------------------------------------------------*/
-
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -404,6 +414,7 @@ input[type=radio] {
 /*--------------------------------------------------------------
 Tables
 --------------------------------------------------------------*/
+
 table {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -428,7 +439,6 @@ table {
 /*--------------------------------------------------------------
 Buttons
 --------------------------------------------------------------*/
-
 .button,
 button,
 input[type=submit] {
@@ -466,7 +476,7 @@ button {
 		transition: opacity @animation-duration;
 		opacity: 0;
 		background-color: rgba(255,255,255,.1);
-		border-radius:@border-radius;
+		border-radius: @border-radius;
 	}
 
 	&:hover::before {
@@ -482,14 +492,12 @@ button {
 /*--------------------------------------------------------------
 Layout
 --------------------------------------------------------------*/
-
 .site-container {
 	flex: 1 0 auto;
 }
 /*--------------------------------------------------------------
 Header
 --------------------------------------------------------------*/
-
 .header-navbar {
 	padding: 1rem 2rem;
 	display: flex;
@@ -509,7 +517,6 @@ Header
 		display: flex;
 		align-self: stretch;
 		margin: -1rem -1rem -1rem 0;
-
 		@media only screen and (max-width: 74.99em) {
 			display: none;
 		}
@@ -613,12 +620,11 @@ Header
 	&__burger {
 		> a {
 			color: @icon-color;
-			display:none;
+			display: none;
 
 			&:hover {
 				color: @icon-color-hover;
 			}
-
 			@media only screen and (max-width: 74.99em) {
 				display: block;
 			}
@@ -626,13 +632,13 @@ Header
 
 		ul {
 			.unstyled-list;
-			display:none;
+			display: none;
 
 			li {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-				padding:.25rem 0;
+				padding: 0.25rem 0;
 
 				&.menu-item-has-children {
 					&::after {
@@ -690,7 +696,7 @@ Header
 			}
 
 			> li {
-				position:relative;
+				position: relative;
 
 				&.current-menu-item {
 					&::before {
@@ -773,20 +779,17 @@ Header
 /*--------------------------------------------------------------
 Content
 --------------------------------------------------------------*/
-
 .site-content {
 	padding: 4rem 0;
 	position: relative;
 	z-index: 1;
-
 	@media only screen and (max-width: 74.99em) {
-		padding:3rem 0;
+		padding: 3rem 0;
 	}
 }
 /*--------------------------------------------------------------
 Footer
 --------------------------------------------------------------*/
-
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -850,7 +853,6 @@ Footer
 /*--------------------------------------------------------------
 Modal
 --------------------------------------------------------------*/
-
 .fancybox {
 	&-content {
 		border-radius: @border-radius;
@@ -859,7 +861,6 @@ Modal
 /*--------------------------------------------------------------
 Loader
 --------------------------------------------------------------*/
-
 .site-loader {
 	.center-container;
 	position: fixed;
@@ -887,7 +888,6 @@ Loader
 /*--------------------------------------------------------------
 Widgets
 --------------------------------------------------------------*/
-
 .widget {
 	&--sidebar {
 		.block;
@@ -944,22 +944,21 @@ Widgets
 	&_pages,
 	&_recent_entries {
 		ul {
-			margin-left:0;
-			list-style:none;
+			margin-left: 0;
+			list-style: none;
 		}
 	}
 
 	&_archive,
 	&_categories {
 		select {
-			width:100%;
+			width: 100%;
 		}
 	}
 }
 /*--------------------------------------------------------------
 Posts
 --------------------------------------------------------------*/
-
 .post {
 	&--archive {
 		margin-bottom: 2rem;
@@ -1141,11 +1140,18 @@ Posts
 		&:not(:last-child) {
 			margin-bottom: 1.5rem;
 		}
+
+		&::after {
+			content: '';
+			clear: both;
+			display: table;
+		}
 	}
 }
 /*--------------------------------------------------------------
 Tags
 --------------------------------------------------------------*/
+
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -1164,7 +1170,6 @@ Tags
 /*--------------------------------------------------------------
 Comments
 --------------------------------------------------------------*/
-
 .comments {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -1285,31 +1290,31 @@ Comments
 
 	&__text {
 		ul {
-			list-style:disc outside;
+			list-style: disc outside;
 		}
 
 		ol {
 			list-style-position: outside;
 		}
 
-		ul,
-		ol {
-			margin-left:2rem;
-			padding-left:0!important;
+		ol,
+		ul {
+			margin-left: 2rem;
+			padding-left: 0!important;
 
 			&:not(:last-child) {
-				margin-bottom:1rem;
+				margin-bottom: 1rem;
 			}
 
 			li {
 				&:not(:last-child) {
-					margin-bottom:.5rem;
+					margin-bottom: 0.5rem;
 				}
 			}
 
-			ul,
-			ol {
-				margin-top:.5rem;
+			ol,
+			ul {
+				margin-top: 0.5rem;
 			}
 		}
 	}
@@ -1410,7 +1415,6 @@ Comments
 /*--------------------------------------------------------------
 Pagination
 --------------------------------------------------------------*/
-
 .pagination {
 	display: flex;
 	align-items: center;
@@ -1429,10 +1433,10 @@ Pagination
 		align-items: center;
 	}
 
-	> a,
+	> span,
 	.nav-links > a,
 	.nav-links > span,
-	> span {
+	> a {
 		.center-container;
 		border: 2px solid transparent;
 		border-radius: 50%;
@@ -1476,15 +1480,15 @@ Pagination
 		}
 	}
 
-	> span,
-	.nav-links > span {
+	.nav-links > span,
+	> span {
 		&:not(.dots) {
 			border-color: @border-color;
 		}
 	}
 
-	> a,
-	.nav-links > a {
+	.nav-links > a,
+	> a {
 		&:hover {
 			color: @primary-font-color;
 		}
@@ -1493,6 +1497,7 @@ Pagination
 /*--------------------------------------------------------------
 HivePress
 --------------------------------------------------------------*/
+
 .hp {
 	&-link {
 		&:hover {
@@ -1528,6 +1533,41 @@ HivePress
 
 		&__action--request-password {
 			font-size: 0.875rem;
+		}
+
+		&--listing-search {
+			.block;
+			padding: 0.625rem;
+			align-items: center;
+		}
+
+		&--listing-search &__field {
+			&:not(:last-child) {
+				border-right: 1px solid @border-color;
+			}
+		}
+
+		&--listing-search &__button {
+			height: 3.125rem;
+			padding-left: 2rem;
+			padding-right: 2rem;
+			font-size: 1.125rem;
+		}
+
+		&--listing-sort {
+			select {
+				.caption;
+				font-size: 0.6875rem;
+				padding: 0.25rem;
+			}
+		}
+	}
+	/*--------------------------------------------------------------
+	Listings
+	--------------------------------------------------------------*/
+	&-listing {
+		&--view-block {
+			.block;
 		}
 	}
 }
