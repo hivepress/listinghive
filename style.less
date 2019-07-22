@@ -63,6 +63,10 @@ Mixins
 	margin: 0;
 	padding: 0;
 	list-style: none;
+
+	li {
+		margin:0;
+	}
 }
 
 .icon {
@@ -174,6 +178,14 @@ h6 {
 	color: @heading-font-color;
 	line-height: 1.25;
 
+	&:not(:first-child) {
+		margin-top:2rem;
+	}
+
+	&:not(:last-child) {
+		margin-bottom:1rem;
+	}
+
 	a {
 		color: inherit;
 
@@ -188,19 +200,19 @@ h1 {
 }
 
 h2 {
-	font-size: 2rem;
+	font-size: 1.875rem;
 }
 
 h3 {
-	font-size: 1.75rem;
+	font-size: 1.5625rem;
 }
 
 h4 {
-	font-size: 1.5rem;
+	font-size: 1.3125rem;
 }
 
 h5 {
-	font-size: 1.25rem;
+	font-size: 1.125rem;
 }
 
 h6 {
@@ -221,6 +233,34 @@ a {
 
 	&:hover {
 		color: #1db1fc;
+	}
+}
+
+ul {
+	list-style:disc outside;
+}
+
+ol {
+	list-style-position: outside;
+}
+
+ul,
+ol {
+	margin-left:2rem;
+
+	&:not(:last-child) {
+		margin-bottom:1rem;
+	}
+
+	li {
+		&:not(:last-child) {
+			margin-bottom:.5rem;
+		}
+	}
+
+	ul,
+	ol {
+		margin-top:.5rem;
 	}
 }
 /*--------------------------------------------------------------
@@ -291,6 +331,14 @@ Alignments
 /*--------------------------------------------------------------
 Media
 --------------------------------------------------------------*/
+.wp-caption {
+	&-text {
+		font-size: 0.875rem;
+		color: @secondary-font-color;
+		margin-top: 0.5rem;
+	}
+}
+
 .mejs {
 	&-audio &-controls,
 	&-audio&-container {
@@ -354,6 +402,30 @@ input[type=radio] {
 	color: @secondary-font-color;
 }
 /*--------------------------------------------------------------
+Tables
+--------------------------------------------------------------*/
+table {
+	&:not(:last-child) {
+		margin-bottom: 2rem;
+	}
+
+	td,
+	th {
+		border: 1px solid @border-color;
+		border-width: 0 0 1px;
+		padding: 0.5rem;
+		vertical-align: top;
+
+		&:first-child {
+			padding-left: 0;
+		}
+
+		&:last-child {
+			padding-right: 0;
+		}
+	}
+}
+/*--------------------------------------------------------------
 Buttons
 --------------------------------------------------------------*/
 
@@ -386,6 +458,27 @@ button[type="submit"],
 input[type=submit] {
 	background-color: @primary-background-color;
 }
+
+.button,
+button {
+	&::before {
+		.overlay;
+		transition: opacity @animation-duration;
+		opacity: 0;
+		background-color: rgba(255,255,255,.1);
+		border-radius:@border-radius;
+	}
+
+	&:hover::before {
+		opacity: 1;
+	}
+}
+
+.wp-block-button {
+	&__link {
+		.button;
+	}
+}
 /*--------------------------------------------------------------
 Layout
 --------------------------------------------------------------*/
@@ -416,6 +509,10 @@ Header
 		display: flex;
 		align-self: stretch;
 		margin: -1rem -1rem -1rem 0;
+
+		@media only screen and (max-width: 74.99em) {
+			display: none;
+		}
 
 		&:not(:last-child) {
 			margin-right: 1rem;
@@ -516,23 +613,26 @@ Header
 	&__burger {
 		> a {
 			color: @icon-color;
+			display:none;
 
 			&:hover {
 				color: @icon-color-hover;
+			}
+
+			@media only screen and (max-width: 74.99em) {
+				display: block;
 			}
 		}
 
 		ul {
 			.unstyled-list;
+			display:none;
 
 			li {
 				display: flex;
 				align-items: center;
 				justify-content: space-between;
-
-				&:not(:last-child) {
-					margin-bottom: 0.5rem;
-				}
+				padding:.25rem 0;
 
 				&.menu-item-has-children {
 					&::after {
@@ -586,6 +686,24 @@ Header
 
 				&:hover {
 					color: @icon-color-hover;
+				}
+			}
+
+			> li {
+				position:relative;
+
+				&.current-menu-item {
+					&::before {
+						position: absolute;
+						top: 0;
+						left: -2rem;
+						bottom: 0;
+						display: block;
+						width: 3px;
+						content: '';
+						background-color: @primary-background-color;
+						background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+					}
 				}
 			}
 		}
@@ -660,6 +778,10 @@ Content
 	padding: 4rem 0;
 	position: relative;
 	z-index: 1;
+
+	@media only screen and (max-width: 74.99em) {
+		padding:3rem 0;
+	}
 }
 /*--------------------------------------------------------------
 Footer
@@ -808,6 +930,31 @@ Widgets
 			}
 		}
 	}
+
+	&_calendar {
+		table {
+			width: 100%;
+		}
+	}
+
+	&_archive,
+	&_categories,
+	&_meta,
+	&_nav_menu,
+	&_pages,
+	&_recent_entries {
+		ul {
+			margin-left:0;
+			list-style:none;
+		}
+	}
+
+	&_archive,
+	&_categories {
+		select {
+			width:100%;
+		}
+	}
 }
 /*--------------------------------------------------------------
 Posts
@@ -815,11 +962,9 @@ Posts
 
 .post {
 	&--archive {
-		&:not(:last-child) {
-			margin-bottom: 2rem;
-			padding-bottom: 2rem;
-			border-bottom: 1px solid @border-color;
-		}
+		margin-bottom: 2rem;
+		padding-bottom: 2rem;
+		border-bottom: 1px solid @border-color;
 	}
 
 	&--archive &__header {
@@ -1025,6 +1170,10 @@ Comments
 		margin-bottom: 2rem;
 	}
 
+	ul {
+		.unstyled-list;
+	}
+
 	> ul {
 		> li {
 			.block;
@@ -1133,6 +1282,37 @@ Comments
 			}
 		}
 	}
+
+	&__text {
+		ul {
+			list-style:disc outside;
+		}
+
+		ol {
+			list-style-position: outside;
+		}
+
+		ul,
+		ol {
+			margin-left:2rem;
+			padding-left:0!important;
+
+			&:not(:last-child) {
+				margin-bottom:1rem;
+			}
+
+			li {
+				&:not(:last-child) {
+					margin-bottom:.5rem;
+				}
+			}
+
+			ul,
+			ol {
+				margin-top:.5rem;
+			}
+		}
+	}
 }
 
 .comment-respond {
@@ -1176,9 +1356,27 @@ Comments
 		color: @secondary-font-color;
 	}
 
+	.logged-in-as {
+		a {
+			&:first-child {
+				color: inherit;
+				pointer-events: none;
+			}
+		}
+	}
+
 	[class^='comment-form-'] {
 		display: block;
 		margin-bottom: 1.5rem;
+
+		> label {
+			&:first-child {
+				.caption;
+				display: block;
+				font-size: 0.6875rem;
+				margin-bottom: 0.75rem;
+			}
+		}
 	}
 
 	input[type='color'],
@@ -1217,6 +1415,10 @@ Pagination
 	display: flex;
 	align-items: center;
 	justify-content: center;
+
+	&:not(:first-child) {
+		margin-top: 2rem;
+	}
 
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -1303,6 +1505,29 @@ HivePress
 
 		&:hover i {
 			color: @primary-font-color;
+		}
+	}
+	/*--------------------------------------------------------------
+	Forms
+	--------------------------------------------------------------*/
+	&-form {
+		&__label {
+			.caption;
+			font-size: 0.6875rem;
+			margin-bottom: 0.75rem;
+		}
+
+		&--narrow &__button {
+			font-size: 1.125rem;
+			padding: 0.75rem 1.25rem;
+		}
+
+		&--narrow &__action {
+			line-height: 1.5;
+		}
+
+		&__action--request-password {
+			font-size: 0.875rem;
 		}
 	}
 }
