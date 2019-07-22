@@ -30,6 +30,17 @@
 						</div>
 					</div>
 					<div class="header-navbar__end">
+						<div class="header-navbar__burger" data-component="burger">
+							<a href="#"><i class="fas fa-bars"></i></a>
+							<?php
+							wp_nav_menu(
+								[
+									'theme_location' => 'header',
+									'container'      => 'ul',
+								]
+							);
+							?>
+						</div>
 						<nav class="header-navbar__menu" data-component="menu">
 							<?php
 							wp_nav_menu(
@@ -45,17 +56,6 @@
 								<?php do_action( 'hivetheme/v1/render/site_header' ); ?>
 							</div>
 						<?php endif; ?>
-						<div class="header-navbar__burger" data-component="burger">
-							<a href="#"><i class="fas fa-bars"></i></a>
-							<?php
-							wp_nav_menu(
-								[
-									'theme_location' => 'header',
-									'container'      => 'ul',
-								]
-							);
-							?>
-						</div>
 					</div>
 				</div>
 				<?php

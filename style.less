@@ -252,6 +252,12 @@ ul {
 		margin-top: 0.5rem;
 	}
 }
+
+blockquote {
+	border-left: 3px solid @primary-background-color;
+	padding: 1rem 0 1rem 1.5rem;
+	font-size:1.125rem;
+}
 /*--------------------------------------------------------------
 Accessibility
 --------------------------------------------------------------*/
@@ -443,6 +449,11 @@ input[type=submit] {
 	display: inline-block;
 	cursor: pointer;
 	border: none;
+}
+
+.button--large {
+	font-size: 1.125rem;
+	padding: 0.75rem 1.25rem;
 }
 
 .button--primary,
@@ -721,7 +732,7 @@ Header
 		font-size: 1.5625rem;
 
 		&:not(:last-child) {
-			margin-bottom:.25rem;
+			margin-bottom: 0.25rem;
 		}
 	}
 
@@ -947,6 +958,59 @@ Widgets
 			width: 100%;
 		}
 	}
+
+	&_recent_comments,
+	&_rss {
+		ul {
+			.unstyled-list;
+
+			li {
+				padding-left: 1.5rem;
+				position: relative;
+				color: @secondary-font-color;
+
+				&:not(:last-child) {
+					margin-bottom: 0.75rem;
+				}
+
+				&::before {
+					.icon;
+					color: @icon-color;
+					position: absolute;
+					left: 0;
+					top: 0.25rem;
+				}
+			}
+		}
+	}
+
+	&_recent_comments {
+		ul {
+			li {
+				&::before {
+					content: '\f075';
+				}
+			}
+
+			.comment-author-link {
+				color: @body-font-color;
+
+				a {
+					color: inherit;
+					pointer-events: none;
+				}
+			}
+		}
+	}
+}
+/*--------------------------------------------------------------
+Blocks
+--------------------------------------------------------------*/
+.wp-block {
+	&-quote {
+		border-left:3px solid @primary-background-color;
+		padding-left:1.5rem;
+	}
 }
 /*--------------------------------------------------------------
 Posts
@@ -999,7 +1063,7 @@ Posts
 
 	&__title {
 		word-wrap: break-word;
-		margin-top:0;
+		margin-top: 0;
 	}
 
 	&--single &__title {
@@ -1021,6 +1085,10 @@ Posts
 	&--single &__categories,
 	&--single &__details {
 		justify-content: center;
+	}
+
+	&.sticky &__details {
+		background-color:transparent;
 	}
 
 	&__categories {
@@ -1413,6 +1481,14 @@ Comments
 
 	.form-submit {
 		margin: 0;
+
+		input[type=submit] {
+			@media only screen and (max-width: 48em) {
+				font-size: 1.125rem;
+				padding: 0.75rem 1.25rem;
+				width: 100%;
+			}
+		}
 	}
 }
 /*--------------------------------------------------------------
@@ -1552,6 +1628,9 @@ HivePress
 			.block;
 			padding: 0.625rem;
 			align-items: center;
+			@media only screen and (max-width: 48em) {
+				align-items: stretch;
+			}
 
 			.tax-hp_listing_category & {
 				margin-top: -6.25rem;
@@ -1562,12 +1641,27 @@ HivePress
 		&--listing-search &__fields {
 			&:not(:last-child) {
 				margin-right: 0.625rem;
+				@media only screen and (max-width: 48em) {
+					margin: 0;
+				}
+			}
+		}
+
+		&--listing-search &__fields {
+			@media only screen and (max-width: 48em) {
+				&:not(:last-child) {
+					margin-bottom: 0.625rem;
+				}
 			}
 		}
 
 		&--listing-search &__field {
 			&:not(:last-child) {
 				border-right: 1px solid @border-color;
+				@media only screen and (max-width: 48em) {
+					border-right: none;
+					border-bottom: 1px solid @border-color;
+				}
 			}
 
 			input[type='color'],
@@ -1754,6 +1848,43 @@ HivePress
 			}
 		}
 
+		&__images {
+			&-slider {
+				border-radius: @border-radius;
+				overflow: hidden;
+			}
+
+			> img {
+				border-radius: @border-radius;
+			}
+
+			&-carousel {
+				.slick {
+					&-slide {
+						img {
+							border: 2px solid transparent;
+							border-radius: 4px;
+							opacity: 0.6;
+							transition: border-color @animation-duration, opacity @animation-duration;
+						}
+					}
+
+					&-current {
+						img {
+							border-color: @primary-background-color;
+							opacity: 1;
+						}
+					}
+				}
+			}
+		}
+
+		&--view-page &__title {
+			&:not(:last-child) {
+				margin-bottom: 1.25rem;
+			}
+		}
+
 		&__details &__category {
 			display: none!important;
 		}
@@ -1762,7 +1893,7 @@ HivePress
 		&--view-page &__category {
 			display: flex;
 			flex-wrap: wrap;
-			margin-bottom:-.5rem;
+			margin-bottom: -.5rem;
 
 			&:not(:last-child) {
 				margin-bottom: 0;
@@ -1770,7 +1901,7 @@ HivePress
 
 			a {
 				.label;
-				margin-bottom:.5rem;
+				margin-bottom: 0.5rem;
 
 				&:not(:last-child) {
 					margin-right: 0.5rem;
@@ -1838,13 +1969,88 @@ HivePress
 				border-color: #ffcb00;
 			}
 		}
+
+		&--view-block &__attributes--secondary {
+			margin-bottom: -.25rem;
+
+			&:not(:last-child) {
+				margin-bottom: 0.5rem;
+			}
+		}
+
+		&--view-page &__attributes--secondary {
+			margin-bottom: -.5rem;
+
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+		}
+
+		&--view-block &__attributes--secondary &__attribute,
+		&--view-page &__attributes--secondary &__attribute {
+			strong {
+				color: @heading-font-color;
+			}
+		}
+
+		&--view-block &__attributes--secondary &__attribute {
+			font-size: 0.875rem;
+			margin-bottom: 0.25rem;
+		}
+
+		&--view-page &__attributes--secondary &__attribute {
+			margin-bottom: 0.5rem;
+		}
+
+		&--view-page &__attributes--primary {
+			.block;
+			padding: 2rem;
+		}
+
+		&--view-block &__attributes--primary &__attribute {
+			font-size: 1.125rem;
+		}
+
+		&--view-page &__attributes--primary &__attribute {
+			background-color: transparent;
+			padding: 0;
+
+			&:not(:last-child) {
+				border-bottom: 1px solid @border-color;
+				padding-bottom: 1rem;
+			}
+		}
+
+		&--view-block &__actions--primary &__action {
+			opacity: 1;
+
+			i {
+				color: @icon-color;
+			}
+
+			&:hover,
+			&[data-state=active] {
+				i {
+					color: @icon-color-hover;
+				}
+			}
+		}
+
+		&--view-block &__actions--primary &__action,
+		&--view-page &__actions--primary &__action {
+			&--favorite[data-state=active] {
+				i {
+					color: #ff5a5f;
+				}
+			}
+		}
 	}
 	/*--------------------------------------------------------------
 	Listing Categories
 	--------------------------------------------------------------*/
 	&-listing-category {
 		&--view-block {
-			position:relative;
+			position: relative;
 			border-radius: @border-radius;
 			transition: transform @animation-duration;
 			color: #fff;
@@ -1855,7 +2061,7 @@ HivePress
 		}
 
 		&--view-page &__header {
-			display:flex;
+			display: flex;
 			flex-direction: column;
 			align-items: center;
 		}
@@ -1887,20 +2093,20 @@ HivePress
 			}
 		}
 
-		&--view-block &__name,
-		&--view-block &__description {
+		&--view-block &__description,
+		&--view-block &__name {
 			text-align: left;
 		}
 
-		&--view-page &__name,
-		&--view-page &__description {
-			text-align:center;
+		&--view-page &__description,
+		&--view-page &__name {
+			text-align: center;
 		}
 
 		&__count {
 			.label;
-			color:#fff;
-			background-color:@secondary-background-color-invert;
+			color: #fff;
+			background-color: @secondary-background-color-invert;
 		}
 
 		&--view-block &__count {
@@ -1912,7 +2118,7 @@ HivePress
 
 		&--view-page &__count {
 			&:not(:last-child) {
-				margin-bottom:1rem;
+				margin-bottom: 1rem;
 			}
 		}
 
@@ -1926,6 +2132,30 @@ HivePress
 	&-vendor {
 		&--view-block {
 			.block;
+		}
+
+		&--view-block &__header {
+			padding: 3rem 2rem 0;
+		}
+
+		&--view-block &__content {
+			padding: 0 2rem 3rem;
+
+			&:not(:last-child) {
+				margin-bottom: 0;
+			}
+		}
+
+		&--view-block &__footer {
+			border-top: 1px solid @border-color;
+			padding: 1rem 1.5rem;
+		}
+
+		&--view-block &__date,
+		&--view-page &__date {
+			.caption;
+			font-size: 0.6875rem;
+			color: @secondary-font-color;
 		}
 	}
 	/*--------------------------------------------------------------
