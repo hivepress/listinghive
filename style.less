@@ -10,6 +10,40 @@ Tags: right-sidebar, custom-colors, custom-menu, custom-logo, custom-header, fea
 Text Domain: listinghive
 */
 /*--------------------------------------------------------------
+TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Normalize
+2.0 Typography
+3.0 Accessibility
+4.0 Alignments
+5.0 Media
+6.0 Forms
+7.0 Tables
+8.0 Buttons
+9.0 Layout
+	9.1 Header
+	9.2 Content
+	9.3 Section
+	9.4 Footer
+	9.5 Modal
+	9.6 Loader
+10.0 Widgets
+11.0 Blocks
+12.0 Pages
+13.0 Posts
+14.0 Tags
+15.0 Comments
+16.0 Pagination
+17.0 HivePress
+	17.1 Forms
+	17.2 Listings
+	17.3 Listing categories
+	17.4 Vendors
+	17.5 Reviews
+	17.6 Ratings
+	17.7 Messages
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
 Variables
 --------------------------------------------------------------*/
 @heading-font-family: 'Poppins', sans-serif;
@@ -142,7 +176,7 @@ Mixins
 	}
 }
 /*--------------------------------------------------------------
-Normalize
+1.0 Normalize
 --------------------------------------------------------------*/
 body,
 html {
@@ -164,7 +198,7 @@ body {
 	}
 }
 /*--------------------------------------------------------------
-Typography
+2.0 Typography
 --------------------------------------------------------------*/
 body {
 	font-family: @body-font-family;
@@ -373,7 +407,7 @@ hr {
 	margin: 2rem 0;
 }
 /*--------------------------------------------------------------
-Accessibility
+3.0 Accessibility
 --------------------------------------------------------------*/
 
 .screen-reader-text {
@@ -390,7 +424,7 @@ Accessibility
 	clip-path: inset(50%);
 }
 /*--------------------------------------------------------------
-Alignments
+4.0 Alignments
 --------------------------------------------------------------*/
 
 .aligncenter,
@@ -440,7 +474,7 @@ Alignments
 	}
 }
 /*--------------------------------------------------------------
-Media
+5.0 Media
 --------------------------------------------------------------*/
 .gallery {
 	&:not(:first-child) {
@@ -503,7 +537,7 @@ Media
 	}
 }
 /*--------------------------------------------------------------
-Forms
+6.0 Forms
 --------------------------------------------------------------*/
 input[type='color'],
 input[type='date'],
@@ -548,7 +582,7 @@ input[type=radio] {
 	color: @secondary-font-color;
 }
 /*--------------------------------------------------------------
-Tables
+7.0 Tables
 --------------------------------------------------------------*/
 
 table {
@@ -585,12 +619,15 @@ table {
 	}
 
 	&:not(.wp-block-table) {
-		&:first-child {
-			padding-left: 0;
-		}
+		td,
+		th {
+			&:first-child {
+				padding-left: 0;
+			}
 
-		&:last-child {
-			padding-right: 0;
+			&:last-child {
+				padding-right: 0;
+			}
 		}
 	}
 
@@ -619,10 +656,8 @@ table {
 		}
 	}
 }
-
-.wp-block-table {}
 /*--------------------------------------------------------------
-Buttons
+8.0 Buttons
 --------------------------------------------------------------*/
 .button,
 button,
@@ -631,7 +666,8 @@ input[type=submit] {
 	border-radius: @border-radius;
 	font-family: @heading-font-family;
 	font-weight: @heading-font-weight;
-	background-color: red;
+	background-color: rgba(0,0,0,0.08);
+	color: @body-font-color;
 	padding: 0.5rem 1rem;
 	font-size: 1rem;
 	position: relative;
@@ -660,6 +696,10 @@ input[type=submit] {
 	background-color: @primary-background-color;
 }
 
+.button--secondary {
+	background-color: @ternary-background-color;
+}
+
 .button,
 button {
 	&::before {
@@ -667,7 +707,14 @@ button {
 		transition: opacity @animation-duration;
 		opacity: 0;
 		background-color: rgba(255,255,255,.1);
-		border-radius: @border-radius;
+		border-radius: inherit;
+	}
+
+	&:not(.button--primary),
+	&:not(.button--secondary) {
+		&::before {
+			background-color: rgba(0,0,0,.06);
+		}
 	}
 
 	&:hover::before {
@@ -676,13 +723,20 @@ button {
 }
 
 .wp-block-button {
+	color: @body-font-color;
+
 	&__link {
 		.button;
 	}
 
 	&.is-style-outline &__link {
 		border: 2px solid @border-color;
-		color: red;
+		transition: border-color @animation-duration;
+		padding: 0.375rem 0.875rem;
+
+		&::before {
+			opacity: 0;
+		}
 
 		&:hover {
 			border-color: @border-color-hover;
@@ -690,13 +744,13 @@ button {
 	}
 }
 /*--------------------------------------------------------------
-Layout
+9.0 Layout
 --------------------------------------------------------------*/
 .site-container {
 	flex: 1 0 auto;
 }
 /*--------------------------------------------------------------
-Header
+9.1 Header
 --------------------------------------------------------------*/
 .header-navbar {
 	padding: 1rem 2rem;
@@ -980,7 +1034,7 @@ Header
 	}
 }
 /*--------------------------------------------------------------
-Content
+9.2 Content
 --------------------------------------------------------------*/
 .site-content {
 	padding: 4rem 0;
@@ -990,8 +1044,45 @@ Content
 		padding: 3rem 0;
 	}
 }
+
+.site-sidebar {
+	@media screen and (max-width: 47.99em) {
+		&:not(:first-child) {
+			margin-top: 3rem;
+		}
+	}
+}
 /*--------------------------------------------------------------
-Footer
+9.3 Section
+--------------------------------------------------------------*/
+.section {
+	&:not(:first-child) {
+		margin-top: 3rem;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+
+	&__title {
+		.title;
+
+		&:not(:last-child) {
+			margin-bottom: 1.5rem;
+		}
+
+		&--center {
+			text-align: center;
+
+			&::before {
+				left: 50%;
+				margin-left: -22.5px;
+			}
+		}
+	}
+}
+/*--------------------------------------------------------------
+9.4 Footer
 --------------------------------------------------------------*/
 .site-footer {
 	flex-shrink: 0;
@@ -1028,22 +1119,23 @@ Footer
 	}
 
 	&__menu {
-		> ul {
+		ul {
 			.unstyled-list;
 			display: flex;
 			flex-wrap: wrap;
 			justify-content: center;
 			margin-bottom: -.5rem;
 
-			> li {
+			li {
 				margin-bottom: 0.5rem;
 
 				&:not(:last-child) {
 					margin-right: 2rem;
 				}
 
-				> a {
+				a {
 					color: @secondary-font-color;
+					transition: color @animation-duration;
 
 					&:hover {
 						color: @primary-font-color;
@@ -1058,36 +1150,7 @@ Footer
 	}
 }
 /*--------------------------------------------------------------
-Section
---------------------------------------------------------------*/
-.section {
-	&:not(:first-child) {
-		margin-top: 3rem;
-	}
-
-	&:not(:last-child) {
-		margin-bottom: 3rem;
-	}
-
-	&__title {
-		.title;
-
-		&:not(:last-child) {
-			margin-bottom: 1.25rem;
-		}
-
-		&--center {
-			text-align: center;
-
-			&::before {
-				left: 50%;
-				margin-left: -22.5px;
-			}
-		}
-	}
-}
-/*--------------------------------------------------------------
-Modal
+9.5 Modal
 --------------------------------------------------------------*/
 .fancybox {
 	&-content {
@@ -1095,7 +1158,7 @@ Modal
 	}
 }
 /*--------------------------------------------------------------
-Loader
+9.6 Loader
 --------------------------------------------------------------*/
 .site-loader {
 	.center-container;
@@ -1122,7 +1185,7 @@ Loader
 	}
 }
 /*--------------------------------------------------------------
-Widgets
+10.0 Widgets
 --------------------------------------------------------------*/
 .widget {
 	&--sidebar {
@@ -1179,25 +1242,22 @@ Widgets
 	&_calendar {
 		table {
 			width: 100%;
-		}
-	}
 
-	&_archive,
-	&_categories,
-	&_meta,
-	&_nav_menu,
-	&_pages,
-	&_recent_entries {
-		ul {
-			margin-left: 0;
-			list-style: none;
-		}
-	}
+			tfoot {
+				td {
+					padding-bottom: 0;
 
-	&_archive,
-	&_categories {
-		select {
-			width: 100%;
+					&:last-child {
+						text-align: right;
+					}
+				}
+			}
+		}
+
+		caption {
+			.caption;
+			font-size: 0.875rem;
+			margin-bottom: 0.5rem;
 		}
 	}
 
@@ -1244,10 +1304,58 @@ Widgets
 			}
 		}
 	}
+
+	&_rss {
+		ul {
+			li {
+				&::before {
+					content: '\f15b';
+				}
+
+				.rss-date,
+				a {
+					display: block;
+					margin-bottom: 0.5rem;
+				}
+
+				.rss-date {
+					.caption;
+					font-size: 0.6875rem;
+				}
+
+				div {
+					color: @body-font-color;
+				}
+
+				cite {
+					font-size: 0.875rem;
+					display: block;
+					margin-top: 0.25rem;
+					font-style: normal;
+				}
+			}
+		}
+	}
+
+	&_archive,
+	&_categories,
+	&_meta,
+	&_nav_menu,
+	&_pages,
+	&_recent_entries {
+		ul {
+			margin-left: 0;
+			list-style: none;
+		}
+	}
+
+	&_archive,
+	&_categories {
+		select {
+			width: 100%;
+		}
+	}
 }
-/*--------------------------------------------------------------
-Blocks
---------------------------------------------------------------*/
 
 .wp-block {
 	&-archives,
@@ -1270,14 +1378,103 @@ Blocks
 			list-style: none;
 		}
 	}
+}
 
+.widget_archive,
+.widget_categories,
+.widget_meta,
+.widget_nav_menu,
+.widget_pages,
+.widget_recent_entries,
+.wp-block-archives,
+.wp-block-categories,
+.wp-block-latest-posts {
+	li {
+		padding-left: 1.5rem;
+		position: relative;
+		color: @secondary-font-color;
+
+		&::before {
+			.icon;
+			color: @icon-color;
+			position: absolute;
+			left: 0;
+			top: 0.25rem;
+			transition: color @animation-duration;
+		}
+
+		a {
+			transition: color @animation-duration;
+			color: @body-font-color;
+
+			&:hover {
+				color: @primary-font-color;
+			}
+		}
+
+		&.current-cat,
+		&.current-menu-item,
+		&:hover {
+			&::before,
+			> a {
+				color: @primary-font-color;
+			}
+		}
+	}
+}
+
+.widget_pages,
+.widget_recent_entries,
+.wp-block-latest-posts {
+	li {
+		&::before {
+			font-size: 16px;
+			content: '\f15b';
+		}
+	}
+}
+
+.wp-block-latest-posts {
+	&__post-date {
+		color: @secondary-font-color;
+		font-size: 0.875rem;
+	}
+}
+
+.widget_archive,
+.widget_categories,
+.widget_meta,
+.widget_nav_menu,
+.wp-block-archives,
+.wp-block-categories {
+	li {
+		&::before {
+			font-size: 14px;
+			content: '\f054';
+		}
+	}
+}
+/*--------------------------------------------------------------
+11.0 Blocks
+--------------------------------------------------------------*/
+
+.wp-block {
 	&-quote {
 		border-left: 3px solid @primary-background-color;
 		padding-left: 1.5rem;
+		margin: 0;
 
 		&[style*="text-align:right"] {
 			border-right: 3px solid @primary-background-color;
 			padding-right: 1.5rem;
+		}
+
+		&:not(:first-child) {
+			margin-top: 1rem;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 1rem;
 		}
 
 		&.is-style-large {
@@ -1414,6 +1611,14 @@ Blocks
 	&-gallery {
 		.unstyled-list;
 
+		&.alignleft {
+			margin-right: 2rem;
+		}
+
+		.alignright {
+			margin-left: 2rem;
+		}
+
 		&:not(:first-child) {
 			margin-top: 2rem;
 		}
@@ -1434,14 +1639,53 @@ Blocks
 			}
 		}
 	}
+
+	&-separator,
+	&-spacer {
+		clear: both;
+	}
+
+	&-separator {
+		margin: 2rem auto;
+
+		&,
+		&.is-style-wide {
+			border: none;
+		}
+
+		&.is-style-dots {
+			max-width: 100px;
+			height: 0;
+			border-top: 2px dotted @border-color;
+
+			&::before {
+				display: none;
+			}
+		}
+	}
+
+	&-media-text {
+		&:not(:first-child) {
+			margin-top: 2rem;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+
+		& &__content {
+			padding: 1.5rem 2rem;
+		}
+	}
 }
 /*--------------------------------------------------------------
-Pages
+12.0 Pages
 --------------------------------------------------------------*/
 .page {
 	&__title {
 		word-wrap: break-word;
 		margin-top: 0;
+		text-align: center;
 	}
 
 	&__text {
@@ -1453,7 +1697,7 @@ Pages
 	}
 }
 /*--------------------------------------------------------------
-Posts
+13.0 Posts
 --------------------------------------------------------------*/
 .post {
 	&--archive {
@@ -1508,6 +1752,10 @@ Posts
 
 	&--single &__title {
 		text-align: center;
+
+		&:not(:last-child) {
+			margin-bottom: 1.25rem;
+		}
 	}
 
 	&--archive &__header--cover &__title {
@@ -1657,7 +1905,7 @@ Posts
 	}
 }
 /*--------------------------------------------------------------
-Tags
+14.0 Tags
 --------------------------------------------------------------*/
 
 .tagcloud {
@@ -1681,7 +1929,7 @@ Tags
 	}
 }
 /*--------------------------------------------------------------
-Comments
+15.0 Comments
 --------------------------------------------------------------*/
 .comments {
 	&:not(:last-child) {
@@ -1940,7 +2188,7 @@ Comments
 	}
 }
 /*--------------------------------------------------------------
-Pagination
+16.0 Pagination
 --------------------------------------------------------------*/
 .pagination {
 	display: flex;
@@ -2024,7 +2272,7 @@ Pagination
 	}
 }
 /*--------------------------------------------------------------
-HivePress
+17.0 HivePress
 --------------------------------------------------------------*/
 
 .hp {
@@ -2053,6 +2301,7 @@ HivePress
 
 	&-map {
 		border-radius: @border-radius;
+		min-height: 22.4375rem;
 	}
 
 	&-table {
@@ -2085,12 +2334,12 @@ HivePress
 	&-section {
 		&__title {
 			&:not(:last-child) {
-				margin-bottom: 1.25rem;
+				margin-bottom: 1.5rem;
 			}
 		}
 	}
 	/*--------------------------------------------------------------
-	Forms
+	17.1 Forms
 	--------------------------------------------------------------*/
 	&-form {
 		&__label {
@@ -2201,6 +2450,7 @@ HivePress
 		&--location {
 			a {
 				color: @icon-color;
+				transition: color @animation-duration;
 
 				&:hover {
 					color: @icon-color-hover;
@@ -2305,7 +2555,7 @@ HivePress
 		}
 	}
 	/*--------------------------------------------------------------
-	Listings
+	17.2 Listings
 	--------------------------------------------------------------*/
 	&-listing {
 		&--view-block {
@@ -2534,7 +2784,7 @@ HivePress
 		}
 	}
 	/*--------------------------------------------------------------
-	Listing Categories
+	17.3 Listing Categories
 	--------------------------------------------------------------*/
 	&-listing-category {
 		&--view-block {
@@ -2615,7 +2865,7 @@ HivePress
 		}
 	}
 	/*--------------------------------------------------------------
-	Vendor
+	17.4 Vendors
 	--------------------------------------------------------------*/
 	&-vendor {
 		&--view-block {
@@ -2654,15 +2904,35 @@ HivePress
 			}
 		}
 
+		&--view-block &__name {
+			&:not(:last-child) {
+				margin-bottom: .75rem;
+			}
+		}
+
 		&--view-block &__date,
 		&--view-page &__date {
 			.caption;
 			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
+
+		&--view-block &__date,
+		&--view-block &__rating {
+			&:not(:last-child) {
+				margin-bottom: 0.5rem;
+			}
+		}
+
+		&--view-page &__date,
+		&--view-page &__rating {
+			&:not(:last-child) {
+				margin-bottom: 0.75rem;
+			}
+		}
 	}
 	/*--------------------------------------------------------------
-	Reviews
+	17.5 Reviews
 	--------------------------------------------------------------*/
 	&-review {
 		&--view-block {
@@ -2691,7 +2961,7 @@ HivePress
 		}
 	}
 	/*--------------------------------------------------------------
-	Ratings
+	17.6 Ratings
 	--------------------------------------------------------------*/
 	&-rating {
 		&__details {
@@ -2704,7 +2974,7 @@ HivePress
 		}
 	}
 	/*--------------------------------------------------------------
-	Messages
+	17.7 Messages
 	--------------------------------------------------------------*/
 	&-message {
 		&--view-block {

@@ -14,6 +14,11 @@ return [
 		'src'    => HT_THEME_URL . '/assets/js/jquery.hoverIntent.min.js',
 	],
 
+	'fitvids'        => [
+		'handle' => 'fitvids',
+		'src'    => HT_THEME_URL . '/assets/js/jquery.fitvids.min.js',
+	],
+
 	'sticky_sidebar' => [
 		'handle' => 'sticky-sidebar',
 		'src'    => HT_THEME_URL . '/assets/js/jquery.sticky-sidebar.min.js',
@@ -22,6 +27,6 @@ return [
 	'frontend'       => [
 		'handle' => 'ht-frontend',
 		'src'    => HT_THEME_URL . '/assets/js/frontend.js',
-		'deps'   => [ 'jquery', 'hoverintent', 'sticky-sidebar', 'comment-reply' ],
+		'deps'   => [ 'jquery', 'hoverintent', 'fitvids', 'sticky-sidebar', 'comment-reply' ],
 	],
 ];

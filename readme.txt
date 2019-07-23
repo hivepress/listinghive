@@ -17,6 +17,9 @@ ListingHive is a lightweight WordPress theme that allows you to build any type o
 == Resources ==
 * TGM Plugin Activation PHP library, GNU General Public License
 * Font Awesome icon font, SIL OFL 1.1 License
+* Flexboxgrid CSS, Apache License
+* Minireset CSS, MIT License
+* Font Awesome CSS, MIT License
 * Hover Intent jQuery plugin, MIT License
 * Sticky Sidebar jQuery plugin, MIT License
-* TODO
+* FitVids jQuery plugin, WTFPL License

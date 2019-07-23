@@ -105,6 +105,9 @@ var hivetheme = {
 				});
 			});
 		});
+
+		// Embeds
+		$('body').fitVids();
 	});
 
 	$(window).on('load', function() {
@@ -113,13 +116,26 @@ var hivetheme = {
 		hivetheme.getComponent('parallax').each(function() {
 			var container = $(this),
 				offset = container.offset().top - $('#wpadminbar').height(),
-				speed = 0.25;
+				speed = 0.25,
+				position = 0;
 
 			if ($(window).width() > 1024) {
-				container.css('background-position-y', ($(window).scrollTop() - offset) * speed);
+				position = ($(window).scrollTop() - offset) * speed;
+
+				if (position > 0) {
+					position = 0;
+				}
+
+				container.css('background-position-y', position);
 
 				$(window).on('scroll', function() {
-					container.css('background-position-y', ($(window).scrollTop() - offset) * speed);
+					var position = ($(window).scrollTop() - offset) * speed;
+
+					if (position > 0) {
+						position = 0;
+					}
+
+					container.css('background-position-y', position);
 				});
 			}
 		});
