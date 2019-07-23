@@ -15,7 +15,7 @@ if ( ! is_front_page() || ht\get_page_excerpt( get_the_ID() ) !== '' ) :
 					?>
 					<div class="row">
 						<div class="col-sm-8 col-sm-offset-2 col-xs-12">
-							<h1 class="todo"><?php the_title(); ?></h1>
+							<h1 class="page__title"><?php the_title(); ?></h1>
 						</div>
 					</div>
 				<?php endif; ?>

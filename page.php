@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="todo">
+<div class="page__text">
 	<?php the_content(); ?>
 </div>
 <?php

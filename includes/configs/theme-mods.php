@@ -19,8 +19,6 @@ return [
 	],
 
 	'colors'        => [
-		'title'  => esc_html__( 'Colors', 'listinghive' ),
-
 		'fields' => [
 			'primary_color'   => [
 				'label'   => esc_html__( 'Primary Color', 'listinghive' ),

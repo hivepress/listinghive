@@ -1,6 +1,6 @@
 <div <?php post_class( 'post--single' ); ?>>
 	<?php if ( '' !== get_the_content() ) : ?>
-		<div class="post__text todo">
+		<div class="post__text">
 			<?php the_content(); ?>
 		</div>
 		<?php

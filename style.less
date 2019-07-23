@@ -124,6 +124,23 @@ Mixins
 	color: inherit;
 	transition: color @animation-duration, border-color @animation-duration;
 }
+
+.title {
+	padding-top: 1rem;
+	position: relative;
+
+	&::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 4px;
+		width: 45px;
+		display: block;
+		content: '';
+		background-color: @primary-background-color;
+		background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+	}
+}
 /*--------------------------------------------------------------
 Normalize
 --------------------------------------------------------------*/
@@ -177,6 +194,7 @@ h6 {
 
 	a {
 		color: inherit;
+		transition: color @animation-duration;
 
 		&:hover {
 			color: @heading-font-color-hover;
@@ -214,6 +232,11 @@ p {
 	&:not(:last-child) {
 		margin-bottom: 1rem;
 	}
+
+	&.has-background {
+		padding: 1.5rem 2rem;
+		border-radius: @border-radius;
+	}
 }
 
 a {
@@ -225,12 +248,8 @@ a {
 	}
 }
 
-ul {
-	list-style: disc outside;
-}
-
-ol {
-	list-style-position: outside;
+strong {
+	font-weight: 600;
 }
 
 ol,
@@ -253,10 +272,105 @@ ul {
 	}
 }
 
+ul {
+	list-style: disc outside;
+
+	ul {
+		list-style-type: circle;
+
+		ul {
+			list-style-type: square;
+		}
+	}
+}
+
+ol {
+	list-style-position: outside;
+}
+
+dl {
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+
+	dd,
+	dt {
+		&:not(:last-child) {
+			margin-bottom: 0.5rem;
+		}
+	}
+
+	dt {
+		font-weight: 600;
+	}
+
+	dd {
+		margin-left: 2rem;
+	}
+}
+
 blockquote {
 	border-left: 3px solid @primary-background-color;
 	padding: 1rem 0 1rem 1.5rem;
-	font-size:1.125rem;
+	font-size: 1.125rem;
+
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}
+
+address {
+	font-style: italic;
+
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+}
+
+code,
+pre {
+	background-color: @secondary-background-color;
+	font-family: monospace;
+}
+
+pre {
+	-webkit-overflow-scrolling: touch;
+	font-size: 0.875rem;
+	overflow-x: auto;
+	padding: 1rem 1.5rem;
+	white-space: pre;
+	word-wrap: normal;
+	font-size: 1rem;
+	line-height: 1.875;
+	border-radius: @border-radius;
+
+	&:not(:first-child) {
+		margin-top: 1rem;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 1rem;
+	}
+
+	code {
+		background-color: transparent;
+		padding: 0;
+	}
+}
+
+code {
+	padding: 0.25rem 0.5rem;
+	font-size: 0.875rem;
+	color: #ff3860;
+	font-weight: normal;
+}
+
+hr {
+	background-color: @border-color;
+	border: none;
+	display: block;
+	height: 2px;
+	margin: 2rem 0;
 }
 /*--------------------------------------------------------------
 Accessibility
@@ -328,6 +442,31 @@ Alignments
 /*--------------------------------------------------------------
 Media
 --------------------------------------------------------------*/
+.gallery {
+	&:not(:first-child) {
+		margin-top: 2rem!important;
+	}
+
+	&-item {
+		margin-top: 0!important;
+		margin-bottom: 2rem;
+		@media only screen and (max-width: 74.99em) {
+			width: 33.33%!important;
+		}
+		@media only screen and (max-width: 47.99em) {
+			width: 100%!important;
+		}
+	}
+
+	&-icon {
+		img {
+			border: none!important;
+			border-radius: @border-radius;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+}
 
 .wp-caption {
 	max-width: 100%;
@@ -336,6 +475,7 @@ Media
 	> a > img {
 		width: 100%;
 		display: block;
+		border-radius: @border-radius;
 	}
 
 	&-text {
@@ -420,9 +560,31 @@ table {
 	th {
 		border: 1px solid @border-color;
 		border-width: 0 0 1px;
-		padding: 0.5rem;
+		padding: 0.5rem 0.75rem;
 		vertical-align: top;
+	}
 
+	th {
+		font-weight: 600;
+	}
+
+	&.wp-block-table {
+		td,
+		th {
+			border-color: @border-color;
+			padding: 0.5rem 0.75rem;
+		}
+
+		&.is-style-stripes {
+			border-bottom-color: @border-color;
+
+			tr:nth-child(odd) {
+				background-color: @secondary-background-color;
+			}
+		}
+	}
+
+	&:not(.wp-block-table) {
 		&:first-child {
 			padding-left: 0;
 		}
@@ -431,7 +593,34 @@ table {
 			padding-right: 0;
 		}
 	}
+
+	&:not(.wp-block-table) tbody {
+		tr:last-child {
+			td,
+			th {
+				border-bottom-width: 0;
+			}
+		}
+	}
+
+	thead {
+		td,
+		th {
+			border-width: 0 0 2px;
+			color: @heading-font-color;
+		}
+	}
+
+	tfoot {
+		td,
+		th {
+			border-width: 2px 0 0;
+			color: @heading-font-color;
+		}
+	}
 }
+
+.wp-block-table {}
 /*--------------------------------------------------------------
 Buttons
 --------------------------------------------------------------*/
@@ -442,6 +631,7 @@ input[type=submit] {
 	border-radius: @border-radius;
 	font-family: @heading-font-family;
 	font-weight: @heading-font-weight;
+	background-color: red;
 	padding: 0.5rem 1rem;
 	font-size: 1rem;
 	position: relative;
@@ -488,6 +678,15 @@ button {
 .wp-block-button {
 	&__link {
 		.button;
+	}
+
+	&.is-style-outline &__link {
+		border: 2px solid @border-color;
+		color: red;
+
+		&:hover {
+			border-color: @border-color-hover;
+		}
 	}
 }
 /*--------------------------------------------------------------
@@ -546,6 +745,7 @@ Header
 
 				a {
 					color: inherit;
+					transition: color @animation-duration;
 				}
 
 				&.active > a,
@@ -812,6 +1012,10 @@ Footer
 .footer-navbar {
 	display: flex;
 	justify-content: space-between;
+	@media only screen and (max-width: 47.99em) {
+		flex-direction: column;
+		padding: 1.33rem 0;
+	}
 
 	&__end,
 	&__start {
@@ -849,6 +1053,35 @@ Footer
 				ul {
 					display: none;
 				}
+			}
+		}
+	}
+}
+/*--------------------------------------------------------------
+Section
+--------------------------------------------------------------*/
+.section {
+	&:not(:first-child) {
+		margin-top: 3rem;
+	}
+
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+
+	&__title {
+		.title;
+
+		&:not(:last-child) {
+			margin-bottom: 1.25rem;
+		}
+
+		&--center {
+			text-align: center;
+
+			&::before {
+				left: 50%;
+				margin-left: -22.5px;
 			}
 		}
 	}
@@ -898,6 +1131,15 @@ Widgets
 
 		&:not(:last-child) {
 			margin-bottom: 2rem;
+		}
+	}
+
+	&--footer &__title {
+		.title;
+
+		&::before {
+			width: 30px;
+			height: 3px;
 		}
 	}
 
@@ -1006,10 +1248,208 @@ Widgets
 /*--------------------------------------------------------------
 Blocks
 --------------------------------------------------------------*/
+
 .wp-block {
+	&-archives,
+	&-categories,
+	&-latest-comments,
+	&-latest-posts {
+		margin-left: 0;
+
+		&:not(:first-child) {
+			margin-top: 2rem;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+
+		&,
+		ol,
+		ul {
+			list-style: none;
+		}
+	}
+
 	&-quote {
-		border-left:3px solid @primary-background-color;
-		padding-left:1.5rem;
+		border-left: 3px solid @primary-background-color;
+		padding-left: 1.5rem;
+
+		&[style*="text-align:right"] {
+			border-right: 3px solid @primary-background-color;
+			padding-right: 1.5rem;
+		}
+
+		&.is-style-large {
+			padding-left: 2rem;
+			padding-right: 2rem;
+
+			&:not(:first-child) {
+				margin-top: 2rem;
+			}
+
+			&:not(:last-child) {
+				margin-bottom: 2rem;
+			}
+
+			br {
+				display: none;
+			}
+
+			p {
+				font-size: 1.5625rem;
+				font-style: normal;
+			}
+
+			cite {
+				font-size: 0.875rem;
+			}
+		}
+	}
+
+	&-pullquote {
+		border-top: 2px solid @border-color;
+		border-bottom: 2px solid @border-color;
+		color: inherit;
+		padding: 2rem 0;
+
+		&.is-style-solid-color {
+			border-radius: @border-radius;
+			padding-left: 2rem;
+			padding-right: 2rem;
+		}
+
+		&:not(:first-child) {
+			margin-top: 2rem;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+
+		&.is-style-solid-color blockquote,
+		blockquote {
+			border: none;
+			padding: 0;
+			max-width: 100%;
+
+			p {
+				font-size: 1.5625rem;
+
+				&:not(:last-child) {
+					margin-bottom: 1rem;
+				}
+			}
+		}
+	}
+
+	&-pullquote blockquote,
+	&-pullquote.is-style-solid-color blockquote,
+	&-quote {
+		cite {
+			.caption;
+			color: @secondary-font-color;
+			font-size: 0.875rem;
+
+			br {
+				display: none;
+			}
+
+			em {
+				font-style: normal;
+			}
+		}
+	}
+
+	&-cover {
+		& &-text {
+			padding: 2rem;
+		}
+	}
+
+	&-cover,
+	&-cover-image {
+		&:not(:first-child) {
+			margin-top: 2rem;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+
+	&-file {
+		& &__button {
+			background-color: @ternary-background-color;
+			border-radius: @border-radius;
+		}
+	}
+
+	&-code {
+		color: inherit;
+		border: none;
+		padding: 1rem 1.5rem;
+		font-size: 1rem;
+		border-radius: @border-radius;
+	}
+
+	&-embed,
+	&-image,
+	&-video {
+		&:not(:first-child) {
+			margin-top: 2rem;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+
+		figcaption {
+			font-size: 0.875rem;
+			color: @secondary-font-color;
+			margin: 0.5rem 0 0;
+		}
+	}
+
+	&-gallery {
+		.unstyled-list;
+
+		&:not(:first-child) {
+			margin-top: 2rem;
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+
+		.blocks-gallery-item {
+			figcaption,
+			img {
+				border-radius: @border-radius;
+			}
+
+			figcaption {
+				overflow-x: hidden;
+				font-style: normal;
+			}
+		}
+	}
+}
+/*--------------------------------------------------------------
+Pages
+--------------------------------------------------------------*/
+.page {
+	&__title {
+		word-wrap: break-word;
+		margin-top: 0;
+	}
+
+	&__text {
+		&::after {
+			content: '';
+			clear: both;
+			display: table;
+		}
 	}
 }
 /*--------------------------------------------------------------
@@ -1088,7 +1528,7 @@ Posts
 	}
 
 	&.sticky &__details {
-		background-color:transparent;
+		background-color: transparent;
 	}
 
 	&__categories {
@@ -1184,6 +1624,8 @@ Posts
 		}
 
 		a {
+			transition: color @animation-duration;
+
 			&:hover {
 				color: @primary-font-color;
 			}
@@ -1260,6 +1702,9 @@ Comments
 
 			ul {
 				padding-left: 5.5rem;
+				@media only screen and (max-width: 47.99em) {
+					padding-left: 0;
+				}
 
 				ul ul ul {
 					padding-left: 0;
@@ -1406,6 +1851,9 @@ Comments
 
 	.comments ul li & {
 		padding: 0 2rem 2rem 5.5rem;
+		@media only screen and (max-width: 47.99em) {
+			padding-left: 0;
+		}
 	}
 
 	.comment-reply-title {
@@ -1483,7 +1931,7 @@ Comments
 		margin: 0;
 
 		input[type=submit] {
-			@media only screen and (max-width: 48em) {
+			@media only screen and (max-width: 47.99em) {
 				font-size: 1.125rem;
 				padding: 0.75rem 1.25rem;
 				width: 100%;
@@ -1568,6 +2016,8 @@ Pagination
 
 	.nav-links > a,
 	> a {
+		transition: color @animation-duration;
+
 		&:hover {
 			color: @primary-font-color;
 		}
@@ -1579,12 +2029,15 @@ HivePress
 
 .hp {
 	&-link {
+		transition: color @animation-duration;
+
 		&:hover {
 			color: @primary-font-color;
 		}
 
 		i {
 			color: @icon-color;
+			transition: color @animation-duration;
 		}
 
 		&:hover i {
@@ -1600,6 +2053,41 @@ HivePress
 
 	&-map {
 		border-radius: @border-radius;
+	}
+
+	&-table {
+		width: 100%;
+	}
+
+	&-page,
+	&-section {
+		&__title {
+			.title;
+		}
+	}
+
+	&-page {
+		&__title {
+			&:not(:last-child) {
+				margin-bottom: 1.75rem;
+			}
+		}
+
+		&__header {
+			&:not(:last-child) {
+				@media only screen and (max-width: 74.99em) {
+					margin-bottom: 3rem;
+				}
+			}
+		}
+	}
+
+	&-section {
+		&__title {
+			&:not(:last-child) {
+				margin-bottom: 1.25rem;
+			}
+		}
 	}
 	/*--------------------------------------------------------------
 	Forms
@@ -1628,7 +2116,7 @@ HivePress
 			.block;
 			padding: 0.625rem;
 			align-items: center;
-			@media only screen and (max-width: 48em) {
+			@media only screen and (max-width: 47.99em) {
 				align-items: stretch;
 			}
 
@@ -1641,14 +2129,14 @@ HivePress
 		&--listing-search &__fields {
 			&:not(:last-child) {
 				margin-right: 0.625rem;
-				@media only screen and (max-width: 48em) {
+				@media only screen and (max-width: 47.99em) {
 					margin: 0;
 				}
 			}
 		}
 
 		&--listing-search &__fields {
-			@media only screen and (max-width: 48em) {
+			@media only screen and (max-width: 47.99em) {
 				&:not(:last-child) {
 					margin-bottom: 0.625rem;
 				}
@@ -1658,7 +2146,7 @@ HivePress
 		&--listing-search &__field {
 			&:not(:last-child) {
 				border-right: 1px solid @border-color;
-				@media only screen and (max-width: 48em) {
+				@media only screen and (max-width: 47.99em) {
 					border-right: none;
 					border-bottom: 1px solid @border-color;
 				}
@@ -2149,6 +2637,21 @@ HivePress
 		&--view-block &__footer {
 			border-top: 1px solid @border-color;
 			padding: 1rem 1.5rem;
+		}
+
+		&--view-block &__actions--primary &__action {
+			opacity: 1;
+
+			i {
+				color: @icon-color;
+			}
+
+			&:hover,
+			&[data-state=active] {
+				i {
+					color: @icon-color-hover;
+				}
+			}
 		}
 
 		&--view-block &__date,

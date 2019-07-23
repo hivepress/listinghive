@@ -130,7 +130,7 @@ final class Core {
 
 		// Set content width.
 		if ( ! isset( $GLOBALS['content_width'] ) ) {
-			$GLOBALS['content_width'] = 1152;
+			$GLOBALS['content_width'] = 749;
 		}
 	}
 
