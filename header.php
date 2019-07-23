@@ -10,6 +10,7 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
 	</head>
 	<body <?php body_class(); ?>>
+		<?php get_template_part( 'templates/loader' ); ?>
 		<div class="site-container">
 			<header class="site-header">
 				<div class="header-navbar">
