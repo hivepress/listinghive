@@ -79,7 +79,17 @@ final class Import {
 					// Set theme mods.
 					if ( isset( $config['theme_mods'] ) ) {
 						foreach ( $config['theme_mods'] as $mod_name => $mod_value ) {
-							set_theme_mod( $mod_name, $mod_value );
+							if ( strpos( $mod_value, '/' ) === 0 ) {
+								$mod_value = site_url( $mod_value );
+
+								if ( 'header_image' !== $mod_name ) {
+									$mod_value = attachment_url_to_postid( $mod_value );
+								}
+							}
+
+							if ( ! empty( $mod_value ) ) {
+								set_theme_mod( $mod_name, $mod_value );
+							}
 						}
 					}
 
@@ -105,14 +115,12 @@ final class Import {
 
 							if ( false !== $term ) {
 								if ( strpos( $meta['meta_value'], '/' ) === 0 ) {
-									$attachment_id = attachment_url_to_postid( site_url( $meta['meta_value'] ) );
-
-									if ( 0 !== $attachment_id ) {
-										$meta['meta_value'] = $attachment_id;
-									}
+									$meta['meta_value'] = attachment_url_to_postid( site_url( $meta['meta_value'] ) );
 								}
 
-								update_term_meta( $term->term_id, $meta['meta_key'], $meta['meta_value'] );
+								if ( ! empty( $meta['meta_value'] ) ) {
+									update_term_meta( $term->term_id, $meta['meta_key'], $meta['meta_value'] );
+								}
 							}
 						}
 					}

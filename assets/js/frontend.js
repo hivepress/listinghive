@@ -116,26 +116,13 @@ var hivetheme = {
 		hivetheme.getComponent('parallax').each(function() {
 			var container = $(this),
 				offset = container.offset().top - $('#wpadminbar').height(),
-				speed = 0.25,
-				position = 0;
+				speed = 0.25;
 
 			if ($(window).width() > 1024) {
-				position = ($(window).scrollTop() - offset) * speed;
-
-				if (position > 0) {
-					position = 0;
-				}
-
-				container.css('background-position-y', position);
+				container.css('background-position-y', ($(window).scrollTop() - offset) * speed);
 
 				$(window).on('scroll', function() {
-					var position = ($(window).scrollTop() - offset) * speed;
-
-					if (position > 0) {
-						position = 0;
-					}
-
-					container.css('background-position-y', position);
+					container.css('background-position-y', ($(window).scrollTop() - offset) * speed);
 				});
 			}
 		});
