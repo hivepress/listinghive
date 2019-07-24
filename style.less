@@ -64,10 +64,11 @@ Variables
 @border-color-hover: rgba(0,0,0,0.1);
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-@animation-duration: 0.25s;
-/*--------------------------------------------------------------
+@box-shadow-hover: 0 0 12px rgba(0,0,0,0.12);
+@animation-duration: 0.25s; /*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
+
 .image-container {
 	img {
 		display: block;
@@ -178,6 +179,7 @@ Mixins
 /*--------------------------------------------------------------
 1.0 Normalize
 --------------------------------------------------------------*/
+
 body,
 html {
 	height: 100%;
@@ -201,6 +203,7 @@ body {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
+
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -410,7 +413,6 @@ hr {
 /*--------------------------------------------------------------
 3.0 Accessibility
 --------------------------------------------------------------*/
-
 .screen-reader-text {
 	position: absolute;
 	overflow: hidden;
@@ -427,7 +429,6 @@ hr {
 /*--------------------------------------------------------------
 4.0 Alignments
 --------------------------------------------------------------*/
-
 .aligncenter,
 .alignnone {
 	clear: both;
@@ -477,6 +478,7 @@ hr {
 /*--------------------------------------------------------------
 5.0 Media
 --------------------------------------------------------------*/
+
 .gallery {
 	&:not(:first-child) {
 		margin-top: 2rem!important;
@@ -506,8 +508,8 @@ hr {
 .wp-caption {
 	max-width: 100%;
 
-	> img,
-	> a > img {
+	> a > img,
+	> img {
 		width: 100%;
 		display: block;
 		border-radius: @border-radius;
@@ -540,6 +542,7 @@ hr {
 /*--------------------------------------------------------------
 6.0 Forms
 --------------------------------------------------------------*/
+
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -585,7 +588,6 @@ input[type=radio] {
 /*--------------------------------------------------------------
 7.0 Tables
 --------------------------------------------------------------*/
-
 table {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -660,6 +662,7 @@ table {
 /*--------------------------------------------------------------
 8.0 Buttons
 --------------------------------------------------------------*/
+
 .button,
 button,
 input[type=submit] {
@@ -715,8 +718,27 @@ button {
 		opacity: 1;
 	}
 
+	&:after {
+		.icon;
+		font-size: 22px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: none;
+		margin: -11px 0 0 -11px;
+		content: '\f1ce';
+		animation: spin 0.5s linear infinite;
+		text-align: center;
+		color: @icon-color;
+	}
+
 	&[data-state=loading] {
-		background:red;
+		cursor: default;
+		color: transparent;
+
+		&::after {
+			display: block;
+		}
 	}
 }
 
@@ -725,6 +747,15 @@ button {
 button[type="submit"] {
 	&::before {
 		background-color: rgba(255,255,255,.1);
+	}
+
+	&[data-state=loading]::before {
+		background-color: rgba(255,255,255,.25);
+		opacity: 1;
+	}
+
+	&::after {
+		color: rgba(255,255,255,.8);
 	}
 }
 
@@ -752,12 +783,14 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 9.0 Layout
 --------------------------------------------------------------*/
+
 .site-container {
 	flex: 1 0 auto;
 }
 /*--------------------------------------------------------------
 9.1 Header
 --------------------------------------------------------------*/
+
 .header-navbar {
 	padding: 1rem 2rem;
 	display: flex;
@@ -765,6 +798,10 @@ button[type="submit"] {
 
 	&:last-child {
 		border-bottom: 1px solid @border-color;
+	}
+
+	&__start {
+		margin-right: 2rem;
 	}
 
 	&__end,
@@ -892,6 +929,10 @@ button[type="submit"] {
 			}
 			@media only screen and (max-width: 74.99em) {
 				display: block;
+			}
+
+			i {
+				font-size: 16px;
 			}
 		}
 
@@ -1027,7 +1068,12 @@ button[type="submit"] {
 	}
 
 	&--large {
-		padding: 9rem 0;
+		@media only screen and (min-width: 48em) {
+			padding: 6rem 0;
+		}
+		@media only screen and (min-width: 75em) {
+			padding: 9rem 0;
+		}
 	}
 
 	&__content {
@@ -1035,13 +1081,19 @@ button[type="submit"] {
 		z-index: 1;
 
 		h1 {
-			font-size: 3rem;
+			@media only screen and (min-width: 48em) {
+				font-size: 2.625rem;
+			}
+			@media only screen and (min-width: 75em) {
+				font-size: 3rem;
+			}
 		}
 	}
 }
 /*--------------------------------------------------------------
 9.2 Content
 --------------------------------------------------------------*/
+
 .site-content {
 	padding: 4rem 0;
 	position: relative;
@@ -1061,6 +1113,7 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 9.3 Section
 --------------------------------------------------------------*/
+
 .section {
 	&:not(:first-child) {
 		margin-top: 3rem;
@@ -1107,6 +1160,7 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 9.4 Footer
 --------------------------------------------------------------*/
+
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -1121,6 +1175,13 @@ button[type="submit"] {
 		padding-bottom: 3rem;
 		margin-bottom: 2rem;
 	}
+	@media only screen and (max-width: 47.99em) {
+		> div > div {
+			&:not(:last-child) {
+				margin-bottom: 2rem;
+			}
+		}
+	}
 }
 
 .footer-navbar {
@@ -1128,13 +1189,19 @@ button[type="submit"] {
 	justify-content: space-between;
 	@media only screen and (max-width: 47.99em) {
 		flex-direction: column;
-		padding: 1.33rem 0;
+		align-items: center;
 	}
 
 	&__end,
 	&__start {
 		display: flex;
 		align-items: center;
+	}
+
+	&__start {
+		@media only screen and (max-width: 47.99em) {
+			margin-bottom: 1rem;
+		}
 	}
 
 	&__copyright {
@@ -1175,14 +1242,24 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 9.5 Modal
 --------------------------------------------------------------*/
+
 .fancybox {
 	&-content {
 		border-radius: @border-radius;
+	}
+
+	&-close-small {
+		transition: opacity @animation-duration;
+
+		&::before {
+			display: none;
+		}
 	}
 }
 /*--------------------------------------------------------------
 9.6 Loader
 --------------------------------------------------------------*/
+
 .site-loader {
 	.center-container;
 	position: fixed;
@@ -1210,6 +1287,7 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 10.0 Widgets
 --------------------------------------------------------------*/
+
 .widget {
 	&--sidebar,
 	&.hp-menu {
@@ -1291,7 +1369,6 @@ button[type="submit"] {
 			.unstyled-list;
 
 			li {
-				padding-left: 1.5rem;
 				position: relative;
 				color: @secondary-font-color;
 
@@ -1313,6 +1390,8 @@ button[type="submit"] {
 	&_recent_comments {
 		ul {
 			li {
+				padding-left: 1.5rem;
+
 				&::before {
 					content: '\f075';
 				}
@@ -1332,6 +1411,8 @@ button[type="submit"] {
 	&_rss {
 		ul {
 			li {
+				padding-left: 1.35rem;
+
 				&::before {
 					content: '\f15b';
 				}
@@ -1414,7 +1495,6 @@ button[type="submit"] {
 .wp-block-categories,
 .wp-block-latest-posts {
 	li {
-		padding-left: 1.5rem;
 		position: relative;
 		color: @secondary-font-color;
 
@@ -1423,7 +1503,6 @@ button[type="submit"] {
 			color: @icon-color;
 			position: absolute;
 			left: 0;
-			top: 0.25rem;
 			transition: color @animation-duration;
 		}
 
@@ -1439,8 +1518,8 @@ button[type="submit"] {
 		&.current-cat,
 		&.current-menu-item,
 		&:hover {
-			&::before,
-			> a {
+			> a,
+			&::before {
 				color: @primary-font-color;
 			}
 		}
@@ -1451,9 +1530,12 @@ button[type="submit"] {
 .widget_recent_entries,
 .wp-block-latest-posts {
 	li {
+		padding-left: 1.35rem;
+
 		&::before {
 			font-size: 16px;
 			content: '\f15b';
+			top: 0.25rem;
 		}
 	}
 }
@@ -1472,16 +1554,18 @@ button[type="submit"] {
 .wp-block-archives,
 .wp-block-categories {
 	li {
+		padding-left: 1rem;
+
 		&::before {
 			font-size: 14px;
 			content: '\f054';
+			top: 0.3rem;
 		}
 	}
 }
 /*--------------------------------------------------------------
 11.0 Blocks
 --------------------------------------------------------------*/
-
 .wp-block {
 	&-quote {
 		border-left: 3px solid @primary-background-color;
@@ -1705,6 +1789,7 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 12.0 Pages
 --------------------------------------------------------------*/
+
 .page {
 	&__title {
 		word-wrap: break-word;
@@ -1723,6 +1808,7 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 13.0 Posts
 --------------------------------------------------------------*/
+
 .post {
 	&--archive {
 		margin-bottom: 2rem;
@@ -1931,7 +2017,6 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 14.0 Tags
 --------------------------------------------------------------*/
-
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -1955,6 +2040,7 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 15.0 Comments
 --------------------------------------------------------------*/
+
 .comments {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -2214,6 +2300,7 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 16.0 Pagination
 --------------------------------------------------------------*/
+
 .pagination {
 	display: flex;
 	align-items: center;
@@ -2232,10 +2319,10 @@ button[type="submit"] {
 		align-items: center;
 	}
 
-	> span,
+	> a,
 	.nav-links > a,
 	.nav-links > span,
-	> a {
+	> span {
 		.center-container;
 		border: 2px solid transparent;
 		border-radius: 50%;
@@ -2279,15 +2366,15 @@ button[type="submit"] {
 		}
 	}
 
-	.nav-links > span,
-	> span {
+	> span,
+	.nav-links > span {
 		&:not(.dots) {
 			border-color: @border-color;
 		}
 	}
 
-	.nav-links > a,
-	> a {
+	> a,
+	.nav-links > a {
 		transition: color @animation-duration;
 
 		&:hover {
@@ -2298,7 +2385,6 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 17.0 HivePress
 --------------------------------------------------------------*/
-
 .hp {
 	&-link {
 		transition: color @animation-duration;
@@ -2321,6 +2407,11 @@ button[type="submit"] {
 		.caption;
 		font-size: 0.6875rem;
 		color: @secondary-font-color;
+		@media only screen and (max-width: 47.99em) {
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+		}
 	}
 
 	&-map {
@@ -2333,8 +2424,35 @@ button[type="submit"] {
 
 		td,
 		th {
-			last-child {
+			&:last-child {
 				text-align: right;
+			}
+		}
+	}
+
+	&-menu {
+		&--main {
+			button {
+				@media only screen and (max-width: 47.99em) {
+					padding: 0.25rem 0.56rem;
+				}
+
+				i:first-child {
+					margin-right: 0.5rem;
+				}
+			}
+
+			a,
+			button {
+				@media only screen and (max-width: 47.99em) {
+					span {
+						display: none;
+					}
+
+					i:first-child {
+						margin-right: 0;
+					}
+				}
 			}
 		}
 	}
@@ -2360,6 +2478,13 @@ button[type="submit"] {
 				}
 			}
 		}
+
+		&__topbar {
+			@media only screen and (max-width: 47.99em) {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+		}
 	}
 
 	&-section {
@@ -2373,6 +2498,16 @@ button[type="submit"] {
 	17.1 Forms
 	--------------------------------------------------------------*/
 	&-form {
+		&__messages {
+			background-color: @secondary-background-color;
+			border-top-right-radius: @border-radius;
+			border-bottom-right-radius: @border-radius;
+
+			&:not(:last-child) {
+				margin-bottom: 1.75rem;
+			}
+		}
+
 		&__label {
 			.caption;
 			font-size: 0.6875rem;
@@ -2591,6 +2726,11 @@ button[type="submit"] {
 	&-listing {
 		&--view-block {
 			.block;
+			transition: box-shadow @animation-duration;
+
+			&:hover {
+				box-shadow: @box-shadow-hover;
+			}
 		}
 
 		&--view-block &__content,
@@ -2726,6 +2866,7 @@ button[type="submit"] {
 		&--edit-block &__status {
 			span {
 				.tag;
+				display: inline-block;
 			}
 
 			&--draft span {
@@ -2819,6 +2960,7 @@ button[type="submit"] {
 	17.3 Listing Categories
 	--------------------------------------------------------------*/
 	&-listing-category {
+		&--submit-block,
 		&--view-block {
 			position: relative;
 			border-radius: @border-radius;
@@ -2836,6 +2978,8 @@ button[type="submit"] {
 			align-items: center;
 		}
 
+		&--submit-block &__content,
+		&--submit-block &__header,
 		&--view-block &__content,
 		&--view-block &__header {
 			&:not(:last-child) {
@@ -2843,6 +2987,7 @@ button[type="submit"] {
 			}
 		}
 
+		&--submit-block &__content,
 		&--view-block &__content {
 			.inherit-container;
 			position: absolute;
@@ -2851,6 +2996,7 @@ button[type="submit"] {
 			padding: 2rem;
 		}
 
+		&--submit-block &__image,
 		&--view-block &__image {
 			a::after {
 				.overlay;
@@ -2902,6 +3048,11 @@ button[type="submit"] {
 	&-vendor {
 		&--view-block {
 			.block;
+			transition: box-shadow @animation-duration;
+
+			&:hover {
+				box-shadow: @box-shadow-hover;
+			}
 		}
 
 		&--view-block &__header {
