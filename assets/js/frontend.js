@@ -112,21 +112,6 @@ var hivetheme = {
 
 	$(window).on('load', function() {
 
-		// Parallax
-		hivetheme.getComponent('parallax').each(function() {
-			var container = $(this),
-				offset = container.offset().top - $('#wpadminbar').height(),
-				speed = 0.25;
-
-			if ($(window).width() > 1024) {
-				container.css('background-position-y', ($(window).scrollTop() - offset) * speed);
-
-				$(window).on('scroll', function() {
-					container.css('background-position-y', ($(window).scrollTop() - offset) * speed);
-				});
-			}
-		});
-
 		// Sticky
 		if (typeof hivepress === 'undefined') {
 			hivetheme.getComponent('sticky').each(function() {
@@ -141,6 +126,24 @@ var hivetheme = {
 				});
 			});
 		}
+	});
+
+	$('body').waitForImages(function() {
+
+		// Parallax
+		hivetheme.getComponent('parallax').each(function() {
+			var container = $(this),
+				offset = container.offset().top - $('#wpadminbar').height(),
+				speed = 0.25;
+
+			if ($(window).width() > 1024) {
+				container.css('background-position-y', ($(window).scrollTop() - offset) * speed);
+
+				$(window).on('scroll', function() {
+					container.css('background-position-y', ($(window).scrollTop() - offset) * speed);
+				});
+			}
+		});
 
 		// Loader
 		setTimeout(function() {

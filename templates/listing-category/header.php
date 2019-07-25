@@ -6,7 +6,9 @@
 					<div class="hp-listing-category__header">
 						<div class="hp-listing-category__count"><?php printf( esc_html( _n( '%d Listing', '%d Listings', get_queried_object()->count, 'listinghive' ) ), number_format_i18n( get_queried_object()->count ) ); ?></div>
 						<h1 class="hp-listing-category__name"><?php single_cat_title(); ?></h1>
-						<div class="hp-listing-category__description"><?php echo category_description(); ?></div>
+						<?php if ( category_description() !== '' ) : ?>
+							<div class="hp-listing-category__description"><?php echo category_description(); ?></div>
+						<?php endif; ?>
 					</div>
 				</div>
 			</div>

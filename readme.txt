@@ -24,3 +24,4 @@ ListingHive is a lightweight WordPress theme that allows you to build any type o
 * Hover Intent jQuery plugin, MIT License
 * Sticky Sidebar jQuery plugin, MIT License
 * FitVids jQuery plugin, WTFPL License
+* waitForImages jQuery plugin, MIT License

@@ -1072,8 +1072,7 @@ button[type="submit"] {
 }
 
 .header-hero {
-	// todo uncomment
-	// background-image: linear-gradient(to right, @secondary-background-color,rgba(0,0,0,.08));
+	background-image: linear-gradient(to right, rgba(0,0,0,0),rgba(0,0,0,.08));
 	background-color: @secondary-background-color;
 	padding: 3rem 0;
 
@@ -1266,6 +1265,7 @@ button[type="submit"] {
 .fancybox {
 	&-content {
 		border-radius: @border-radius;
+		padding: 2.5rem;
 	}
 
 	&-close-small {
@@ -1351,6 +1351,7 @@ button[type="submit"] {
 				padding: 0.75rem 1rem 0.75rem 3rem;
 				flex: 1;
 				font-size: 1.125rem;
+				max-width: 100%;
 			}
 
 			input[type=submit] {
@@ -2568,7 +2569,13 @@ button[type="submit"] {
 
 			.home span[id^=more-] + &,
 			.tax-hp_listing_category & {
-				margin-top: -6.25rem;
+				margin-top: -4.25rem;
+				@media only screen and (min-width: 48em) {
+					margin-top: -5.25rem;
+				}
+				@media only screen and (min-width: 75em) {
+					margin-top: -6.25rem;
+				}
 			}
 		}
 
