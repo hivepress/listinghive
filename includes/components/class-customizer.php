@@ -160,7 +160,7 @@ final class Customizer {
 				// Get theme mod.
 				$value = get_theme_mod( $property['theme_mod'] );
 
-				if ( '' !== $value ) {
+				if ( ! empty( $value ) ) {
 					switch ( $property['name'] ) {
 
 						// Background image.
@@ -213,7 +213,7 @@ final class Customizer {
 				if ( in_array( $field_name, $theme_mods, true ) ) {
 					$font = get_theme_mod( $field_name, ht\get_array_value( $field, 'default', false ) );
 
-					if ( '' !== $font ) {
+					if ( ! empty( $font ) ) {
 						$fonts[] = $font;
 					}
 				}

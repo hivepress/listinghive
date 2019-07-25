@@ -206,6 +206,8 @@ body {
 	font-family: @body-font-family;
 	color: @body-font-color;
 	line-height: 1.5;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -569,6 +571,7 @@ select,
 textarea {
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
+	background-color: transparent;
 	padding: 0.5rem 1rem;
 	font-size: 1rem;
 	line-height: 1.5;
@@ -2980,6 +2983,7 @@ button[type="submit"] {
 
 			i {
 				color: @icon-color;
+				transition: color @animation-duration;
 			}
 
 			&:hover,
@@ -3120,6 +3124,7 @@ button[type="submit"] {
 
 			i {
 				color: @icon-color;
+				transition: color @animation-duration;
 			}
 
 			&:hover,
