@@ -10,7 +10,7 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
 	</head>
 	<body <?php body_class(); ?>>
-		<?php get_template_part( 'templates/loader' ); ?>
+		<?php get_template_part( 'templates/common/loader' ); ?>
 		<div class="site-container">
 			<header class="site-header">
 				<div class="header-navbar">
@@ -63,7 +63,7 @@
 				if ( is_page() ) :
 					get_template_part( 'templates/page/header' );
 				elseif ( is_singular( 'post' ) ) :
-					get_template_part( 'templates/post/header' );
+					get_template_part( 'templates/post/single/header' );
 				elseif ( is_tax( 'hp_listing_category' ) ) :
 					get_template_part( 'templates/listing-category/header' );
 				endif;

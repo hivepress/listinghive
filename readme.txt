@@ -20,6 +20,7 @@ ListingHive is a lightweight WordPress theme that allows you to build any type o
 * Flexboxgrid CSS, Apache License
 * Minireset CSS, MIT License
 * Font Awesome CSS, MIT License
+* Focus Visible JS library, W3C License
 * Hover Intent jQuery plugin, MIT License
 * Sticky Sidebar jQuery plugin, MIT License
 * FitVids jQuery plugin, WTFPL License

@@ -18,7 +18,7 @@
 							<?php
 						endif;
 
-						get_template_part( 'templates/post/details' );
+						get_template_part( 'templates/post/common/details' );
 						?>
 					</div>
 				</div>

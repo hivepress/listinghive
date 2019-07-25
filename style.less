@@ -65,10 +65,10 @@ Variables
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
 @box-shadow-hover: 0 0 12px rgba(0,0,0,0.12);
-@animation-duration: 0.25s; /*--------------------------------------------------------------
+@animation-duration: 0.25s;
+/*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
-
 .image-container {
 	img {
 		display: block;
@@ -179,7 +179,6 @@ Mixins
 /*--------------------------------------------------------------
 1.0 Normalize
 --------------------------------------------------------------*/
-
 body,
 html {
 	height: 100%;
@@ -203,7 +202,6 @@ body {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
-
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -413,6 +411,7 @@ hr {
 /*--------------------------------------------------------------
 3.0 Accessibility
 --------------------------------------------------------------*/
+
 .screen-reader-text {
 	position: absolute;
 	overflow: hidden;
@@ -426,9 +425,16 @@ hr {
 	-webkit-clip-path: inset(50%);
 	clip-path: inset(50%);
 }
+
+.js-focus-visible {
+	*:focus:not(.focus-visible) {
+		outline: none;
+	}
+}
 /*--------------------------------------------------------------
 4.0 Alignments
 --------------------------------------------------------------*/
+
 .aligncenter,
 .alignnone {
 	clear: both;
@@ -478,7 +484,6 @@ hr {
 /*--------------------------------------------------------------
 5.0 Media
 --------------------------------------------------------------*/
-
 .gallery {
 	&:not(:first-child) {
 		margin-top: 2rem!important;
@@ -508,8 +513,8 @@ hr {
 .wp-caption {
 	max-width: 100%;
 
-	> a > img,
-	> img {
+	> img,
+	> a > img {
 		width: 100%;
 		display: block;
 		border-radius: @border-radius;
@@ -542,7 +547,6 @@ hr {
 /*--------------------------------------------------------------
 6.0 Forms
 --------------------------------------------------------------*/
-
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -588,6 +592,7 @@ input[type=radio] {
 /*--------------------------------------------------------------
 7.0 Tables
 --------------------------------------------------------------*/
+
 table {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -662,7 +667,6 @@ table {
 /*--------------------------------------------------------------
 8.0 Buttons
 --------------------------------------------------------------*/
-
 .button,
 button,
 input[type=submit] {
@@ -783,14 +787,12 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 9.0 Layout
 --------------------------------------------------------------*/
-
 .site-container {
 	flex: 1 0 auto;
 }
 /*--------------------------------------------------------------
 9.1 Header
 --------------------------------------------------------------*/
-
 .header-navbar {
 	padding: 1rem 2rem;
 	display: flex;
@@ -941,10 +943,11 @@ button[type="submit"] {
 			display: none;
 
 			li {
-				display: flex;
-				align-items: center;
-				justify-content: space-between;
-				padding: 0.25rem 0;
+				position: relative;
+
+				&:not(:last-child) {
+					margin-bottom: 0.5rem;
+				}
 
 				&.menu-item-has-children {
 					&::after {
@@ -952,6 +955,9 @@ button[type="submit"] {
 						content: '\f105';
 						color: @icon-color;
 						font-size: 18px;
+						position: absolute;
+						right: 0;
+						top: 0.2rem;
 						transition: transform @animation-duration;
 					}
 
@@ -965,7 +971,8 @@ button[type="submit"] {
 				}
 
 				ul {
-					align-self: stretch;
+					padding-left: 2rem;
+					margin-top: 0.5rem;
 					display: none;
 				}
 			}
@@ -981,14 +988,14 @@ button[type="submit"] {
 			overflow-x: hidden;
 			overflow-y: auto;
 			background-color: #fff;
-			padding: 2rem;
+			padding: 1.5rem 2rem;
 
 			&::before {
 				.icon;
 				font-size: 18px;
 				position: absolute;
-				top: 1rem;
-				right: 1rem;
+				top: 0.75rem;
+				right: 0.75rem;
 				width: 18px;
 				height: 18px;
 				text-align: center;
@@ -1002,7 +1009,11 @@ button[type="submit"] {
 			}
 
 			> li {
-				position: relative;
+				padding: 0.25rem 0;
+
+				&:not(:last-child) {
+					margin-bottom: 0;
+				}
 
 				&.current-menu-item {
 					&::before {
@@ -1016,6 +1027,19 @@ button[type="submit"] {
 						background-color: @primary-background-color;
 						background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
 					}
+				}
+
+				&.menu-item-has-children {
+					&::after {
+						top: 0.5rem;
+					}
+				}
+
+				> a {
+					font-size: 1.125rem;
+					font-family: @heading-font-family;
+					font-weight: @heading-font-weight;
+					color: @heading-font-color;
 				}
 			}
 		}
@@ -1093,7 +1117,6 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 9.2 Content
 --------------------------------------------------------------*/
-
 .site-content {
 	padding: 4rem 0;
 	position: relative;
@@ -1113,7 +1136,6 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 9.3 Section
 --------------------------------------------------------------*/
-
 .section {
 	&:not(:first-child) {
 		margin-top: 3rem;
@@ -1160,7 +1182,6 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 9.4 Footer
 --------------------------------------------------------------*/
-
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -1242,7 +1263,6 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 9.5 Modal
 --------------------------------------------------------------*/
-
 .fancybox {
 	&-content {
 		border-radius: @border-radius;
@@ -1259,7 +1279,6 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 9.6 Loader
 --------------------------------------------------------------*/
-
 .site-loader {
 	.center-container;
 	position: fixed;
@@ -1287,7 +1306,6 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 10.0 Widgets
 --------------------------------------------------------------*/
-
 .widget {
 	&--sidebar,
 	&.hp-menu {
@@ -1463,6 +1481,20 @@ button[type="submit"] {
 }
 
 .wp-block {
+	max-width: 1140px;
+
+	&[data-align='wide'] {
+		max-width: 1140px;
+	}
+
+	&[data-align='full'] {
+		max-width: none;
+	}
+
+	.hp-block {
+		pointer-events: none;
+	}
+
 	&-archives,
 	&-categories,
 	&-latest-comments,
@@ -1518,8 +1550,8 @@ button[type="submit"] {
 		&.current-cat,
 		&.current-menu-item,
 		&:hover {
-			> a,
-			&::before {
+			&::before,
+			> a {
 				color: @primary-font-color;
 			}
 		}
@@ -1566,6 +1598,7 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 11.0 Blocks
 --------------------------------------------------------------*/
+
 .wp-block {
 	&-quote {
 		border-left: 3px solid @primary-background-color;
@@ -1789,7 +1822,6 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 12.0 Pages
 --------------------------------------------------------------*/
-
 .page {
 	&__title {
 		word-wrap: break-word;
@@ -1808,7 +1840,6 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 13.0 Posts
 --------------------------------------------------------------*/
-
 .post {
 	&--archive {
 		margin-bottom: 2rem;
@@ -2017,6 +2048,7 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 14.0 Tags
 --------------------------------------------------------------*/
+
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -2040,7 +2072,6 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 15.0 Comments
 --------------------------------------------------------------*/
-
 .comments {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -2300,7 +2331,6 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 16.0 Pagination
 --------------------------------------------------------------*/
-
 .pagination {
 	display: flex;
 	align-items: center;
@@ -2319,10 +2349,10 @@ button[type="submit"] {
 		align-items: center;
 	}
 
-	> a,
+	> span,
 	.nav-links > a,
 	.nav-links > span,
-	> span {
+	> a {
 		.center-container;
 		border: 2px solid transparent;
 		border-radius: 50%;
@@ -2366,15 +2396,15 @@ button[type="submit"] {
 		}
 	}
 
-	> span,
-	.nav-links > span {
+	.nav-links > span,
+	> span {
 		&:not(.dots) {
 			border-color: @border-color;
 		}
 	}
 
-	> a,
-	.nav-links > a {
+	.nav-links > a,
+	> a {
 		transition: color @animation-duration;
 
 		&:hover {
@@ -2385,6 +2415,7 @@ button[type="submit"] {
 /*--------------------------------------------------------------
 17.0 HivePress
 --------------------------------------------------------------*/
+
 .hp {
 	&-link {
 		transition: color @animation-duration;
@@ -2535,6 +2566,7 @@ button[type="submit"] {
 				align-items: stretch;
 			}
 
+			.home span[id^=more-] + &,
 			.tax-hp_listing_category & {
 				margin-top: -6.25rem;
 			}
@@ -2638,32 +2670,32 @@ button[type="submit"] {
 
 		input[type=checkbox],
 		input[type=radio] {
-			display: none;
+			opacity: 0;
+			position: absolute;
+			margin: 0;
 
 			& + span {
 				position: relative;
-				display: inline-flex;
+				display: inline-block;
 				cursor: pointer;
-				align-items: flex-start;
 
 				&::after,
 				&::before {
 					display: block;
 					content: '';
+					position: absolute;
 				}
 
 				&::before {
 					width: 18px;
 					height: 18px;
-					margin-right: 0.5rem;
-					margin-top: 3px;
 					transition: background-color @animation-duration, border-color @animation-duration;
 					border: 2px solid @border-color;
-					flex: 0 0 18px;
+					left: 0;
+					top: 3px;
 				}
 
 				&::after {
-					position: absolute;
 					top: 7px;
 					left: 4px;
 					transition: opacity @animation-duration;
@@ -2684,6 +2716,8 @@ button[type="submit"] {
 
 		input[type=checkbox] {
 			& + span {
+				padding-left: 1.75rem;
+
 				&::before {
 					border-radius: 3px;
 				}
@@ -2707,6 +2741,8 @@ button[type="submit"] {
 
 		input[type=radio] {
 			& + span {
+				padding-left: 1.65rem;
+
 				&::before {
 					border-radius: 50%;
 				}

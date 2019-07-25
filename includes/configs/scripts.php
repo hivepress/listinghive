@@ -9,6 +9,11 @@
 defined( 'ABSPATH' ) || exit;
 
 return [
+	'focus_visible'  => [
+		'handle' => 'focus-visible',
+		'src'    => HT_THEME_URL . '/assets/js/focus-visible.min.js',
+	],
+
 	'hoverintent'    => [
 		'handle' => 'hoverintent',
 		'src'    => HT_THEME_URL . '/assets/js/jquery.hoverIntent.min.js',
