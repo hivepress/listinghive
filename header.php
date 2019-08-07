@@ -6,8 +6,8 @@
 		<?php wp_head(); ?>
 
 		<!-- todo remove -->
-		<link rel="stylesheet/less" type="text/css" href="<?php echo esc_url( HT_THEME_URL ); ?>/style.less" />
-		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+		<!-- <link rel="stylesheet/less" type="text/css" href="<?php echo esc_url( HT_THEME_URL ); ?>/style.less" />
+		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script> -->
 	</head>
 	<body <?php body_class(); ?>>
 		<?php get_template_part( 'templates/common/loader' ); ?>
