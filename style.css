@@ -219,7 +219,7 @@ h3 a:hover,
 h4 a:hover,
 h5 a:hover,
 h6 a:hover {
-  color: rgba(0, 0, 0, 0);
+  color: #000000;
 }
 h1 {
   font-size: 2.25rem;
@@ -441,8 +441,8 @@ hr {
 .wp-caption {
   max-width: 100%;
 }
-.wp-caption > a > img,
-.wp-caption > img {
+.wp-caption > img,
+.wp-caption > a > img {
   width: 100%;
   display: block;
   border-radius: 3px;
@@ -612,7 +612,7 @@ table tfoot th {
 }
 .button[data-state=loading] {
   cursor: default;
-  color: transparent!important;
+  color: transparent;
 }
 .button[data-state=loading]::after {
   display: block;
@@ -623,8 +623,8 @@ table tfoot th {
 }
 .button--primary,
 .button--secondary {
-  color: #fff;
-  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+  color: #fff!important;
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2))!important;
 }
 .button--primary::before,
 .button--secondary::before {
@@ -643,10 +643,10 @@ table tfoot th {
   background-color: #ffc107;
 }
 .button--secondary {
-  background-color: #15cd72;
+  background-color: #15cd72!important;
 }
-button:not(.components-button):not(.fancybox-button),
-input[type=submit]:not(.components-button):not(.fancybox-button) {
+button:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button),
+input[type=submit]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button) {
   text-align: center;
   border-radius: 3px;
   font-family: 'Poppins', sans-serif;
@@ -661,8 +661,8 @@ input[type=submit]:not(.components-button):not(.fancybox-button) {
   cursor: pointer;
   border: none;
 }
-button:not(.components-button):not(.fancybox-button)::before,
-input[type=submit]:not(.components-button):not(.fancybox-button)::before {
+button:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)::before,
+input[type=submit]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)::before {
   content: '';
   display: block;
   position: absolute;
@@ -675,12 +675,12 @@ input[type=submit]:not(.components-button):not(.fancybox-button)::before {
   background-color: rgba(0, 0, 0, 0.06);
   border-radius: inherit;
 }
-button:not(.components-button):not(.fancybox-button):hover::before,
-input[type=submit]:not(.components-button):not(.fancybox-button):hover::before {
+button:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button):hover::before,
+input[type=submit]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button):hover::before {
   opacity: 1;
 }
-button:not(.components-button):not(.fancybox-button)::after,
-input[type=submit]:not(.components-button):not(.fancybox-button)::after {
+button:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)::after,
+input[type=submit]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)::after {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   font-style: normal;
@@ -701,32 +701,32 @@ input[type=submit]:not(.components-button):not(.fancybox-button)::after {
   text-align: center;
   color: rgba(0, 0, 0, 0.15);
 }
-button:not(.components-button):not(.fancybox-button)[data-state=loading],
-input[type=submit]:not(.components-button):not(.fancybox-button)[data-state=loading] {
+button:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)[data-state=loading],
+input[type=submit]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)[data-state=loading] {
   cursor: default;
-  color: transparent!important;
+  color: transparent;
 }
-button:not(.components-button):not(.fancybox-button)[data-state=loading]::after,
-input[type=submit]:not(.components-button):not(.fancybox-button)[data-state=loading]::after {
+button:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)[data-state=loading]::after,
+input[type=submit]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)[data-state=loading]::after {
   display: block;
 }
-button[type="submit"]:not(.components-button):not(.fancybox-button),
-input[type=submit]:not(.components-button):not(.fancybox-button) {
+button[type="submit"]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button),
+input[type=submit]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button) {
   color: #fff;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
   background-color: #ffc107;
 }
-button[type="submit"]:not(.components-button):not(.fancybox-button)::before,
-input[type=submit]:not(.components-button):not(.fancybox-button)::before {
+button[type="submit"]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)::before,
+input[type=submit]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)::before {
   background-color: rgba(255, 255, 255, 0.1);
 }
-button[type="submit"]:not(.components-button):not(.fancybox-button)[data-state=loading]::before,
-input[type=submit]:not(.components-button):not(.fancybox-button)[data-state=loading]::before {
+button[type="submit"]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)[data-state=loading]::before,
+input[type=submit]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)[data-state=loading]::before {
   background-color: rgba(255, 255, 255, 0.25);
   opacity: 1;
 }
-button[type="submit"]:not(.components-button):not(.fancybox-button)::after,
-input[type=submit]:not(.components-button):not(.fancybox-button)::after {
+button[type="submit"]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)::after,
+input[type=submit]:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button)::after {
   color: rgba(255, 255, 255, 0.8);
 }
 .wp-block-button {
@@ -786,7 +786,7 @@ input[type=submit]:not(.components-button):not(.fancybox-button)::after {
 }
 .wp-block-button__link[data-state=loading] {
   cursor: default;
-  color: transparent!important;
+  color: transparent;
 }
 .wp-block-button__link[data-state=loading]::after {
   display: block;
@@ -1066,7 +1066,7 @@ input[type=submit]:not(.components-button):not(.fancybox-button)::after {
   margin-bottom: 0.25rem;
 }
 .header-logo:hover .header-logo__name {
-  color: rgba(0, 0, 0, 0);
+  color: #000000;
 }
 .header-logo__description {
   color: rgba(0, 0, 0, 0.4);
@@ -1588,33 +1588,6 @@ input[type=submit]:not(.components-button):not(.fancybox-button)::after {
 .wp-block-latest-posts li a:hover {
   color: #ffc107;
 }
-.widget_archive li.current-cat > a,
-.widget_categories li.current-cat > a,
-.widget_meta li.current-cat > a,
-.widget_nav_menu li.current-cat > a,
-.widget_pages li.current-cat > a,
-.widget_recent_entries li.current-cat > a,
-.wp-block-archives li.current-cat > a,
-.wp-block-categories li.current-cat > a,
-.wp-block-latest-posts li.current-cat > a,
-.widget_archive li.current-menu-item > a,
-.widget_categories li.current-menu-item > a,
-.widget_meta li.current-menu-item > a,
-.widget_nav_menu li.current-menu-item > a,
-.widget_pages li.current-menu-item > a,
-.widget_recent_entries li.current-menu-item > a,
-.wp-block-archives li.current-menu-item > a,
-.wp-block-categories li.current-menu-item > a,
-.wp-block-latest-posts li.current-menu-item > a,
-.widget_archive li:hover > a,
-.widget_categories li:hover > a,
-.widget_meta li:hover > a,
-.widget_nav_menu li:hover > a,
-.widget_pages li:hover > a,
-.widget_recent_entries li:hover > a,
-.wp-block-archives li:hover > a,
-.wp-block-categories li:hover > a,
-.wp-block-latest-posts li:hover > a,
 .widget_archive li.current-cat::before,
 .widget_categories li.current-cat::before,
 .widget_meta li.current-cat::before,
@@ -1641,7 +1614,34 @@ input[type=submit]:not(.components-button):not(.fancybox-button)::after {
 .widget_recent_entries li:hover::before,
 .wp-block-archives li:hover::before,
 .wp-block-categories li:hover::before,
-.wp-block-latest-posts li:hover::before {
+.wp-block-latest-posts li:hover::before,
+.widget_archive li.current-cat > a,
+.widget_categories li.current-cat > a,
+.widget_meta li.current-cat > a,
+.widget_nav_menu li.current-cat > a,
+.widget_pages li.current-cat > a,
+.widget_recent_entries li.current-cat > a,
+.wp-block-archives li.current-cat > a,
+.wp-block-categories li.current-cat > a,
+.wp-block-latest-posts li.current-cat > a,
+.widget_archive li.current-menu-item > a,
+.widget_categories li.current-menu-item > a,
+.widget_meta li.current-menu-item > a,
+.widget_nav_menu li.current-menu-item > a,
+.widget_pages li.current-menu-item > a,
+.widget_recent_entries li.current-menu-item > a,
+.wp-block-archives li.current-menu-item > a,
+.wp-block-categories li.current-menu-item > a,
+.wp-block-latest-posts li.current-menu-item > a,
+.widget_archive li:hover > a,
+.widget_categories li:hover > a,
+.widget_meta li:hover > a,
+.widget_nav_menu li:hover > a,
+.widget_pages li:hover > a,
+.widget_recent_entries li:hover > a,
+.wp-block-archives li:hover > a,
+.wp-block-categories li:hover > a,
+.wp-block-latest-posts li:hover > a {
   color: #ffc107;
 }
 .widget_pages li,
@@ -1861,6 +1861,12 @@ input[type=submit]:not(.components-button):not(.fancybox-button)::after {
 }
 .wp-block-media-text .wp-block-media-text__content {
   padding: 1.5rem 2rem;
+}
+.editor-post-title__block,
+.editor-post-title__input {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.8);
 }
 /*--------------------------------------------------------------
 12.0 Pages
@@ -2327,10 +2333,10 @@ input[type=submit]:not(.components-button):not(.fancybox-button)::after {
   display: flex;
   align-items: center;
 }
-.pagination > a,
+.pagination > span,
 .pagination .nav-links > a,
 .pagination .nav-links > span,
-.pagination > span {
+.pagination > a {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2342,45 +2348,45 @@ input[type=submit]:not(.components-button):not(.fancybox-button)::after {
   font-family: 'Poppins', sans-serif;
   font-weight: 500;
 }
-.pagination > a.page-numbers:not(:last-child),
+.pagination > span.page-numbers:not(:last-child),
 .pagination .nav-links > a.page-numbers:not(:last-child),
 .pagination .nav-links > span.page-numbers:not(:last-child),
-.pagination > span.page-numbers:not(:last-child),
-.pagination > a:not(:last-child),
+.pagination > a.page-numbers:not(:last-child),
+.pagination > span:not(:last-child),
 .pagination .nav-links > a:not(:last-child),
 .pagination .nav-links > span:not(:last-child),
-.pagination > span:not(:last-child) {
+.pagination > a:not(:last-child) {
   margin-right: 0.5rem;
 }
-.pagination > a.page-numbers:not(.prev):not(.next),
+.pagination > span.page-numbers:not(.prev):not(.next),
 .pagination .nav-links > a.page-numbers:not(.prev):not(.next),
 .pagination .nav-links > span.page-numbers:not(.prev):not(.next),
-.pagination > span.page-numbers:not(.prev):not(.next),
-.pagination > a:not(.prev):not(.next),
+.pagination > a.page-numbers:not(.prev):not(.next),
+.pagination > span:not(.prev):not(.next),
 .pagination .nav-links > a:not(.prev):not(.next),
 .pagination .nav-links > span:not(.prev):not(.next),
-.pagination > span:not(.prev):not(.next) {
+.pagination > a:not(.prev):not(.next) {
   font-size: 1.125rem;
 }
-.pagination > a.next,
+.pagination > span.next,
 .pagination .nav-links > a.next,
 .pagination .nav-links > span.next,
-.pagination > span.next,
-.pagination > a.prev,
+.pagination > a.next,
+.pagination > span.prev,
 .pagination .nav-links > a.prev,
 .pagination .nav-links > span.prev,
-.pagination > span.prev {
+.pagination > a.prev {
   font-size: 0;
   color: rgba(0, 0, 0, 0.15);
 }
-.pagination > a.next::before,
+.pagination > span.next::before,
 .pagination .nav-links > a.next::before,
 .pagination .nav-links > span.next::before,
-.pagination > span.next::before,
-.pagination > a.prev::before,
+.pagination > a.next::before,
+.pagination > span.prev::before,
 .pagination .nav-links > a.prev::before,
 .pagination .nav-links > span.prev::before,
-.pagination > span.prev::before {
+.pagination > a.prev::before {
   font-family: 'Font Awesome 5 Free';
   font-weight: 900;
   font-style: normal;
@@ -2392,38 +2398,38 @@ input[type=submit]:not(.components-button):not(.fancybox-button)::after {
   text-rendering: auto;
   font-size: 16px;
 }
-.pagination > a.next i,
+.pagination > span.next i,
 .pagination .nav-links > a.next i,
 .pagination .nav-links > span.next i,
-.pagination > span.next i,
-.pagination > a.prev i,
+.pagination > a.next i,
+.pagination > span.prev i,
 .pagination .nav-links > a.prev i,
 .pagination .nav-links > span.prev i,
-.pagination > span.prev i {
+.pagination > a.prev i {
   display: none;
 }
-.pagination > a.prev::before,
+.pagination > span.prev::before,
 .pagination .nav-links > a.prev::before,
 .pagination .nav-links > span.prev::before,
-.pagination > span.prev::before {
+.pagination > a.prev::before {
   content: '\f053';
 }
-.pagination > a.next::before,
+.pagination > span.next::before,
 .pagination .nav-links > a.next::before,
 .pagination .nav-links > span.next::before,
-.pagination > span.next::before {
+.pagination > a.next::before {
   content: '\f054';
 }
-.pagination > span:not(.dots),
-.pagination .nav-links > span:not(.dots) {
+.pagination .nav-links > span:not(.dots),
+.pagination > span:not(.dots) {
   border-color: rgba(0, 0, 0, 0.06);
 }
-.pagination > a,
-.pagination .nav-links > a {
+.pagination .nav-links > a,
+.pagination > a {
   transition: color 0.25s;
 }
-.pagination > a:hover,
-.pagination .nav-links > a:hover {
+.pagination .nav-links > a:hover,
+.pagination > a:hover {
   color: #ffc107;
 }
 /*--------------------------------------------------------------
@@ -2557,7 +2563,7 @@ input[type=submit]:not(.components-button):not(.fancybox-button)::after {
   font-size: 0.6875rem;
   margin-bottom: 0.75rem;
 }
-.hp-form--narrow button.hp-form__button {
+.hp-form--narrow .hp-form__button {
   font-size: 1.125rem;
   padding: 0.75rem 1.25rem;
 }
@@ -2647,11 +2653,11 @@ input[type=submit]:not(.components-button):not(.fancybox-button)::after {
   line-height: 3rem;
   height: 3rem;
 }
-.hp-form--listing-search button.hp-form__button {
-  height: 3.125rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  font-size: 1.125rem;
+.hp-form--listing-search .hp-form__button {
+  height: 3.125rem!important;
+  padding-left: 2rem!important;
+  padding-right: 2rem!important;
+  font-size: 1.125rem!important;
 }
 .hp-form--listing-sort select {
   text-transform: uppercase;

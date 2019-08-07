@@ -50,7 +50,7 @@ Variables
 @heading-font-weight: 500;
 @body-font-family: 'Open Sans', sans-serif;
 @heading-font-color: rgba(0,0,0,0.8);
-@heading-font-color-hover: rgba(0,0,0,0);
+@heading-font-color-hover: rgba(0,0,0,1);
 @body-font-color: rgba(0,0,0,0.6);
 @primary-font-color: #ffc107;
 @secondary-font-color: rgba(0,0,0,0.4);
@@ -65,10 +65,10 @@ Variables
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
 @box-shadow-hover: 0 0 12px rgba(0,0,0,0.12);
-@animation-duration: 0.25s; /*--------------------------------------------------------------
+@animation-duration: 0.25s;
+/*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
-
 .image-container {
 	img {
 		display: block;
@@ -179,7 +179,6 @@ Mixins
 /*--------------------------------------------------------------
 1.0 Normalize
 --------------------------------------------------------------*/
-
 body,
 html {
 	height: 100%;
@@ -203,7 +202,6 @@ body {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
-
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -415,6 +413,7 @@ hr {
 /*--------------------------------------------------------------
 3.0 Accessibility
 --------------------------------------------------------------*/
+
 .screen-reader-text {
 	position: absolute;
 	overflow: hidden;
@@ -437,6 +436,7 @@ hr {
 /*--------------------------------------------------------------
 4.0 Alignments
 --------------------------------------------------------------*/
+
 .aligncenter,
 .alignnone {
 	clear: both;
@@ -486,7 +486,6 @@ hr {
 /*--------------------------------------------------------------
 5.0 Media
 --------------------------------------------------------------*/
-
 .gallery {
 	&:not(:first-child) {
 		margin-top: 2rem!important;
@@ -516,8 +515,8 @@ hr {
 .wp-caption {
 	max-width: 100%;
 
-	> a > img,
-	> img {
+	> img,
+	> a > img {
 		width: 100%;
 		display: block;
 		border-radius: @border-radius;
@@ -550,7 +549,6 @@ hr {
 /*--------------------------------------------------------------
 6.0 Forms
 --------------------------------------------------------------*/
-
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -597,6 +595,7 @@ input[type=radio] {
 /*--------------------------------------------------------------
 7.0 Tables
 --------------------------------------------------------------*/
+
 table {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -671,7 +670,6 @@ table {
 /*--------------------------------------------------------------
 8.0 Buttons
 --------------------------------------------------------------*/
-
 .button {
 	text-align: center;
 	border-radius: @border-radius;
@@ -715,7 +713,7 @@ table {
 
 	&[data-state=loading] {
 		cursor: default;
-		color: transparent!important;
+		color: transparent;
 
 		&::after {
 			display: block;
@@ -757,14 +755,14 @@ table {
 
 button,
 input[type=submit] {
-	&:not(.components-button):not(.fancybox-button) {
+	&:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button) {
 		.button;
 	}
 }
 
 button[type="submit"],
 input[type=submit] {
-	&:not(.components-button):not(.fancybox-button) {
+	&:not(.components-button):not(.customize-partial-edit-shortcut-button):not(.fancybox-button) {
 		.button--primary;
 	}
 }
@@ -793,14 +791,12 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.0 Layout
 --------------------------------------------------------------*/
-
 .site-container {
 	flex: 1 0 auto;
 }
 /*--------------------------------------------------------------
 9.1 Header
 --------------------------------------------------------------*/
-
 .header-navbar {
 	padding: 1rem 2rem;
 	display: flex;
@@ -1124,7 +1120,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.2 Content
 --------------------------------------------------------------*/
-
 .site-content {
 	padding: 4rem 0;
 	position: relative;
@@ -1144,7 +1139,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.3 Section
 --------------------------------------------------------------*/
-
 .section {
 	&:not(:first-child) {
 		margin-top: 3rem;
@@ -1191,7 +1185,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.4 Footer
 --------------------------------------------------------------*/
-
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -1273,7 +1266,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.5 Modal
 --------------------------------------------------------------*/
-
 .fancybox {
 	&-content {
 		border-radius: @border-radius;
@@ -1283,7 +1275,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.6 Loader
 --------------------------------------------------------------*/
-
 .site-loader {
 	.center-container;
 	position: fixed;
@@ -1311,7 +1302,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 10.0 Widgets
 --------------------------------------------------------------*/
-
 .widget {
 	&--sidebar,
 	&.hp-menu {
@@ -1557,8 +1547,8 @@ input[type=submit] {
 		&.current-cat,
 		&.current-menu-item,
 		&:hover {
-			> a,
-			&::before {
+			&::before,
+			> a {
 				color: @primary-font-color;
 			}
 		}
@@ -1605,6 +1595,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 11.0 Blocks
 --------------------------------------------------------------*/
+
 .wp-block {
 	&-quote {
 		border-left: 3px solid @primary-background-color;
@@ -1825,10 +1816,18 @@ input[type=submit] {
 		}
 	}
 }
+
+.editor-post-title {
+	&__block,
+	&__input {
+		font-family: @heading-font-family;
+		font-weight: @heading-font-weight;
+		color: @heading-font-color;
+	}
+}
 /*--------------------------------------------------------------
 12.0 Pages
 --------------------------------------------------------------*/
-
 .page {
 	&__title {
 		word-wrap: break-word;
@@ -1847,7 +1846,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 13.0 Posts
 --------------------------------------------------------------*/
-
 .post {
 	&--archive {
 		margin-bottom: 2rem;
@@ -2056,6 +2054,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 14.0 Tags
 --------------------------------------------------------------*/
+
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -2079,7 +2078,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 15.0 Comments
 --------------------------------------------------------------*/
-
 .comments {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -2339,7 +2337,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 16.0 Pagination
 --------------------------------------------------------------*/
-
 .pagination {
 	display: flex;
 	align-items: center;
@@ -2358,10 +2355,10 @@ input[type=submit] {
 		align-items: center;
 	}
 
-	> a,
+	> span,
 	.nav-links > a,
 	.nav-links > span,
-	> span {
+	> a {
 		.center-container;
 		border: 2px solid transparent;
 		border-radius: 50%;
@@ -2405,15 +2402,15 @@ input[type=submit] {
 		}
 	}
 
-	> span,
-	.nav-links > span {
+	.nav-links > span,
+	> span {
 		&:not(.dots) {
 			border-color: @border-color;
 		}
 	}
 
-	> a,
-	.nav-links > a {
+	.nav-links > a,
+	> a {
 		transition: color @animation-duration;
 
 		&:hover {
@@ -2424,6 +2421,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 17.0 HivePress
 --------------------------------------------------------------*/
+
 .hp {
 	&-link {
 		transition: color @animation-duration;
@@ -2553,7 +2551,7 @@ input[type=submit] {
 			margin-bottom: 0.75rem;
 		}
 
-		&--narrow button&__button {
+		&--narrow &__button {
 			font-size: 1.125rem;
 			padding: 0.75rem 1.25rem;
 		}
@@ -2642,7 +2640,7 @@ input[type=submit] {
 			}
 		}
 
-		&--listing-search button&__button {
+		&--listing-search &__button {
 			height: 3.125rem;
 			padding-left: 2rem;
 			padding-right: 2rem;
