@@ -123,7 +123,7 @@ final class Core {
 		require_once HT_THEME_DIR . '/includes/helpers.php';
 
 		// Load textdomain.
-		load_theme_textdomain( $theme->get( 'Text Domain' ), HT_THEME_DIR . '/languages' );
+		load_theme_textdomain( $theme->get( 'TextDomain' ), HT_THEME_DIR . '/languages' );
 
 		// Set components.
 		$this->objects['components'] = $this->get_components();
