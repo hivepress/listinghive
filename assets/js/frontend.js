@@ -128,7 +128,7 @@ var hivetheme = {
 		}
 	});
 
-	$('body').waitForImages(function() {
+	$('body').imagesLoaded(function() {
 
 		// Parallax
 		hivetheme.getComponent('parallax').each(function() {
