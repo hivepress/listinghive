@@ -10,7 +10,13 @@
 		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script> -->
 	</head>
 	<body <?php body_class(); ?>>
-		<?php get_template_part( 'templates/common/loader' ); ?>
+		<?php
+		if ( function_exists( 'wp_body_open' ) ) :
+			wp_body_open();
+		endif;
+
+		get_template_part( 'templates/common/loader' );
+		?>
 		<div class="site-container">
 			<header class="site-header">
 				<div class="header-navbar">
