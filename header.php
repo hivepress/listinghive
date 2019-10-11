@@ -4,10 +4,6 @@
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<?php wp_head(); ?>
-
-		<!-- todo remove -->
-		<link rel="stylesheet/less" type="text/css" href="<?php echo esc_url( HT_THEME_URL ); ?>/style.less" />
-		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
 	</head>
 	<body <?php body_class(); ?>>
 		<?php
@@ -17,7 +13,7 @@
 
 		get_template_part( 'templates/common/loader' );
 		?>
-		<a href="#content" class="skip-link screen-reader-text"><?php esc_html_e( 'Skip to Content', 'listinghive' ); ?></a>
+		<a href="#content" class="skip-link screen-reader-text"><?php esc_html_e( 'Skip to content', 'listinghive' ); ?></a>
 		<div class="site-container">
 			<header class="site-header">
 				<div class="header-navbar">

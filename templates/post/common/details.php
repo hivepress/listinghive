@@ -4,7 +4,12 @@
 	<?php else : ?>
 		<time datetime="<?php echo esc_attr( get_the_time( 'Y-m-d' ) ); ?>" class="post__date"><?php echo esc_html( get_the_date() ); ?></time>
 	<?php endif; ?>
-	<div class="post__author"><?php printf( esc_html__( 'By %s', 'listinghive' ), get_the_author() ); ?></div>
+	<div class="post__author">
+		<?php
+		// translators: the post author.
+		printf( esc_html__( 'By %s', 'listinghive' ), get_the_author() );
+		?>
+	</div>
 	<?php if ( comments_open() && ! post_password_required() ) : ?>
 		<a href="<?php comments_link(); ?>" class="post__comments"><?php comments_number(); ?></a>
 		<?php

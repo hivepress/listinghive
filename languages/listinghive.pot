@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-07 18:34+0000\n"
+"POT-Creation-Date: 2019-10-11 17:03+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -21,6 +21,10 @@ msgstr ""
 
 #: comments.php:29
 msgid "Cancel Reply"
+msgstr ""
+
+#: header.php:16
+msgid "Skip to content"
 msgstr ""
 
 #: index.php:18
@@ -585,7 +589,7 @@ msgstr ""
 #. Description of the theme
 msgid ""
 "A lightweight WordPress theme that allows you to build any type of directory "
-"or listing website."
+"and listing websites."
 msgstr ""
 
 #. Author of the theme

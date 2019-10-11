@@ -7,17 +7,19 @@ Stable tag: 1.0.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-A lightweight WordPress theme that allows you to build any type of directory or listing website.
+A lightweight WordPress theme that allows you to build any type of directory and listing websites.
+
+== Description ==
+
+ListingHive is a lightweight WordPress theme that allows you to build any type of directory and listing websites.
+
+[Demo](https://demo.hivepress.io/) | [Documentation](https://hivepress.io/docs/themes/listinghive) | [Support](https://hivepress.io/support/forum/themes/listinghive)
 
 ListingHive WordPress Theme, Copyright 2019 HivePress
 ListingHive is distributed under the terms of the GNU GPL
 
-== Description ==
-ListingHive is a lightweight WordPress theme that allows you to build any type of directory or listing website.
-
-[Demo](https://demo.hivepress.io/) | [Documentation](https://hivepress.io/docs/themes/listinghive) | [Support](https://hivepress.io/support/forum/themes/listinghive)
-
 == Resources ==
+
 * TGM Plugin Activation PHP library by Thomas Griffin, Gary Jones, Juliette Reinders Folmer (GNU General Public License) https://github.com/TGMPA/TGM-Plugin-Activation
 * Font Awesome icon font by FontAwesome (SIL OFL 1.1 License) https://github.com/FortAwesome/Font-Awesome
 * Font Awesome CSS by FontAwesome (MIT License) https://github.com/FortAwesome/Font-Awesome
@@ -26,4 +28,3 @@ ListingHive is a lightweight WordPress theme that allows you to build any type o
 * Focus Visible JS library by WICG (W3C License) https://github.com/WICG/focus-visible
 * Sticky Sidebar jQuery plugin by Ahmed Bouhuolia (MIT License) https://github.com/abouolia/sticky-sidebar
 * FitVids jQuery plugin by Chris Coyier, Dave Rupert (WTFPL License) https://github.com/davatron5000/FitVids.js/
-* Screenshot image by TODO (TODO)
