@@ -6,7 +6,7 @@
 		<?php wp_head(); ?>
 
 		<!-- todo remove -->
-		<link rel="stylesheet/less" type="text/css" href="'http://localhost/hivepress/wp-content/themes/listinghive/style.less" />
+		<link rel="stylesheet/less" type="text/css" href="http://localhost/hivepress/wp-content/themes/listinghive/style.less" />
 		<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
 	</head>
 	<body <?php body_class(); ?>>
