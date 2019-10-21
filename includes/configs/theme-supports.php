@@ -14,5 +14,6 @@ return [
 	'post-thumbnails',
 	'editor-styles',
 	'wp-block-styles',
+	'woocommerce',
 	'hivepress',
 ];
