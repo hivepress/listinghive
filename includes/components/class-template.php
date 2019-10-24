@@ -53,8 +53,12 @@ final class Template {
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'automatic-feed-links' );
 
-		foreach ( hivetheme()->get_config( 'theme_supports' ) as $name ) {
-			add_theme_support( $name );
+		foreach ( hivetheme()->get_config( 'theme_supports' ) as $name => $args ) {
+			if ( is_array( $args ) ) {
+				add_theme_support( $name, $args );
+			} else {
+				add_theme_support( $args );
+			}
 		}
 	}
 
