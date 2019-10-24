@@ -18,15 +18,6 @@ return [
 		'after_title'   => '</h3>',
 	],
 
-	'site_footer'         => [
-		'name'          => esc_html__( 'Site Footer', 'listinghive' ),
-		'description'   => esc_html__( 'Add widgets here to appear in the site footer.', 'listinghive' ),
-		'before_widget' => '<div class="col-sm col-xs-12"><div id="%1$s" class="widget widget--footer %2$s">',
-		'after_widget'  => '</div></div>',
-		'before_title'  => '<h5 class="widget__title">',
-		'after_title'   => '</h5>',
-	],
-
 	'hp_listings_sidebar' => [
 		'name'          => esc_html__( 'Listings Sidebar', 'listinghive' ),
 		'description'   => esc_html__( 'Add widgets here to appear in the listings sidebar.', 'listinghive' ),
@@ -63,12 +54,21 @@ return [
 		'after_title'   => '</h3>',
 	],
 
-	'wc_shop_sidebar'     => [
+	'shop'                => [
 		'name'          => esc_html__( 'Shop Sidebar', 'listinghive' ),
 		'description'   => esc_html__( 'Add widgets here to appear in the shop sidebar.', 'listinghive' ),
 		'before_widget' => '<div id="%1$s" class="widget widget--sidebar %2$s">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h3 class="widget__title">',
 		'after_title'   => '</h3>',
+	],
+
+	'site_footer'         => [
+		'name'          => esc_html__( 'Site Footer', 'listinghive' ),
+		'description'   => esc_html__( 'Add widgets here to appear in the site footer.', 'listinghive' ),
+		'before_widget' => '<div class="col-sm col-xs-12"><div id="%1$s" class="widget widget--footer %2$s">',
+		'after_widget'  => '</div></div>',
+		'before_title'  => '<h5 class="widget__title">',
+		'after_title'   => '</h5>',
 	],
 ];
