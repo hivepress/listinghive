@@ -66,10 +66,10 @@ Variables
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
 @box-shadow-hover: 0 0 12px rgba(0,0,0,0.12);
-@animation-duration: 0.25s;
-/*--------------------------------------------------------------
+@animation-duration: 0.25s; /*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
+
 .image-container {
 	img {
 		display: block;
@@ -180,6 +180,7 @@ Mixins
 /*--------------------------------------------------------------
 1.0 Normalize
 --------------------------------------------------------------*/
+
 body,
 html {
 	height: 100%;
@@ -203,6 +204,7 @@ body {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
+
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -414,7 +416,6 @@ hr {
 /*--------------------------------------------------------------
 3.0 Accessibility
 --------------------------------------------------------------*/
-
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -460,7 +461,6 @@ hr {
 /*--------------------------------------------------------------
 4.0 Alignments
 --------------------------------------------------------------*/
-
 .aligncenter,
 .alignnone {
 	clear: both;
@@ -510,6 +510,7 @@ hr {
 /*--------------------------------------------------------------
 5.0 Media
 --------------------------------------------------------------*/
+
 .gallery {
 	&:not(:first-child) {
 		margin-top: 2rem!important;
@@ -543,8 +544,8 @@ hr {
 .wp-caption {
 	max-width: 100%;
 
-	> img,
-	> a > img {
+	> a > img,
+	> img {
 		width: 100%;
 		display: block;
 		border-radius: @border-radius;
@@ -577,6 +578,7 @@ hr {
 /*--------------------------------------------------------------
 6.0 Forms
 --------------------------------------------------------------*/
+
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -620,10 +622,24 @@ input[type=radio] {
 ::placeholder {
 	color: @secondary-font-color;
 }
+
+.select2 {
+	&-dropdown,
+	&-container &-selection,
+	&-container &-search &-search__field {
+		border-color:@border-color;
+		border-radius:@border-radius;
+	}
+
+	&-container &-selection &-selection__rendered {
+		padding: 0.5rem 1rem;
+		color:inherit;
+		line-height:1.5;
+	}
+}
 /*--------------------------------------------------------------
 7.0 Tables
 --------------------------------------------------------------*/
-
 table {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -698,6 +714,7 @@ table {
 /*--------------------------------------------------------------
 8.0 Buttons
 --------------------------------------------------------------*/
+
 .button {
 	text-align: center;
 	border-radius: @border-radius;
@@ -811,12 +828,14 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.0 Layout
 --------------------------------------------------------------*/
+
 .site-container {
 	flex: 1 0 auto;
 }
 /*--------------------------------------------------------------
 9.1 Header
 --------------------------------------------------------------*/
+
 .header-navbar {
 	padding: 1rem 2rem;
 	display: flex;
@@ -1140,6 +1159,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.2 Content
 --------------------------------------------------------------*/
+
 .site-content {
 	padding: 4rem 0;
 	position: relative;
@@ -1159,6 +1179,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.3 Section
 --------------------------------------------------------------*/
+
 .section {
 	&:not(:first-child) {
 		margin-top: 3rem;
@@ -1205,6 +1226,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.4 Footer
 --------------------------------------------------------------*/
+
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -1286,6 +1308,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.5 Modal
 --------------------------------------------------------------*/
+
 .fancybox {
 	&-content {
 		border-radius: @border-radius;
@@ -1295,6 +1318,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.6 Loader
 --------------------------------------------------------------*/
+
 .site-loader {
 	.center-container;
 	position: fixed;
@@ -1322,6 +1346,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 10.0 Widgets
 --------------------------------------------------------------*/
+
 .widget {
 	&--sidebar,
 	&.hp-menu {
@@ -1342,6 +1367,7 @@ input[type=submit] {
 		}
 	}
 
+	&_product_search,
 	&_search {
 		padding: 0;
 		box-shadow: none;
@@ -1370,6 +1396,7 @@ input[type=submit] {
 				max-width: 100%;
 			}
 
+			button[type=submit],
 			input[type=submit] {
 				display: none;
 			}
@@ -1482,6 +1509,7 @@ input[type=submit] {
 	&_meta,
 	&_nav_menu,
 	&_pages,
+	&_product_categories,
 	&_recent_entries {
 		ul {
 			margin-left: 0;
@@ -1490,7 +1518,8 @@ input[type=submit] {
 	}
 
 	&_archive,
-	&_categories {
+	&_categories,
+	&_product_categories {
 		select {
 			width: 100%;
 		}
@@ -1539,6 +1568,7 @@ input[type=submit] {
 .widget_meta,
 .widget_nav_menu,
 .widget_pages,
+.widget_product_categories,
 .widget_recent_entries,
 .wp-block-archives,
 .wp-block-categories,
@@ -1568,8 +1598,8 @@ input[type=submit] {
 		&.current-menu-item,
 		&.is-active,
 		&:hover {
-			&::before,
-			> a {
+			> a,
+			&::before {
 				color: @primary-font-color;
 			}
 		}
@@ -1601,6 +1631,7 @@ input[type=submit] {
 .widget_categories,
 .widget_meta,
 .widget_nav_menu,
+.widget_product_categories,
 .wp-block-archives,
 .wp-block-categories {
 	li {
@@ -1616,7 +1647,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 11.0 Blocks
 --------------------------------------------------------------*/
-
 .wp-block {
 	&-quote {
 		border-left: 3px solid @primary-background-color;
@@ -1849,6 +1879,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 12.0 Pages
 --------------------------------------------------------------*/
+
 .page {
 	&__title {
 		word-wrap: break-word;
@@ -1867,6 +1898,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 13.0 Posts
 --------------------------------------------------------------*/
+
 .post {
 	&--archive {
 		margin-bottom: 2rem;
@@ -2075,7 +2107,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 14.0 Tags
 --------------------------------------------------------------*/
-
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -2099,6 +2130,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 15.0 Comments
 --------------------------------------------------------------*/
+
 .comments {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -2358,6 +2390,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 16.0 Pagination
 --------------------------------------------------------------*/
+
 .pagination {
 	display: flex;
 	align-items: center;
@@ -2376,10 +2409,10 @@ input[type=submit] {
 		align-items: center;
 	}
 
-	> span,
+	> a,
 	.nav-links > a,
 	.nav-links > span,
-	> a {
+	> span {
 		.center-container;
 		border: 2px solid transparent;
 		border-radius: 50%;
@@ -2423,15 +2456,15 @@ input[type=submit] {
 		}
 	}
 
-	.nav-links > span,
-	> span {
+	> span,
+	.nav-links > span {
 		&:not(.dots) {
 			border-color: @border-color;
 		}
 	}
 
-	.nav-links > a,
-	> a {
+	> a,
+	.nav-links > a {
 		transition: color @animation-duration;
 
 		&:hover {
@@ -2442,7 +2475,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 17.0 WooCommerce
 --------------------------------------------------------------*/
-
 .woocommerce {
 	table.shop_table {
 		border-collapse: collapse;
@@ -2503,8 +2535,8 @@ input[type=submit] {
 		}
 	}
 
-	&-cart,
 	#add_payment_method,
+	&-cart,
 	&-checkout {
 		.wc-proceed-to-checkout {
 			a.checkout-button {
@@ -2537,6 +2569,18 @@ input[type=submit] {
 
 	&,
 	&-page {
+		form {
+			.form-row {
+				padding:0;
+				margin:0 0 1.5rem;
+				label {
+					.caption;
+					font-size: 0.6875rem;
+					margin-bottom: 0.75rem;
+				}
+			}
+		}
+
 		ul.products {
 			li.product {
 				.block;
@@ -2572,22 +2616,30 @@ input[type=submit] {
 		}
 	}
 
-	#add_payment_method, &-cart, &-checkout {
+	&-cart,
+	#add_payment_method,
+	&-checkout {
+		table.cart {
+			img {
+				border-radius: @border-radius;
+			}
+		}
+
 		#payment {
-			background-color:@secondary-background-color;
-			border-radius:@border-radius;
+			background-color: @secondary-background-color;
+			border-radius: @border-radius;
 
 			ul.payment_methods {
-				border-color:@border-color;
+				border-color: @border-color;
 			}
 
 			div.payment_box {
-				background-color:@secondary-background-color;
+				background-color: @secondary-background-color;
 				border-radius: @border-radius;
 
 				&::before {
-					border-bottom-color:@secondary-background-color;
-					top:-1em;
+					border-bottom-color: @secondary-background-color;
+					top: -1em;
 				}
 			}
 		}
@@ -2607,11 +2659,17 @@ input[type=submit] {
 			list-style: none;
 		}
 	}
+
+	& &-customer-details {
+		address {
+			.block;
+			padding: 1.5rem;
+		}
+	}
 }
 /*--------------------------------------------------------------
 18.0 HivePress
 --------------------------------------------------------------*/
-
 .hp {
 	&-link {
 		transition: color @animation-duration;
