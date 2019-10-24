@@ -114,7 +114,15 @@ return [
 			.section__title::before,
 			.widget--footer__title::before,
 			.hp-page__title::before,
-			.hp-section__title::before
+			.hp-section__title::before,
+			.woocommerce #respond input#submit.alt,
+			.woocommerce a.button.alt,
+			.woocommerce button.button.alt,
+			.woocommerce input.button.alt,
+			.woocommerce #respond input#submit.alt:hover,
+			.woocommerce a.button.alt:hover,
+			.woocommerce button.button.alt:hover,
+			.woocommerce input.button.alt:hover
 		',
 
 		'properties' => [
@@ -163,7 +171,13 @@ return [
 			.hp-listing--view-block .hp-listing__category a:hover,
 			.hp-listing--view-page .hp-listing__category a:hover,
 			.hp-field input[type=checkbox]:checked + span::before,
-			.hp-field input[type=radio]:checked + span::after
+			.hp-field input[type=radio]:checked + span::after,
+			.woocommerce a.button--secondary,
+			.woocommerce button.button--secondary,
+			.woocommerce input.button--secondary,
+			.woocommerce a.button--secondary:hover,
+			.woocommerce button.button--secondary:hover,
+			.woocommerce input.button--secondary:hover
 		',
 
 		'properties' => [

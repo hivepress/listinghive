@@ -66,10 +66,10 @@ Variables
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
 @box-shadow-hover: 0 0 12px rgba(0,0,0,0.12);
-@animation-duration: 0.25s; /*--------------------------------------------------------------
+@animation-duration: 0.25s;
+/*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
-
 .image-container {
 	img {
 		display: block;
@@ -180,7 +180,6 @@ Mixins
 /*--------------------------------------------------------------
 1.0 Normalize
 --------------------------------------------------------------*/
-
 body,
 html {
 	height: 100%;
@@ -204,7 +203,6 @@ body {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
-
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -416,6 +414,7 @@ hr {
 /*--------------------------------------------------------------
 3.0 Accessibility
 --------------------------------------------------------------*/
+
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -461,6 +460,7 @@ hr {
 /*--------------------------------------------------------------
 4.0 Alignments
 --------------------------------------------------------------*/
+
 .aligncenter,
 .alignnone {
 	clear: both;
@@ -510,7 +510,6 @@ hr {
 /*--------------------------------------------------------------
 5.0 Media
 --------------------------------------------------------------*/
-
 .gallery {
 	&:not(:first-child) {
 		margin-top: 2rem!important;
@@ -544,8 +543,8 @@ hr {
 .wp-caption {
 	max-width: 100%;
 
-	> a > img,
-	> img {
+	> img,
+	> a > img {
 		width: 100%;
 		display: block;
 		border-radius: @border-radius;
@@ -578,7 +577,6 @@ hr {
 /*--------------------------------------------------------------
 6.0 Forms
 --------------------------------------------------------------*/
-
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -625,6 +623,7 @@ input[type=radio] {
 /*--------------------------------------------------------------
 7.0 Tables
 --------------------------------------------------------------*/
+
 table {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -699,7 +698,6 @@ table {
 /*--------------------------------------------------------------
 8.0 Buttons
 --------------------------------------------------------------*/
-
 .button {
 	text-align: center;
 	border-radius: @border-radius;
@@ -813,14 +811,12 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.0 Layout
 --------------------------------------------------------------*/
-
 .site-container {
 	flex: 1 0 auto;
 }
 /*--------------------------------------------------------------
 9.1 Header
 --------------------------------------------------------------*/
-
 .header-navbar {
 	padding: 1rem 2rem;
 	display: flex;
@@ -1144,7 +1140,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.2 Content
 --------------------------------------------------------------*/
-
 .site-content {
 	padding: 4rem 0;
 	position: relative;
@@ -1164,7 +1159,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.3 Section
 --------------------------------------------------------------*/
-
 .section {
 	&:not(:first-child) {
 		margin-top: 3rem;
@@ -1211,7 +1205,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.4 Footer
 --------------------------------------------------------------*/
-
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -1293,7 +1286,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.5 Modal
 --------------------------------------------------------------*/
-
 .fancybox {
 	&-content {
 		border-radius: @border-radius;
@@ -1303,7 +1295,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.6 Loader
 --------------------------------------------------------------*/
-
 .site-loader {
 	.center-container;
 	position: fixed;
@@ -1331,7 +1322,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 10.0 Widgets
 --------------------------------------------------------------*/
-
 .widget {
 	&--sidebar,
 	&.hp-menu {
@@ -1576,9 +1566,10 @@ input[type=submit] {
 
 		&.current-cat,
 		&.current-menu-item,
+		&.is-active,
 		&:hover {
-			> a,
-			&::before {
+			&::before,
+			> a {
 				color: @primary-font-color;
 			}
 		}
@@ -1625,6 +1616,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 11.0 Blocks
 --------------------------------------------------------------*/
+
 .wp-block {
 	&-quote {
 		border-left: 3px solid @primary-background-color;
@@ -1857,7 +1849,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 12.0 Pages
 --------------------------------------------------------------*/
-
 .page {
 	&__title {
 		word-wrap: break-word;
@@ -1876,7 +1867,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 13.0 Posts
 --------------------------------------------------------------*/
-
 .post {
 	&--archive {
 		margin-bottom: 2rem;
@@ -2085,6 +2075,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 14.0 Tags
 --------------------------------------------------------------*/
+
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -2108,7 +2099,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 15.0 Comments
 --------------------------------------------------------------*/
-
 .comments {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -2368,7 +2358,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 16.0 Pagination
 --------------------------------------------------------------*/
-
 .pagination {
 	display: flex;
 	align-items: center;
@@ -2387,10 +2376,10 @@ input[type=submit] {
 		align-items: center;
 	}
 
-	> a,
+	> span,
 	.nav-links > a,
 	.nav-links > span,
-	> span {
+	> a {
 		.center-container;
 		border: 2px solid transparent;
 		border-radius: 50%;
@@ -2434,15 +2423,15 @@ input[type=submit] {
 		}
 	}
 
-	> span,
-	.nav-links > span {
+	.nav-links > span,
+	> span {
 		&:not(.dots) {
 			border-color: @border-color;
 		}
 	}
 
-	> a,
-	.nav-links > a {
+	.nav-links > a,
+	> a {
 		transition: color @animation-duration;
 
 		&:hover {
@@ -2454,9 +2443,175 @@ input[type=submit] {
 17.0 WooCommerce
 --------------------------------------------------------------*/
 
+.woocommerce {
+	table.shop_table {
+		border-collapse: collapse;
+		border: none;
+		border-radius: 0;
+
+		td,
+		th {
+			padding: 0.5rem 0.75rem;
+			border-width: 0 0 1px;
+			border-color: @border-color;
+
+			&:first-child {
+				padding-left: 0;
+			}
+
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+
+		th {
+			font-weight: 600;
+		}
+	}
+
+	#respond input#submit,
+	a.button,
+	button.button,
+	input.button {
+		border-radius: @border-radius;
+		font-weight: @heading-font-weight;
+		padding: 0.5rem 1rem;
+		line-height: 1.5;
+
+		&,
+		&:hover {
+			background-color: rgba(0,0,0,0.08);
+			color: @body-font-color;
+		}
+
+		&.alt {
+			&,
+			&:hover {
+				.button--primary;
+			}
+		}
+	}
+
+	a.button,
+	button.button,
+	input.button {
+		&--secondary {
+			&,
+			&:hover {
+				.button--secondary;
+			}
+		}
+	}
+
+	&-cart,
+	#add_payment_method,
+	&-checkout {
+		.wc-proceed-to-checkout {
+			a.checkout-button {
+				.button--large;
+			}
+		}
+	}
+
+	&-error,
+	&-info,
+	&-message {
+		border-bottom-left-radius: @border-radius;
+		border-bottom-right-radius: @border-radius;
+		background-color: @secondary-background-color;
+	}
+
+	&-result-count {
+		.caption;
+		font-size: 0.6875rem;
+		color: @secondary-font-color;
+	}
+
+	&-ordering {
+		select {
+			.caption;
+			font-size: 0.6875rem;
+			padding: 0.25rem;
+		}
+	}
+
+	&,
+	&-page {
+		ul.products {
+			li.product {
+				.block;
+				padding: 1.5rem;
+				transition: box-shadow @animation-duration;
+
+				&:hover {
+					box-shadow: @box-shadow-hover;
+				}
+
+				a {
+					img {
+						border-top-left-radius: @border-radius;
+						border-top-right-radius: @border-radius;
+					}
+				}
+
+				.price {
+					font-size: 1.125rem;
+					color: inherit;
+				}
+
+				.woocommerce-loop-product {
+					&__link {
+						color: inherit;
+					}
+
+					&__title {
+						font-size: 1.3125rem;
+					}
+				}
+			}
+		}
+	}
+
+	#add_payment_method, &-cart, &-checkout {
+		#payment {
+			background-color:@secondary-background-color;
+			border-radius:@border-radius;
+
+			ul.payment_methods {
+				border-color:@border-color;
+			}
+
+			div.payment_box {
+				background-color:@secondary-background-color;
+				border-radius: @border-radius;
+
+				&::before {
+					border-bottom-color:@secondary-background-color;
+					top:-1em;
+				}
+			}
+		}
+	}
+
+	&-MyAccount-navigation {
+		.block;
+		.widget_nav_menu;
+		padding: 2rem;
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+
+		ul {
+			margin-left: 0;
+			list-style: none;
+		}
+	}
+}
 /*--------------------------------------------------------------
 18.0 HivePress
 --------------------------------------------------------------*/
+
 .hp {
 	&-link {
 		transition: color @animation-duration;

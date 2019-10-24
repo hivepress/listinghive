@@ -28,5 +28,24 @@ final class WooCommerce {
 		if ( ! class_exists( 'WooCommerce' ) ) {
 			return;
 		}
+
+		// Alter related products.
+		add_filter( 'woocommerce_output_related_products_args', [ $this, 'alter_related_products' ], 20 );
+	}
+
+	/**
+	 * Alters related products.
+	 *
+	 * @param array $args Query arguments.
+	 * @return array
+	 */
+	public function alter_related_products( $args ) {
+		return array_merge(
+			$args,
+			[
+				'posts_per_page' => 3,
+				'columns'        => 3,
+			]
+		);
 	}
 }
