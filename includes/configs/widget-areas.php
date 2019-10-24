@@ -62,4 +62,13 @@ return [
 		'before_title'  => '<h3 class="widget__title">',
 		'after_title'   => '</h3>',
 	],
+
+	'wc_shop_sidebar'     => [
+		'name'          => esc_html__( 'Shop Sidebar', 'listinghive' ),
+		'description'   => esc_html__( 'Add widgets here to appear in the shop sidebar.', 'listinghive' ),
+		'before_widget' => '<div id="%1$s" class="widget widget--sidebar %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget__title">',
+		'after_title'   => '</h3>',
+	],
 ];

@@ -14,6 +14,16 @@ return [
 	'post-thumbnails',
 	'editor-styles',
 	'wp-block-styles',
-	'woocommerce',
 	'hivepress',
+
+	'woocommerce' => [
+		'thumbnail_image_width' => 400,
+		'single_image_width'    => 400,
+
+		'product_grid'          => [
+			'default_columns' => 2,
+			'min_columns'     => 2,
+			'max_columns'     => 2,
+		],
+	],
 ];
