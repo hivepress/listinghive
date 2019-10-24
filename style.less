@@ -66,10 +66,10 @@ Variables
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
 @box-shadow-hover: 0 0 12px rgba(0,0,0,0.12);
-@animation-duration: 0.25s; /*--------------------------------------------------------------
+@animation-duration: 0.25s;
+/*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
-
 .image-container {
 	img {
 		display: block;
@@ -141,7 +141,7 @@ Mixins
 	letter-spacing: 1px;
 }
 
-.label {
+.styled-label {
 	.caption;
 	font-size: 0.6875rem;
 	background-color: rgba(0,0,0,0.06);
@@ -180,7 +180,6 @@ Mixins
 /*--------------------------------------------------------------
 1.0 Normalize
 --------------------------------------------------------------*/
-
 body,
 html {
 	height: 100%;
@@ -204,7 +203,6 @@ body {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
-
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -416,6 +414,7 @@ hr {
 /*--------------------------------------------------------------
 3.0 Accessibility
 --------------------------------------------------------------*/
+
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -461,6 +460,7 @@ hr {
 /*--------------------------------------------------------------
 4.0 Alignments
 --------------------------------------------------------------*/
+
 .aligncenter,
 .alignnone {
 	clear: both;
@@ -510,7 +510,6 @@ hr {
 /*--------------------------------------------------------------
 5.0 Media
 --------------------------------------------------------------*/
-
 .gallery {
 	&:not(:first-child) {
 		margin-top: 2rem!important;
@@ -544,8 +543,8 @@ hr {
 .wp-caption {
 	max-width: 100%;
 
-	> a > img,
-	> img {
+	> img,
+	> a > img {
 		width: 100%;
 		display: block;
 		border-radius: @border-radius;
@@ -578,7 +577,6 @@ hr {
 /*--------------------------------------------------------------
 6.0 Forms
 --------------------------------------------------------------*/
-
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -602,7 +600,7 @@ textarea {
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
 	background-color: transparent;
-	padding: 0.5rem 1rem;
+	padding: 0.4375rem 1rem;
 	font-size: 1rem;
 	line-height: 1.5;
 	color: inherit;
@@ -624,22 +622,23 @@ input[type=radio] {
 }
 
 .select2 {
-	&-dropdown,
+	&-container &-search &-search__field,
 	&-container &-selection,
-	&-container &-search &-search__field {
-		border-color:@border-color;
-		border-radius:@border-radius;
+	&-dropdown {
+		border-color: @border-color;
+		border-radius: @border-radius;
 	}
 
 	&-container &-selection &-selection__rendered {
-		padding: 0.5rem 1rem;
-		color:inherit;
-		line-height:1.5;
+		padding: 0.4375rem 1rem;
+		color: inherit;
+		line-height: 1.5;
 	}
 }
 /*--------------------------------------------------------------
 7.0 Tables
 --------------------------------------------------------------*/
+
 table {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -714,7 +713,6 @@ table {
 /*--------------------------------------------------------------
 8.0 Buttons
 --------------------------------------------------------------*/
-
 .button {
 	text-align: center;
 	border-radius: @border-radius;
@@ -828,14 +826,12 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.0 Layout
 --------------------------------------------------------------*/
-
 .site-container {
 	flex: 1 0 auto;
 }
 /*--------------------------------------------------------------
 9.1 Header
 --------------------------------------------------------------*/
-
 .header-navbar {
 	padding: 1rem 2rem;
 	display: flex;
@@ -1159,7 +1155,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.2 Content
 --------------------------------------------------------------*/
-
 .site-content {
 	padding: 4rem 0;
 	position: relative;
@@ -1179,7 +1174,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.3 Section
 --------------------------------------------------------------*/
-
 .section {
 	&:not(:first-child) {
 		margin-top: 3rem;
@@ -1226,7 +1220,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.4 Footer
 --------------------------------------------------------------*/
-
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -1308,7 +1301,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.5 Modal
 --------------------------------------------------------------*/
-
 .fancybox {
 	&-content {
 		border-radius: @border-radius;
@@ -1318,7 +1310,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.6 Loader
 --------------------------------------------------------------*/
-
 .site-loader {
 	.center-container;
 	position: fixed;
@@ -1346,7 +1337,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 10.0 Widgets
 --------------------------------------------------------------*/
-
 .widget {
 	&--sidebar,
 	&.hp-menu {
@@ -1598,8 +1588,8 @@ input[type=submit] {
 		&.current-menu-item,
 		&.is-active,
 		&:hover {
-			> a,
-			&::before {
+			&::before,
+			> a {
 				color: @primary-font-color;
 			}
 		}
@@ -1647,6 +1637,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 11.0 Blocks
 --------------------------------------------------------------*/
+
 .wp-block {
 	&-quote {
 		border-left: 3px solid @primary-background-color;
@@ -1879,7 +1870,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 12.0 Pages
 --------------------------------------------------------------*/
-
 .page {
 	&__title {
 		word-wrap: break-word;
@@ -1898,7 +1888,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 13.0 Posts
 --------------------------------------------------------------*/
-
 .post {
 	&--archive {
 		margin-bottom: 2rem;
@@ -1983,7 +1972,7 @@ input[type=submit] {
 		margin-bottom: -.5rem;
 
 		a {
-			.label;
+			.styled-label;
 			margin-bottom: 0.5rem;
 
 			&:not(:last-child) {
@@ -2107,6 +2096,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 14.0 Tags
 --------------------------------------------------------------*/
+
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -2130,7 +2120,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 15.0 Comments
 --------------------------------------------------------------*/
-
 .comments {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -2390,7 +2379,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 16.0 Pagination
 --------------------------------------------------------------*/
-
 .pagination {
 	display: flex;
 	align-items: center;
@@ -2409,10 +2397,10 @@ input[type=submit] {
 		align-items: center;
 	}
 
-	> a,
+	> span,
 	.nav-links > a,
 	.nav-links > span,
-	> span {
+	> a {
 		.center-container;
 		border: 2px solid transparent;
 		border-radius: 50%;
@@ -2456,15 +2444,15 @@ input[type=submit] {
 		}
 	}
 
-	> span,
-	.nav-links > span {
+	.nav-links > span,
+	> span {
 		&:not(.dots) {
 			border-color: @border-color;
 		}
 	}
 
-	> a,
-	.nav-links > a {
+	.nav-links > a,
+	> a {
 		transition: color @animation-duration;
 
 		&:hover {
@@ -2475,7 +2463,80 @@ input[type=submit] {
 /*--------------------------------------------------------------
 17.0 WooCommerce
 --------------------------------------------------------------*/
+
 .woocommerce {
+	span.onsale {
+		.styled-label;
+		color: #fff;
+		min-height: 0;
+		min-width: 0;
+		font-weight: normal;
+		background-color: @ternary-background-color;
+		background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2));
+		left: 2rem;
+		top: 2rem;
+		margin: 0;
+	}
+
+	.star-rating {
+		font-size: 0.875rem;
+
+		span::before {
+			color: @primary-background-color;
+		}
+	}
+
+	ul.cart_list,
+	ul.product_list_widget {
+		li {
+			.star-rating {
+				margin-top: 0.25rem;
+			}
+
+			.reviewer {
+				.caption;
+				font-size: 0.6875rem;
+			}
+		}
+	}
+
+	ul.product_list_widget {
+		li {
+			padding: 0;
+			color: @secondary-font-color;
+
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+
+			.product-title {
+				font-family: @heading-font-family;
+				font-weight: @heading-font-weight;
+				color: @heading-font-color;
+				transition: color @animation-duration;
+				line-height: 1.15;
+
+				&:hover {
+					color: @heading-font-color-hover;
+				}
+			}
+
+			.amount {
+				font-size: 0.875rem;
+			}
+
+			img {
+				border-radius: @border-radius;
+				width: 2.875rem;
+				margin-left: 1rem;
+			}
+
+			ins {
+				text-decoration: none;
+			}
+		}
+	}
+
 	table.shop_table {
 		border-collapse: collapse;
 		border: none;
@@ -2535,8 +2596,8 @@ input[type=submit] {
 		}
 	}
 
-	#add_payment_method,
 	&-cart,
+	#add_payment_method,
 	&-checkout {
 		.wc-proceed-to-checkout {
 			a.checkout-button {
@@ -2553,13 +2614,16 @@ input[type=submit] {
 		background-color: @secondary-background-color;
 	}
 
-	&-result-count {
+	& &-result-count {
 		.caption;
 		font-size: 0.6875rem;
 		color: @secondary-font-color;
+		margin: 0.5rem 0 1.5rem;
 	}
 
-	&-ordering {
+	& &-ordering {
+		margin-bottom: 1.5rem;
+
 		select {
 			.caption;
 			font-size: 0.6875rem;
@@ -2567,12 +2631,33 @@ input[type=submit] {
 		}
 	}
 
+	& &-widget-layered-nav-list &-widget-layered-nav-list {
+		&__item {
+			padding: 0;
+			color: @secondary-font-color;
+		}
+	}
+
+	& .widget_rating_filter {
+		ul {
+			li {
+				padding: 0;
+				color: @secondary-font-color;
+
+				a {
+					color: inherit;
+				}
+			}
+		}
+	}
+
 	&,
 	&-page {
 		form {
 			.form-row {
-				padding:0;
-				margin:0 0 1.5rem;
+				padding: 0;
+				margin: 0 0 1.5rem;
+
 				label {
 					.caption;
 					font-size: 0.6875rem;
@@ -2586,6 +2671,7 @@ input[type=submit] {
 				.block;
 				padding: 1.5rem;
 				transition: box-shadow @animation-duration;
+				margin-bottom: 2rem;
 
 				&:hover {
 					box-shadow: @box-shadow-hover;
@@ -2601,6 +2687,10 @@ input[type=submit] {
 				.price {
 					font-size: 1.125rem;
 					color: inherit;
+
+					ins {
+						text-decoration: none;
+					}
 				}
 
 				.woocommerce-loop-product {
@@ -2612,12 +2702,87 @@ input[type=submit] {
 						font-size: 1.3125rem;
 					}
 				}
+
+				.onsale {
+					margin: 0;
+					top: 1.5rem;
+					right: 1.5rem;
+				}
 			}
 		}
 	}
 
-	&-cart,
+	div.product {
+		.product_meta {
+			> span {
+				display: block;
+				font-weight: 600;
+				color: @heading-font-color;
+
+				&:not(:last-child) {
+					margin-bottom: 0.5rem;
+				}
+
+				a,
+				span {
+					font-weight: normal;
+				}
+
+				span {
+					color: inherit;
+				}
+			}
+		}
+	}
+
+	.widget_price_filter {
+		.ui-slider {
+			.ui-slider-range {
+				background-color: @primary-background-color;
+			}
+
+			.ui-slider-handle {
+				width: 16px;
+				height: 16px;
+				margin-left: -8px;
+				top: -6px;
+				border: 1px solid #fff;
+				background-color: @primary-background-color;
+				background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+			}
+		}
+
+		.ui-slider-horizontal {
+			height: 4px;
+		}
+
+		.price_slider_wrapper {
+			padding-top: 0.5rem;
+
+			.ui-widget-content {
+				background-color: rgba(0,0,0,0.08);
+				margin: 0 8px 1.5rem;
+			}
+		}
+
+		.price_slider_amount {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.clear {
+				display: none;
+			}
+		}
+
+		.price_label {
+			.caption;
+			color: @secondary-font-color;
+		}
+	}
+
 	#add_payment_method,
+	&-cart,
 	&-checkout {
 		table.cart {
 			img {
@@ -2670,6 +2835,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 18.0 HivePress
 --------------------------------------------------------------*/
+
 .hp {
 	&-link {
 		transition: color @animation-duration;
@@ -3105,7 +3271,7 @@ input[type=submit] {
 			}
 
 			a {
-				.label;
+				.styled-label;
 				margin-bottom: 0.5rem;
 
 				&:not(:last-child) {
@@ -3317,7 +3483,7 @@ input[type=submit] {
 		}
 
 		&__count {
-			.label;
+			.styled-label;
 			color: #fff;
 			background-color: @secondary-background-color-invert;
 		}

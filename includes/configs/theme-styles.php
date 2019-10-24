@@ -27,7 +27,8 @@ return [
 			.pagination .nav-links > span,
 			.pagination > a,
 			.hp-review__author,
-			.hp-message--view-block hp-message__sender
+			.hp-message--view-block hp-message__sender,
+			.woocommerce ul.product_list_widget li .product-title
 		',
 
 		'properties' => [
@@ -122,7 +123,9 @@ return [
 			.woocommerce #respond input#submit.alt:hover,
 			.woocommerce a.button.alt:hover,
 			.woocommerce button.button.alt:hover,
-			.woocommerce input.button.alt:hover
+			.woocommerce input.button.alt:hover,
+			.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
+			.woocommerce .widget_price_filter .ui-slider .ui-slider-range
 		',
 
 		'properties' => [
@@ -177,7 +180,8 @@ return [
 			.woocommerce input.button--secondary,
 			.woocommerce a.button--secondary:hover,
 			.woocommerce button.button--secondary:hover,
-			.woocommerce input.button--secondary:hover
+			.woocommerce input.button--secondary:hover,
+			.woocommerce span.onsale
 		',
 
 		'properties' => [
