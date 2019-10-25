@@ -17,6 +17,7 @@ return [
 			h4,
 			h5,
 			h6,
+			fieldset legend,
 			.button,
 			button,
 			input[type=submit],
@@ -27,7 +28,10 @@ return [
 			.pagination .nav-links > span,
 			.pagination > a,
 			.hp-review__author,
-			.hp-message--view-block hp-message__sender
+			.hp-message--view-block hp-message__sender,
+			.woocommerce ul.product_list_widget li .product-title,
+			.woocommerce nav.woocommerce-pagination ul li a,
+			.woocommerce nav.woocommerce-pagination ul li span
 		',
 
 		'properties' => [
@@ -93,7 +97,9 @@ return [
 			.pagination > a:hover,
 			.pagination .nav-links > a:hover,
 			.hp-link:hover,
-			.hp-link:hover i
+			.hp-link:hover i,
+			.woocommerce nav.woocommerce-pagination ul li a:hover,
+			.woocommerce nav.woocommerce-pagination ul li a:focus
 		',
 
 		'properties' => [
@@ -114,7 +120,21 @@ return [
 			.section__title::before,
 			.widget--footer__title::before,
 			.hp-page__title::before,
-			.hp-section__title::before
+			.hp-section__title::before,
+			.woocommerce #respond input#submit.alt,
+			.woocommerce button[type=submit],
+			.woocommerce input[type=submit],
+			.woocommerce button[type=submit]:hover,
+			.woocommerce input[type=submit]:hover,
+			.woocommerce a.button.alt,
+			.woocommerce button.button.alt,
+			.woocommerce input.button.alt,
+			.woocommerce #respond input#submit.alt:hover,
+			.woocommerce a.button.alt:hover,
+			.woocommerce button.button.alt:hover,
+			.woocommerce input.button.alt:hover,
+			.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
+			.woocommerce .widget_price_filter .ui-slider .ui-slider-range
 		',
 
 		'properties' => [
@@ -163,7 +183,14 @@ return [
 			.hp-listing--view-block .hp-listing__category a:hover,
 			.hp-listing--view-page .hp-listing__category a:hover,
 			.hp-field input[type=checkbox]:checked + span::before,
-			.hp-field input[type=radio]:checked + span::after
+			.hp-field input[type=radio]:checked + span::after,
+			.woocommerce a.button--secondary,
+			.woocommerce button.button--secondary,
+			.woocommerce input.button--secondary,
+			.woocommerce a.button--secondary:hover,
+			.woocommerce button.button--secondary:hover,
+			.woocommerce input.button--secondary:hover,
+			.woocommerce span.onsale
 		',
 
 		'properties' => [

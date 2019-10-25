@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-11 17:03+0000\n"
+"POT-Creation-Date: 2019-10-25 15:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "Comments"
 msgstr ""
 
-#: comments.php:29
+#: comments.php:36
 msgid "Cancel Reply"
 msgstr ""
 
@@ -82,50 +82,58 @@ msgid "Add widgets here to appear in the blog sidebar."
 msgstr ""
 
 #: includes/configs/widget-areas.php:22
-msgid "Site Footer"
-msgstr ""
-
-#: includes/configs/widget-areas.php:23
-msgid "Add widgets here to appear in the site footer."
-msgstr ""
-
-#: includes/configs/widget-areas.php:31
 msgid "Listings Sidebar"
 msgstr ""
 
-#: includes/configs/widget-areas.php:32
+#: includes/configs/widget-areas.php:23
 msgid "Add widgets here to appear in the listings sidebar."
 msgstr ""
 
-#: includes/configs/widget-areas.php:40
+#: includes/configs/widget-areas.php:31
 msgid "Listing Sidebar"
 msgstr ""
 
-#: includes/configs/widget-areas.php:41
+#: includes/configs/widget-areas.php:32
 msgid "Add widgets here to appear in the listing sidebar."
 msgstr ""
 
-#: includes/configs/widget-areas.php:49
+#: includes/configs/widget-areas.php:40
 msgid "Vendor Sidebar"
 msgstr ""
 
-#: includes/configs/widget-areas.php:50
+#: includes/configs/widget-areas.php:41
 msgid "Add widgets here to appear in the vendor sidebar."
 msgstr ""
 
-#: includes/configs/widget-areas.php:58
+#: includes/configs/widget-areas.php:49
 msgid "Account Sidebar"
 msgstr ""
 
-#: includes/configs/widget-areas.php:59
+#: includes/configs/widget-areas.php:50
 msgid "Add widgets here to appear in the account sidebar."
+msgstr ""
+
+#: includes/configs/widget-areas.php:58
+msgid "Shop Sidebar"
+msgstr ""
+
+#: includes/configs/widget-areas.php:59
+msgid "Add widgets here to appear in the shop sidebar."
+msgstr ""
+
+#: includes/configs/widget-areas.php:67
+msgid "Site Footer"
+msgstr ""
+
+#: includes/configs/widget-areas.php:68
+msgid "Add widgets here to appear in the site footer."
 msgstr ""
 
 #: templates/comment/content.php:16
 msgid "Reply"
 msgstr ""
 
-#: templates/listing-category/header.php:7
+#: templates/listing-category/header.php:10
 #, php-format
 msgid "%d Listing"
 msgid_plural "%d Listings"
@@ -136,449 +144,16 @@ msgstr[1] ""
 msgid "Add Listing"
 msgstr ""
 
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:327
-msgid "Install Required Plugins"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:328
-msgid "Install Plugins"
-msgstr ""
-
-#. %s: plugin name.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:330
-#, php-format
-msgid "Installing Plugin: %s"
-msgstr ""
-
-#. %s: plugin name.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:332
-#, php-format
-msgid "Updating Plugin: %s"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:333
-msgid "Something went wrong with the plugin API."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:334
-#, php-format
-msgid "This theme requires the following plugin: %1$s."
-msgid_plural "This theme requires the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:340
-#, php-format
-msgid "This theme recommends the following plugin: %1$s."
-msgid_plural "This theme recommends the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:346
-#, php-format
-msgid ""
-"The following plugin needs to be updated to its latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgid_plural ""
-"The following plugins need to be updated to their latest version to ensure "
-"maximum compatibility with this theme: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:352
-#, php-format
-msgid "There is an update available for: %1$s."
-msgid_plural "There are updates available for the following plugins: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:358
-#, php-format
-msgid "The following required plugin is currently inactive: %1$s."
-msgid_plural "The following required plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:364
-#, php-format
-msgid "The following recommended plugin is currently inactive: %1$s."
-msgid_plural "The following recommended plugins are currently inactive: %1$s."
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:370
-msgid "Begin installing plugin"
-msgid_plural "Begin installing plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:375
-msgid "Begin updating plugin"
-msgid_plural "Begin updating plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:380
-msgid "Begin activating plugin"
-msgid_plural "Begin activating plugins"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:385
-msgid "Return to Required Plugins Installer"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:386
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:827
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2533
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3580
-msgid "Return to the Dashboard"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:387
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3159
-msgid "Plugin activated successfully."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:388
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2952
-msgid "The following plugin was activated successfully:"
-msgid_plural "The following plugins were activated successfully:"
-msgstr[0] ""
-msgstr[1] ""
-
-#. 1: plugin name.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:390
-#, php-format
-msgid "No action taken. Plugin %1$s was already active."
-msgstr ""
-
-#. 1: plugin name.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:392
-#, php-format
-msgid ""
-"Plugin not activated. A higher version of %s is needed for this theme. "
-"Please update the plugin."
-msgstr ""
-
-#. 1: dashboard link.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:394
-#, php-format
-msgid "All plugins installed and activated successfully. %1$s"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:395
-msgid "Dismiss this notice"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:396
-msgid ""
-"There are one or more required or recommended plugins to install, update or "
-"activate."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:397
-msgid "Please contact the administrator of this site for help."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:522
-msgid "This plugin needs to be updated to be compatible with your theme."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:523
-msgid "Update Required"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:934
-msgid ""
-"The remote plugin package does not contain a folder with the desired slug "
-"and renaming did not work."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:934
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:937
-msgid ""
-"Please contact the plugin provider and ask them to package their plugin "
-"according to the WordPress guidelines."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:937
-msgid ""
-"The remote plugin package consists of more than one file, but the files are "
-"not packaged in a folder."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:1121
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2948
-msgctxt "plugin A *and* plugin B"
-msgid "and"
-msgstr ""
-
-#. %s: version number
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:1982
-#, php-format
-msgid "TGMPA v%s"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2273
-msgid "Required"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2276
-msgid "Recommended"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2292
-msgid "WordPress Repository"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2295
-msgid "External Source"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2298
-msgid "Pre-Packaged"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2315
-msgid "Not Installed"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2319
-msgid "Installed But Not Activated"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2321
-msgid "Active"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2327
-msgid "Required Update not Available"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2330
-msgid "Requires Update"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2333
-msgid "Update recommended"
-msgstr ""
-
-#. 1: install status, 2: update status
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2342
-#, php-format
-msgctxt "Install/Update Status"
-msgid "%1$s, %2$s"
-msgstr ""
-
-#. 1: number of plugins.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2388
-#, php-format
-msgctxt "plugins"
-msgid "All <span class=\"count\">(%s)</span>"
-msgid_plural "All <span class=\"count\">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
-
-#. 1: number of plugins.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2392
-#, php-format
-msgid "To Install <span class=\"count\">(%s)</span>"
-msgid_plural "To Install <span class=\"count\">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
-
-#. 1: number of plugins.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2396
-#, php-format
-msgid "Update Available <span class=\"count\">(%s)</span>"
-msgid_plural "Update Available <span class=\"count\">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
-
-#. 1: number of plugins.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2400
-#, php-format
-msgid "To Activate <span class=\"count\">(%s)</span>"
-msgid_plural "To Activate <span class=\"count\">(%s)</span>"
-msgstr[0] ""
-msgstr[1] ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2482
-msgctxt "as in: \"version nr unknown\""
-msgid "unknown"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2490
-msgid "Installed version:"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2498
-msgid "Minimum required version:"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2510
-msgid "Available version:"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2533
-msgid "No plugins to install, update or activate."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2547
-msgid "Plugin"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2548
-msgid "Source"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2549
-msgid "Type"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2553
-msgid "Version"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2554
-msgid "Status"
-msgstr ""
-
-#. %2$s: plugin name in screen reader markup
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2603
-#, php-format
-msgid "Install %2$s"
-msgstr ""
-
-#. %2$s: plugin name in screen reader markup
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2608
-#, php-format
-msgid "Update %2$s"
-msgstr ""
-
-#. %2$s: plugin name in screen reader markup
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2614
-#, php-format
-msgid "Activate %2$s"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2684
-msgid "Upgrade message from the plugin author:"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2717
-msgid "Install"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2723
-msgid "Update"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2726
-msgid "Activate"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2757
-msgid "No plugins were selected to be installed. No action taken."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2759
-msgid "No plugins were selected to be updated. No action taken."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2800
-msgid "No plugins are available to be installed at this time."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2802
-msgid "No plugins are available to be updated at this time."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2908
-msgid "No plugins were selected to be activated. No action taken."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:2934
-msgid "No plugins are available to be activated at this time."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3158
-msgid "Plugin activation failed."
-msgstr ""
-
-#. 1: plugin name, 2: action number 3: total number of actions.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3498
-#, php-format
-msgid "Updating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#. 1: plugin name, 2: error message.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3501
-#, php-format
-msgid "An error occurred while installing %1$s: <strong>%2$s</strong>."
-msgstr ""
-
-#. 1: plugin name.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3503
-#, php-format
-msgid "The installation of %1$s failed."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3507
-msgid ""
-"The installation and activation process is starting. This process may take a "
-"while on some hosts, so please be patient."
-msgstr ""
-
-#. 1: plugin name.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3509
-#, php-format
-msgid "%1$s installed and activated successfully."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3510
-msgid "All installations and activations have been completed."
-msgstr ""
-
-#. 1: plugin name, 2: action number 3: total number of actions.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3512
-#, php-format
-msgid "Installing and Activating Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3515
-msgid ""
-"The installation process is starting. This process may take a while on some "
-"hosts, so please be patient."
-msgstr ""
-
-#. 1: plugin name.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3517
-#, php-format
-msgid "%1$s installed successfully."
-msgstr ""
-
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3518
-msgid "All installations have been completed."
-msgstr ""
-
-#. 1: plugin name, 2: action number 3: total number of actions.
-#: includes/vendor/tgmpa/class-tgm-plugin-activation.php:3520
-#, php-format
-msgid "Installing Plugin %1$s (%2$d/%3$d)"
-msgstr ""
-
 #: templates/post/common/details.php:3
 msgid "Pinned"
 msgstr ""
 
-#: templates/post/common/details.php:7
+#: templates/post/common/details.php:10
 #, php-format
 msgid "By %s"
 msgstr ""
 
-#: templates/post/common/details.php:15
+#: templates/post/common/details.php:20
 msgid "Read More"
 msgstr ""
 

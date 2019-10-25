@@ -8,7 +8,14 @@
 					wp_list_comments(
 						[
 							'callback' => function( $comment, $args, $depth ) {
-								include locate_template( 'templates/comment/content.php' );
+								echo hivetheme()->template->render_template(
+									'templates/comment/content',
+									[
+										'comment' => $comment,
+										'args'    => $args,
+										'depth'   => $depth,
+									]
+								);
 							},
 						]
 					);

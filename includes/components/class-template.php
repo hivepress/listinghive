@@ -8,7 +8,6 @@
 namespace HiveTheme\Components;
 
 use HiveTheme\Helpers as ht;
-use HivePress\Helpers as hp;
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -38,11 +37,6 @@ final class Template {
 
 			// Set hero background.
 			add_action( 'wp_enqueue_scripts', [ $this, 'set_hero_background' ] );
-
-			// Alter templates.
-			add_filter( 'hivepress/v1/templates/listing_view_block', [ $this, 'alter_listing_view_block' ] );
-			add_filter( 'hivepress/v1/templates/listing_view_page', [ $this, 'alter_listing_view_page' ] );
-			add_filter( 'hivepress/v1/templates/listing_category_view_block', [ $this, 'alter_listing_category_view_block' ] );
 		}
 	}
 
@@ -53,8 +47,12 @@ final class Template {
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'automatic-feed-links' );
 
-		foreach ( hivetheme()->get_config( 'theme_supports' ) as $name ) {
-			add_theme_support( $name );
+		foreach ( hivetheme()->get_config( 'theme_supports' ) as $name => $args ) {
+			if ( is_array( $args ) ) {
+				add_theme_support( $name, $args );
+			} else {
+				add_theme_support( $args );
+			}
 		}
 	}
 
@@ -113,84 +111,28 @@ final class Template {
 	}
 
 	/**
-	 * Alters listing view block.
+	 * Renders template.
 	 *
-	 * @param array $template Template arguments.
-	 * @return array
+	 * @param string $name Template name.
+	 * @param array  $context Template context.
+	 * @return string
 	 */
-	public function alter_listing_view_block( $template ) {
-		$category = hp\search_array_value( $template, [ 'blocks', 'listing_category' ] );
+	public function render_template( $name, $context = [] ) {
+		$output = '';
 
-		return hp\merge_trees(
-			$template,
-			[
-				'blocks' => [
-					'listing_content' => [
-						'blocks' => [
-							'listing_category' => array_merge(
-								$category,
-								[
-									'order' => 5,
-								]
-							),
-						],
-					],
-				],
-			],
-			'blocks'
-		);
-	}
+		// Extract arguments.
+		unset( $context['output'] );
 
-	/**
-	 * Alters listing view page.
-	 *
-	 * @param array $template Template arguments.
-	 * @return array
-	 */
-	public function alter_listing_view_page( $template ) {
-		$category = hp\search_array_value( $template, [ 'blocks', 'listing_category' ] );
+		extract( $context );
 
-		return hp\merge_trees(
-			$template,
-			[
-				'blocks' => [
-					'page_content' => [
-						'blocks' => [
-							'listing_category' => array_merge(
-								$category,
-								[
-									'order' => 5,
-								]
-							),
-						],
-					],
-				],
-			],
-			'blocks'
-		);
-	}
+		// Render template.
+		ob_start();
 
-	/**
-	 * Alters listing category view block.
-	 *
-	 * @param array $template Template arguments.
-	 * @return array
-	 */
-	public function alter_listing_category_view_block( $template ) {
-		$count = hp\search_array_value( $template, [ 'blocks', 'listing_category_count' ] );
+		include locate_template( $name . '.php' );
+		$output = ob_get_contents();
 
-		return hp\merge_trees(
-			$template,
-			[
-				'blocks' => [
-					'listing_category_header' => [
-						'blocks' => [
-							'listing_category_count' => $count,
-						],
-					],
-				],
-			],
-			'blocks'
-		);
+		ob_end_clean();
+
+		return $output;
 	}
 }

@@ -3,7 +3,7 @@ Theme Name: ListingHive
 Author: HivePress
 Author URI: https://hivepress.io
 Description: A lightweight WordPress theme that allows you to build any type of directory and listing websites.
-Version: 1.0.0
+Version: 1.0.1
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: right-sidebar, custom-colors, custom-menu, custom-logo, custom-header, featured-image-header, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready
@@ -42,6 +42,15 @@ TABLE OF CONTENTS:
 	17.5 Reviews
 	17.6 Ratings
 	17.7 Messages
+18.0 WooCommerce
+	18.1 Forms
+	18.2 Tables
+	18.3 Buttons
+	18.4 Widgets
+	18.5 Products
+	18.6 Checkout
+	18.7 Account
+	18.8 Pagination
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 Variables
@@ -65,10 +74,10 @@ Variables
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
 @box-shadow-hover: 0 0 12px rgba(0,0,0,0.12);
-@animation-duration: 0.25s; /*--------------------------------------------------------------
+@animation-duration: 0.25s;
+/*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
-
 .image-container {
 	img {
 		display: block;
@@ -140,7 +149,7 @@ Mixins
 	letter-spacing: 1px;
 }
 
-.label {
+.styled-label {
 	.caption;
 	font-size: 0.6875rem;
 	background-color: rgba(0,0,0,0.06);
@@ -179,7 +188,6 @@ Mixins
 /*--------------------------------------------------------------
 1.0 Normalize
 --------------------------------------------------------------*/
-
 body,
 html {
 	height: 100%;
@@ -203,7 +211,6 @@ body {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
-
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -415,6 +422,7 @@ hr {
 /*--------------------------------------------------------------
 3.0 Accessibility
 --------------------------------------------------------------*/
+
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -460,6 +468,7 @@ hr {
 /*--------------------------------------------------------------
 4.0 Alignments
 --------------------------------------------------------------*/
+
 .aligncenter,
 .alignnone {
 	clear: both;
@@ -509,7 +518,6 @@ hr {
 /*--------------------------------------------------------------
 5.0 Media
 --------------------------------------------------------------*/
-
 .gallery {
 	&:not(:first-child) {
 		margin-top: 2rem!important;
@@ -543,8 +551,8 @@ hr {
 .wp-caption {
 	max-width: 100%;
 
-	> a > img,
-	> img {
+	> img,
+	> a > img {
 		width: 100%;
 		display: block;
 		border-radius: @border-radius;
@@ -577,7 +585,6 @@ hr {
 /*--------------------------------------------------------------
 6.0 Forms
 --------------------------------------------------------------*/
-
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -601,7 +608,7 @@ textarea {
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
 	background-color: transparent;
-	padding: 0.5rem 1rem;
+	padding: 0.4375rem 1rem;
 	font-size: 1rem;
 	line-height: 1.5;
 	color: inherit;
@@ -618,12 +625,58 @@ input[type=radio] {
 	margin-right: 0.5rem;
 }
 
+fieldset {
+	border: none;
+
+	&:not(:last-child) {
+		margin-bottom: 1.5rem;
+	}
+
+	legend {
+		font-family: @heading-font-family;
+		font-weight: @heading-font-weight;
+		color: @heading-font-color;
+		font-size: 1.3125rem;
+		margin-bottom: 1rem;
+	}
+}
+
 ::placeholder {
 	color: @secondary-font-color;
+}
+
+.select2 {
+	&-container--default &-dropdown,
+	&-container--default &-search &-search__field,
+	&-container--default &-selection {
+		border-color: @border-color;
+		border-radius: @border-radius;
+	}
+
+	&-container--default &-selection {
+		height: auto;
+	}
+
+	&-container--default &-selection &-selection__rendered {
+		padding: 0.4375rem 2rem 0.4375rem 1rem;
+		color: inherit;
+		line-height: 1.5;
+	}
+
+	&-container--default &-selection &-selection__arrow {
+		right: 0.5rem;
+		top: 0.35rem;
+	}
+
+	&-container--default &-results__option {
+		padding: 0.4375rem 1rem;
+		margin: 0;
+	}
 }
 /*--------------------------------------------------------------
 7.0 Tables
 --------------------------------------------------------------*/
+
 table {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -698,7 +751,6 @@ table {
 /*--------------------------------------------------------------
 8.0 Buttons
 --------------------------------------------------------------*/
-
 .button {
 	text-align: center;
 	border-radius: @border-radius;
@@ -740,6 +792,7 @@ table {
 		color: @icon-color;
 	}
 
+	&.loading,
 	&[data-state=loading] {
 		cursor: default;
 		color: transparent;
@@ -764,9 +817,12 @@ table {
 		background-color: rgba(255,255,255,.1);
 	}
 
-	&[data-state=loading]::before {
-		background-color: rgba(255,255,255,.25);
-		opacity: 1;
+	&.loading,
+	&[data-state=loading] {
+		&::before {
+			background-color: rgba(255,255,255,.25);
+			opacity: 1;
+		}
 	}
 
 	&::after {
@@ -812,14 +868,12 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.0 Layout
 --------------------------------------------------------------*/
-
 .site-container {
 	flex: 1 0 auto;
 }
 /*--------------------------------------------------------------
 9.1 Header
 --------------------------------------------------------------*/
-
 .header-navbar {
 	padding: 1rem 2rem;
 	display: flex;
@@ -1143,7 +1197,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.2 Content
 --------------------------------------------------------------*/
-
 .site-content {
 	padding: 4rem 0;
 	position: relative;
@@ -1163,7 +1216,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.3 Section
 --------------------------------------------------------------*/
-
 .section {
 	&:not(:first-child) {
 		margin-top: 3rem;
@@ -1210,7 +1262,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.4 Footer
 --------------------------------------------------------------*/
-
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -1292,7 +1343,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.5 Modal
 --------------------------------------------------------------*/
-
 .fancybox {
 	&-content {
 		border-radius: @border-radius;
@@ -1302,7 +1352,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 9.6 Loader
 --------------------------------------------------------------*/
-
 .site-loader {
 	.center-container;
 	position: fixed;
@@ -1330,7 +1379,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 10.0 Widgets
 --------------------------------------------------------------*/
-
 .widget {
 	&--sidebar,
 	&.hp-menu {
@@ -1351,6 +1399,7 @@ input[type=submit] {
 		}
 	}
 
+	&_product_search,
 	&_search {
 		padding: 0;
 		box-shadow: none;
@@ -1379,6 +1428,7 @@ input[type=submit] {
 				max-width: 100%;
 			}
 
+			button[type=submit],
 			input[type=submit] {
 				display: none;
 			}
@@ -1491,6 +1541,7 @@ input[type=submit] {
 	&_meta,
 	&_nav_menu,
 	&_pages,
+	&_product_categories,
 	&_recent_entries {
 		ul {
 			margin-left: 0;
@@ -1499,7 +1550,8 @@ input[type=submit] {
 	}
 
 	&_archive,
-	&_categories {
+	&_categories,
+	&_product_categories {
 		select {
 			width: 100%;
 		}
@@ -1548,6 +1600,7 @@ input[type=submit] {
 .widget_meta,
 .widget_nav_menu,
 .widget_pages,
+.widget_product_categories,
 .widget_recent_entries,
 .wp-block-archives,
 .wp-block-categories,
@@ -1575,9 +1628,10 @@ input[type=submit] {
 
 		&.current-cat,
 		&.current-menu-item,
+		&.is-active,
 		&:hover {
-			> a,
-			&::before {
+			&::before,
+			> a {
 				color: @primary-font-color;
 			}
 		}
@@ -1609,6 +1663,7 @@ input[type=submit] {
 .widget_categories,
 .widget_meta,
 .widget_nav_menu,
+.widget_product_categories,
 .wp-block-archives,
 .wp-block-categories {
 	li {
@@ -1624,6 +1679,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 11.0 Blocks
 --------------------------------------------------------------*/
+
 .wp-block {
 	&-quote {
 		border-left: 3px solid @primary-background-color;
@@ -1856,7 +1912,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 12.0 Pages
 --------------------------------------------------------------*/
-
 .page {
 	&__title {
 		word-wrap: break-word;
@@ -1875,7 +1930,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 13.0 Posts
 --------------------------------------------------------------*/
-
 .post {
 	&--archive {
 		margin-bottom: 2rem;
@@ -1960,7 +2014,7 @@ input[type=submit] {
 		margin-bottom: -.5rem;
 
 		a {
-			.label;
+			.styled-label;
 			margin-bottom: 0.5rem;
 
 			&:not(:last-child) {
@@ -2084,6 +2138,7 @@ input[type=submit] {
 /*--------------------------------------------------------------
 14.0 Tags
 --------------------------------------------------------------*/
+
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -2107,7 +2162,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 15.0 Comments
 --------------------------------------------------------------*/
-
 .comments {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -2367,7 +2421,6 @@ input[type=submit] {
 /*--------------------------------------------------------------
 16.0 Pagination
 --------------------------------------------------------------*/
-
 .pagination {
 	display: flex;
 	align-items: center;
@@ -2381,15 +2434,19 @@ input[type=submit] {
 		margin-bottom: 2rem;
 	}
 
-	.nav-links {
+	.nav-links,
+	ul {
 		display: flex;
 		align-items: center;
 	}
 
-	> a,
+	> span,
 	.nav-links > a,
 	.nav-links > span,
-	> span {
+	> a,
+	ul li a,
+	ul li span.current,
+	ul li span.dots {
 		.center-container;
 		border: 2px solid transparent;
 		border-radius: 50%;
@@ -2398,11 +2455,6 @@ input[type=submit] {
 		height: 3rem;
 		font-family: @heading-font-family;
 		font-weight: @heading-font-weight;
-
-		&.page-numbers:not(:last-child),
-		&:not(:last-child) {
-			margin-right: 0.5rem;
-		}
 
 		&.page-numbers:not(.prev):not(.next),
 		&:not(.prev):not(.next) {
@@ -2434,14 +2486,27 @@ input[type=submit] {
 	}
 
 	> span,
-	.nav-links > span {
+	.nav-links > a,
+	.nav-links > span,
+	> a,
+	ul li {
+		&.page-numbers:not(:last-child),
+		&:not(:last-child) {
+			margin-right: 0.5rem;
+		}
+	}
+
+	.nav-links > span,
+	> span,
+	ul li span.current {
 		&:not(.dots) {
 			border-color: @border-color;
 		}
 	}
 
+	.nav-links > a,
 	> a,
-	.nav-links > a {
+	ul li a {
 		transition: color @animation-duration;
 
 		&:hover {
@@ -2450,8 +2515,489 @@ input[type=submit] {
 	}
 }
 /*--------------------------------------------------------------
+18.0 WooCommerce
+--------------------------------------------------------------*/
+
+.woocommerce {
+	&-error,
+	&-info,
+	&-message {
+		border-bottom-left-radius: @border-radius;
+		border-bottom-right-radius: @border-radius;
+		background-color: @secondary-background-color;
+	}
+
+	.star-rating {
+		font-size: 0.875rem;
+
+		span::before {
+			color: @primary-background-color;
+		}
+	}
+
+	span.onsale {
+		.styled-label;
+		color: #fff;
+		min-height: 0;
+		min-width: 0;
+		font-weight: normal;
+		background-color: @ternary-background-color;
+		background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2));
+		left: 2rem;
+		top: 2rem;
+		margin: 0;
+	}
+
+	& &-result-count {
+		.caption;
+		font-size: 0.6875rem;
+		color: @secondary-font-color;
+		margin: 0.5rem 0 1.5rem;
+	}
+
+	& &-ordering {
+		margin-bottom: 1.5rem;
+
+		select {
+			.caption;
+			font-size: 0.6875rem;
+			padding: 0.25rem;
+		}
+	}
+	/*--------------------------------------------------------------
+	18.1 Forms
+	--------------------------------------------------------------*/
+	&,
+	&-page {
+		form {
+			.form-row {
+				padding: 0;
+				margin: 0 0 1.5rem;
+
+				label {
+					.caption;
+					font-size: 0.6875rem;
+					margin-bottom: 0.75rem;
+				}
+			}
+
+			fieldset .form-row {
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	form.checkout_coupon,
+	form.login,
+	form.register {
+		.block;
+		padding: 1.5rem;
+	}
+	/*--------------------------------------------------------------
+	18.2 Tables
+	--------------------------------------------------------------*/
+	table.shop_table {
+		border-collapse: collapse;
+		border: none;
+		border-radius: 0;
+
+		td,
+		th {
+			padding: 0.5rem 0.75rem;
+			border-width: 0 0 1px;
+			border-color: @border-color;
+
+			&:first-child {
+				padding-left: 0;
+			}
+
+			&:last-child {
+				padding-right: 0;
+			}
+		}
+
+		th {
+			font-weight: 600;
+		}
+	}
+	/*--------------------------------------------------------------
+	18.3 Buttons
+	--------------------------------------------------------------*/
+	#respond input#submit,
+	a.button,
+	button.button,
+	input.button {
+		border-radius: @border-radius;
+		font-weight: @heading-font-weight;
+		padding: 0.5rem 1rem;
+		line-height: 1.5;
+
+		&,
+		&:hover {
+			background-color: rgba(0,0,0,0.08);
+			color: @body-font-color;
+		}
+
+		&.alt {
+			&,
+			&:hover {
+				.button--primary;
+			}
+		}
+
+		&.loading {
+			padding-right: 1rem;
+			opacity: 1;
+			color: transparent;
+			cursor: default;
+
+			&::before {
+				opacity: 1;
+				background-color: rgba(255, 255, 255, 0.25);
+			}
+
+			&::after {
+				.icon;
+				content: '\f1ce';
+				animation: spin 0.5s linear infinite;
+				top: 50%;
+				right: auto;
+			}
+		}
+	}
+
+	a.button,
+	button.button,
+	input.button {
+		&--secondary {
+			&,
+			&:hover {
+				.button--secondary;
+			}
+		}
+	}
+
+	button[type=submit],
+	input[type=submit] {
+		&,
+		&:hover {
+			.button--primary;
+		}
+	}
+
+	&-cart,
+	#add_payment_method,
+	&-checkout {
+		.wc-proceed-to-checkout {
+			a.checkout-button {
+				.button--large;
+			}
+		}
+	}
+	/*--------------------------------------------------------------
+	18.4 Widgets
+	--------------------------------------------------------------*/
+	& &-widget-layered-nav-list &-widget-layered-nav-list {
+		&__item {
+			padding: 0;
+			color: @secondary-font-color;
+		}
+	}
+
+	& .widget_rating_filter {
+		ul {
+			li {
+				padding: 0;
+				color: @secondary-font-color;
+
+				a {
+					color: inherit;
+				}
+			}
+		}
+	}
+
+	.widget_price_filter {
+		.ui-slider {
+			.ui-slider-range {
+				background-color: @primary-background-color;
+			}
+
+			.ui-slider-handle {
+				width: 16px;
+				height: 16px;
+				margin-left: -8px;
+				top: -6px;
+				border: 1px solid #fff;
+				background-color: @primary-background-color;
+				background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+			}
+		}
+
+		.ui-slider-horizontal {
+			height: 4px;
+		}
+
+		.price_slider_wrapper {
+			padding-top: 0.5rem;
+
+			.ui-widget-content {
+				background-color: rgba(0,0,0,0.08);
+				margin: 0 8px 1.5rem;
+			}
+		}
+
+		.price_slider_amount {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			.clear {
+				display: none;
+			}
+		}
+
+		.price_label {
+			.caption;
+			color: @secondary-font-color;
+		}
+	}
+
+	ul.cart_list,
+	ul.product_list_widget {
+		li {
+			.star-rating {
+				margin-top: 0.25rem;
+			}
+
+			.reviewer {
+				.caption;
+				font-size: 0.6875rem;
+			}
+		}
+	}
+
+	ul.product_list_widget {
+		li {
+			padding: 0;
+			color: @secondary-font-color;
+
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+
+			.product-title {
+				font-family: @heading-font-family;
+				font-weight: @heading-font-weight;
+				color: @heading-font-color;
+				transition: color @animation-duration;
+				line-height: 1.15;
+
+				&:hover {
+					color: @heading-font-color-hover;
+				}
+			}
+
+			.amount {
+				font-size: 0.875rem;
+			}
+
+			img {
+				border-radius: @border-radius;
+				width: 2.875rem;
+				margin-left: 1rem;
+			}
+
+			ins {
+				text-decoration: none;
+			}
+		}
+	}
+	/*--------------------------------------------------------------
+	18.5 Products
+	--------------------------------------------------------------*/
+	&,
+	&-page {
+		ul.products {
+			li.product {
+				.block;
+				padding: 1.5rem;
+				transition: box-shadow @animation-duration;
+				margin-bottom: 2rem;
+
+				&:hover {
+					box-shadow: @box-shadow-hover;
+				}
+
+				.add_to_cart_button {
+					margin-right: 0.75rem;
+				}
+
+				a {
+					img {
+						border-radius: @border-radius;
+						margin-bottom:.75rem;
+					}
+				}
+
+				.price {
+					font-size: 1.125rem;
+					color: inherit;
+
+					&:last-child {
+						margin-bottom: 0;
+					}
+
+					ins {
+						text-decoration: none;
+						font-weight: normal;
+					}
+				}
+
+				.woocommerce-loop-product {
+					&__link {
+						color: inherit;
+					}
+
+					&__title {
+						font-size: 1.3125rem;
+					}
+				}
+
+				.onsale {
+					margin: 0;
+					top: 3rem;
+					right: 3rem;
+				}
+			}
+		}
+	}
+
+	div.product {
+		div.images {
+			img {
+				border-radius: @border-radius;
+			}
+		}
+
+		.product_meta {
+			> span {
+				display: block;
+				font-weight: 600;
+				color: @heading-font-color;
+
+				&:not(:last-child) {
+					margin-bottom: 0.5rem;
+				}
+
+				a,
+				span {
+					font-weight: normal;
+				}
+
+				span {
+					color: @body-font-color;
+				}
+			}
+		}
+	}
+	/*--------------------------------------------------------------
+	18.6 Checkout
+	--------------------------------------------------------------*/
+	#add_payment_method,
+	&-cart,
+	&-checkout {
+		table.cart {
+			img {
+				border-radius: @border-radius;
+				display: block;
+			}
+		}
+
+		#payment {
+			background-color: @secondary-background-color;
+			border-radius: @border-radius;
+
+			ul.payment_methods {
+				border-color: @border-color;
+			}
+
+			div.payment_box {
+				background-color: @secondary-background-color;
+				border-radius: @border-radius;
+
+				&::before {
+					border-bottom-color: @secondary-background-color;
+					top: -1em;
+				}
+			}
+		}
+	}
+	/*--------------------------------------------------------------
+	18.7 Account
+	--------------------------------------------------------------*/
+	&-MyAccount-navigation {
+		.block;
+		.widget_nav_menu;
+		padding: 2rem;
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+
+		ul {
+			margin-left: 0;
+			list-style: none;
+		}
+	}
+
+	& &-customer-details {
+		address {
+			.block;
+			padding: 1.5rem;
+		}
+	}
+	/*--------------------------------------------------------------
+	18.8 Pagination
+	--------------------------------------------------------------*/
+	& nav&-pagination {
+		.pagination;
+
+		ul {
+			border: none;
+			margin: 0;
+
+			li {
+				border: none;
+
+				a,
+				span {
+					padding: 0;
+					min-width: 0;
+
+					&.current,
+					&.dots,
+					&:focus,
+					&:hover {
+						background: none;
+					}
+				}
+			}
+		}
+	}
+
+	ul.products + &-pagination {
+		&:not(:first-child) {
+			margin-top: -1rem;
+		}
+	}
+}
+/*--------------------------------------------------------------
 17.0 HivePress
 --------------------------------------------------------------*/
+
 .hp {
 	&-link {
 		transition: color @animation-duration;
@@ -2887,7 +3433,7 @@ input[type=submit] {
 			}
 
 			a {
-				.label;
+				.styled-label;
 				margin-bottom: 0.5rem;
 
 				&:not(:last-child) {
@@ -3099,7 +3645,7 @@ input[type=submit] {
 		}
 
 		&__count {
-			.label;
+			.styled-label;
 			color: #fff;
 			background-color: @secondary-background-color-invert;
 		}
