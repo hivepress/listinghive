@@ -17,6 +17,7 @@ return [
 			h4,
 			h5,
 			h6,
+			fieldset legend,
 			.button,
 			button,
 			input[type=submit],
@@ -94,7 +95,9 @@ return [
 			.pagination > a:hover,
 			.pagination .nav-links > a:hover,
 			.hp-link:hover,
-			.hp-link:hover i
+			.hp-link:hover i,
+			.woocommerce nav.woocommerce-pagination ul li a:hover,
+			.woocommerce nav.woocommerce-pagination ul li a:focus
 		',
 
 		'properties' => [
@@ -117,6 +120,10 @@ return [
 			.hp-page__title::before,
 			.hp-section__title::before,
 			.woocommerce #respond input#submit.alt,
+			.woocommerce button[type=submit],
+			.woocommerce input[type=submit],
+			.woocommerce button[type=submit]:hover,
+			.woocommerce input[type=submit]:hover,
 			.woocommerce a.button.alt,
 			.woocommerce button.button.alt,
 			.woocommerce input.button.alt,
