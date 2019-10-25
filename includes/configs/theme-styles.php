@@ -29,7 +29,9 @@ return [
 			.pagination > a,
 			.hp-review__author,
 			.hp-message--view-block hp-message__sender,
-			.woocommerce ul.product_list_widget li .product-title
+			.woocommerce ul.product_list_widget li .product-title,
+			.woocommerce nav.woocommerce-pagination ul li a,
+			.woocommerce nav.woocommerce-pagination ul li span
 		',
 
 		'properties' => [

@@ -644,6 +644,35 @@ fieldset {
 ::placeholder {
 	color: @secondary-font-color;
 }
+
+.select2 {
+	&-container--default &-dropdown,
+	&-container--default &-search &-search__field,
+	&-container--default &-selection {
+		border-color: @border-color;
+		border-radius: @border-radius;
+	}
+
+	&-container--default &-selection {
+		height: auto;
+	}
+
+	&-container--default &-selection &-selection__rendered {
+		padding: 0.4375rem 2rem 0.4375rem 1rem;
+		color: inherit;
+		line-height: 1.5;
+	}
+
+	&-container--default &-selection &-selection__arrow {
+		right: 0.5rem;
+		top: 0.35rem;
+	}
+
+	&-container--default &-results__option {
+		padding: 0.4375rem 1rem;
+		margin: 0;
+	}
+}
 /*--------------------------------------------------------------
 7.0 Tables
 --------------------------------------------------------------*/
@@ -2538,39 +2567,6 @@ input[type=submit] {
 	/*--------------------------------------------------------------
 	18.1 Forms
 	--------------------------------------------------------------*/
-	.select2 {
-		&-container--default &-dropdown,
-		&-container--default &-search &-search__field,
-		&-container--default &-selection {
-			border-color: @border-color;
-			border-radius: @border-radius;
-		}
-
-		&-container--default &-selection {
-			height: auto;
-		}
-
-		&-container--default &-selection &-selection__rendered {
-			padding: 0.4375rem 2rem 0.4375rem 1rem;
-			color: inherit;
-			line-height: 1.5;
-		}
-
-		&-container--default &-selection &-selection__arrow {
-			right: 0.5rem;
-			top: 0.35rem;
-		}
-
-		&-container--default &-results__option {
-			padding: 0.4375rem 1rem;
-			margin: 0;
-
-			&[data-selected=true] {
-				background-color: @secondary-background-color;
-			}
-		}
-	}
-
 	&,
 	&-page {
 		form {
@@ -2841,11 +2837,8 @@ input[type=submit] {
 
 				a {
 					img {
-						border-top-left-radius: @border-radius;
-						border-top-right-radius: @border-radius;
-						width: calc(100% + 3rem);
-						max-width: none;
-						margin: -1.5rem 0 0.75rem -1.5rem;
+						border-radius: @border-radius;
+						margin-bottom:.75rem;
 					}
 				}
 
@@ -2875,8 +2868,8 @@ input[type=submit] {
 
 				.onsale {
 					margin: 0;
-					top: 1.5rem;
-					right: 1.5rem;
+					top: 3rem;
+					right: 3rem;
 				}
 			}
 		}
