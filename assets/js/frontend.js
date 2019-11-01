@@ -22,6 +22,8 @@ var hivetheme = {
 
 		// Menu
 		hivetheme.getComponent('menu').each(function() {
+			var menu = $(this).children('ul');
+
 			$(this).find('li').each(function() {
 				var item = $(this);
 
@@ -59,6 +61,14 @@ var hivetheme = {
 						e.preventDefault();
 					}
 				});
+			});
+
+			menu.children('li').each(function() {
+				if ($(this).offset().top > menu.offset().top) {
+					menu.addClass('wrap');
+
+					return false;
+				}
 			});
 		});
 

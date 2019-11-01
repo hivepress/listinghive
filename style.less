@@ -935,7 +935,6 @@ input[type=submit] {
 
 				&.active > a,
 				&.current-menu-item > a,
-				&:focus-within > a,
 				a:hover {
 					color: @primary-font-color;
 				}
@@ -982,6 +981,14 @@ input[type=submit] {
 
 		> ul {
 			display: flex;
+			flex-wrap: wrap;
+			justify-content: flex-end;
+
+			&.wrap {
+				align-self: center;
+				padding-top: 0.75rem;
+				padding-bottom: 0.75rem;
+			}
 
 			> li {
 				padding: 0 1rem;
@@ -1003,6 +1010,17 @@ input[type=submit] {
 				&.menu-item-has-children::after {
 					content: '\f107';
 					margin-left: 0.5rem;
+				}
+			}
+
+			&.wrap > li {
+				padding-top: 0.25rem;
+				padding-bottom: 0.25rem;
+
+				&.current-menu-item {
+					&::before {
+						display: none;
+					}
 				}
 			}
 		}
@@ -1327,14 +1345,14 @@ input[type=submit] {
 			.unstyled-list;
 			display: flex;
 			flex-wrap: wrap;
-			justify-content: center;
+			justify-content: flex-end;
 			margin-bottom: -.5rem;
 
 			li {
 				margin-bottom: 0.5rem;
 
-				&:not(:last-child) {
-					margin-right: 2rem;
+				&:not(:first-child) {
+					margin-left: 2rem;
 				}
 
 				a {
