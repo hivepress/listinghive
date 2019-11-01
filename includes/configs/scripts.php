@@ -26,7 +26,7 @@ return [
 
 	'frontend'       => [
 		'handle' => 'ht-frontend',
-		'src'    => HT_THEME_URL . '/assets/js/frontend.js',
+		'src'    => HT_THEME_URL . '/assets/js/frontend.min.js',
 		'deps'   => [ 'jquery', 'hoverIntent', 'imagesloaded', 'fitvids', 'sticky-sidebar', 'comment-reply' ],
 	],
 ];
