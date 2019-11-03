@@ -132,9 +132,7 @@ return [
 			.woocommerce #respond input#submit.alt:hover,
 			.woocommerce a.button.alt:hover,
 			.woocommerce button.button.alt:hover,
-			.woocommerce input.button.alt:hover,
-			.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
-			.woocommerce .widget_price_filter .ui-slider .ui-slider-range
+			.woocommerce input.button.alt:hover
 		',
 
 		'properties' => [
@@ -182,6 +180,7 @@ return [
 			.post__categories a:hover,
 			.hp-listing--view-block .hp-listing__category a:hover,
 			.hp-listing--view-page .hp-listing__category a:hover,
+			.hp-field--number-range .ui-slider-range,
 			.hp-field input[type=checkbox]:checked + span::before,
 			.hp-field input[type=radio]:checked + span::after,
 			.woocommerce a.button--secondary,
@@ -190,7 +189,8 @@ return [
 			.woocommerce a.button--secondary:hover,
 			.woocommerce button.button--secondary:hover,
 			.woocommerce input.button--secondary:hover,
-			.woocommerce span.onsale
+			.woocommerce span.onsale,
+			.woocommerce .widget_price_filter .price_slider_wrapper .ui-slider-range
 		',
 
 		'properties' => [
