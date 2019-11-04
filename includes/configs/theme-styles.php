@@ -121,6 +121,7 @@ return [
 			.widget--footer__title::before,
 			.hp-page__title::before,
 			.hp-section__title::before,
+			.hp-listing--view-block .hp-listing__featured,
 			.woocommerce #respond input#submit.alt,
 			.woocommerce button[type=submit],
 			.woocommerce input[type=submit],
@@ -149,7 +150,8 @@ return [
 			.wp-block-quote,
 			.tagcloud a:hover,
 			.comment.bypostauthor .comment__image,
-			.hp-listing__images-carousel .slick-current img
+			.hp-listing__images-carousel .slick-current img,
+			.hp-listing--view-block.hp-listing--featured
 		',
 
 		'properties' => [

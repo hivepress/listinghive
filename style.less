@@ -3504,7 +3504,7 @@ button {
 		}
 
 		&--view-block&--featured {
-			border: 1px solid @primary-background-color;
+			border-color: @primary-background-color;
 		}
 
 		&--view-block &__content,
@@ -3528,6 +3528,20 @@ button {
 			img {
 				border-top-left-radius: @border-radius;
 				border-top-right-radius: @border-radius;
+			}
+		}
+
+		&--view-block &__featured {
+			left:0;
+			top:1.5rem;
+			border-radius:0 @border-radius @border-radius 0;
+			width:1.5rem;
+			height:1.5rem;
+			background-color:@primary-background-color;
+			background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+
+			i {
+				font-size:12px;
 			}
 		}
 
