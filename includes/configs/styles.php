@@ -32,6 +32,6 @@ return [
 	'frontend'          => [
 		'handle' => 'ht-frontend',
 		'src'    => HT_THEME_URL . '/style.css',
-		'editor' => true,
+		'scope'  => [ 'frontend', 'editor' ],
 	],
 ];

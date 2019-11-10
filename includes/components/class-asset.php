@@ -61,7 +61,9 @@ final class Asset {
 		$styles = array_filter(
 			$styles,
 			function( $style ) {
-				return ! is_admin() xor ht\get_array_value( $style, 'admin', false );
+				$scope = (array) ht\get_array_value( $style, 'scope' );
+
+				return ! array_diff( [ 'frontend', 'backend' ], $scope ) || ( ! is_admin() xor in_array( 'backend', $scope, true ) );
 			}
 		);
 
@@ -76,7 +78,7 @@ final class Asset {
 	 */
 	public function enqueue_editor_styles() {
 		foreach ( hivetheme()->get_config( 'styles' ) as $style ) {
-			if ( ht\get_array_value( $style, 'editor', false ) ) {
+			if ( in_array( 'editor', (array) ht\get_array_value( $style, 'scope' ), true ) ) {
 				add_editor_style( $style['src'] );
 			}
 		}
@@ -94,7 +96,9 @@ final class Asset {
 		$scripts = array_filter(
 			$scripts,
 			function( $script ) {
-				return ! is_admin() xor ht\get_array_value( $script, 'admin', false );
+				$scope = (array) ht\get_array_value( $script, 'scope' );
+
+				return ! array_diff( [ 'frontend', 'backend' ], $scope ) || ( ! is_admin() xor in_array( 'backend', $scope, true ) );
 			}
 		);
 
