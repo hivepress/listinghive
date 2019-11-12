@@ -10,7 +10,8 @@ defined( 'ABSPATH' ) || exit;
 
 return [
 	[
-		'name' => 'HivePress',
-		'slug' => 'hivepress',
+		'name'     => 'HivePress',
+		'slug'     => 'hivepress',
+		'required' => false,
 	],
 ];
