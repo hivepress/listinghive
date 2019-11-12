@@ -1403,9 +1403,22 @@ button {
 	left: 0;
 	overflow: hidden;
 	background-color: #fff;
+	animation: hide 0.4s forwards;
+	animation-iteration-count: 1;
+	animation-delay: 3s;
 
 	svg {
 		animation: spin 0.5s linear infinite;
+	}
+}
+@keyframes hide {
+	from {
+		opacity: 1;
+	}
+
+	to {
+		opacity: 0;
+		z-index: -1;
 	}
 }
 @keyframes spin {
