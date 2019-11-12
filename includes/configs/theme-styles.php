@@ -96,6 +96,7 @@ return [
 			.comment-respond .comment-reply-title a:hover,
 			.pagination > a:hover,
 			.pagination .nav-links > a:hover,
+			.post__navigation h5:hover i,
 			.hp-link:hover,
 			.hp-link:hover i,
 			.woocommerce nav.woocommerce-pagination ul li a:hover,
@@ -121,6 +122,7 @@ return [
 			.widget--footer__title::before,
 			.hp-page__title::before,
 			.hp-section__title::before,
+			.hp-listing--view-block .hp-listing__featured,
 			.woocommerce #respond input#submit.alt,
 			.woocommerce button[type=submit],
 			.woocommerce input[type=submit],
@@ -132,9 +134,7 @@ return [
 			.woocommerce #respond input#submit.alt:hover,
 			.woocommerce a.button.alt:hover,
 			.woocommerce button.button.alt:hover,
-			.woocommerce input.button.alt:hover,
-			.woocommerce .widget_price_filter .ui-slider .ui-slider-handle,
-			.woocommerce .widget_price_filter .ui-slider .ui-slider-range
+			.woocommerce input.button.alt:hover
 		',
 
 		'properties' => [
@@ -151,7 +151,8 @@ return [
 			.wp-block-quote,
 			.tagcloud a:hover,
 			.comment.bypostauthor .comment__image,
-			.hp-listing__images-carousel .slick-current img
+			.hp-listing__images-carousel .slick-current img,
+			.hp-listing--view-block.hp-listing--featured
 		',
 
 		'properties' => [
@@ -182,6 +183,7 @@ return [
 			.post__categories a:hover,
 			.hp-listing--view-block .hp-listing__category a:hover,
 			.hp-listing--view-page .hp-listing__category a:hover,
+			.hp-field--number-range .ui-slider-range,
 			.hp-field input[type=checkbox]:checked + span::before,
 			.hp-field input[type=radio]:checked + span::after,
 			.woocommerce a.button--secondary,
@@ -190,7 +192,8 @@ return [
 			.woocommerce a.button--secondary:hover,
 			.woocommerce button.button--secondary:hover,
 			.woocommerce input.button--secondary:hover,
-			.woocommerce span.onsale
+			.woocommerce span.onsale,
+			.woocommerce .widget_price_filter .price_slider_wrapper .ui-slider-range
 		',
 
 		'properties' => [

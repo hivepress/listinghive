@@ -46,6 +46,7 @@ final class Template {
 	public function add_theme_supports() {
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'custom-header' );
 
 		foreach ( hivetheme()->get_config( 'theme_supports' ) as $name => $args ) {
 			if ( is_array( $args ) ) {
