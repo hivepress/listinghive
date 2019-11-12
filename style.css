@@ -1298,9 +1298,21 @@ button[disabled]::before {
   left: 0;
   overflow: hidden;
   background-color: #fff;
+  animation: hide 0.4s forwards;
+  animation-iteration-count: 1;
+  animation-delay: 3s;
 }
 .site-loader svg {
   animation: spin 0.5s linear infinite;
+}
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    z-index: -1;
+  }
 }
 @keyframes spin {
   from {
@@ -2096,6 +2108,8 @@ button[disabled]::before {
 .post__header--cover .post__details > *:not(:last-child)::after {
   background-color: rgba(255, 255, 255, 0.8);
 }
+.post__navigation:not(:last-child),
+.post__tags:not(:last-child),
 .post__text:not(:last-child) {
   margin-bottom: 1.5rem;
 }
@@ -2103,6 +2117,34 @@ button[disabled]::before {
   content: '';
   clear: both;
   display: table;
+}
+@media only screen and (max-width: 47.99em) {
+  .post__navigation div div:not(:last-child):not(:empty) {
+    margin-bottom: 1rem;
+  }
+}
+.post__navigation div div:last-child {
+  text-align: right;
+}
+.post__navigation h5 i {
+  color: rgba(0, 0, 0, 0.15);
+  font-size: 16px;
+  transition: transform 0.25s, color 0.25s;
+}
+.post__navigation h5 i:first-child {
+  margin-right: 0.5rem;
+}
+.post__navigation h5 i:last-child {
+  margin-left: 0.5rem;
+}
+.post__navigation h5:hover i {
+  color: #ffc107;
+}
+.post__navigation h5:hover i:first-child {
+  transform: translateX(-5px);
+}
+.post__navigation h5:hover i:last-child {
+  transform: translateX(5px);
 }
 /*--------------------------------------------------------------
 14.0 Tags
