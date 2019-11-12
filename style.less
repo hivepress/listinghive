@@ -76,10 +76,10 @@ Variables
 @border-radius: 3px;
 @box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
 @box-shadow-hover: 0 0 12px rgba(0,0,0,0.12);
-@animation-duration: 0.25s; /*--------------------------------------------------------------
+@animation-duration: 0.25s;
+/*--------------------------------------------------------------
 Mixins
 --------------------------------------------------------------*/
-
 .image-container {
 	img {
 		display: block;
@@ -190,7 +190,6 @@ Mixins
 /*--------------------------------------------------------------
 1.0 Normalize
 --------------------------------------------------------------*/
-
 body,
 html {
 	height: 100%;
@@ -214,7 +213,6 @@ body {
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
-
 body {
 	font-family: @body-font-family;
 	color: @body-font-color;
@@ -426,6 +424,7 @@ hr {
 /*--------------------------------------------------------------
 3.0 Accessibility
 --------------------------------------------------------------*/
+
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -471,6 +470,7 @@ hr {
 /*--------------------------------------------------------------
 4.0 Alignments
 --------------------------------------------------------------*/
+
 .aligncenter,
 .alignnone {
 	clear: both;
@@ -520,7 +520,6 @@ hr {
 /*--------------------------------------------------------------
 5.0 Media
 --------------------------------------------------------------*/
-
 .gallery {
 	&:not(:first-child) {
 		margin-top: 2rem!important;
@@ -554,8 +553,8 @@ hr {
 .wp-caption {
 	max-width: 100%;
 
-	> a > img,
-	> img {
+	> img,
+	> a > img {
 		width: 100%;
 		display: block;
 		border-radius: @border-radius;
@@ -588,7 +587,6 @@ hr {
 /*--------------------------------------------------------------
 6.0 Forms
 --------------------------------------------------------------*/
-
 input[type='color'],
 input[type='date'],
 input[type='datetime'],
@@ -680,6 +678,7 @@ fieldset {
 /*--------------------------------------------------------------
 7.0 Tables
 --------------------------------------------------------------*/
+
 table {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -754,7 +753,6 @@ table {
 /*--------------------------------------------------------------
 8.0 Buttons
 --------------------------------------------------------------*/
-
 .button {
 	text-align: center;
 	border-radius: @border-radius;
@@ -888,14 +886,12 @@ button {
 /*--------------------------------------------------------------
 9.0 Layout
 --------------------------------------------------------------*/
-
 .site-container {
 	flex: 1 0 auto;
 }
 /*--------------------------------------------------------------
 9.1 Header
 --------------------------------------------------------------*/
-
 .header-navbar {
 	padding: 1rem 2rem;
 	display: flex;
@@ -1242,7 +1238,6 @@ button {
 /*--------------------------------------------------------------
 9.2 Content
 --------------------------------------------------------------*/
-
 .site-content {
 	padding: 4rem 0;
 	position: relative;
@@ -1262,7 +1257,6 @@ button {
 /*--------------------------------------------------------------
 9.3 Section
 --------------------------------------------------------------*/
-
 .section {
 	&:not(:first-child) {
 		margin-top: 3rem;
@@ -1309,7 +1303,6 @@ button {
 /*--------------------------------------------------------------
 9.4 Footer
 --------------------------------------------------------------*/
-
 .site-footer {
 	flex-shrink: 0;
 	border-top: 1px solid @border-color;
@@ -1391,7 +1384,6 @@ button {
 /*--------------------------------------------------------------
 9.5 Modal
 --------------------------------------------------------------*/
-
 .fancybox {
 	&-content {
 		border-radius: @border-radius;
@@ -1401,7 +1393,6 @@ button {
 /*--------------------------------------------------------------
 9.6 Loader
 --------------------------------------------------------------*/
-
 .site-loader {
 	.center-container;
 	position: fixed;
@@ -1429,7 +1420,6 @@ button {
 /*--------------------------------------------------------------
 10.0 Widgets
 --------------------------------------------------------------*/
-
 .widget {
 	&--sidebar,
 	&.hp-menu {
@@ -1681,8 +1671,8 @@ button {
 		&.current-menu-item,
 		&.is-active,
 		&:hover {
-			> a,
-			&::before {
+			&::before,
+			> a {
 				color: @primary-font-color;
 			}
 		}
@@ -1730,6 +1720,7 @@ button {
 /*--------------------------------------------------------------
 11.0 Blocks
 --------------------------------------------------------------*/
+
 .wp-block {
 	&-quote {
 		border-left: 3px solid @primary-background-color;
@@ -1962,7 +1953,6 @@ button {
 /*--------------------------------------------------------------
 12.0 Pages
 --------------------------------------------------------------*/
-
 .page {
 	&__title {
 		word-wrap: break-word;
@@ -1981,7 +1971,6 @@ button {
 /*--------------------------------------------------------------
 13.0 Posts
 --------------------------------------------------------------*/
-
 .post {
 	&--archive {
 		margin-bottom: 2rem;
@@ -2175,21 +2164,72 @@ button {
 		}
 	}
 
+	&__navigation,
+	&__tags,
 	&__text {
 		&:not(:last-child) {
 			margin-bottom: 1.5rem;
 		}
+	}
 
+	&__text {
 		&::after {
 			content: '';
 			clear: both;
 			display: table;
 		}
 	}
+
+	&__navigation {
+		div {
+			div {
+				@media only screen and (max-width: 47.99em) {
+					&:not(:last-child):not(:empty) {
+						margin-bottom: 1rem;
+					}
+				}
+
+				&:last-child {
+					text-align: right;
+				}
+			}
+		}
+
+		h5 {
+			i {
+				color: rgba(0, 0, 0, 0.15);
+				font-size: 16px;
+				transition: transform @animation-duration, color @animation-duration;
+
+				&:first-child {
+					margin-right: 0.5rem;
+				}
+
+				&:last-child {
+					margin-left: 0.5rem;
+				}
+			}
+
+			&:hover {
+				i {
+					color: @primary-font-color;
+
+					&:first-child {
+						transform: translateX(-5px;);
+					}
+
+					&:last-child {
+						transform: translateX(5px;);
+					}
+				}
+			}
+		}
+	}
 }
 /*--------------------------------------------------------------
 14.0 Tags
 --------------------------------------------------------------*/
+
 .tagcloud {
 	display: flex;
 	flex-wrap: wrap;
@@ -2213,7 +2253,6 @@ button {
 /*--------------------------------------------------------------
 15.0 Comments
 --------------------------------------------------------------*/
-
 .comments {
 	&:not(:last-child) {
 		margin-bottom: 2rem;
@@ -2473,7 +2512,6 @@ button {
 /*--------------------------------------------------------------
 16.0 Pagination
 --------------------------------------------------------------*/
-
 .pagination {
 	display: flex;
 	align-items: center;
@@ -2493,10 +2531,10 @@ button {
 		align-items: center;
 	}
 
-	> a,
+	> span,
 	.nav-links > a,
 	.nav-links > span,
-	> span,
+	> a,
 	ul li a,
 	ul li span.current,
 	ul li span.dots {
@@ -2538,10 +2576,10 @@ button {
 		}
 	}
 
-	> a,
+	> span,
 	.nav-links > a,
 	.nav-links > span,
-	> span,
+	> a,
 	ul li {
 		&.page-numbers:not(:last-child),
 		&:not(:last-child) {
@@ -2549,16 +2587,16 @@ button {
 		}
 	}
 
-	> span,
 	.nav-links > span,
+	> span,
 	ul li span.current {
 		&:not(.dots) {
 			border-color: @border-color;
 		}
 	}
 
-	> a,
 	.nav-links > a,
+	> a,
 	ul li a {
 		transition: color @animation-duration;
 
@@ -2570,6 +2608,7 @@ button {
 /*--------------------------------------------------------------
 18.0 WooCommerce
 --------------------------------------------------------------*/
+
 .woocommerce {
 	&-error,
 	&-info,
@@ -2739,8 +2778,8 @@ button {
 		}
 	}
 
-	#add_payment_method,
 	&-cart,
+	#add_payment_method,
 	&-checkout {
 		.wc-proceed-to-checkout {
 			a.checkout-button {
@@ -2990,8 +3029,8 @@ button {
 	/*--------------------------------------------------------------
 	18.6 Checkout
 	--------------------------------------------------------------*/
-	&-cart,
 	#add_payment_method,
+	&-cart,
 	&-checkout {
 		table.cart {
 			img {
@@ -3081,6 +3120,7 @@ button {
 /*--------------------------------------------------------------
 17.0 HivePress
 --------------------------------------------------------------*/
+
 .hp {
 	&-link {
 		transition: color @animation-duration;
@@ -3532,16 +3572,16 @@ button {
 		}
 
 		&--view-block &__featured {
-			left:0;
-			top:1.5rem;
-			border-radius:0 @border-radius @border-radius 0;
-			width:1.5rem;
-			height:1.5rem;
-			background-color:@primary-background-color;
+			left: 0;
+			top: 1.5rem;
+			border-radius: 0 @border-radius @border-radius 0;
+			width: 1.5rem;
+			height: 1.5rem;
+			background-color: @primary-background-color;
 			background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
 
 			i {
-				font-size:12px;
+				font-size: 12px;
 			}
 		}
 

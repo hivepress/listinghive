@@ -96,6 +96,7 @@ return [
 			.comment-respond .comment-reply-title a:hover,
 			.pagination > a:hover,
 			.pagination .nav-links > a:hover,
+			.post__navigation h5:hover i,
 			.hp-link:hover,
 			.hp-link:hover i,
 			.woocommerce nav.woocommerce-pagination ul li a:hover,

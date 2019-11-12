@@ -22,5 +22,9 @@
 				<?php the_tags( '', '' ); ?>
 			</div>
 		</div>
-	<?php endif; ?>
+		<?php
+	endif;
+
+	get_template_part( 'templates/post/single/navigation' );
+	?>
 </div>
