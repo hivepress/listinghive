@@ -10,7 +10,6 @@ defined( 'ABSPATH' ) || exit;
 
 return [
 	'custom-logo',
-	'custom-header',
 	'post-thumbnails',
 	'editor-styles',
 	'wp-block-styles',
