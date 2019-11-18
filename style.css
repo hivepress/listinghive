@@ -3460,6 +3460,9 @@ ul.products + .woocommerce-pagination:not(:first-child) {
   font-size: 0.6875rem;
   margin-bottom: 0.75rem;
 }
+.hp-form__label small {
+  color: rgba(0, 0, 0, 0.4);
+}
 .hp-form--narrow .hp-form__button {
   font-size: 1.125rem;
   padding: 0.75rem 1.25rem;
