@@ -99,6 +99,7 @@ return [
 			.post__navigation h5:hover i,
 			.hp-link:hover,
 			.hp-link:hover i,
+			.pac-item:hover .pac-item-query,
 			.woocommerce nav.woocommerce-pagination ul li a:hover,
 			.woocommerce nav.woocommerce-pagination ul li a:focus
 		',

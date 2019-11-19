@@ -677,6 +677,49 @@ fieldset {
 		margin: 0;
 	}
 }
+
+.pac {
+	&-container {
+		font-family: inherit;
+		border-radius: @border-radius;
+		box-shadow: @box-shadow;
+		border: 1px solid @border-color;
+		padding: 1rem 0;
+	}
+
+	&-logo {
+		&::after {
+			margin: 0.5rem 1.5rem 0 0;
+		}
+	}
+
+	&-icon {
+		display: none;
+	}
+
+	&-item {
+		font-size: inherit;
+		line-height: inherit;
+		border: none;
+		color: @secondary-font-color;
+		padding: 0.25rem 1.5rem;
+		cursor: pointer;
+
+		&:hover {
+			background: none;
+		}
+
+		&-query {
+			color: @body-font-color;
+			font-size: inherit;
+			transition: color @animation-duration;
+		}
+
+		&:hover &-query {
+			color: @primary-font-color;
+		}
+	}
+}
 /*--------------------------------------------------------------
 7.0 Tables
 --------------------------------------------------------------*/
