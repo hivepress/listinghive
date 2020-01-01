@@ -1,81 +1,83 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-22 23:09+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: \n"
-"Language: \n"
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"POT-Creation-Date: 2019-11-21 14:41+0000\n"
+"PO-Revision-Date: 2019-11-21 20:46+0000\n"
+"Last-Translator: admin <admin@admin.com>\n"
+"Language-Team: Русский\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.3.0; wp-5.2.2"
+"X-Loco-Version: 2.3.1; wp-5.3"
 
 #: comments.php:3
 msgid "Comments"
-msgstr ""
+msgstr "Комментарии"
 
 #: comments.php:36
 msgid "Cancel Reply"
-msgstr ""
+msgstr "Отменить Ответ"
 
 #: header.php:16
 msgid "Skip to content"
-msgstr ""
+msgstr "Перейти к содержанию"
 
 #: index.php:18
 msgid "Nothing found"
-msgstr ""
+msgstr "Ничего не найдено"
 
 #: index.php:19
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
+"К сожалению, ничего не подошло под ваш поисковый запрос. Пожалуйста, "
+"попробуйте еще раз с другими ключевыми словами."
 
 #: searchform.php:2
 msgid "Search"
-msgstr ""
+msgstr "Поиск"
 
 #: includes/configs/menu-locations.php:13
 msgid "Header"
-msgstr ""
+msgstr "Шапка"
 
 #: includes/configs/menu-locations.php:17
 msgid "Footer"
-msgstr ""
+msgstr "Подвал"
 
 #: includes/configs/theme-mods.php:15
 msgid "Copyright Notice"
-msgstr ""
+msgstr "Текст Копирайта"
 
 #: includes/configs/theme-mods.php:24
 msgid "Primary Color"
-msgstr ""
+msgstr "Главный Цвет"
 
 #: includes/configs/theme-mods.php:30
 msgid "Secondary Color"
-msgstr ""
+msgstr "Второстепенный Цвет"
 
 #: includes/configs/theme-mods.php:38
 msgid "Fonts"
-msgstr ""
+msgstr "Шрифты"
 
 #: includes/configs/theme-mods.php:42
 msgid "Heading Font"
-msgstr ""
+msgstr "Заголовочный Шрифт"
 
 #: includes/configs/theme-mods.php:48
 msgid "Body Font"
-msgstr ""
+msgstr "Строчный Шрифт"
 
 #: includes/configs/widget-areas.php:13
 msgid "Blog Sidebar"
-msgstr ""
+msgstr "Боковая Панель Блога"
 
 #: includes/configs/widget-areas.php:14
 msgid "Add widgets here to appear in the blog sidebar."
@@ -91,7 +93,7 @@ msgstr ""
 
 #: includes/configs/widget-areas.php:31
 msgid "Listing Sidebar"
-msgstr ""
+msgstr "Боковая Панель Позиции"
 
 #: includes/configs/widget-areas.php:32
 msgid "Add widgets here to appear in the listing sidebar."
@@ -107,7 +109,7 @@ msgstr ""
 
 #: includes/configs/widget-areas.php:49
 msgid "Account Sidebar"
-msgstr ""
+msgstr "Боковая Панель Аккаунта"
 
 #: includes/configs/widget-areas.php:50
 msgid "Add widgets here to appear in the account sidebar."
@@ -123,7 +125,7 @@ msgstr ""
 
 #: includes/configs/widget-areas.php:67
 msgid "Site Footer"
-msgstr ""
+msgstr "Подвал Сайта"
 
 #: includes/configs/widget-areas.php:68
 msgid "Add widgets here to appear in the site footer."
@@ -131,20 +133,28 @@ msgstr ""
 
 #: templates/comment/content.php:16
 msgid "Reply"
-msgstr ""
+msgstr "Ответить"
+
+#: templates/listing-category/header.php:10
+#, php-format
+msgid "%d Listing"
+msgid_plural "%d Listings"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
 
 #: templates/post/common/details.php:3
 msgid "Pinned"
-msgstr ""
+msgstr "Прикреплено"
 
 #: templates/post/common/details.php:10
 #, php-format
 msgid "By %s"
-msgstr ""
+msgstr "Автор %s"
 
 #: templates/post/common/details.php:20
 msgid "Read More"
-msgstr ""
+msgstr "Читать Далее"
 
 #. Name of the theme
 msgid "ListingHive"
@@ -155,6 +165,7 @@ msgid ""
 "A multipurpose WordPress theme that allows you to build any type of "
 "directory and listing websites."
 msgstr ""
+"Многофункциональная WordPress тема, которая позволяет вам создавать todo."
 
 #. Author of the theme
 msgid "HivePress"

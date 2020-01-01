@@ -57,7 +57,7 @@ final class HivePress {
 							'listing_category' => array_merge(
 								$category,
 								[
-									'order' => 5,
+									'_order' => 5,
 								]
 							),
 						],
@@ -86,7 +86,7 @@ final class HivePress {
 							'listing_category' => array_merge(
 								$category,
 								[
-									'order' => 5,
+									'_order' => 5,
 								]
 							),
 						],

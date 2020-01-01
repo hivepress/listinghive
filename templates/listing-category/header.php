@@ -6,8 +6,8 @@
 					<div class="hp-listing-category__header">
 						<div class="hp-listing-category__count">
 							<?php
-							// translators: the number of listings.
-							printf( esc_html( _n( '%d Listing', '%d Listings', get_queried_object()->count, 'listinghive' ) ), number_format_i18n( get_queried_object()->count ) );
+							// translators: the number of listings. TODO
+							// printf( esc_html( _n( '%d Listing', '%d Listings', get_queried_object()->count, 'listinghive' ) ), number_format_i18n( get_queried_object()->count ) );
 							?>
 						</div>
 						<h1 class="hp-listing-category__name"><?php single_cat_title(); ?></h1>
