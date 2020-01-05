@@ -63,8 +63,7 @@ final class HivePress {
 						],
 					],
 				],
-			],
-			'blocks'
+			]
 		);
 	}
 
@@ -92,8 +91,7 @@ final class HivePress {
 						],
 					],
 				],
-			],
-			'blocks'
+			]
 		);
 	}
 
@@ -116,8 +114,7 @@ final class HivePress {
 						],
 					],
 				],
-			],
-			'blocks'
+			]
 		);
 	}
 }
