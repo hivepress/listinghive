@@ -46,7 +46,7 @@ final class HivePress {
 	 * @return array
 	 */
 	public function alter_listing_view_block( $template ) {
-		$category = hp\search_array_value( $template, [ 'blocks', 'listing_category' ] );
+		$category = hp\search_array_value( $template, [ 'blocks', 'listing_categories' ] );
 
 		return hp\merge_trees(
 			$template,
@@ -54,7 +54,7 @@ final class HivePress {
 				'blocks' => [
 					'listing_content' => [
 						'blocks' => [
-							'listing_category' => array_merge(
+							'listing_categories' => array_merge(
 								$category,
 								[
 									'_order' => 5,
@@ -74,7 +74,7 @@ final class HivePress {
 	 * @return array
 	 */
 	public function alter_listing_view_page( $template ) {
-		$category = hp\search_array_value( $template, [ 'blocks', 'listing_category' ] );
+		$category = hp\search_array_value( $template, [ 'blocks', 'listing_categories' ] );
 
 		return hp\merge_trees(
 			$template,
@@ -82,7 +82,7 @@ final class HivePress {
 				'blocks' => [
 					'page_content' => [
 						'blocks' => [
-							'listing_category' => array_merge(
+							'listing_categories' => array_merge(
 								$category,
 								[
 									'_order' => 5,

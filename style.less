@@ -3234,7 +3234,7 @@ button {
 	}
 
 	&-menu {
-		&--main {
+		&--site-header {
 			button {
 				@media only screen and (max-width: 47.99em) {
 					padding: 0.25rem 0.56rem;
@@ -3330,7 +3330,7 @@ button {
 			line-height: 1.5;
 		}
 
-		&__action--request-password {
+		&__action--user-password-request {
 			font-size: 0.875rem;
 		}
 
@@ -3642,7 +3642,7 @@ button {
 			}
 		}
 
-		&--view-block &__featured {
+		&--view-block &__featured-badge {
 			left: 0;
 			top: 1.5rem;
 			border-radius: 0 @border-radius @border-radius 0;
@@ -3693,12 +3693,12 @@ button {
 			}
 		}
 
-		&__details &__category {
+		&__details &__categories {
 			display: none!important;
 		}
 
-		&--view-block &__category,
-		&--view-page &__category {
+		&--view-block &__categories,
+		&--view-page &__categories {
 			display: flex;
 			flex-wrap: wrap;
 			margin-bottom: -.5rem;
@@ -3735,7 +3735,7 @@ button {
 			}
 		}
 
-		&--view-block &__date,
+		&--view-block &__created-date,
 		&--view-block &__location,
 		&--view-block &__rating {
 			&:not(:last-child) {
@@ -3743,7 +3743,7 @@ button {
 			}
 		}
 
-		&--view-page &__date,
+		&--view-page &__created-date,
 		&--view-page &__location,
 		&--view-page &__rating {
 			&:not(:last-child) {
@@ -3751,14 +3751,14 @@ button {
 			}
 		}
 
-		&--view-block &__date,
-		&--view-page &__date {
+		&--view-block &__created-date,
+		&--view-page &__created-date {
 			.caption;
 			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
 
-		&--edit-block &__date {
+		&--edit-block &__created-date {
 			color: @secondary-font-color;
 		}
 
@@ -4045,22 +4045,22 @@ button {
 			}
 		}
 
-		&--view-block &__date,
-		&--view-page &__date {
+		&--view-block &__registered-date,
+		&--view-page &__registered-date {
 			.caption;
 			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
 
-		&--view-block &__date,
-		&--view-block &__rating {
+		&--view-block &__rating,
+		&--view-block &__registered-date {
 			&:not(:last-child) {
 				margin-bottom: 0.5rem;
 			}
 		}
 
-		&--view-page &__date,
-		&--view-page &__rating {
+		&--view-page &__rating,
+		&--view-page &__registered-date {
 			&:not(:last-child) {
 				margin-bottom: 0.75rem;
 			}
