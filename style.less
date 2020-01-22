@@ -3919,26 +3919,26 @@ button {
 			text-align: center;
 		}
 
-		&__count {
+		&__item-count {
 			.styled-label;
 			color: #fff;
 			background-color: @secondary-background-color-invert;
 		}
 
-		&--view-block &__count {
+		&--view-block &__item-count {
 			position: absolute;
 			left: 2rem;
 			top: 2rem;
 			z-index: 1;
 		}
 
-		&--view-page &__count {
+		&--view-page &__item-count {
 			&:not(:last-child) {
 				margin-bottom: 1rem;
 			}
 		}
 
-		&--view-block &__content &__count {
+		&--view-block &__content &__item-count {
 			display: none!important;
 		}
 	}
@@ -3988,7 +3988,7 @@ button {
 			}
 		}
 
-		&--view-block &__button {
+		&--view-block &__select-button {
 			font-size: 1.125rem;
 			padding: 0.75rem 1.25rem;
 		}
@@ -4082,14 +4082,14 @@ button {
 			font-size: 1.125rem;
 		}
 
-		&__date,
+		&__created-date,
 		&__rating {
 			&:not(:last-child) {
 				margin-right: 0.75rem;
 			}
 		}
 
-		&__date {
+		&__created-date {
 			.caption;
 			font-size: 0.6875rem;
 			color: @secondary-font-color;
@@ -4124,7 +4124,7 @@ button {
 			align-items: flex-start;
 		}
 
-		&--view-block &__date,
+		&--view-block &__sent-date,
 		&--view-block &__sender {
 			&:not(:last-child) {
 				margin-bottom: 0.25rem;
@@ -4157,13 +4157,13 @@ button {
 			}
 		}
 
-		&--view-block &__date {
+		&--view-block &__sent-date {
 			.caption;
 			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
 
-		&--thread-block &__date {
+		&--thread-block &__sent-date {
 			color: @secondary-font-color;
 		}
 	}

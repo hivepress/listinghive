@@ -4,7 +4,7 @@
 			<div class="row">
 				<div class="col-sm-8 col-sm-offset-2 col-xs-12">
 					<div class="hp-listing-category__header">
-						<div class="hp-listing-category__count">
+						<div class="hp-listing-category__item-count">
 							<?php
 							// translators: the number of listings. TODO
 							// printf( esc_html( _n( '%d Listing', '%d Listings', get_queried_object()->count, 'listinghive' ) ), number_format_i18n( get_queried_object()->count ) );

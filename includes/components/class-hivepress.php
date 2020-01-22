@@ -102,7 +102,7 @@ final class HivePress {
 	 * @return array
 	 */
 	public function alter_listing_category_view_block( $template ) {
-		$count = hp\search_array_value( $template, [ 'blocks', 'listing_category_count' ] );
+		$count = hp\search_array_value( $template, [ 'blocks', 'listing_category_item_count' ] );
 
 		return hp\merge_trees(
 			$template,
@@ -110,7 +110,7 @@ final class HivePress {
 				'blocks' => [
 					'listing_category_header' => [
 						'blocks' => [
-							'listing_category_count' => $count,
+							'listing_category_item_count' => $count,
 						],
 					],
 				],
