@@ -104,7 +104,7 @@ final class Template {
 			$style = '.header-hero { background-image: url(' . esc_url( $image_url ) . '); }';
 
 			if ( get_header_textcolor() ) {
-				$style .= '.header-hero { color: #' . esc_html( get_header_textcolor() ) . '; }';
+				$style .= '.header-hero { color: #' . esc_attr( get_header_textcolor() ) . '; }';
 			}
 
 			wp_add_inline_style( 'ht-frontend', $style );
