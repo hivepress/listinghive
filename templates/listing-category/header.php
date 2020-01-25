@@ -1,4 +1,4 @@
-<section class="header-hero header-hero--large hp-listing-category hp-listing-category--view-page <?php if ( get_header_image() || get_term_meta( get_queried_object_id(), 'hp_image_id', true ) ) : ?>header-hero--cover<?php endif; ?>" data-component="parallax">
+<section class="header-hero header-hero--large hp-listing-category hp-listing-category--view-page <?php if ( get_header_image() || get_term_meta( get_queried_object_id(), 'hp_image', true ) ) : ?>header-hero--cover<?php endif; ?>" data-component="parallax">
 	<div class="header-hero__content">
 		<div class="container">
 			<div class="row">

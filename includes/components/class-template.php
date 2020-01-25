@@ -88,7 +88,7 @@ final class Template {
 		if ( is_singular() && has_post_thumbnail() ) {
 			$image_url = get_the_post_thumbnail_url( null, 'ht_cover_large' );
 		} elseif ( is_tax( 'hp_listing_category' ) ) {
-			$image_id = get_term_meta( get_queried_object_id(), 'hp_image_id', true );
+			$image_id = get_term_meta( get_queried_object_id(), 'hp_image', true );
 
 			if ( ! empty( $image_id ) ) {
 				$image = wp_get_attachment_image_src( $image_id, 'ht_cover_large' );
