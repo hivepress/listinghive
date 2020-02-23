@@ -2,11 +2,11 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-// Include the core HiveTheme class.
+// Include the core class.
 require_once __DIR__ . '/includes/class-core.php';
 
 /**
- * Returns the core HiveTheme instance.
+ * Returns the core instance.
  *
  * @return HiveTheme\Core
  */

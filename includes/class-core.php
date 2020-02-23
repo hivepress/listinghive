@@ -24,30 +24,37 @@ final class Core {
 	 *
 	 * @var Core
 	 */
-	private static $instance;
+	protected static $instance;
 
 	/**
-	 * Array of HiveTheme configuration.
+	 * Array of HiveTheme extensions.
 	 *
 	 * @var array
 	 */
-	private $configs = [];
+	protected $extensions = [];
+
+	/**
+	 * Array of HiveTheme configurations.
+	 *
+	 * @var array
+	 */
+	protected $configs = [];
 
 	/**
 	 * Array of HiveTheme objects.
 	 *
 	 * @var array
 	 */
-	private $objects = [];
+	protected $objects = [];
 
 	// Forbid cloning and duplicating instances.
-	private function __clone() {}
-	private function __wakeup() {}
+	protected function __clone() {}
+	protected function __wakeup() {}
 
 	/**
 	 * Class constructor.
 	 */
-	private function __construct() {
+	protected function __construct() {
 
 		// Autoload classes.
 		spl_autoload_register( [ $this, 'autoload' ] );
@@ -84,13 +91,17 @@ final class Core {
 			array_shift( $parts );
 			array_pop( $parts );
 
-			$filepath = rtrim( HT_THEME_DIR . '/includes/' . implode( '/', $parts ), '/' ) . '/' . $filename;
+			foreach ( $this->get_paths() as $dir ) {
+				$filepath = rtrim( $dir . '/includes/' . implode( '/', $parts ), '/' ) . '/' . $filename;
 
-			if ( file_exists( $filepath ) ) {
-				require_once $filepath;
+				if ( file_exists( $filepath ) ) {
+					require_once $filepath;
 
-				if ( ! ( new \ReflectionClass( $class ) )->isAbstract() && method_exists( $class, 'init' ) && ( new \ReflectionMethod( $class, 'init' ) )->isStatic() ) {
-					call_user_func( [ $class, 'init' ] );
+					if ( ! ( new \ReflectionClass( $class ) )->isAbstract() && method_exists( $class, 'init' ) && ( new \ReflectionMethod( $class, 'init' ) )->isStatic() ) {
+						call_user_func( [ $class, 'init' ] );
+					}
+
+					break;
 				}
 			}
 		}
@@ -102,36 +113,14 @@ final class Core {
 	public function setup() {
 		$theme = wp_get_theme( get_template() );
 
-		// Define constants.
-		if ( ! defined( 'HT_THEME_NAME' ) ) {
-			define( 'HT_THEME_NAME', $theme->get( 'Name' ) );
-		}
-
-		if ( ! defined( 'HT_THEME_VERSION' ) ) {
-			define( 'HT_THEME_VERSION', $theme->get( 'Version' ) );
-		}
-
-		if ( ! defined( 'HT_THEME_DIR' ) ) {
-			define( 'HT_THEME_DIR', get_template_directory() );
-		}
-
-		if ( ! defined( 'HT_THEME_URL' ) ) {
-			define( 'HT_THEME_URL', get_template_directory_uri() );
-		}
-
 		// Include helper functions.
-		require_once HT_THEME_DIR . '/includes/helpers.php';
+		require_once hivetheme()->get_path() . '/includes/helpers.php';
 
 		// Load textdomain.
-		load_theme_textdomain( $theme->get( 'TextDomain' ), HT_THEME_DIR . '/languages' );
+		load_theme_textdomain( $theme->get( 'TextDomain' ), hivetheme()->get_path() . '/languages' );
 
-		// Set components.
-		$this->objects['components'] = $this->get_components();
-
-		// Set content width.
-		if ( ! isset( $GLOBALS['content_width'] ) ) {
-			$GLOBALS['content_width'] = 749;
-		}
+		// Initialize components.
+		$this->get_components();
 	}
 
 	/**
@@ -144,22 +133,53 @@ final class Core {
 	 */
 	public function __call( $name, $args ) {
 		if ( strpos( $name, 'get_' ) === 0 ) {
-			$object_type = substr( $name, strlen( 'get' ) + 1 );
 
-			if ( ! isset( $this->objects[ $object_type ] ) ) {
-				$this->objects[ $object_type ] = [];
+			// Get property name.
+			$property = substr( $name, strlen( 'get_' ) );
 
-				foreach ( glob( HT_THEME_DIR . '/includes/' . $object_type . '/*.php' ) as $filepath ) {
-					$object_name  = str_replace( '-', '_', str_replace( 'class-', '', str_replace( '.php', '', basename( $filepath ) ) ) );
-					$object_class = '\HiveTheme\\' . $object_type . '\\' . $object_name;
+			if ( in_array( $property, [ 'name', 'version', 'path', 'url' ], true ) ) {
 
-					if ( ! ( new \ReflectionClass( $object_class ) )->isAbstract() ) {
-						$this->objects[ $object_type ][ $object_name ] = new $object_class();
+				// Get extension name.
+				$extension = 'core';
+
+				if ( $args ) {
+					$extension = hp\get_first_array_value( $args );
+				}
+
+				// Get property value.
+				$value = null;
+
+				if ( isset( $this->extensions[ $extension ][ $property ] ) ) {
+					$value = $this->extensions[ $extension ][ $property ];
+				}
+
+				return $value;
+			} else {
+
+				// Set object type.
+				$object_type = $property;
+
+				if ( ! isset( $this->objects[ $object_type ] ) ) {
+					$this->objects[ $object_type ] = [];
+
+					foreach ( $this->get_paths() as $dir ) {
+						foreach ( glob( $dir . '/includes/' . $object_type . '/*.php' ) as $filepath ) {
+
+							// Get object name.
+							$object_name = str_replace( '-', '_', preg_replace( '/^class-/', '', basename( $filepath, '.php' ) ) );
+
+							// Create object.
+							$object = hp\create_class_instance( '\HiveTheme\\' . $object_type . '\\' . $object_name );
+
+							if ( $object ) {
+								$this->objects[ $object_type ][ $object_name ] = $object;
+							}
+						}
 					}
 				}
-			}
 
-			return $this->objects[ $object_type ];
+				return $this->objects[ $object_type ];
+			}
 		}
 
 		throw new \BadMethodCallException();
@@ -169,43 +189,43 @@ final class Core {
 	 * Routes properties.
 	 *
 	 * @param string $name Property name.
-	 * @throws \UnexpectedValueException Invalid property.
 	 * @return object
 	 */
 	public function __get( $name ) {
-		if ( isset( $this->get_components()[ $name ] ) ) {
-			return $this->get_components()[ $name ];
-		}
-
-		throw new \UnexpectedValueException();
+		return hp\get_array_value( $this->get_components(), $name );
 	}
 
 	/**
-	 * Gets configuration.
+	 * Gets HiveTheme paths.
 	 *
-	 * @param string $name Configuration name.
 	 * @return array
 	 */
-	public function get_config( $name ) {
+	public function get_paths() {
+		return array_column( $this->extensions, 'path' );
+	}
 
-		// Get existing configuration.
-		$config = ht\get_array_value( $this->configs, $name );
+	/**
+	 * Gets HiveTheme configuration.
+	 *
+	 * @param string $type Configuration type.
+	 * @return array
+	 */
+	public function get_config( $type ) {
+		if ( ! isset( $this->configs[ $type ] ) ) {
+			$this->configs[ $type ] = [];
 
-		// Get new configuration.
-		if ( is_null( $config ) ) {
-			$filepath = HT_THEME_DIR . '/includes/configs/' . str_replace( '_', '-', strtolower( $name ) ) . '.php';
+			foreach ( $this->get_paths() as $dir ) {
+				$filepath = $dir . '/includes/configs/' . hp\sanitize_slug( $type ) . '.php';
 
-			if ( file_exists( $filepath ) ) {
-				$config = include $filepath;
+				if ( file_exists( $filepath ) ) {
+					$this->configs[ $type ] = hp\merge_arrays( $this->configs[ $type ], include $filepath );
+				}
 			}
 
 			// Filter configuration.
-			$config = apply_filters( 'hivetheme/v1/' . $name, $config );
-
-			// Set configuration.
-			$this->configs[ $name ] = $config;
+			$this->configs[ $type ] = apply_filters( 'hivetheme/v1/' . $type, $this->configs[ $type ] );
 		}
 
-		return $config;
+		return $this->configs[ $type ];
 	}
 }
