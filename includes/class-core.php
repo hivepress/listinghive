@@ -110,17 +110,67 @@ final class Core {
 	/**
 	 * Setups HiveTheme.
 	 */
-	public function setup() {
-		$theme = wp_get_theme( get_template() );
+	protected function setup() {
 
-		// Include helper functions.
-		require_once hivetheme()->get_path() . '/includes/helpers.php';
+		// Setup extensions.
+		$this->setup_extensions();
 
-		// Load textdomain.
-		load_theme_textdomain( $theme->get( 'TextDomain' ), hivetheme()->get_path() . '/languages' );
+		// Include helpers.
+		require_once $this->get_path() . '/includes/helpers.php';
+
+		// Load textdomains.
+		$this->load_textdomains();
 
 		// Initialize components.
 		$this->get_components();
+	}
+
+	/**
+	 * Setups extensions.
+	 */
+	protected function setup_extensions() {
+
+		// Filter extensions.
+		$extensions = apply_filters( 'hivetheme/v1/extensions', [ get_template_directory() ] );
+
+		foreach ( $extensions as $name => $dir ) {
+			if ( is_array( $dir ) ) {
+
+				// Add extension.
+				$this->extensions[ $name ] = $dir;
+			} else {
+
+				// Get file path.
+				$dirname  = basename( $dir );
+				$filepath = $dir . '/style.css';
+
+				// Get extension name.
+				$name = str_replace( '-', '_', $dirname );
+
+				if ( file_exists( $filepath ) ) {
+
+					// Get theme data.
+					$theme = wp_get_theme( $dirname );
+
+					// Add extension.
+					$this->extensions[ $name ] = [
+						'name'    => $theme->get( 'Name' ),
+						'version' => $theme->get( 'Version' ),
+						'path'    => $dir,
+						'url'     => $theme->get_template_directory_uri(),
+					];
+				}
+			}
+		}
+	}
+
+	/**
+	 * Loads textdomains.
+	 */
+	protected function load_textdomains() {
+		foreach ( $this->get_paths() as $dir ) {
+			load_theme_textdomain( ht\sanitize_slug( basename( $dir ) ), $dir . '/languages' );
+		}
 	}
 
 	/**
@@ -140,10 +190,10 @@ final class Core {
 			if ( in_array( $property, [ 'name', 'version', 'path', 'url' ], true ) ) {
 
 				// Get extension name.
-				$extension = 'core';
+				$extension = get_template();
 
 				if ( $args ) {
-					$extension = hp\get_first_array_value( $args );
+					$extension = ht\get_first_array_value( $args );
 				}
 
 				// Get property value.
@@ -169,7 +219,7 @@ final class Core {
 							$object_name = str_replace( '-', '_', preg_replace( '/^class-/', '', basename( $filepath, '.php' ) ) );
 
 							// Create object.
-							$object = hp\create_class_instance( '\HiveTheme\\' . $object_type . '\\' . $object_name );
+							$object = ht\create_class_instance( '\HiveTheme\\' . $object_type . '\\' . $object_name );
 
 							if ( $object ) {
 								$this->objects[ $object_type ][ $object_name ] = $object;
@@ -192,7 +242,7 @@ final class Core {
 	 * @return object
 	 */
 	public function __get( $name ) {
-		return hp\get_array_value( $this->get_components(), $name );
+		return ht\get_array_value( $this->get_components(), $name );
 	}
 
 	/**
@@ -215,14 +265,13 @@ final class Core {
 			$this->configs[ $type ] = [];
 
 			foreach ( $this->get_paths() as $dir ) {
-				$filepath = $dir . '/includes/configs/' . hp\sanitize_slug( $type ) . '.php';
+				$filepath = $dir . '/includes/configs/' . ht\sanitize_slug( $type ) . '.php';
 
 				if ( file_exists( $filepath ) ) {
-					$this->configs[ $type ] = hp\merge_arrays( $this->configs[ $type ], include $filepath );
+					$this->configs[ $type ] = ht\merge_arrays( $this->configs[ $type ], include $filepath );
 				}
 			}
 
-			// Filter configuration.
 			$this->configs[ $type ] = apply_filters( 'hivetheme/v1/' . $type, $this->configs[ $type ] );
 		}
 
