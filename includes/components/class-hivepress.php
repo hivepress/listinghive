@@ -117,6 +117,10 @@ final class HivePress extends Component {
 							'listing_category_item_count' => $count,
 						],
 					],
+
+					'listing_category_name'   => [
+						'tag' => 'h3',
+					],
 				],
 			]
 		);

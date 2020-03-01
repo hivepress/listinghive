@@ -171,7 +171,7 @@ function create_class_instance( $class, $args = [] ) {
  * @return bool
  */
 function is_plugin_active( $name ) {
-	return class_exists( $name );
+	return class_exists( $name ) || function_exists( $name );
 }
 
 /**
