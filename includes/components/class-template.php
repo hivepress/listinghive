@@ -94,7 +94,7 @@ final class Template extends Component {
 
 		if ( is_singular() && has_post_thumbnail() ) {
 			$image_url = get_the_post_thumbnail_url( null, 'ht_cover_large' );
-		} elseif ( is_tax( 'hp_listing_category' ) ) {
+		} elseif ( ht\is_plugin_active( 'hivepress' ) && is_tax( 'hp_listing_category' ) ) {
 			$image_id = get_term_meta( get_queried_object_id(), 'hp_image', true );
 
 			if ( $image_id ) {
@@ -119,13 +119,13 @@ final class Template extends Component {
 	}
 
 	/**
-	 * Renders template.
+	 * Renders template part.
 	 *
-	 * @param string $path Template path.
+	 * @param string $path File path.
 	 * @param array  $context Template context.
 	 * @return string
 	 */
-	public function render_template( $path, $context = [] ) {
+	public function render_part( $path, $context = [] ) {
 		$output = '';
 
 		// Extract context.
@@ -141,6 +141,108 @@ final class Template extends Component {
 		$output = ob_get_contents();
 
 		ob_end_clean();
+
+		return $output;
+	}
+
+	/**
+	 * Renders template.
+	 *
+	 * @param string $path Template path.
+	 * @param array  $context Template context.
+	 * @return string
+	 * @deprecated Since version 1.0.5
+	 */
+	public function render_template( $path, $context = [] ) {
+		return $this->render_part( $path, $context );
+	}
+
+	/**
+	 * Renders header.
+	 *
+	 * @return string
+	 */
+	public function render_header() {
+		$output = '';
+
+		// Get classes.
+		$classes = [];
+
+		if ( is_page() || is_singular( 'post' ) ) {
+			the_post();
+
+			if ( get_header_image() || has_post_thumbnail() ) {
+				$classes[] = 'header-hero--cover';
+
+				if ( is_single() ) {
+					$classes[] = 'header-hero--large';
+				}
+			}
+		}
+
+		// Get content.
+		if ( is_page() ) {
+			$content = '';
+
+			if ( is_front_page() ) {
+				$parts = get_extended( get_post_field( 'post_content' ) );
+
+				if ( $parts['extended'] ) {
+					$content = apply_filters( 'the_content', $parts['main'] );
+				}
+
+				$classes[] = 'header-hero--large';
+			}
+
+			if ( ! is_front_page() || $content ) {
+				if ( is_front_page() ) {
+					$output = $content;
+				} else {
+					$output = $this->render_part( 'templates/page/page-title' );
+				}
+			}
+		} elseif ( is_singular( 'post' ) ) {
+			$classes = array_merge(
+				$classes,
+				[
+					'post',
+					'post--single',
+				]
+			);
+
+			$output = $this->render_part( 'templates/post/single/post-header' );
+		} elseif ( ht\is_plugin_active( 'hivepress' ) && is_tax( 'hp_listing_category' ) ) {
+			$classes = array_merge(
+				$classes,
+				[
+					'hp-listing-category',
+					'hp-listing-category--view-page',
+					'header-hero--large',
+				]
+			);
+
+			if ( get_header_image() || get_term_meta( get_queried_object_id(), 'hp_image', true ) ) {
+				$classes[] = 'header-hero--cover';
+			}
+
+			$output = $this->render_part(
+				'hivepress/listing-category/view/page/listing-category-header',
+				[
+					'listing_category' => \HivePress\Models\Listing_Category::query()->get_by_id( get_queried_object() ),
+				]
+			);
+		}
+
+		// Add wrapper.
+		if ( $output ) {
+			$output = $this->render_part(
+				'templates/page/page-header',
+				[
+					'class'   => implode( ' ', $classes ),
+					'content' => $output,
+				]
+			);
+		}
 
 		return $output;
 	}

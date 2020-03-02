@@ -4,7 +4,7 @@
  *
  * @package HiveTheme
  */
-// todo.
+
 namespace HiveTheme\Helpers;
 
 // Exit if accessed directly.
@@ -31,29 +31,6 @@ function prefix( $names ) {
 	}
 
 	return $prefixed;
-}
-
-/**
- * Removes HiveTheme prefix.
- *
- * @param mixed $names Names to unprefix.
- * @return mixed
- */
-function unprefix( $names ) {
-	$unprefixed = '';
-
-	if ( is_array( $names ) ) {
-		$unprefixed = array_map(
-			function( $name ) {
-				return preg_replace( '/^ht_/', '', $name );
-			},
-			$names
-		);
-	} else {
-		$unprefixed = preg_replace( '/^ht_/', '', $names );
-	}
-
-	return $unprefixed;
 }
 
 /**
@@ -96,23 +73,6 @@ function get_first_array_value( $array, $default = null ) {
 
 	if ( is_array( $array ) && $array ) {
 		$value = reset( $array );
-	}
-
-	return $value;
-}
-
-/**
- * Gets last array item value.
- *
- * @param array $array Source array.
- * @param mixed $default Default value.
- * @return mixed
- */
-function get_last_array_value( $array, $default = null ) {
-	$value = $default;
-
-	if ( is_array( $array ) && $array ) {
-		$value = end( $array );
 	}
 
 	return $value;
@@ -172,16 +132,4 @@ function create_class_instance( $class, $args = [] ) {
  */
 function is_plugin_active( $name ) {
 	return class_exists( $name ) || function_exists( $name );
-}
-
-/**
- * Gets page excerpt.
- *
- * @param int $page_id Page ID.
- * @return string
- */
-function get_page_excerpt( $page_id ) {
-	$parts = get_extended( get_post_field( 'post_content', $page_id ) );
-
-	return '' !== $parts['extended'] ? apply_filters( 'the_content', $parts['main'] ) : '';
 }

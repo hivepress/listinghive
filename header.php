@@ -11,7 +11,7 @@
 			wp_body_open();
 		endif;
 
-		get_template_part( 'templates/page/loader' );
+		get_template_part( 'templates/page/page-loader' );
 		?>
 		<a href="#content" class="skip-link screen-reader-text"><?php esc_html_e( 'Skip to content', 'listinghive' ); ?></a>
 		<div class="site-container">
@@ -55,16 +55,14 @@
 							);
 							?>
 						</nav>
-						<?php if ( has_action( 'todo' ) ) : ?>
+						<?php if ( has_filter( 'hivetheme/v1/areas/site_header' ) ) : ?>
 							<div class="header-navbar__actions">
-								<?php do_action( 'todo' ); ?>
+								<?php echo apply_filters( 'hivetheme/v1/areas/site_header', '' ); ?>
 							</div>
 						<?php endif; ?>
 					</div>
 				</div>
-				<?php
-				// todo header.
-				?>
+				<?php echo hivetheme()->template->render_header(); ?>
 			</header>
 			<div class="site-content" id="content">
 				<div class="container">

@@ -8,7 +8,7 @@
 					wp_list_comments(
 						[
 							'callback' => function( $comment, $args, $depth ) {
-								echo hivetheme()->template->render_template(
+								echo hivetheme()->template->render_part(
 									'templates/comment',
 									[
 										'comment' => $comment,

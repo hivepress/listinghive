@@ -34,6 +34,9 @@ final class HivePress extends Component {
 
 		if ( ! is_admin() ) {
 
+			// Render site header.
+			add_filter( 'hivetheme/v1/areas/site_header', [ $this, 'render_site_header' ] );
+
 			// Alter templates.
 			add_filter( 'hivepress/v1/templates/listing_view_block', [ $this, 'alter_listing_view_block' ] );
 			add_filter( 'hivepress/v1/templates/listing_view_page', [ $this, 'alter_listing_view_page' ] );
@@ -41,6 +44,18 @@ final class HivePress extends Component {
 		}
 
 		parent::__construct( $args );
+	}
+
+	/**
+	 * Renders site header.
+	 *
+	 * @param string $output HTML output.
+	 * @return string
+	 */
+	public function render_site_header( $output ) {
+		$output .= ( new \HivePress\Blocks\Template( [ 'template' => 'site_header_block' ] ) )->render();
+
+		return $output;
 	}
 
 	/**
