@@ -27,14 +27,21 @@ final class Plugin extends Component {
 	public function __construct( $args = [] ) {
 		if ( is_admin() ) {
 
-			// Include TGMPA class.
-			require_once hivetheme()->get_path() . '/includes/vendor/tgmpa/class-tgm-plugin-activation.php';
+			// Load TGMPA.
+			add_action( 'admin_init', [ $this, 'load_tgmpa' ] );
 
 			// Register plugins.
 			add_action( 'tgmpa_register', [ $this, 'register_plugins' ] );
 		}
 
 		parent::__construct( $args );
+	}
+
+	/**
+	 * Loads TGMPA.
+	 */
+	public function load_tgmpa() {
+		require_once hivetheme()->get_path() . '/includes/vendor/tgmpa/class-tgm-plugin-activation.php';
 	}
 
 	/**
