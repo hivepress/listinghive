@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-11-22 23:09+0000\n"
+"POT-Creation-Date: 2020-03-02 20:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -27,18 +27,23 @@ msgstr ""
 msgid "Skip to content"
 msgstr ""
 
-#: index.php:18
+#: index.php:17
 msgid "Nothing found"
 msgstr ""
 
-#: index.php:19
+#: index.php:18
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
 
 #: searchform.php:2
+msgctxt "noun"
 msgid "Search"
+msgstr ""
+
+#: templates/comment.php:16
+msgid "Reply"
 msgstr ""
 
 #: includes/configs/menu-locations.php:13
@@ -89,60 +94,57 @@ msgstr ""
 msgid "Add widgets here to appear in the listings sidebar."
 msgstr ""
 
-#: includes/configs/widget-areas.php:31
+#: includes/configs/widget-areas.php:32
 msgid "Listing Sidebar"
 msgstr ""
 
-#: includes/configs/widget-areas.php:32
+#: includes/configs/widget-areas.php:33
 msgid "Add widgets here to appear in the listing sidebar."
 msgstr ""
 
-#: includes/configs/widget-areas.php:40
+#: includes/configs/widget-areas.php:42
 msgid "Vendor Sidebar"
 msgstr ""
 
-#: includes/configs/widget-areas.php:41
+#: includes/configs/widget-areas.php:43
 msgid "Add widgets here to appear in the vendor sidebar."
 msgstr ""
 
-#: includes/configs/widget-areas.php:49
+#: includes/configs/widget-areas.php:52
 msgid "Account Sidebar"
 msgstr ""
 
-#: includes/configs/widget-areas.php:50
+#: includes/configs/widget-areas.php:53
 msgid "Add widgets here to appear in the account sidebar."
 msgstr ""
 
-#: includes/configs/widget-areas.php:58
+#: includes/configs/widget-areas.php:62
 msgid "Shop Sidebar"
 msgstr ""
 
-#: includes/configs/widget-areas.php:59
+#: includes/configs/widget-areas.php:63
 msgid "Add widgets here to appear in the shop sidebar."
 msgstr ""
 
-#: includes/configs/widget-areas.php:67
+#: includes/configs/widget-areas.php:72
 msgid "Site Footer"
 msgstr ""
 
-#: includes/configs/widget-areas.php:68
+#: includes/configs/widget-areas.php:73
 msgid "Add widgets here to appear in the site footer."
 msgstr ""
 
-#: templates/comment/content.php:16
-msgid "Reply"
-msgstr ""
-
-#: templates/post/common/details.php:3
+#: templates/post/post-details.php:3
+msgctxt "post"
 msgid "Pinned"
 msgstr ""
 
-#: templates/post/common/details.php:10
+#: templates/post/post-details.php:10
 #, php-format
 msgid "By %s"
 msgstr ""
 
-#: templates/post/common/details.php:20
+#: templates/post/post-details.php:20
 msgid "Read More"
 msgstr ""
 

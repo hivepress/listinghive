@@ -1,6 +1,6 @@
 <div class="post__details">
 	<?php if ( ! is_single() && is_sticky() ) : ?>
-		<div class="post__sticky"><i class="fas fa-thumbtack"></i><span><?php esc_html_e( 'Pinned', 'listinghive' ); ?></span></div>
+		<div class="post__sticky"><i class="fas fa-thumbtack"></i><span><?php echo esc_html_x( 'Pinned', 'post', 'listinghive' ); ?></span></div>
 	<?php else : ?>
 		<time datetime="<?php echo esc_attr( get_the_time( 'Y-m-d' ) ); ?>" class="post__date"><?php echo esc_html( get_the_date() ); ?></time>
 	<?php endif; ?>
