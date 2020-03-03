@@ -3,12 +3,12 @@ msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-03-02 20:31+0000\n"
-"PO-Revision-Date: 2020-03-03 09:49+0000\n"
+"PO-Revision-Date: 2020-03-03 10:24+0000\n"
 "Last-Translator: Tiesto <admin@admin.com>\n"
-"Language-Team: Russian\n"
-"Language: ru_RU\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
-"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"Language-Team: Polski\n"
+"Language: pl_PL\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10 >= 2 && n%10<=4 "
+"&&(n%100<10||n%100 >= 20)? 1 : 2);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,149 +17,142 @@ msgstr ""
 
 #: comments.php:3
 msgid "Comments"
-msgstr "Комментарии"
+msgstr "Komentarze"
 
 #: comments.php:36
 msgid "Cancel Reply"
-msgstr "Отменить ответ"
+msgstr "Anuluj odpowiedź"
 
 #: header.php:16
 msgid "Skip to content"
-msgstr "Перейти к содержанию"
+msgstr "Przejdź do treści"
 
 #: index.php:17
 msgid "Nothing found"
-msgstr "Ничего не найдено"
+msgstr "Nic nie znaleziono"
 
 #: index.php:18
 msgid ""
 "Sorry, but nothing matched your search terms. Please try again with some "
 "different keywords."
 msgstr ""
-"К сожалению, ничего не подошло под ваш поисковый запрос. Пожалуйста, "
-"попробуйте еще раз с другими ключевыми словами."
+"Przykro nam, ale nic nie znaleziono. Proszę spróbować ponownie z innymi "
+"słowami kluczowymi."
 
 #: searchform.php:2
 msgctxt "noun"
 msgid "Search"
-msgstr "Поиск"
+msgstr "Wyszukiwanie"
 
 #: templates/comment.php:16
 msgid "Reply"
-msgstr "Ответить"
+msgstr "Odpowiedź"
 
 #: includes/configs/menu-locations.php:13
 msgid "Header"
-msgstr "Шапка"
+msgstr "Nagłówek"
 
 #: includes/configs/menu-locations.php:17
 msgid "Footer"
-msgstr "Подвал"
+msgstr "Stopka"
 
 #: includes/configs/theme-mods.php:15
 msgid "Copyright Notice"
-msgstr "Уведомление об авторских правах"
+msgstr "Informacja o prawach autorskich"
 
 #: includes/configs/theme-mods.php:24
 msgid "Primary Color"
-msgstr "Главный цвет"
+msgstr "Kolor główny"
 
 #: includes/configs/theme-mods.php:30
 msgid "Secondary Color"
-msgstr "Второстепенный цвет"
+msgstr "Kolor drugorzędny"
 
 #: includes/configs/theme-mods.php:38
 msgid "Fonts"
-msgstr "Шрифты"
+msgstr "Czcionki"
 
 #: includes/configs/theme-mods.php:42
 msgid "Heading Font"
-msgstr "Заголовочный шрифт"
+msgstr "Czcionka tytułowa"
 
 #: includes/configs/theme-mods.php:48
 msgid "Body Font"
-msgstr "Основной шрифт"
+msgstr "Czcionka podstawowa"
 
 #: includes/configs/widget-areas.php:13
 msgid "Blog Sidebar"
-msgstr "Боковая панель блога"
+msgstr "Panel boczny strony blogu"
 
 #: includes/configs/widget-areas.php:14
 msgid "Add widgets here to appear in the blog sidebar."
-msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы блога."
+msgstr "Dodaj widgety tutaj, aby wyświetlać je na panelu bocznym strony blogu."
 
 #: includes/configs/widget-areas.php:22
 msgid "Listings Sidebar"
-msgstr "Боковая панель страницы объявлений"
+msgstr "Panel boczny strony ogłoszeń"
 
 #: includes/configs/widget-areas.php:23
 msgid "Add widgets here to appear in the listings sidebar."
 msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
-"объявлений."
+"Dodaj widgety tutaj, aby wyświetlać je na panelu bocznym strony ogłoszeń."
 
 #: includes/configs/widget-areas.php:32
 msgid "Listing Sidebar"
-msgstr "Боковая панель страницы объявления"
+msgstr "Panel boczny strony ogłoszenia"
 
 #: includes/configs/widget-areas.php:33
 msgid "Add widgets here to appear in the listing sidebar."
 msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
-"объявления."
+"Dodaj widgety tutaj, aby wyświetlać je na panelu bocznym strony ogłoszenia."
 
 #: includes/configs/widget-areas.php:42
 msgid "Vendor Sidebar"
-msgstr "Боковая панель страницы продавца"
+msgstr "Panel boczny strony sprzedawcy"
 
 #: includes/configs/widget-areas.php:43
 msgid "Add widgets here to appear in the vendor sidebar."
 msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
-"продавца."
+"Dodaj widgety tutaj, aby wyświetlać je na panelu bocznym strony sprzedawcy."
 
 #: includes/configs/widget-areas.php:52
 msgid "Account Sidebar"
-msgstr "Боковая панель страницы аккаунта"
+msgstr "Panel boczny strony konta"
 
 #: includes/configs/widget-areas.php:53
 msgid "Add widgets here to appear in the account sidebar."
-msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
-"аккаунта."
+msgstr "Dodaj widgety tutaj, aby wyświetlać je na panelu bocznym strony konta."
 
 #: includes/configs/widget-areas.php:62
 msgid "Shop Sidebar"
-msgstr "Боковая панель страницы магазина"
+msgstr "Panel boczny strony sklepu"
 
 #: includes/configs/widget-areas.php:63
 msgid "Add widgets here to appear in the shop sidebar."
 msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
-"магазина."
+"Dodaj widgety tutaj, aby wyświetlać je na panelu bocznym strony sklepu."
 
 #: includes/configs/widget-areas.php:72
 msgid "Site Footer"
-msgstr "Подвал сайта"
+msgstr "Stopka strony"
 
 #: includes/configs/widget-areas.php:73
 msgid "Add widgets here to appear in the site footer."
-msgstr "Добавьте виджеты сюда, чтобы отображать их в подвале сайта."
+msgstr "Dodaj widgety tutaj, aby wyświetlać je w stopce strony."
 
 #: templates/post/post-details.php:3
 msgctxt "post"
 msgid "Pinned"
-msgstr "Закреплено"
+msgstr "Przyklejone"
 
 #: templates/post/post-details.php:10
 #, php-format
 msgid "By %s"
-msgstr "Автор %s"
+msgstr "Autor %s"
 
 #: templates/post/post-details.php:20
 msgid "Read More"
-msgstr "Читать далее"
+msgstr "Czytaj więcej"
 
 #. Name of the theme
 msgid "ListingHive"
@@ -170,8 +163,8 @@ msgid ""
 "A multipurpose WordPress theme that allows you to build any type of "
 "directory and listing websites."
 msgstr ""
-"Универсальная WordPress тема, которая позволяет вам создавать любые виды "
-"каталогов, агрегаторов и классифайдов."
+"Uniwersalny motyw WordPress do katalogów, agregatorów i portali "
+"ogłoszeniowych."
 
 #. Author of the theme
 msgid "HivePress"
