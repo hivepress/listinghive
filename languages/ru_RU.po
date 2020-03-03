@@ -1,0 +1,182 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ListingHive\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-03-02 20:31+0000\n"
+"PO-Revision-Date: 2020-03-03 09:49+0000\n"
+"Last-Translator: Tiesto <admin@admin.com>\n"
+"Language-Team: Russian\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.3.1; wp-5.3.2"
+
+#: comments.php:3
+msgid "Comments"
+msgstr "Комментарии"
+
+#: comments.php:36
+msgid "Cancel Reply"
+msgstr "Отменить ответ"
+
+#: header.php:16
+msgid "Skip to content"
+msgstr "Перейти к содержанию"
+
+#: index.php:17
+msgid "Nothing found"
+msgstr "Ничего не найдено"
+
+#: index.php:18
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"К сожалению, ничего не подошло под ваш поисковый запрос. Пожалуйста, "
+"попробуйте еще раз с другими ключевыми словами."
+
+#: searchform.php:2
+msgctxt "noun"
+msgid "Search"
+msgstr "Поиск"
+
+#: templates/comment.php:16
+msgid "Reply"
+msgstr "Ответить"
+
+#: includes/configs/menu-locations.php:13
+msgid "Header"
+msgstr "Шапка"
+
+#: includes/configs/menu-locations.php:17
+msgid "Footer"
+msgstr "Подвал"
+
+#: includes/configs/theme-mods.php:15
+msgid "Copyright Notice"
+msgstr "Уведомление об авторских правах"
+
+#: includes/configs/theme-mods.php:24
+msgid "Primary Color"
+msgstr "Главный цвет"
+
+#: includes/configs/theme-mods.php:30
+msgid "Secondary Color"
+msgstr "Второстепенный цвет"
+
+#: includes/configs/theme-mods.php:38
+msgid "Fonts"
+msgstr "Шрифты"
+
+#: includes/configs/theme-mods.php:42
+msgid "Heading Font"
+msgstr "Заголовочный шрифт"
+
+#: includes/configs/theme-mods.php:48
+msgid "Body Font"
+msgstr "Основной шрифт"
+
+#: includes/configs/widget-areas.php:13
+msgid "Blog Sidebar"
+msgstr "Боковая панель блога"
+
+#: includes/configs/widget-areas.php:14
+msgid "Add widgets here to appear in the blog sidebar."
+msgstr ""
+"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы блога."
+
+#: includes/configs/widget-areas.php:22
+msgid "Listings Sidebar"
+msgstr "Боковая панель страницы объявлений"
+
+#: includes/configs/widget-areas.php:23
+msgid "Add widgets here to appear in the listings sidebar."
+msgstr ""
+"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
+"объявлений."
+
+#: includes/configs/widget-areas.php:32
+msgid "Listing Sidebar"
+msgstr "Боковая панель страницы объявления"
+
+#: includes/configs/widget-areas.php:33
+msgid "Add widgets here to appear in the listing sidebar."
+msgstr ""
+"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
+"объявления."
+
+#: includes/configs/widget-areas.php:42
+msgid "Vendor Sidebar"
+msgstr "Боковая панель страницы продавца"
+
+#: includes/configs/widget-areas.php:43
+msgid "Add widgets here to appear in the vendor sidebar."
+msgstr ""
+"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
+"продавца."
+
+#: includes/configs/widget-areas.php:52
+msgid "Account Sidebar"
+msgstr "Боковая панель страницы аккаунта"
+
+#: includes/configs/widget-areas.php:53
+msgid "Add widgets here to appear in the account sidebar."
+msgstr ""
+"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
+"аккаунта."
+
+#: includes/configs/widget-areas.php:62
+msgid "Shop Sidebar"
+msgstr "Боковая панель страницы магазина"
+
+#: includes/configs/widget-areas.php:63
+msgid "Add widgets here to appear in the shop sidebar."
+msgstr ""
+"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
+"магазина."
+
+#: includes/configs/widget-areas.php:72
+msgid "Site Footer"
+msgstr "Подвал сайта"
+
+#: includes/configs/widget-areas.php:73
+msgid "Add widgets here to appear in the site footer."
+msgstr "Добавьте виджеты сюда, чтобы отображать их в подвале сайта."
+
+#: templates/post/post-details.php:3
+msgctxt "post"
+msgid "Pinned"
+msgstr "Закреплено"
+
+#: templates/post/post-details.php:10
+#, php-format
+msgid "By %s"
+msgstr "Автор %s"
+
+#: templates/post/post-details.php:20
+msgid "Read More"
+msgstr "Читать далее"
+
+#. Name of the theme
+msgid "ListingHive"
+msgstr "ListingHive"
+
+#. Description of the theme
+msgid ""
+"A multipurpose WordPress theme that allows you to build any type of "
+"directory and listing websites."
+msgstr ""
+"Универсальная WordPress тема, которая позволяет вам создавать любые виды "
+"каталогов, агрегаторов и классифайдов."
+
+#. Author of the theme
+msgid "HivePress"
+msgstr "HivePress"
+
+#. Author URI of the theme
+msgid "https://hivepress.io"
+msgstr "https://hivepress.io"
