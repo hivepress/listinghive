@@ -130,8 +130,16 @@ final class Core {
 	 */
 	protected function setup_extensions() {
 
+		// Get directories.
+		$dirs = array_unique(
+			[
+				get_template_directory(),
+				get_stylesheet_directory(),
+			]
+		);
+
 		// Filter extensions.
-		$extensions = apply_filters( 'hivetheme/v1/extensions', [ get_template_directory() ] );
+		$extensions = apply_filters( 'hivetheme/v1/extensions', $dirs );
 
 		foreach ( $extensions as $name => $dir ) {
 			if ( is_array( $dir ) ) {
