@@ -28,7 +28,7 @@ final class Plugin extends Component {
 		if ( is_admin() ) {
 
 			// Load TGMPA.
-			add_action( 'admin_init', [ $this, 'load_tgmpa' ] );
+			add_action( 'after_setup_theme', [ $this, 'load_tgmpa' ] );
 
 			// Register plugins.
 			add_action( 'tgmpa_register', [ $this, 'register_plugins' ] );
