@@ -65,7 +65,7 @@ final class HivePress extends Component {
 	 * @return array
 	 */
 	public function alter_listing_view_block( $template ) {
-		$category = hp\search_array_value( $template, [ 'blocks', 'listing_categories' ] );
+		$category = hp\search_array_value( $template, [ 'blocks', 'listing_category' ] );
 
 		return hp\merge_trees(
 			$template,
@@ -73,7 +73,7 @@ final class HivePress extends Component {
 				'blocks' => [
 					'listing_content' => [
 						'blocks' => [
-							'listing_categories' => array_merge(
+							'listing_category' => array_merge(
 								$category,
 								[
 									'_order' => 5,
@@ -93,7 +93,7 @@ final class HivePress extends Component {
 	 * @return array
 	 */
 	public function alter_listing_view_page( $template ) {
-		$category = hp\search_array_value( $template, [ 'blocks', 'listing_categories' ] );
+		$category = hp\search_array_value( $template, [ 'blocks', 'listing_category' ] );
 
 		return hp\merge_trees(
 			$template,
@@ -101,7 +101,7 @@ final class HivePress extends Component {
 				'blocks' => [
 					'page_content' => [
 						'blocks' => [
-							'listing_categories' => array_merge(
+							'listing_category' => array_merge(
 								$category,
 								[
 									'_order' => 5,
@@ -121,7 +121,7 @@ final class HivePress extends Component {
 	 * @return array
 	 */
 	public function alter_listing_category_view_block( $template ) {
-		$count = hp\search_array_value( $template, [ 'blocks', 'listing_category_item_count' ] );
+		$count = hp\search_array_value( $template, [ 'blocks', 'listing_category_count' ] );
 
 		return hp\merge_trees(
 			$template,
@@ -129,7 +129,7 @@ final class HivePress extends Component {
 				'blocks' => [
 					'listing_category_header' => [
 						'blocks' => [
-							'listing_category_item_count' => $count,
+							'listing_category_count' => $count,
 						],
 					],
 
