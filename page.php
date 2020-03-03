@@ -1,4 +1,10 @@
-<?php get_header(); ?>
+<?php
+get_header();
+
+if ( ! is_page() ) :
+	the_post();
+endif;
+?>
 <div class="page__text">
 	<?php the_content(); ?>
 </div>
