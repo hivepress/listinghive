@@ -151,7 +151,7 @@ final class Template extends Component {
 	 * @param string $path Template path.
 	 * @param array  $context Template context.
 	 * @return string
-	 * @deprecated Since version 1.0.5
+	 * @deprecated Since version 1.1.0
 	 */
 	public function render_template( $path, $context = [] ) {
 		return $this->render_part( $path, $context );
