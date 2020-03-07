@@ -18,6 +18,10 @@ ListingHive is a clean and modern multipurpose WordPress theme. Paired with the 
 ListingHive WordPress Theme, Copyright 2019 HivePress
 ListingHive is distributed under the terms of the GNU GPL
 
+== Changelog ==
+
+[View changelog on GitHub.](https://github.com/hivepress/listinghive/releases)
+
 == Resources ==
 
 * TGM Plugin Activation PHP library by Thomas Griffin, Gary Jones, Juliette Reinders Folmer (GNU General Public License) https://github.com/TGMPA/TGM-Plugin-Activation
