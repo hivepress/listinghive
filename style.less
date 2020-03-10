@@ -618,6 +618,11 @@ textarea {
 	line-height: 1.5;
 	color: inherit;
 	font-family: inherit;
+
+	&[disabled] {
+		background-color: @secondary-background-color;
+		color: @secondary-font-color;
+	}
 }
 
 select,
@@ -3263,6 +3268,15 @@ button {
 				}
 			}
 		}
+
+		&--tabbed &__item {
+			&--current {
+				&::before {
+					background-color:@primary-background-color;
+					background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+				}
+			}
+		}
 	}
 
 	&-page,
@@ -3313,16 +3327,6 @@ button {
 
 			&:not(:last-child) {
 				margin-bottom: 1.75rem;
-			}
-		}
-
-		&__label {
-			.caption;
-			font-size: 0.6875rem;
-			margin-bottom: 0.75rem;
-
-			small {
-				color: @secondary-font-color;
 			}
 		}
 
@@ -3623,6 +3627,16 @@ button {
 				}
 			}
 		}
+
+		&__label {
+			.caption;
+			font-size: 0.6875rem;
+			margin-bottom: 0.75rem;
+
+			small {
+				color: @secondary-font-color;
+			}
+		}
 	}
 	/*--------------------------------------------------------------
 	17.2 Listings
@@ -3870,8 +3884,8 @@ button {
 			}
 		}
 
-		&--view-block &__actions--primary &__action,
-		&--view-page &__actions--primary &__action {
+		&__actions--primary &__action,
+		&__actions--secondary &__action {
 			&--favorite[data-state=active] {
 				i {
 					color: #ff5a5f;

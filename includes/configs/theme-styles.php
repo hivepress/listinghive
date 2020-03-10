@@ -124,6 +124,7 @@ return [
 			.hp-page__title::before,
 			.hp-section__title::before,
 			.hp-listing--view-block .hp-listing__featured-badge,
+			.hp-menu--tabbed .hp-menu__item--current::before,
 			.woocommerce #respond input#submit.alt,
 			.woocommerce button[type=submit],
 			.woocommerce input[type=submit],
