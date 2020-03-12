@@ -38,6 +38,16 @@ return [
 		'plugin'        => 'hivepress',
 	],
 
+	'vendors_view_sidebar'  => [
+		'name'          => esc_html__( 'Vendors Sidebar', 'listinghive' ),
+		'description'   => esc_html__( 'Add widgets here to appear in the vendors sidebar.', 'listinghive' ),
+		'before_widget' => '<div id="%1$s" class="widget widget--sidebar %2$s">',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h3 class="widget__title">',
+		'after_title'   => '</h3>',
+		'plugin'        => 'hivepress',
+	],
+
 	'vendor_view_sidebar'   => [
 		'name'          => esc_html__( 'Vendor Sidebar', 'listinghive' ),
 		'description'   => esc_html__( 'Add widgets here to appear in the vendor sidebar.', 'listinghive' ),
