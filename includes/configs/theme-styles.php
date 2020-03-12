@@ -61,6 +61,8 @@ return [
 			.header-navbar__menu ul li.current-menu-item > a,
 			.header-navbar__menu ul li a:hover,
 			.footer-navbar__menu ul li a:hover,
+			.hp-menu--tabbed .hp-menu__item a:hover,
+			.hp-menu--tabbed .hp-menu__item--current a,
 			.widget_archive li a:hover,
 			.widget_categories li a:hover,
 			.widget_categories li.current-cat > a,

@@ -3269,12 +3269,30 @@ button {
 			}
 		}
 
+		&--tabbed {
+			border-color:@border-color;
+		}
+
 		&--tabbed &__item {
 			&--current {
 				&::before {
 					background-color: @primary-background-color;
 					background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
 				}
+			}
+
+			a {
+				color:inherit;
+				transition: color @animation-duration;
+
+				&:hover {
+					color:@primary-font-color;
+				}
+			}
+
+			&--current a {
+				color:@primary-font-color;
+				font-weight: normal;
 			}
 		}
 	}
@@ -3305,6 +3323,10 @@ button {
 			@media only screen and (max-width: 47.99em) {
 				flex-direction: column;
 				align-items: flex-start;
+			}
+
+			&--separate {
+				border-color:@border-color;
 			}
 		}
 	}
