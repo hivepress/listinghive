@@ -3272,7 +3272,7 @@ button {
 		&--tabbed &__item {
 			&--current {
 				&::before {
-					background-color:@primary-background-color;
+					background-color: @primary-background-color;
 					background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
 				}
 			}
@@ -4100,6 +4100,58 @@ button {
 		&--view-page &__registered-date {
 			&:not(:last-child) {
 				margin-bottom: 0.75rem;
+			}
+		}
+
+		&--view-block &__attributes--secondary {
+			margin-bottom: -.25rem;
+
+			&:not(:last-child) {
+				margin-bottom: 0.5rem;
+			}
+		}
+
+		&--view-page &__attributes--secondary {
+			margin-bottom: -.5rem;
+
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+		}
+
+		&--view-block &__attributes--secondary &__attribute,
+		&--view-page &__attributes--secondary &__attribute {
+			strong {
+				color: @heading-font-color;
+			}
+		}
+
+		&--view-block &__attributes--secondary &__attribute {
+			font-size: 0.875rem;
+			margin-bottom: 0.25rem;
+		}
+
+		&--view-page &__attributes--secondary &__attribute {
+			margin-bottom: 0.5rem;
+		}
+
+		&--view-page &__attributes--primary {
+			.block;
+			padding: 1rem 1.5rem;
+		}
+
+		&--view-block &__attributes--primary &__attribute {
+			font-size: 1.125rem;
+		}
+
+		&--view-page &__attributes--primary &__attribute {
+			background-color: transparent;
+			padding: 0;
+
+			&:not(:last-child) {
+				border-bottom: 1px solid @border-color;
+				margin-bottom: 0.5rem;
+				padding-bottom: 0.5rem;
 			}
 		}
 	}
