@@ -143,10 +143,11 @@ var hivetheme = {
 		// Parallax
 		hivetheme.getComponent('parallax').each(function() {
 			var container = $(this),
+				background = container.css('background-image'),
 				offset = container.offset().top - $('#wpadminbar').height(),
 				speed = 0.25;
 
-			if ($(window).width() >= 1024) {
+			if ($(window).width() >= 1024 && background.indexOf('url') === 0) {
 				container.css('background-position-y', ($(window).scrollTop() - offset) * speed);
 
 				$(window).on('scroll', function() {
