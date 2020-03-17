@@ -180,8 +180,10 @@ final class Template extends Component {
 			}
 		}
 
-		// Get content.
+		// Render header.
 		if ( is_page() ) {
+
+			// Get content.
 			$content = '';
 
 			if ( is_front_page() ) {
@@ -192,16 +194,34 @@ final class Template extends Component {
 				}
 
 				$classes[] = 'header-hero--large';
+			} else {
+				$classes[] = 'header-hero--title';
 			}
 
+			// Get page IDs.
+			$page_ids = [];
+
+			if ( ht\is_plugin_active( 'hivepress' ) ) {
+				$page_ids = array_map(
+					'absint',
+					[
+						get_option( 'hp_page_listings' ),
+						get_option( 'hp_page_vendors' ),
+					]
+				);
+			}
+
+			// Render part.
 			if ( ! is_front_page() || $content ) {
 				if ( is_front_page() ) {
 					$output = $content;
-				} else {
+				} elseif ( ! in_array( get_the_ID(), $page_ids, true ) ) {
 					$output = $this->render_part( 'templates/page/page-title' );
 				}
 			}
 		} elseif ( is_singular( 'post' ) ) {
+
+			// Add classes.
 			$classes = array_merge(
 				$classes,
 				[
@@ -210,8 +230,11 @@ final class Template extends Component {
 				]
 			);
 
+			// Render part.
 			$output = $this->render_part( 'templates/post/single/post-header' );
 		} elseif ( ht\is_plugin_active( 'hivepress' ) && is_tax( 'hp_listing_category' ) ) {
+
+			// Add classes.
 			$classes = array_merge(
 				$classes,
 				[
@@ -225,6 +248,7 @@ final class Template extends Component {
 				$classes[] = 'header-hero--cover';
 			}
 
+			// Render part.
 			$output = $this->render_part(
 				'hivepress/listing-category/view/page/listing-category-header',
 				[
