@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 14:36+0000\n"
-"PO-Revision-Date: 2020-03-03 14:37+0000\n"
+"POT-Creation-Date: 2020-03-17 21:49+0000\n"
+"PO-Revision-Date: 2020-03-17 21:53+0000\n"
 "Last-Translator: admin <admin@admin.com>\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
@@ -110,40 +110,50 @@ msgstr ""
 "объявления."
 
 #: includes/configs/widget-areas.php:42
+msgid "Vendors Sidebar"
+msgstr "Боковая панель страницы продавцов"
+
+#: includes/configs/widget-areas.php:43
+msgid "Add widgets here to appear in the vendors sidebar."
+msgstr ""
+"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
+"продавцов."
+
+#: includes/configs/widget-areas.php:52
 msgid "Vendor Sidebar"
 msgstr "Боковая панель страницы продавца"
 
-#: includes/configs/widget-areas.php:43
+#: includes/configs/widget-areas.php:53
 msgid "Add widgets here to appear in the vendor sidebar."
 msgstr ""
 "Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
 "продавца."
 
-#: includes/configs/widget-areas.php:52
+#: includes/configs/widget-areas.php:62
 msgid "Account Sidebar"
 msgstr "Боковая панель страницы аккаунта"
 
-#: includes/configs/widget-areas.php:53
+#: includes/configs/widget-areas.php:63
 msgid "Add widgets here to appear in the account sidebar."
 msgstr ""
 "Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
 "аккаунта."
 
-#: includes/configs/widget-areas.php:62
+#: includes/configs/widget-areas.php:72
 msgid "Shop Sidebar"
 msgstr "Боковая панель страницы магазина"
 
-#: includes/configs/widget-areas.php:63
+#: includes/configs/widget-areas.php:73
 msgid "Add widgets here to appear in the shop sidebar."
 msgstr ""
 "Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
 "магазина."
 
-#: includes/configs/widget-areas.php:72
+#: includes/configs/widget-areas.php:82
 msgid "Site Footer"
 msgstr "Подвал сайта"
 
-#: includes/configs/widget-areas.php:73
+#: includes/configs/widget-areas.php:83
 msgid "Add widgets here to appear in the site footer."
 msgstr "Добавьте виджеты сюда, чтобы отображать их в подвале сайта."
 
@@ -168,10 +178,14 @@ msgstr "ListingHive"
 #. Description of the theme
 msgid ""
 "A multipurpose WordPress theme that allows you to build any type of "
-"directory and listing websites."
+"directory and listing websites. Whether it’s a business directory, job board,"
+" real estate, classifieds or basically any listing website — ListingHive is "
+"a great choice for it."
 msgstr ""
 "Универсальная WordPress тема, которая позволяет вам создавать любые виды "
-"каталогов, агрегаторов и классифайдов."
+"каталогов, агрегаторов и классифайдов. Не важно, создаете вы каталог "
+"компаний, сайт поиска работы или недвижимости, доску объявлений или "
+"практически любой агрегатор — ListingHive это отличный выбор."
 
 #. URI of the theme
 msgid "https://hivepress.io/theme/listinghive"

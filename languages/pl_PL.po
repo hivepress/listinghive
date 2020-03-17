@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-03 14:36+0000\n"
-"PO-Revision-Date: 2020-03-03 14:37+0000\n"
+"POT-Creation-Date: 2020-03-17 21:49+0000\n"
+"PO-Revision-Date: 2020-03-17 21:51+0000\n"
 "Last-Translator: admin <admin@admin.com>\n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
@@ -107,36 +107,45 @@ msgstr ""
 "Dodaj widgety tutaj, aby wyświetlać je na panelu bocznym strony ogłoszenia."
 
 #: includes/configs/widget-areas.php:42
+msgid "Vendors Sidebar"
+msgstr "Panel boczny strony sprzedawców"
+
+#: includes/configs/widget-areas.php:43
+msgid "Add widgets here to appear in the vendors sidebar."
+msgstr ""
+"Dodaj widgety tutaj, aby wyświetlać je na panelu bocznym strony sprzedawców."
+
+#: includes/configs/widget-areas.php:52
 msgid "Vendor Sidebar"
 msgstr "Panel boczny strony sprzedawcy"
 
-#: includes/configs/widget-areas.php:43
+#: includes/configs/widget-areas.php:53
 msgid "Add widgets here to appear in the vendor sidebar."
 msgstr ""
 "Dodaj widgety tutaj, aby wyświetlać je na panelu bocznym strony sprzedawcy."
 
-#: includes/configs/widget-areas.php:52
+#: includes/configs/widget-areas.php:62
 msgid "Account Sidebar"
 msgstr "Panel boczny strony konta"
 
-#: includes/configs/widget-areas.php:53
+#: includes/configs/widget-areas.php:63
 msgid "Add widgets here to appear in the account sidebar."
 msgstr "Dodaj widgety tutaj, aby wyświetlać je na panelu bocznym strony konta."
 
-#: includes/configs/widget-areas.php:62
+#: includes/configs/widget-areas.php:72
 msgid "Shop Sidebar"
 msgstr "Panel boczny strony sklepu"
 
-#: includes/configs/widget-areas.php:63
+#: includes/configs/widget-areas.php:73
 msgid "Add widgets here to appear in the shop sidebar."
 msgstr ""
 "Dodaj widgety tutaj, aby wyświetlać je na panelu bocznym strony sklepu."
 
-#: includes/configs/widget-areas.php:72
+#: includes/configs/widget-areas.php:82
 msgid "Site Footer"
 msgstr "Stopka strony"
 
-#: includes/configs/widget-areas.php:73
+#: includes/configs/widget-areas.php:83
 msgid "Add widgets here to appear in the site footer."
 msgstr "Dodaj widgety tutaj, aby wyświetlać je w stopce strony."
 
@@ -161,10 +170,14 @@ msgstr "ListingHive"
 #. Description of the theme
 msgid ""
 "A multipurpose WordPress theme that allows you to build any type of "
-"directory and listing websites."
+"directory and listing websites. Whether it’s a business directory, job board,"
+" real estate, classifieds or basically any listing website — ListingHive is "
+"a great choice for it."
 msgstr ""
 "Uniwersalny motyw WordPress do katalogów, agregatorów i portali "
-"ogłoszeniowych."
+"ogłoszeniowych. Niezależnie od tego, czy jest to katalog lub agregator firm, "
+"ofert pracy, nieruchomości, ogłoszeń lub czegoś innego – ListingHive to "
+"doskonały wybór."
 
 #. URI of the theme
 msgid "https://hivepress.io/theme/listinghive"
