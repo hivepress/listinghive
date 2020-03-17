@@ -3,7 +3,7 @@ Contributors: hivepress
 Requires at least: 4.9
 Tested up to: 5.2
 Requires PHP: 5.6
-Stable tag: 1.1.0
+Stable tag: 1.1.1
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -17,6 +17,10 @@ ListingHive is a clean and modern multipurpose WordPress theme. Paired with the 
 
 ListingHive WordPress Theme, Copyright 2019 HivePress
 ListingHive is distributed under the terms of the GNU GPL
+
+== Changelog ==
+
+[View changelog on GitHub.](https://github.com/hivepress/listinghive/releases)
 
 == Resources ==
 

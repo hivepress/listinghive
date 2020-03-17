@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-02 20:31+0000\n"
+"POT-Creation-Date: 2020-03-17 21:49+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -103,34 +103,42 @@ msgid "Add widgets here to appear in the listing sidebar."
 msgstr ""
 
 #: includes/configs/widget-areas.php:42
-msgid "Vendor Sidebar"
+msgid "Vendors Sidebar"
 msgstr ""
 
 #: includes/configs/widget-areas.php:43
-msgid "Add widgets here to appear in the vendor sidebar."
+msgid "Add widgets here to appear in the vendors sidebar."
 msgstr ""
 
 #: includes/configs/widget-areas.php:52
-msgid "Account Sidebar"
+msgid "Vendor Sidebar"
 msgstr ""
 
 #: includes/configs/widget-areas.php:53
-msgid "Add widgets here to appear in the account sidebar."
+msgid "Add widgets here to appear in the vendor sidebar."
 msgstr ""
 
 #: includes/configs/widget-areas.php:62
-msgid "Shop Sidebar"
+msgid "Account Sidebar"
 msgstr ""
 
 #: includes/configs/widget-areas.php:63
-msgid "Add widgets here to appear in the shop sidebar."
+msgid "Add widgets here to appear in the account sidebar."
 msgstr ""
 
 #: includes/configs/widget-areas.php:72
-msgid "Site Footer"
+msgid "Shop Sidebar"
 msgstr ""
 
 #: includes/configs/widget-areas.php:73
+msgid "Add widgets here to appear in the shop sidebar."
+msgstr ""
+
+#: includes/configs/widget-areas.php:82
+msgid "Site Footer"
+msgstr ""
+
+#: includes/configs/widget-areas.php:83
 msgid "Add widgets here to appear in the site footer."
 msgstr ""
 
@@ -155,7 +163,13 @@ msgstr ""
 #. Description of the theme
 msgid ""
 "A multipurpose WordPress theme that allows you to build any type of "
-"directory and listing websites."
+"directory and listing websites. Whether it’s a business directory, job board,"
+" real estate, classifieds or basically any listing website — ListingHive is "
+"a great choice for it."
+msgstr ""
+
+#. URI of the theme
+msgid "https://hivepress.io/theme/listinghive"
 msgstr ""
 
 #. Author of the theme

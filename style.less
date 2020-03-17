@@ -3,8 +3,8 @@ Theme Name: ListingHive
 Author: HivePress
 Author URI: https://hivepress.io
 Theme URI: https://hivepress.io/theme/listinghive
-Description: A multipurpose WordPress theme that allows you to build any type of directory and listing websites.
-Version: 1.1.0
+Description: A multipurpose WordPress theme that allows you to build any type of directory and listing websites. Whether it’s a business directory, job board, real estate, classifieds or basically any listing website — ListingHive is a great choice for it.
+Version: 1.1.1
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: right-sidebar, custom-colors, custom-menu, custom-logo, custom-header, featured-image-header, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready
@@ -199,6 +199,7 @@ html {
 
 html {
 	font-size: 16px;
+	scroll-behavior: smooth;
 }
 
 body {
@@ -618,6 +619,11 @@ textarea {
 	line-height: 1.5;
 	color: inherit;
 	font-family: inherit;
+
+	&[disabled] {
+		background-color: @secondary-background-color;
+		color: @secondary-font-color;
+	}
 }
 
 select,
@@ -668,9 +674,21 @@ fieldset {
 		line-height: 1.5;
 	}
 
+	&-container--default &-selection--inline &-selection__rendered {
+		.caption;
+		font-size: 0.6875rem;
+		padding-left:.65rem;
+		padding-right:1.65rem;
+	}
+
 	&-container--default &-selection &-selection__arrow {
 		right: 0.5rem;
 		top: 0.35rem;
+	}
+
+	&-container--default &-selection--inline &-selection__arrow {
+		top:0;
+		right:.25rem;
 	}
 
 	&-container--default &-results__option {
@@ -3263,6 +3281,33 @@ button {
 				}
 			}
 		}
+
+		&--tabbed {
+			border-color:@border-color;
+		}
+
+		&--tabbed &__item {
+			&--current {
+				&::before {
+					background-color: @primary-background-color;
+					background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+				}
+			}
+
+			a {
+				color:inherit;
+				transition: color @animation-duration;
+
+				&:hover {
+					color:@primary-font-color;
+				}
+			}
+
+			&--current a {
+				color:@primary-font-color;
+				font-weight: normal;
+			}
+		}
 	}
 
 	&-page,
@@ -3292,6 +3337,10 @@ button {
 				flex-direction: column;
 				align-items: flex-start;
 			}
+
+			&--separate {
+				border-color:@border-color;
+			}
 		}
 	}
 
@@ -3316,30 +3365,32 @@ button {
 			}
 		}
 
-		&__label {
-			.caption;
-			font-size: 0.6875rem;
-			margin-bottom: 0.75rem;
-
-			small {
-				color: @secondary-font-color;
-			}
-		}
-
 		&--narrow &__button {
 			font-size: 1.125rem;
 			padding: 0.75rem 1.25rem;
 		}
+		@media only screen and (max-width: 47.99em) {
+			&__button {
+				font-size: 1.125rem;
+				padding: 0.75rem 1.25rem;
+			}
+		}
 
 		&--narrow &__action {
 			line-height: 1.5;
+		}
+		@media only screen and (max-width: 47.99em) {
+			&__action {
+				line-height: 1.5;
+			}
 		}
 
 		&__action--user-password-request {
 			font-size: 0.875rem;
 		}
 
-		&--listing-search {
+		&--listing-search,
+		&--vendor-search {
 			.block;
 			padding: 0.625rem;
 			align-items: center;
@@ -3360,7 +3411,9 @@ button {
 		}
 
 		&--listing-search &__field,
-		&--listing-search &__fields {
+		&--listing-search &__fields,
+		&--vendor-search &__field,
+		&--vendor-search &__fields {
 			&:not(:last-child) {
 				margin-right: 0.625rem;
 				@media only screen and (max-width: 47.99em) {
@@ -3369,7 +3422,8 @@ button {
 			}
 		}
 
-		&--listing-search &__fields {
+		&--listing-search &__fields,
+		&--vendor-search &__fields {
 			@media only screen and (max-width: 47.99em) {
 				&:not(:last-child) {
 					margin-bottom: 0.625rem;
@@ -3377,7 +3431,8 @@ button {
 			}
 		}
 
-		&--listing-search &__field {
+		&--listing-search &__field,
+		&--vendor-search &__field {
 			&:not(:last-child) {
 				border-right: 1px solid @border-color;
 				@media only screen and (max-width: 47.99em) {
@@ -3415,14 +3470,16 @@ button {
 			}
 		}
 
-		&--listing-search &__button {
+		&--listing-search &__button,
+		&--vendor-search &__button {
 			height: 3.125rem;
 			padding-left: 2rem;
 			padding-right: 2rem;
 			font-size: 1.125rem;
 		}
 
-		&--listing-sort {
+		&--listing-sort,
+		&--vendor-sort {
 			select {
 				.caption;
 				font-size: 0.6875rem;
@@ -3603,6 +3660,16 @@ button {
 					border-radius: 50%;
 					background-color: @ternary-background-color;
 				}
+			}
+		}
+
+		&__label {
+			.caption;
+			font-size: 0.6875rem;
+			margin-bottom: 0.75rem;
+
+			small {
+				color: @secondary-font-color;
 			}
 		}
 	}
@@ -3852,8 +3919,8 @@ button {
 			}
 		}
 
-		&--view-block &__actions--primary &__action,
-		&--view-page &__actions--primary &__action {
+		&__actions--primary &__action,
+		&__actions--secondary &__action {
 			&--favorite[data-state=active] {
 				i {
 					color: #ff5a5f;
@@ -4070,6 +4137,58 @@ button {
 				margin-bottom: 0.75rem;
 			}
 		}
+
+		&--view-block &__attributes--secondary {
+			margin-bottom: -.25rem;
+
+			&:not(:last-child) {
+				margin-bottom: 0.5rem;
+			}
+		}
+
+		&--view-page &__attributes--secondary {
+			margin-bottom: -.5rem;
+
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+		}
+
+		&--view-block &__attributes--secondary &__attribute,
+		&--view-page &__attributes--secondary &__attribute {
+			strong {
+				color: @heading-font-color;
+			}
+		}
+
+		&--view-block &__attributes--secondary &__attribute {
+			font-size: 0.875rem;
+			margin-bottom: 0.25rem;
+		}
+
+		&--view-page &__attributes--secondary &__attribute {
+			margin-bottom: 0.5rem;
+		}
+
+		&--view-page &__attributes--primary {
+			.block;
+			padding: 1rem 1.5rem;
+		}
+
+		&--view-block &__attributes--primary &__attribute {
+			font-size: 1.125rem;
+		}
+
+		&--view-page &__attributes--primary &__attribute {
+			background-color: transparent;
+			padding: 0;
+
+			&:not(:last-child) {
+				border-bottom: 1px solid @border-color;
+				margin-bottom: 0.5rem;
+				padding-bottom: 0.5rem;
+			}
+		}
 	}
 	/*--------------------------------------------------------------
 	17.6 Reviews
@@ -4129,8 +4248,8 @@ button {
 			align-items: flex-start;
 		}
 
-		&--view-block &__sent-date,
-		&--view-block &__sender {
+		&--view-block &__sender,
+		&--view-block &__sent-date {
 			&:not(:last-child) {
 				margin-bottom: 0.25rem;
 			}
