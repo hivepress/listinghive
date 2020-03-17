@@ -674,9 +674,21 @@ fieldset {
 		line-height: 1.5;
 	}
 
+	&-container--default &-selection--inline &-selection__rendered {
+		.caption;
+		font-size: 0.6875rem;
+		padding-left:.65rem;
+		padding-right:1.65rem;
+	}
+
 	&-container--default &-selection &-selection__arrow {
 		right: 0.5rem;
 		top: 0.35rem;
+	}
+
+	&-container--default &-selection--inline &-selection__arrow {
+		top:0;
+		right:.25rem;
 	}
 
 	&-container--default &-results__option {
