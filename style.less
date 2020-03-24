@@ -3919,8 +3919,10 @@ button {
 			}
 		}
 
-		&__actions--primary &__action,
-		&__actions--secondary &__action {
+		&--view-block &__actions--primary &__action,
+		&--view-block &__actions--secondary &__action,
+		&--view-page &__actions--primary &__action,
+		&--view-page &__actions--secondary &__action {
 			&--favorite[data-state=active] {
 				i {
 					color: #ff5a5f;
