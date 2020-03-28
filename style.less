@@ -44,6 +44,7 @@ TABLE OF CONTENTS:
 	17.6 Reviews
 	17.7 Ratings
 	17.8 Messages
+	17.9 Bookings
 18.0 WooCommerce
 	18.1 Forms
 	18.2 Tables
@@ -4291,6 +4292,73 @@ button {
 
 		&--thread-block &__sent-date {
 			color: @secondary-font-color;
+		}
+	}
+
+	/*--------------------------------------------------------------
+	17.9 Bookings
+	--------------------------------------------------------------*/
+	&-booking {
+		&--view-block {
+			.block;
+			padding:1.5rem;
+		}
+
+		&--view-page &__attributes--primary {
+			.block;
+			padding: 1rem 1.5rem;
+		}
+
+		&--view-page &__attributes--primary &__attribute {
+			background-color: transparent;
+			padding: 0;
+
+			&:not(:last-child) {
+				border-bottom: 1px solid @border-color;
+				margin-bottom: 0.5rem;
+				padding-bottom: 0.5rem;
+			}
+		}
+
+		&--view-page &__attributes--secondary {
+			margin-bottom: -.5rem;
+
+			&:not(:last-child) {
+				margin-bottom: 1rem;
+			}
+		}
+
+		&--view-page &__attributes--secondary &__attribute {
+			strong {
+				color: @heading-font-color;
+			}
+		}
+
+		&--view-page &__attributes--secondary &__attribute {
+			margin-bottom: 0.5rem;
+		}
+
+		&--view-block &__status {
+			span {
+				.styled-tag;
+				display: inline-block;
+			}
+
+			&--trash span {
+				color: #ff3860;
+				border-color: #ff3860;
+			}
+
+			&--draft span,
+			&--pending span {
+				color: #ffcb00;
+				border-color: #ffcb00;
+			}
+
+			&--publish span {
+				color:#15cd72;
+				border-color:#15cd72;
+			}
 		}
 	}
 }
