@@ -2,7 +2,7 @@
 Theme Name: ListingHive
 Author: HivePress
 Author URI: https://hivepress.io
-Theme URI: https://hivepress.io/theme/listinghive
+Theme URI: https://hivepress.io/themes/listinghive
 Description: A multipurpose WordPress theme that allows you to build any type of directory and listing websites. Whether it’s a business directory, job board, real estate, classifieds or basically any listing website — ListingHive is a great choice for it.
 Version: 1.1.1
 License: GNU General Public License
@@ -44,7 +44,8 @@ TABLE OF CONTENTS:
 	17.6 Reviews
 	17.7 Ratings
 	17.8 Messages
-	17.9 Bookings
+	17.9 Memberships
+	17.10 Bookings
 18.0 WooCommerce
 	18.1 Forms
 	18.2 Tables
@@ -625,6 +626,10 @@ textarea {
 		background-color: @secondary-background-color;
 		color: @secondary-font-color;
 	}
+}
+
+input[type='search'] {
+	-webkit-appearance: textfield;
 }
 
 select,
@@ -4297,7 +4302,58 @@ button {
 	}
 
 	/*--------------------------------------------------------------
-	17.9 Bookings
+	17.9 Memberships
+	--------------------------------------------------------------*/
+	&-membership-plan {
+		&--view-block {
+			.block;
+			transition: box-shadow @animation-duration;
+
+			&:hover {
+				box-shadow: @box-shadow-hover;
+			}
+		}
+
+		&--view-block &__content,
+		&--view-block &__footer,
+		&--view-block &__header {
+			&:not(:last-child) {
+				margin-bottom: 0;
+			}
+		}
+
+		&--view-block &__footer,
+		&--view-block &__header {
+			padding: 1rem 1.5rem;
+		}
+
+		&--view-block &__header {
+			border-bottom: 1px solid @border-color;
+		}
+
+		&--view-block &__content {
+			padding: 1.5rem;
+		}
+
+		&--view-block &__footer {
+			border-top: 1px solid @border-color;
+		}
+
+		&--view-block &__price {
+			color: @ternary-font-color;
+
+			del {
+				color: @secondary-font-color;
+			}
+		}
+
+		&--view-block &__select-button {
+			font-size: 1.125rem;
+			padding: 0.75rem 1.25rem;
+		}
+	}
+	/*--------------------------------------------------------------
+	17.10 Bookings
 	--------------------------------------------------------------*/
 	&-booking {
 		&--view-block {
