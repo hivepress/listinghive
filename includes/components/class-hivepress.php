@@ -32,7 +32,11 @@ final class HivePress extends Component {
 			return;
 		}
 
-		if ( ! is_admin() ) {
+		if ( is_admin() ) {
+
+			// Add admin notices.
+			add_filter( 'hivepress/v1/admin_notices', [ $this, 'add_admin_notices' ] );
+		} else {
 
 			// Render site header.
 			add_filter( 'hivetheme/v1/areas/site_header', [ $this, 'render_site_header' ] );
@@ -44,6 +48,34 @@ final class HivePress extends Component {
 		}
 
 		parent::__construct( $args );
+	}
+
+	/**
+	 * Adds admin notices.
+	 *
+	 * @param array $notices Notice arguments.
+	 * @return array
+	 */
+	public function add_admin_notices( $notices ) {
+
+		// Get listing count.
+		$count = wp_count_posts( 'hp_listing' );
+
+		// Add import notice.
+		if ( isset( $count->publish ) && $count->publish ) {
+			$notices['demo_import'] = [
+				'type'        => 'info',
+				'dismissible' => true,
+				'text'        => sprintf(
+					/* translators: 1: theme name, 2: link URL. */
+					hp\sanitize_html( __( 'If you want to start with the %1$s demo content, please follow <a href="%2$s" target="_blank">this screencast</a> to import it.', 'listinghive' ) ),
+					hivetheme()->get_name(),
+					esc_url( 'https://hivepress.io/docs/themes/' . get_template() . '/#importing-demo-content' )
+				),
+			];
+		}
+
+		return $notices;
 	}
 
 	/**
