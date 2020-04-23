@@ -62,7 +62,7 @@ final class HivePress extends Component {
 		$count = wp_count_posts( 'hp_listing' );
 
 		// Add import notice.
-		if ( isset( $count->publish ) && $count->publish ) {
+		if ( isset( $count->publish ) && ! $count->publish ) {
 			$notices['demo_import'] = [
 				'type'        => 'info',
 				'dismissible' => true,
