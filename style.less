@@ -621,6 +621,7 @@ textarea {
 	line-height: 1.5;
 	color: inherit;
 	font-family: inherit;
+	box-shadow: none;
 
 	&[disabled] {
 		background-color: @secondary-background-color;
@@ -628,8 +629,26 @@ textarea {
 	}
 }
 
-input[type='search'] {
-	-webkit-appearance: textfield;
+input[type='color'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='password'],
+input[type='range'],
+input[type='min'],
+input[type='max'],
+input[type='value'],
+input[type='step'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='time'],
+input[type='url'],
+textarea {
+	-webkit-appearance: none;
 }
 
 select,
