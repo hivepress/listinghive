@@ -72,6 +72,12 @@ final class Customizer extends Component {
 
 				switch ( $field['type'] ) {
 
+					// Text field.
+					case 'textarea':
+						$sanitize_callback = 'wp_kses_post';
+
+						break;
+
 					// Color field.
 					case 'color':
 						$sanitize_callback = 'sanitize_hex_color';
