@@ -33,6 +33,9 @@ final class Customizer extends Component {
 
 			// Add editor fonts.
 			add_action( 'admin_init', [ $this, 'add_editor_fonts' ] );
+
+			// Reset theme styles.
+			add_action( 'customize_save_after', [ $this, 'reset_theme_styles' ] );
 		} else {
 
 			// Add theme styles.
@@ -154,47 +157,70 @@ final class Customizer extends Component {
 	}
 
 	/**
+	 * Resets theme styles.
+	 */
+	public function reset_theme_styles() {
+		remove_theme_mod( 'theme_styles' );
+	}
+
+	/**
 	 * Adds theme styles.
 	 */
 	public function add_theme_styles() {
-		$output = '';
 
-		foreach ( hivetheme()->get_config( 'theme_styles' ) as $style ) {
+		// Get cached styles.
+		$styles = get_theme_mod( 'theme_styles' );
 
-			// Add selector.
-			$output .= $style['selector'] . '{';
+		if ( false === $styles || is_customize_preview() ) {
 
-			// Add properties.
-			foreach ( $style['properties'] as $property ) {
+			// Get styles.
+			$styles = '';
 
-				// Get theme mod.
-				$value = get_theme_mod( $property['theme_mod'] );
+			foreach ( hivetheme()->get_config( 'theme_styles' ) as $style ) {
 
-				if ( $value ) {
-					switch ( $property['name'] ) {
+				// Get rules.
+				$rules = '';
 
-						// Background image.
-						case 'background-image':
-							$value = 'url(' . esc_url( $value ) . ')';
+				foreach ( $style['properties'] as $property ) {
 
-							break;
+					// Get value.
+					$value = get_theme_mod( $property['theme_mod'] );
 
-						// Font family.
-						case 'font-family':
-							$value = ht\get_first_array_value( explode( ':', $value ) ) . ', sans-serif';
+					if ( $value ) {
+						switch ( $property['name'] ) {
 
-							break;
+							// Background image.
+							case 'background-image':
+								$value = 'url(' . esc_url( $value ) . ')';
+
+								break;
+
+							// Font family.
+							case 'font-family':
+								$value = ht\get_first_array_value( explode( ':', $value ) ) . ', sans-serif';
+
+								break;
+						}
+
+						$rules .= $property['name'] . ':' . $value . ';';
 					}
+				}
 
-					$output .= $property['name'] . ':' . $value . ';';
+				// Add rules.
+				if ( $rules ) {
+					$styles .= $style['selector'] . '{' . $rules . '}';
 				}
 			}
 
-			$output .= '}';
+			// Minify styles.
+			$styles = preg_replace( '/[\t\r\n]+/', '', $styles );
+
+			// Cache styles.
+			set_theme_mod( 'theme_styles', $styles );
 		}
 
 		// Add styles.
-		wp_add_inline_style( 'hivetheme-core-frontend', $output );
+		wp_add_inline_style( 'hivetheme-core-frontend', $styles );
 	}
 
 	/**
