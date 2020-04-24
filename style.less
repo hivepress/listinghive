@@ -2,9 +2,9 @@
 Theme Name: ListingHive
 Author: HivePress
 Author URI: https://hivepress.io
-Theme URI: https://hivepress.io/theme/listinghive
+Theme URI: https://hivepress.io/themes/listinghive
 Description: A multipurpose WordPress theme that allows you to build any type of directory and listing websites. Whether it’s a business directory, job board, real estate, classifieds or basically any listing website — ListingHive is a great choice for it.
-Version: 1.1.1
+Version: 1.1.2
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: right-sidebar, custom-colors, custom-menu, custom-logo, custom-header, featured-image-header, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready
@@ -44,6 +44,8 @@ TABLE OF CONTENTS:
 	17.6 Reviews
 	17.7 Ratings
 	17.8 Messages
+	17.9 Memberships
+	17.10 Bookings
 18.0 WooCommerce
 	18.1 Forms
 	18.2 Tables
@@ -619,11 +621,34 @@ textarea {
 	line-height: 1.5;
 	color: inherit;
 	font-family: inherit;
+	box-shadow: none;
 
 	&[disabled] {
 		background-color: @secondary-background-color;
 		color: @secondary-font-color;
 	}
+}
+
+input[type='color'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='password'],
+input[type='range'],
+input[type='min'],
+input[type='max'],
+input[type='value'],
+input[type='step'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='time'],
+input[type='url'],
+textarea {
+	-webkit-appearance: none;
 }
 
 select,
@@ -677,8 +702,8 @@ fieldset {
 	&-container--default &-selection--inline &-selection__rendered {
 		.caption;
 		font-size: 0.6875rem;
-		padding-left:.65rem;
-		padding-right:1.65rem;
+		padding-left: 0.65rem;
+		padding-right: 1.65rem;
 	}
 
 	&-container--default &-selection &-selection__arrow {
@@ -687,8 +712,8 @@ fieldset {
 	}
 
 	&-container--default &-selection--inline &-selection__arrow {
-		top:0;
-		right:.25rem;
+		top: 0;
+		right: 0.25rem;
 	}
 
 	&-container--default &-results__option {
@@ -758,6 +783,7 @@ table {
 
 	th {
 		font-weight: 600;
+		color: @heading-font-color;
 	}
 
 	&.wp-block-table {
@@ -2287,6 +2313,10 @@ button {
 		}
 
 		h5 {
+			span {
+				word-wrap: break-word;
+			}
+
 			i {
 				color: rgba(0, 0, 0, 0.15);
 				font-size: 16px;
@@ -3283,7 +3313,7 @@ button {
 		}
 
 		&--tabbed {
-			border-color:@border-color;
+			border-color: @border-color;
 		}
 
 		&--tabbed &__item {
@@ -3295,16 +3325,16 @@ button {
 			}
 
 			a {
-				color:inherit;
+				color: inherit;
 				transition: color @animation-duration;
 
 				&:hover {
-					color:@primary-font-color;
+					color: @primary-font-color;
 				}
 			}
 
 			&--current a {
-				color:@primary-font-color;
+				color: @primary-font-color;
 				font-weight: normal;
 			}
 		}
@@ -3339,7 +3369,7 @@ button {
 			}
 
 			&--separate {
-				border-color:@border-color;
+				border-color: @border-color;
 			}
 		}
 	}
@@ -3919,8 +3949,10 @@ button {
 			}
 		}
 
-		&__actions--primary &__action,
-		&__actions--secondary &__action {
+		&--view-block &__actions--primary &__action,
+		&--view-block &__actions--secondary &__action,
+		&--view-page &__actions--primary &__action,
+		&--view-page &__actions--secondary &__action {
 			&--favorite[data-state=active] {
 				i {
 					color: #ff5a5f;
@@ -4289,6 +4321,148 @@ button {
 
 		&--thread-block &__sent-date {
 			color: @secondary-font-color;
+		}
+	}
+	/*--------------------------------------------------------------
+	17.9 Memberships
+	--------------------------------------------------------------*/
+	&-membership-plan {
+		&--view-block {
+			.block;
+			transition: box-shadow @animation-duration;
+
+			&:hover {
+				box-shadow: @box-shadow-hover;
+			}
+		}
+
+		&--view-block &__content,
+		&--view-block &__footer,
+		&--view-block &__header {
+			&:not(:last-child) {
+				margin-bottom: 0;
+			}
+		}
+
+		&--view-block &__footer,
+		&--view-block &__header {
+			padding: 1rem 1.5rem;
+		}
+
+		&--view-block &__header {
+			border-bottom: 1px solid @border-color;
+		}
+
+		&--view-block &__content {
+			padding: 1.5rem;
+		}
+
+		&--view-block &__footer {
+			border-top: 1px solid @border-color;
+		}
+
+		&--view-block &__price {
+			color: @ternary-font-color;
+
+			del {
+				color: @secondary-font-color;
+			}
+		}
+
+		&--view-block &__select-button {
+			font-size: 1.125rem;
+			padding: 0.75rem 1.25rem;
+		}
+	}
+
+	&-membership {
+		&--view-block {
+			.block;
+			padding: 1.5rem;
+		}
+
+		&--view-block &__name,
+		&--view-block &__status,
+		&--view-block &__expired-date {
+			&:not(:last-child) {
+				margin-bottom: 0.75rem;
+			}
+		}
+
+		&--view-block &__status {
+			span {
+				.styled-tag;
+				display: inline-block;
+			}
+
+			&--draft span {
+				color: #ff3860;
+				border-color: #ff3860;
+			}
+
+			&--pending span {
+				color: #ffcb00;
+				border-color: #ffcb00;
+			}
+
+			&--publish span {
+				color: #15cd72;
+				border-color: #15cd72;
+			}
+		}
+
+		&--view-block &__expired-date {
+			.caption;
+			font-size: 0.6875rem;
+			color: @secondary-font-color;
+		}
+	}
+	/*--------------------------------------------------------------
+	17.10 Bookings
+	--------------------------------------------------------------*/
+	&-booking {
+		&--view-block {
+			.block;
+			padding: 1.5rem;
+		}
+
+		&--view-page &__attributes--primary {
+			.block;
+			padding: 1rem 1.5rem;
+		}
+
+		&--view-page &__attributes--primary &__attribute {
+			background-color: transparent;
+			padding: 0;
+
+			&:not(:last-child) {
+				border-bottom: 1px solid @border-color;
+				margin-bottom: 0.5rem;
+				padding-bottom: 0.5rem;
+			}
+		}
+
+		&--view-block &__status {
+			span {
+				.styled-tag;
+				display: inline-block;
+			}
+
+			&--trash span {
+				color: #ff3860;
+				border-color: #ff3860;
+			}
+
+			&--draft span,
+			&--pending span {
+				color: #ffcb00;
+				border-color: #ffcb00;
+			}
+
+			&--publish span {
+				color: #15cd72;
+				border-color: #15cd72;
+			}
 		}
 	}
 }

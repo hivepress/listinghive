@@ -2,9 +2,9 @@
 Theme Name: ListingHive
 Author: HivePress
 Author URI: https://hivepress.io
-Theme URI: https://hivepress.io/theme/listinghive
+Theme URI: https://hivepress.io/themes/listinghive
 Description: A multipurpose WordPress theme that allows you to build any type of directory and listing websites. Whether it’s a business directory, job board, real estate, classifieds or basically any listing website — ListingHive is a great choice for it.
-Version: 1.1.1
+Version: 1.1.2
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: right-sidebar, custom-colors, custom-menu, custom-logo, custom-header, featured-image-header, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready
@@ -44,6 +44,7 @@ TABLE OF CONTENTS:
 	17.6 Reviews
 	17.7 Ratings
 	17.8 Messages
+	17.9 Memberships
 18.0 WooCommerce
 	18.1 Forms
 	18.2 Tables
@@ -427,6 +428,7 @@ textarea {
   line-height: 1.5;
   color: inherit;
   font-family: inherit;
+  box-shadow: none;
 }
 input[type='color'][disabled],
 input[type='date'][disabled],
@@ -450,6 +452,27 @@ select[disabled],
 textarea[disabled] {
   background-color: rgba(0, 0, 0, 0.03);
   color: rgba(0, 0, 0, 0.4);
+}
+input[type='color'],
+input[type='date'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='email'],
+input[type='month'],
+input[type='number'],
+input[type='password'],
+input[type='range'],
+input[type='min'],
+input[type='max'],
+input[type='value'],
+input[type='step'],
+input[type='search'],
+input[type='tel'],
+input[type='text'],
+input[type='time'],
+input[type='url'],
+textarea {
+  -webkit-appearance: none;
 }
 select,
 textarea {
@@ -495,7 +518,7 @@ fieldset legend {
   line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
-  padding-left: .65rem;
+  padding-left: 0.65rem;
   padding-right: 1.65rem;
 }
 .select2-container--default .select2-selection .select2-selection__arrow {
@@ -504,7 +527,7 @@ fieldset legend {
 }
 .select2-container--default .select2-selection--inline .select2-selection__arrow {
   top: 0;
-  right: .25rem;
+  right: 0.25rem;
 }
 .select2-container--default .select2-results__option {
   padding: 0.4375rem 1rem;
@@ -558,6 +581,7 @@ table th {
 }
 table th {
   font-weight: 600;
+  color: rgba(0, 0, 0, 0.8);
 }
 table.wp-block-table td,
 table.wp-block-table th {
@@ -2200,6 +2224,9 @@ button[disabled]::before {
 .post__navigation div div:last-child {
   text-align: right;
 }
+.post__navigation h5 span {
+  word-wrap: break-word;
+}
 .post__navigation h5 i {
   color: rgba(0, 0, 0, 0.15);
   font-size: 16px;
@@ -3428,6 +3455,9 @@ ul.products + .woocommerce-pagination:not(:first-child) {
   /*--------------------------------------------------------------
 	17.8 Messages
 	--------------------------------------------------------------*/
+  /*--------------------------------------------------------------
+	17.9 Memberships
+	--------------------------------------------------------------*/
 }
 .hp-link {
   transition: color 0.25s;
@@ -4045,8 +4075,10 @@ ul.products + .woocommerce-pagination:not(:first-child) {
 .hp-listing--view-block .hp-listing__actions--primary .hp-listing__action[data-state=active] i {
   color: rgba(0, 0, 0, 0.25);
 }
-.hp-listing__actions--primary .hp-listing__action--favorite[data-state=active] i,
-.hp-listing__actions--secondary .hp-listing__action--favorite[data-state=active] i {
+.hp-listing--view-block .hp-listing__actions--primary .hp-listing__action--favorite[data-state=active] i,
+.hp-listing--view-block .hp-listing__actions--secondary .hp-listing__action--favorite[data-state=active] i,
+.hp-listing--view-page .hp-listing__actions--primary .hp-listing__action--favorite[data-state=active] i,
+.hp-listing--view-page .hp-listing__actions--secondary .hp-listing__action--favorite[data-state=active] i {
   color: #ff5a5f;
 }
 .hp-listing-category--submit-block,
@@ -4356,5 +4388,88 @@ ul.products + .woocommerce-pagination:not(:first-child) {
   color: rgba(0, 0, 0, 0.4);
 }
 .hp-message--thread-block .hp-message__sent-date {
+  color: rgba(0, 0, 0, 0.4);
+}
+.hp-membership-plan--view-block {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  background-color: #fff;
+  transition: box-shadow 0.25s;
+}
+.hp-membership-plan--view-block:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
+}
+.hp-membership-plan--view-block .hp-membership-plan__content:not(:last-child),
+.hp-membership-plan--view-block .hp-membership-plan__footer:not(:last-child),
+.hp-membership-plan--view-block .hp-membership-plan__header:not(:last-child) {
+  margin-bottom: 0;
+}
+.hp-membership-plan--view-block .hp-membership-plan__footer,
+.hp-membership-plan--view-block .hp-membership-plan__header {
+  padding: 1rem 1.5rem;
+}
+.hp-membership-plan--view-block .hp-membership-plan__header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+.hp-membership-plan--view-block .hp-membership-plan__content {
+  padding: 1.5rem;
+}
+.hp-membership-plan--view-block .hp-membership-plan__footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+}
+.hp-membership-plan--view-block .hp-membership-plan__price {
+  color: #13b966;
+}
+.hp-membership-plan--view-block .hp-membership-plan__price del {
+  color: rgba(0, 0, 0, 0.4);
+}
+.hp-membership-plan--view-block .hp-membership-plan__select-button {
+  font-size: 1.125rem;
+  padding: 0.75rem 1.25rem;
+}
+.hp-membership--view-block {
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  background-color: #fff;
+  padding: 1.5rem;
+}
+.hp-membership--view-block .hp-membership__name:not(:last-child),
+.hp-membership--view-block .hp-membership__status:not(:last-child),
+.hp-membership--view-block .hp-membership__expired-date:not(:last-child) {
+  margin-bottom: 0.75rem;
+}
+.hp-membership--view-block .hp-membership__status span {
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1;
+  letter-spacing: 1px;
+  font-size: 0.6875rem;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 3px;
+  padding: 0.4rem 0.5rem;
+  color: inherit;
+  transition: color 0.25s, border-color 0.25s;
+  display: inline-block;
+}
+.hp-membership--view-block .hp-membership__status--draft span {
+  color: #ff3860;
+  border-color: #ff3860;
+}
+.hp-membership--view-block .hp-membership__status--pending span {
+  color: #ffcb00;
+  border-color: #ffcb00;
+}
+.hp-membership--view-block .hp-membership__status--publish span {
+  color: #15cd72;
+  border-color: #15cd72;
+}
+.hp-membership--view-block .hp-membership__expired-date {
+  text-transform: uppercase;
+  white-space: nowrap;
+  line-height: 1;
+  letter-spacing: 1px;
+  font-size: 0.6875rem;
   color: rgba(0, 0, 0, 0.4);
 }

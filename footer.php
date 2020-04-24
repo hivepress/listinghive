@@ -14,7 +14,7 @@
 					<?php if ( get_theme_mod( 'copyright_notice' ) ) : ?>
 						<div class="footer-navbar__start">
 							<div class="footer-navbar__copyright">
-								<?php echo esc_html( get_theme_mod( 'copyright_notice' ) ); ?>
+								<?php echo wp_kses_post( get_theme_mod( 'copyright_notice' ) ); ?>
 							</div>
 						</div>
 					<?php endif; ?>

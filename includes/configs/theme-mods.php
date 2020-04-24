@@ -34,6 +34,16 @@ return [
 		],
 	],
 
+	'header_image'  => [
+		'fields' => [
+			'header_image_parallax' => [
+				'label'   => esc_html__( 'Enable parallax effect', 'listinghive' ),
+				'type'    => 'checkbox',
+				'default' => true,
+			],
+		],
+	],
+
 	'fonts'         => [
 		'title'  => esc_html__( 'Fonts', 'listinghive' ),
 
