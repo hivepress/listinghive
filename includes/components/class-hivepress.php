@@ -51,6 +51,22 @@ final class HivePress extends Component {
 	}
 
 	/**
+	 * Gets translation string.
+	 *
+	 * @param string $key String key.
+	 * @return mixed
+	 */
+	public function get_string( $key ) {
+		$string = '';
+
+		if ( ht\is_plugin_active( 'hivepress' ) ) {
+			$string = hivepress()->translator->get_string( $key );
+		}
+
+		return $string;
+	}
+
+	/**
 	 * Adds admin notices.
 	 *
 	 * @param array $notices Notice arguments.

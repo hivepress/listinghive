@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-17 21:49+0000\n"
-"PO-Revision-Date: 2020-03-17 21:53+0000\n"
-"Last-Translator: admin <admin@admin.com>\n"
+"POT-Creation-Date: 2020-04-24 13:27+0000\n"
+"PO-Revision-Date: 2020-04-24 13:41+0000\n"
+"Last-Translator: dfg\n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.3.1; wp-5.3.2"
+"X-Loco-Version: 2.3.3; wp-5.4"
 
 #: comments.php:3
 msgid "Comments"
@@ -48,6 +48,17 @@ msgstr "Поиск"
 msgid "Reply"
 msgstr "Ответить"
 
+#. 1: theme name, 2: link URL.
+#: includes/components/class-hivepress.php:87
+#, php-format
+msgid ""
+"If you want to start with the %1$s demo content, please follow <a "
+"href=\"%2$s\" target=\"_blank\">this screencast</a> to import it."
+msgstr ""
+"Если вы хотите начать с демо-контента %1$s, пожалуйста, следуйте <a "
+"href=\"%2$s\" target=\"_blank\">этим инструкциям</a>, чтобы импортировать "
+"его."
+
 #: includes/configs/menu-locations.php:13
 msgid "Header"
 msgstr "Шапка"
@@ -68,94 +79,50 @@ msgstr "Главный цвет"
 msgid "Secondary Color"
 msgstr "Второстепенный цвет"
 
-#: includes/configs/theme-mods.php:38
+#: includes/configs/theme-mods.php:40
+msgid "Enable parallax effect"
+msgstr "Включить эффект параллакса"
+
+#: includes/configs/theme-mods.php:48
 msgid "Fonts"
 msgstr "Шрифты"
 
-#: includes/configs/theme-mods.php:42
+#: includes/configs/theme-mods.php:52
 msgid "Heading Font"
 msgstr "Заголовочный шрифт"
 
-#: includes/configs/theme-mods.php:48
+#: includes/configs/theme-mods.php:58
 msgid "Body Font"
 msgstr "Основной шрифт"
 
 #: includes/configs/widget-areas.php:13
-msgid "Blog Sidebar"
-msgstr "Боковая панель блога"
+msgid "Blog"
+msgstr "Блог"
 
-#: includes/configs/widget-areas.php:14
-msgid "Add widgets here to appear in the blog sidebar."
-msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы блога."
+#: includes/configs/widget-areas.php:13 includes/configs/widget-areas.php:21
+#: includes/configs/widget-areas.php:30 includes/configs/widget-areas.php:39
+#: includes/configs/widget-areas.php:48 includes/configs/widget-areas.php:57
+#: includes/configs/widget-areas.php:66
+msgctxt "area"
+msgid "sidebar"
+msgstr "боковая панель"
 
-#: includes/configs/widget-areas.php:22
-msgid "Listings Sidebar"
-msgstr "Боковая панель страницы объявлений"
+#: includes/configs/widget-areas.php:57
+msgid "Account"
+msgstr "Аккаунт"
 
-#: includes/configs/widget-areas.php:23
-msgid "Add widgets here to appear in the listings sidebar."
-msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
-"объявлений."
+#: includes/configs/widget-areas.php:66
+msgid "Shop"
+msgstr "Магазин"
 
-#: includes/configs/widget-areas.php:32
-msgid "Listing Sidebar"
-msgstr "Боковая панель страницы объявления"
+#: includes/configs/widget-areas.php:75
+msgid "Site"
+msgstr "Сайт"
 
-#: includes/configs/widget-areas.php:33
-msgid "Add widgets here to appear in the listing sidebar."
-msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
-"объявления."
-
-#: includes/configs/widget-areas.php:42
-msgid "Vendors Sidebar"
-msgstr "Боковая панель страницы продавцов"
-
-#: includes/configs/widget-areas.php:43
-msgid "Add widgets here to appear in the vendors sidebar."
-msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
-"продавцов."
-
-#: includes/configs/widget-areas.php:52
-msgid "Vendor Sidebar"
-msgstr "Боковая панель страницы продавца"
-
-#: includes/configs/widget-areas.php:53
-msgid "Add widgets here to appear in the vendor sidebar."
-msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
-"продавца."
-
-#: includes/configs/widget-areas.php:62
-msgid "Account Sidebar"
-msgstr "Боковая панель страницы аккаунта"
-
-#: includes/configs/widget-areas.php:63
-msgid "Add widgets here to appear in the account sidebar."
-msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
-"аккаунта."
-
-#: includes/configs/widget-areas.php:72
-msgid "Shop Sidebar"
-msgstr "Боковая панель страницы магазина"
-
-#: includes/configs/widget-areas.php:73
-msgid "Add widgets here to appear in the shop sidebar."
-msgstr ""
-"Добавьте виджеты сюда, чтобы отображать их в боковой панели страницы "
-"магазина."
-
-#: includes/configs/widget-areas.php:82
-msgid "Site Footer"
-msgstr "Подвал сайта"
-
-#: includes/configs/widget-areas.php:83
-msgid "Add widgets here to appear in the site footer."
-msgstr "Добавьте виджеты сюда, чтобы отображать их в подвале сайта."
+#: includes/configs/widget-areas.php:75
+msgctxt "area"
+msgid "footer"
+msgstr "подвал"
 
 #: templates/post/post-details.php:3
 msgctxt "post"
@@ -188,8 +155,8 @@ msgstr ""
 "практически любой агрегатор — ListingHive это отличный выбор."
 
 #. URI of the theme
-msgid "https://hivepress.io/theme/listinghive"
-msgstr "https://hivepress.io/theme/listinghive"
+msgid "https://hivepress.io/themes/listinghive"
+msgstr "https://hivepress.io/themes/listinghive"
 
 #. Author of the theme
 msgid "HivePress"
