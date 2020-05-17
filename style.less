@@ -45,7 +45,7 @@ TABLE OF CONTENTS:
 	17.7 Ratings
 	17.8 Messages
 	17.9 Memberships
-	17.10 Bookings
+	17.10 Orders
 18.0 WooCommerce
 	18.1 Forms
 	18.2 Tables
@@ -147,7 +147,7 @@ Mixins
 	background-color: #fff;
 }
 
-.caption {
+.styled-caption {
 	text-transform: uppercase;
 	white-space: nowrap;
 	line-height: 1;
@@ -155,7 +155,7 @@ Mixins
 }
 
 .styled-label {
-	.caption;
+	.styled-caption;
 	font-size: 0.6875rem;
 	background-color: rgba(0,0,0,0.06);
 	color: @secondary-font-color;
@@ -165,7 +165,7 @@ Mixins
 }
 
 .styled-tag {
-	.caption;
+	.styled-caption;
 	font-size: 0.6875rem;
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
@@ -700,7 +700,7 @@ fieldset {
 	}
 
 	&-container--default &-selection--inline &-selection__rendered {
-		.caption;
+		.styled-caption;
 		font-size: 0.6875rem;
 		padding-left: 0.65rem;
 		padding-right: 1.65rem;
@@ -1608,7 +1608,7 @@ button {
 		}
 
 		caption {
-			.caption;
+			.styled-caption;
 			font-size: 0.875rem;
 			margin-bottom: 0.5rem;
 		}
@@ -1675,7 +1675,7 @@ button {
 				}
 
 				.rss-date {
-					.caption;
+					.styled-caption;
 					font-size: 0.6875rem;
 				}
 
@@ -1922,7 +1922,7 @@ button {
 	&-pullquote.is-style-solid-color blockquote,
 	&-quote {
 		cite {
-			.caption;
+			.styled-caption;
 			color: @secondary-font-color;
 			font-size: 0.875rem;
 
@@ -2219,7 +2219,7 @@ button {
 		margin-bottom: -.75rem;
 
 		> * {
-			.caption;
+			.styled-caption;
 			display: flex;
 			align-items: center;
 			font-size: 0.6875rem;
@@ -2470,7 +2470,7 @@ button {
 		color: @secondary-font-color;
 
 		> * {
-			.caption;
+			.styled-caption;
 			font-size: 0.6875rem;
 			margin-bottom: 0.5rem;
 
@@ -2586,7 +2586,7 @@ button {
 
 		> label {
 			&:first-child {
-				.caption;
+				.styled-caption;
 				display: block;
 				font-size: 0.6875rem;
 				margin-bottom: 0.75rem;
@@ -2761,7 +2761,7 @@ button {
 	}
 
 	& &-result-count {
-		.caption;
+		.styled-caption;
 		font-size: 0.6875rem;
 		color: @secondary-font-color;
 		margin: 0.5rem 0 1.5rem;
@@ -2771,7 +2771,7 @@ button {
 		margin-bottom: 1.5rem;
 
 		select {
-			.caption;
+			.styled-caption;
 			font-size: 0.6875rem;
 			padding: 0.25rem;
 		}
@@ -2787,7 +2787,7 @@ button {
 				margin: 0 0 1.5rem;
 
 				label {
-					.caption;
+					.styled-caption;
 					font-size: 0.6875rem;
 					margin-bottom: 0.75rem;
 				}
@@ -3004,7 +3004,7 @@ button {
 		}
 
 		.price_label {
-			.caption;
+			.styled-caption;
 			color: @secondary-font-color;
 		}
 	}
@@ -3017,7 +3017,7 @@ button {
 			}
 
 			.reviewer {
-				.caption;
+				.styled-caption;
 				font-size: 0.6875rem;
 			}
 		}
@@ -3259,8 +3259,22 @@ button {
 		}
 	}
 
+	&-status {
+		span {
+			.styled-caption;
+			font-size: 0.6875rem;
+			border-radius: @border-radius;
+		}
+	}
+
+	&-meta {
+		.styled-caption;
+		font-size: 0.6875rem;
+		color: @secondary-font-color;
+	}
+
 	&-result-count {
-		.caption;
+		.styled-caption;
 		font-size: 0.6875rem;
 		color: @secondary-font-color;
 		@media only screen and (max-width: 47.99em) {
@@ -3511,7 +3525,7 @@ button {
 		&--listing-sort,
 		&--vendor-sort {
 			select {
-				.caption;
+				.styled-caption;
 				font-size: 0.6875rem;
 				padding: 0.25rem;
 			}
@@ -3694,7 +3708,7 @@ button {
 		}
 
 		&__label {
-			.caption;
+			.styled-caption;
 			font-size: 0.6875rem;
 			margin-bottom: 0.75rem;
 
@@ -3855,30 +3869,13 @@ button {
 
 		&--view-block &__created-date,
 		&--view-page &__created-date {
-			.caption;
+			.styled-caption;
 			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
 
 		&--edit-block &__created-date {
 			color: @secondary-font-color;
-		}
-
-		&--edit-block &__status {
-			span {
-				.styled-tag;
-				display: inline-block;
-			}
-
-			&--draft span {
-				color: #ff3860;
-				border-color: #ff3860;
-			}
-
-			&--pending span {
-				color: #ffcb00;
-				border-color: #ffcb00;
-			}
 		}
 
 		&--view-block &__attributes--secondary {
@@ -4151,7 +4148,7 @@ button {
 
 		&--view-block &__registered-date,
 		&--view-page &__registered-date {
-			.caption;
+			.styled-caption;
 			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
@@ -4221,6 +4218,33 @@ button {
 				padding-bottom: 0.5rem;
 			}
 		}
+
+		&__actions--secondary {
+			.block;
+			padding: 1.5rem 2rem;
+		}
+
+		&__actions--secondary &__balance {
+			padding:0;
+			background-color:transparent;
+
+			&:not(:last-child) {
+				margin-bottom:.25rem;
+			}
+
+			strong {
+				.styled-caption;
+				color: @secondary-font-color;
+				font-size: 0.6875rem;
+				font-weight: normal;
+				margin-bottom:.25rem;
+			}
+
+			span {
+				font-size: 1.5625rem;
+				color: @heading-font-color;
+			}
+		}
 	}
 	/*--------------------------------------------------------------
 	17.6 Reviews
@@ -4246,7 +4270,7 @@ button {
 		}
 
 		&__created-date {
-			.caption;
+			.styled-caption;
 			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
@@ -4314,7 +4338,7 @@ button {
 		}
 
 		&--view-block &__sent-date {
-			.caption;
+			.styled-caption;
 			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
@@ -4412,57 +4436,25 @@ button {
 		}
 
 		&--view-block &__expired-date {
-			.caption;
+			.styled-caption;
 			font-size: 0.6875rem;
 			color: @secondary-font-color;
 		}
 	}
 	/*--------------------------------------------------------------
-	17.10 Bookings
+	17.10 Orders
 	--------------------------------------------------------------*/
-	&-booking {
-		&--view-block {
-			.block;
-			padding: 1.5rem;
-		}
-
-		&--view-page &__attributes--primary {
-			.block;
-			padding: 1rem 1.5rem;
-		}
-
-		&--view-page &__attributes--primary &__attribute {
-			background-color: transparent;
-			padding: 0;
-
+	&-order {
+		&--page &__created-date,
+		&--page &__status,
+		&--page &__vendor {
 			&:not(:last-child) {
-				border-bottom: 1px solid @border-color;
-				margin-bottom: 0.5rem;
-				padding-bottom: 0.5rem;
+				margin-bottom: 0.75rem;
 			}
 		}
 
-		&--view-block &__status {
-			span {
-				.styled-tag;
-				display: inline-block;
-			}
-
-			&--trash span {
-				color: #ff3860;
-				border-color: #ff3860;
-			}
-
-			&--draft span,
-			&--pending span {
-				color: #ffcb00;
-				border-color: #ffcb00;
-			}
-
-			&--publish span {
-				color: #15cd72;
-				border-color: #15cd72;
-			}
+		&--edit-block &__created-date {
+			color: @secondary-font-color;
 		}
 	}
 }
