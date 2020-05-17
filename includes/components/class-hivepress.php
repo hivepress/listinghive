@@ -9,6 +9,7 @@ namespace HiveTheme\Components;
 
 use HiveTheme\Helpers as ht;
 use HivePress\Helpers as hp;
+use HivePress\Blocks;
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -40,6 +41,12 @@ final class HivePress extends Component {
 
 			// Render site header.
 			add_filter( 'hivetheme/v1/areas/site_header', [ $this, 'render_site_header' ] );
+
+			if ( ht\is_plugin_active( 'woocommerce' ) ) {
+
+				// Render order title.
+				add_action( 'woocommerce_account_content', [ $this, 'render_order_title' ], 1 );
+			}
 
 			// Alter templates.
 			add_filter( 'hivepress/v1/templates/listing_view_block', [ $this, 'alter_listing_view_block' ] );
@@ -104,6 +111,23 @@ final class HivePress extends Component {
 		$output .= ( new \HivePress\Blocks\Template( [ 'template' => 'site_header_block' ] ) )->render();
 
 		return $output;
+	}
+
+	/**
+	 * Renders order title.
+	 */
+	public function render_order_title() {
+		if ( is_wc_endpoint_url( 'orders' ) || is_wc_endpoint_url( 'view-order' ) ) {
+			echo ( new Blocks\Part(
+				[
+					'path'    => 'page/page-title',
+
+					'context' => [
+						'page_title' => get_the_title(),
+					],
+				]
+			) )->render();
+		}
 	}
 
 	/**
