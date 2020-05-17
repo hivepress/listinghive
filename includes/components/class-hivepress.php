@@ -9,6 +9,7 @@ namespace HiveTheme\Components;
 
 use HiveTheme\Helpers as ht;
 use HivePress\Helpers as hp;
+use HivePress\Blocks;
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -40,6 +41,15 @@ final class HivePress extends Component {
 
 			// Render site header.
 			add_filter( 'hivetheme/v1/areas/site_header', [ $this, 'render_site_header' ] );
+
+			if ( ht\is_plugin_active( 'woocommerce' ) ) {
+
+				// Hide page header.
+				add_filter( 'hivetheme/v1/areas/page_header', [ $this, 'hide_page_header' ] );
+
+				// Render page title.
+				add_action( 'woocommerce_account_content', [ $this, 'render_page_title' ], 1 );
+			}
 
 			// Alter templates.
 			add_filter( 'hivepress/v1/templates/listing_view_block', [ $this, 'alter_listing_view_block' ] );
@@ -104,6 +114,37 @@ final class HivePress extends Component {
 		$output .= ( new \HivePress\Blocks\Template( [ 'template' => 'site_header_block' ] ) )->render();
 
 		return $output;
+	}
+
+	/**
+	 * Hides page header.
+	 *
+	 * @param string $output HTML output.
+	 * @return string
+	 */
+	public function hide_page_header( $output ) {
+		if ( is_wc_endpoint_url( 'orders' ) || is_wc_endpoint_url( 'view-order' ) ) {
+			$output = '';
+		}
+
+		return $output;
+	}
+
+	/**
+	 * Renders page title.
+	 */
+	public function render_page_title() {
+		if ( is_wc_endpoint_url( 'orders' ) || is_wc_endpoint_url( 'view-order' ) ) {
+			echo ( new Blocks\Part(
+				[
+					'path'    => 'page/page-title',
+
+					'context' => [
+						'page_title' => get_the_title(),
+					],
+				]
+			) )->render();
+		}
 	}
 
 	/**
