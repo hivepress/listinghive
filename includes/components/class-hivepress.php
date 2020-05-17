@@ -44,8 +44,11 @@ final class HivePress extends Component {
 
 			if ( ht\is_plugin_active( 'woocommerce' ) ) {
 
-				// Render order title.
-				add_action( 'woocommerce_account_content', [ $this, 'render_order_title' ], 1 );
+				// Hide page header.
+				add_filter( 'hivetheme/v1/areas/page_header', [ $this, 'hide_page_header' ] );
+
+				// Render page title.
+				add_action( 'woocommerce_account_content', [ $this, 'render_page_title' ], 1 );
 			}
 
 			// Alter templates.
@@ -114,9 +117,23 @@ final class HivePress extends Component {
 	}
 
 	/**
-	 * Renders order title.
+	 * Hides page header.
+	 *
+	 * @param string $output HTML output.
+	 * @return string
 	 */
-	public function render_order_title() {
+	public function hide_page_header( $output ) {
+		if ( is_wc_endpoint_url( 'orders' ) || is_wc_endpoint_url( 'view-order' ) ) {
+			$output = '';
+		}
+
+		return $output;
+	}
+
+	/**
+	 * Renders page title.
+	 */
+	public function render_page_title() {
 		if ( is_wc_endpoint_url( 'orders' ) || is_wc_endpoint_url( 'view-order' ) ) {
 			echo ( new Blocks\Part(
 				[

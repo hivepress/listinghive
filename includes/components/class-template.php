@@ -257,6 +257,9 @@ final class Template extends Component {
 			);
 		}
 
+		// Filter output.
+		$output = apply_filters( 'hivetheme/v1/areas/page_header', $output );
+
 		// Add wrapper.
 		if ( $output ) {
 			$output = $this->render_part(
