@@ -62,7 +62,7 @@
 						<?php endif; ?>
 					</div>
 				</div>
-				<?php echo hivetheme()->template->render_header(); ?>
+				<?php // todo. echo hivetheme()->template->render_header(); ?>
 			</header>
 			<div class="site-content" id="content">
 				<div class="container">
