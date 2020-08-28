@@ -62,7 +62,7 @@
 						<?php endif; ?>
 					</div>
 				</div>
-				<?php // todo. echo hivetheme()->template->render_header(); ?>
+				<?php echo apply_filters( 'hivetheme/v1/areas/site_hero', '' ); ?>
 			</header>
 			<div class="site-content" id="content">
 				<div class="container">
