@@ -4,14 +4,14 @@
  *
  * @package HiveTheme\Configs
  */
-// todo.
+
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
 return [
 	'parent_frontend' => [
 		'handle' => 'hivetheme-parent-frontend',
-		'src'    => hivetheme()->get_url( 'listinghive' ) . '/style.css',
+		'src'    => hivetheme()->get_url( 'parent' ) . '/style.css',
 		'scope'  => [ 'frontend', 'editor' ],
 	],
 ];
