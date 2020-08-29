@@ -4,209 +4,19 @@ Author: HivePress
 Author URI: https://hivepress.io
 Theme URI: https://hivepress.io/themes/listinghive
 Description: A multipurpose WordPress theme that allows you to build any type of directory and listing websites. Whether it’s a business directory, job board, real estate, classifieds or basically any listing website — ListingHive is a great choice for it.
-Version: 1.1.3
+Version: 1.2.0
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: right-sidebar, custom-colors, custom-menu, custom-logo, custom-header, featured-image-header, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready
 Text Domain: listinghive
 */
 /*--------------------------------------------------------------
-TABLE OF CONTENTS:
-----------------------------------------------------------------
-1.0 Normalize
-2.0 Typography
-3.0 Accessibility
-4.0 Alignments
-5.0 Media
-6.0 Forms
-7.0 Tables
-8.0 Buttons
-9.0 Layout
-	9.1 Header
-	9.2 Content
-	9.3 Section
-	9.4 Footer
-	9.5 Modal
-	9.6 Loader
-10.0 Widgets
-11.0 Blocks
-12.0 Pages
-13.0 Posts
-14.0 Tags
-15.0 Comments
-16.0 Pagination
-17.0 HivePress
-	17.1 Forms
-	17.2 Listings
-	17.3 Listing categories
-	17.4 Listing packages
-	17.5 Vendors
-	17.6 Reviews
-	17.7 Ratings
-	17.8 Messages
-	17.9 Memberships
-	17.10 Orders
-18.0 WooCommerce
-	18.1 Forms
-	18.2 Tables
-	18.3 Buttons
-	18.4 Widgets
-	18.5 Products
-	18.6 Checkout
-	18.7 Account
-	18.8 Pagination
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
 Variables
 --------------------------------------------------------------*/
-@heading-font-family: 'Poppins', sans-serif;
-@heading-font-weight: 500;
-@body-font-family: 'Open Sans', sans-serif;
-@heading-font-color: rgba(0,0,0,0.8);
-@heading-font-color-hover: rgba(0,0,0,1);
-@body-font-color: rgba(0,0,0,0.6);
-@primary-font-color: #ffc107;
-@secondary-font-color: rgba(0,0,0,0.4);
-@icon-color: rgba(0,0,0,0.15);
-@icon-color-hover: rgba(0,0,0,0.25);
-@primary-background-color: #ffc107;
-@secondary-background-color: rgba(0,0,0,0.03);
-@secondary-background-color-invert: rgba(255,255,255,.2);
-@ternary-background-color: #15cd72;
-@ternary-font-color: #13b966;
-@border-color: rgba(0,0,0,.06);
-@border-color-hover: rgba(0,0,0,0.1);
 @border-radius: 3px;
-@box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-@box-shadow-hover: 0 0 12px rgba(0,0,0,0.12);
-@animation-duration: 0.25s;
 /*--------------------------------------------------------------
-Mixins
+Typography
 --------------------------------------------------------------*/
-.image-container {
-	img {
-		display: block;
-		width: 100%;
-	}
-}
-
-.center-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-}
-
-.inherit-container {
-	a,
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		color: inherit;
-	}
-}
-
-.unstyled-list {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-
-	li {
-		margin: 0;
-	}
-}
-
-.icon {
-	font-family: 'Font Awesome 5 Free';
-	font-weight: 900;
-	font-style: normal;
-	font-variant: normal;
-	line-height: 1;
-	display: inline-block;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-font-smoothing: antialiased;
-	text-rendering: auto;
-}
-
-.overlay {
-	content: '';
-	display: block;
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-}
-
-.block {
-	border: 1px solid @border-color;
-	border-radius: @border-radius;
-	box-shadow: @box-shadow;
-	background-color: #fff;
-}
-
-.styled-caption {
-	text-transform: uppercase;
-	white-space: nowrap;
-	line-height: 1;
-	letter-spacing: 1px;
-}
-
-.styled-label {
-	.styled-caption;
-	font-size: 0.6875rem;
-	background-color: rgba(0,0,0,0.06);
-	color: @secondary-font-color;
-	transition: color @animation-duration, background-color @animation-duration;
-	border-radius: 290486px;
-	padding: 0.5rem 0.75rem;
-}
-
-.styled-tag {
-	.styled-caption;
-	font-size: 0.6875rem;
-	border: 1px solid @border-color;
-	border-radius: @border-radius;
-	padding: 0.4rem 0.5rem;
-	color: inherit;
-	transition: color @animation-duration, border-color @animation-duration;
-}
-
-.styled-title {
-	padding-top: 1rem;
-	position: relative;
-
-	&::before {
-		position: absolute;
-		top: 0;
-		left: 0;
-		height: 4px;
-		width: 45px;
-		display: block;
-		content: '';
-		background-color: @primary-background-color;
-		background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
-	}
-}
-/*--------------------------------------------------------------
-2.0 Typography
---------------------------------------------------------------*/
-body {
-	font-family: @body-font-family;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-	font-family: @heading-font-family;
-	font-weight: @heading-font-weight;
-}
-
 p {
 	&.has-background {
 		border-radius: @border-radius;
@@ -217,7 +27,7 @@ pre {
 	border-radius: @border-radius;
 }
 /*--------------------------------------------------------------
-5.0 Media
+Media
 --------------------------------------------------------------*/
 .gallery {
 	&-icon {
@@ -241,7 +51,7 @@ pre {
 	}
 }
 /*--------------------------------------------------------------
-6.0 Forms
+Forms
 --------------------------------------------------------------*/
 input[type='color'],
 input[type='date'],
@@ -266,53 +76,29 @@ textarea {
 	border-radius: @border-radius;
 }
 
-fieldset {
-	legend {
-		font-family: @heading-font-family;
-		font-weight: @heading-font-weight;
-	}
-}
-
 .select2 {
 	&-container--default &-dropdown,
 	&-container--default &-search &-search__field,
 	&-container--default &-selection {
 		border-radius: @border-radius;
 	}
-
-	&-container--default &-selection--inline &-selection__rendered {
-		.styled-caption;
-		font-size: 0.6875rem;
-	}
 }
 
 .pac {
 	&-container {
 		border-radius: @border-radius;
-		box-shadow: @box-shadow;
-		border: 1px solid @border-color;
 	}
 }
 /*--------------------------------------------------------------
-8.0 Buttons
+Buttons
 --------------------------------------------------------------*/
 .button {
 	border-radius: @border-radius;
-	font-family: @heading-font-family;
-	font-weight: @heading-font-weight;
 }
 
 .button--primary,
 .button--secondary {
 	background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2));
-}
-
-.button--primary {
-	background-color: @primary-background-color;
-}
-
-.button--secondary {
-	background-color: @ternary-background-color;
 }
 
 button[type=submit],
@@ -321,43 +107,18 @@ input[type=submit] {
 	.button--primary;
 }
 /*--------------------------------------------------------------
-9.1 Header
+Header
 --------------------------------------------------------------*/
 .header-navbar {
-	&:last-child {
-		border-bottom: 1px solid @border-color;
-	}
-
-	&__start {
-		margin-right: 2rem;
-	}
-
 	&__menu {
-		align-self: stretch;
-		margin: -1rem -1rem -1rem 0;
-
-		&:not(:last-child) {
-			margin-right: 1rem;
-		}
-
 		ul {
 			li {
-				&.active > a,
-				&.current-menu-item > a,
-				a:hover {
-					color: @primary-font-color;
-				}
-
 				ul {
 					border-bottom-left-radius: @border-radius;
 					border-bottom-right-radius: @border-radius;
-					border: 1px solid @border-color;
-					box-shadow: @box-shadow;
 
 					li {
 						ul {
-							margin-top: -1px;
-
 							&.left {
 								border-top-left-radius: @border-radius;
 							}
@@ -370,148 +131,14 @@ input[type=submit] {
 				}
 			}
 		}
-
-		> ul {
-			> li {
-				&.current-menu-item {
-					&::before {
-						position: absolute;
-						top: 0;
-						left: 0;
-						right: 0;
-						display: block;
-						height: 3px;
-						content: '';
-						background-color: @primary-background-color;
-						background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
-					}
-				}
-			}
-
-			&.wrap > li {
-				padding-top: 0.25rem;
-				padding-bottom: 0.25rem;
-
-				&.current-menu-item {
-					&::before {
-						display: none;
-					}
-				}
-			}
-		}
-	}
-
-	&__burger {
-		> ul {
-			> li {
-				&.current-menu-item {
-					&::before {
-						position: absolute;
-						top: 0;
-						left: -2rem;
-						bottom: 0;
-						display: block;
-						width: 3px;
-						content: '';
-						background-color: @primary-background-color;
-						background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
-					}
-				}
-
-				> a {
-					font-size: 1.125rem;
-					font-family: @heading-font-family;
-					font-weight: @heading-font-weight;
-					color: @heading-font-color;
-				}
-			}
-		}
-	}
-}
-
-.header-logo {
-	&__name {
-		font-weight: @heading-font-weight;
-		font-family: @heading-font-family;
 	}
 }
 
 .header-hero {
 	background-image: linear-gradient(to right, rgba(0,0,0,0),rgba(0,0,0,.08));
-
-	&--cover {
-		.inherit-container;
-		background-position: center top;
-		background-repeat: no-repeat;
-		background-size: cover;
-		position: relative;
-		color: #fff;
-
-		&::after {
-			.overlay;
-			background-color: rgba(0,0,0,0.35);
-		}
-	}
-
-	&__content {
-		h1 {
-			@media only screen and (min-width: 48em) {
-				font-size: 2.625rem;
-			}
-			@media only screen and (min-width: 75em) {
-				font-size: 3rem;
-			}
-		}
-	}
 }
 /*--------------------------------------------------------------
-9.3 Section
---------------------------------------------------------------*/
-.section {
-	&:not(:first-child) {
-		margin-top: 3rem;
-	}
-
-	&:not(:last-child) {
-		margin-bottom: 3rem;
-	}
-
-	&__title {
-		.styled-title;
-
-		&:not(:last-child) {
-			margin-bottom: 1.5rem;
-		}
-
-		&--center {
-			text-align: center;
-
-			&::before {
-				left: 50%;
-				margin-left: -22.5px;
-			}
-		}
-	}
-}
-
-.title {
-	.styled-title;
-
-	&:not(:last-child) {
-		margin-bottom: 1.5rem;
-	}
-
-	&--center {
-		text-align: center;
-
-		&::before {
-			left: 50%;
-			margin-left: -22px;
-		}
-	}
-}
-/*--------------------------------------------------------------
-9.5 Modal
+Modal
 --------------------------------------------------------------*/
 .fancybox {
 	&-content {
@@ -519,25 +146,14 @@ input[type=submit] {
 	}
 }
 /*--------------------------------------------------------------
-10.0 Widgets
+Widgets
 --------------------------------------------------------------*/
 .widget {
-	&--sidebar,
-	&.hp-menu {
-		.block;
+	.site-sidebar & {
 		padding: 2rem;
 
 		&:not(:last-child) {
 			margin-bottom: 2rem;
-		}
-	}
-
-	&--footer &__title {
-		.styled-title;
-
-		&::before {
-			width: 30px;
-			height: 3px;
 		}
 	}
 
@@ -547,82 +163,19 @@ input[type=submit] {
 		box-shadow: none;
 		border: none;
 	}
-
-	&_calendar {
-		caption {
-			.styled-caption;
-			font-size: 0.875rem;
-		}
-	}
-
-	&_rss {
-		ul {
-			li {
-				.rss-date {
-					.styled-caption;
-					font-size: 0.6875rem;
-				}
-			}
-		}
-	}
-}
-
-.widget_archive,
-.widget_categories,
-.widget_meta,
-.widget_nav_menu,
-.widget_pages,
-.widget_product_categories,
-.widget_recent_entries,
-.wp-block-archives,
-.wp-block-categories,
-.wp-block-latest-posts {
-	li {
-		a {
-			transition: color @animation-duration;
-
-			&:hover {
-				color: @primary-font-color;
-			}
-		}
-
-		&.current-cat,
-		&.current-menu-item,
-		&.is-active,
-		&:hover {
-			&::before,
-			> a {
-				color: @primary-font-color;
-			}
-		}
-	}
 }
 /*--------------------------------------------------------------
-11.0 Blocks
+Blocks
 --------------------------------------------------------------*/
-
 .wp-block {
-	&-quote {
-		border-color: @primary-background-color;
-	}
-
 	&-pullquote {
 		&.is-style-solid-color {
 			border-radius: @border-radius;
 		}
 	}
 
-	&-pullquote blockquote,
-	&-pullquote.is-style-solid-color blockquote,
-	&-quote {
-		cite {
-			.styled-caption;
-		}
-	}
-
 	&-file {
 		& &__button {
-			background-color: @ternary-background-color;
 			border-radius: @border-radius;
 		}
 	}
@@ -640,50 +193,11 @@ input[type=submit] {
 		}
 	}
 }
-
-.editor-post-title {
-	&__block,
-	&__input {
-		font-family: @heading-font-family;
-		font-weight: @heading-font-weight;
-	}
-}
 /*--------------------------------------------------------------
-12.0 Pages
---------------------------------------------------------------*/
-.page {
-	&__title {
-		text-align: center;
-	}
-}
-/*--------------------------------------------------------------
-13.0 Posts
+Posts
 --------------------------------------------------------------*/
 .post {
-	&--archive {
-		margin-bottom: 2rem;
-		padding-bottom: 2rem;
-		border-bottom: 1px solid @border-color;
-	}
-
-	&--archive &__header {
-		&:not(:last-child) {
-			margin-bottom: 1rem;
-		}
-
-		&--cover {
-			.inherit-container;
-			color: #fff;
-			position: relative;
-
-			&:not(:last-child) {
-				margin-bottom: 1.5rem;
-			}
-		}
-	}
-
 	&--archive &__image {
-		.image-container;
 		position: relative;
 
 		img {
@@ -696,303 +210,14 @@ input[type=submit] {
 			background-image: linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.5));
 		}
 	}
-
-	&--archive &__header--cover &__categories,
-	&--archive &__header--cover &__title {
-		position: absolute;
-		z-index: 1;
-		left: 0;
-		padding: 0 2rem;
-	}
-
-	&--single &__title {
-		text-align: center;
-
-		&:not(:last-child) {
-			margin-bottom: 1.25rem;
-		}
-	}
-
-	&--archive &__header--cover &__title {
-		bottom: 0;
-		padding-bottom: 2rem;
-	}
-
-	&__categories,
-	&__details {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-	}
-
-	&--single &__categories,
-	&--single &__details {
-		justify-content: center;
-	}
-
-	&.sticky &__details {
-		background-color: transparent;
-	}
-
-	&__categories {
-		margin-bottom: -.5rem;
-
-		a {
-			.styled-label;
-			margin-bottom: 0.5rem;
-
-			&:not(:last-child) {
-				margin-right: 0.5rem;
-			}
-
-			&:hover {
-				background-color: @ternary-background-color;
-				color: #fff;
-			}
-		}
-	}
-
-	&--single &__categories {
-		&:not(:last-child) {
-			margin-bottom: 0.5rem;
-		}
-	}
-
-	&--archive &__categories {
-		&:not(:last-child) {
-			margin-bottom: 0.25rem;
-		}
-	}
-
-	&__header--cover &__categories {
-		a {
-			background-color: @secondary-background-color-invert;
-			color: #fff;
-
-			&:hover {
-				background-color: #fff;
-				color: rgba(0,0,0,0.8);
-			}
-		}
-	}
-
-	&--archive &__header--cover &__categories {
-		top: 0;
-		padding-top: 2rem;
-	}
-
-	&__details {
-		margin-bottom: -.75rem;
-
-		> * {
-			.styled-caption;
-			display: flex;
-			align-items: center;
-			font-size: 0.6875rem;
-			color: @secondary-font-color;
-			margin-bottom: 0.75rem;
-
-			&:not(:last-child) {
-				margin-right: 0.5rem;
-
-				&::after {
-					content: '';
-					display: block;
-					background-color: @icon-color;
-					border-radius: 50%;
-					width: 4px;
-					height: 4px;
-					margin-left: 0.5rem;
-				}
-			}
-
-			i {
-				font-size: 13px;
-
-				&:first-child {
-					margin-right: 0.4rem;
-				}
-
-				&:last-child {
-					margin-left: 0.4rem;
-					transition: transform @animation-duration;
-				}
-			}
-
-			&:hover i {
-				&:last-child {
-					transform: translateX(5px);
-				}
-			}
-		}
-
-		a {
-			transition: color @animation-duration;
-
-			&:hover {
-				color: @primary-font-color;
-			}
-		}
-	}
-
-	&__header--cover &__details {
-		> * {
-			color: inherit;
-
-			&:not(:last-child) {
-				&::after {
-					background-color: rgba(255,255,255,.8);
-				}
-			}
-		}
-	}
-
-	&__navigation,
-	&__tags,
-	&__text {
-		&:not(:last-child) {
-			margin-bottom: 1.5rem;
-		}
-	}
-
-	&__navigation {
-		div {
-			div {
-				@media only screen and (max-width: 47.99em) {
-					&:not(:last-child):not(:empty) {
-						margin-bottom: 1rem;
-					}
-				}
-
-				&:last-child {
-					text-align: right;
-				}
-			}
-		}
-
-		h5 {
-			span {
-				word-wrap: break-word;
-			}
-
-			i {
-				color: rgba(0, 0, 0, 0.15);
-				font-size: 16px;
-				transition: transform @animation-duration, color @animation-duration;
-
-				&:first-child {
-					margin-right: 0.5rem;
-				}
-
-				&:last-child {
-					margin-left: 0.5rem;
-				}
-			}
-
-			&:hover {
-				i {
-					color: @primary-font-color;
-
-					&:first-child {
-						transform: translateX(-5px;);
-					}
-
-					&:last-child {
-						transform: translateX(5px;);
-					}
-				}
-			}
-		}
-	}
 }
 /*--------------------------------------------------------------
-14.0 Tags
---------------------------------------------------------------*/
-
-.tagcloud {
-	a {
-		.styled-tag;
-		font-size: 0.6875rem!important;
-
-		&:hover {
-			border-color: @primary-font-color;
-			color: @primary-font-color;
-		}
-	}
-}
-/*--------------------------------------------------------------
-15.0 Comments
+Comments
 --------------------------------------------------------------*/
 .comments {
 	> ul {
 		> li {
 			.block;
-
-			ul {
-				padding-left: 5.5rem;
-				@media only screen and (max-width: 47.99em) {
-					padding-left: 0;
-				}
-
-				ul ul ul {
-					padding-left: 0;
-				}
-			}
-
-			> ul {
-				padding-top: 2rem;
-				padding-left: 2rem;
-				border-top: 1px solid @border-color;
-			}
-		}
-	}
-}
-
-.comment {
-	.comments > ul > li > & {
-		padding-top: 2rem;
-		padding-left: 2rem;
-
-		ul {
-			padding-left: 2rem;
-		}
-	}
-
-	&.bypostauthor &__image {
-		img {
-			border: 2px solid @primary-background-color;
-		}
-	}
-
-	&__author {
-		font-family: @heading-font-family;
-		font-weight: @heading-font-weight;
-	}
-
-	&__details {
-		> * {
-			.styled-caption;
-			font-size: 0.6875rem;
-			margin-bottom: 0.5rem;
-
-			&:not(:last-child) {
-				margin-right: 0.75rem;
-			}
-		}
-
-		a {
-			color: inherit;
-			display: flex;
-			align-items: center;
-
-			&:hover {
-				color: @primary-font-color;
-			}
-
-			i {
-				font-size: 12px;
-				margin-right: 0.4rem;
-			}
 		}
 	}
 }
@@ -1010,213 +235,22 @@ input[type=submit] {
 			padding-left: 0;
 		}
 	}
-
-	.comment-reply-title {
-		a {
-			color: @icon-color;
-
-			&:hover {
-				color: @primary-font-color;
-			}
-
-			i {
-				font-size: 18px;
-				display: block;
-			}
-		}
-	}
-
-	[class^='comment-form-'] {
-		> label {
-			&:first-child {
-				.styled-caption;
-				font-size: 0.6875rem;
-			}
-		}
-	}
 }
 /*--------------------------------------------------------------
-16.0 Pagination
+HivePress
 --------------------------------------------------------------*/
-.pagination {
-	justify-content: center;
-
-	> span,
-	.nav-links > a,
-	.nav-links > span,
-	> a,
-	ul li a,
-	ul li span.current,
-	ul li span.dots {
-		.center-container;
-		border: 2px solid transparent;
-		border-radius: 50%;
-		color: inherit;
-		width: 3rem;
-		height: 3rem;
-		font-family: @heading-font-family;
-		font-weight: @heading-font-weight;
-
-		&.page-numbers:not(.prev):not(.next),
-		&:not(.prev):not(.next) {
-			font-size: 1.125rem;
-		}
-
-		&.next,
-		&.prev {
-			font-size: 0;
-			color: @icon-color;
-
-			&::before {
-				.icon;
-				font-size: 16px;
-			}
-
-			i {
-				display: none;
-			}
-		}
-
-		&.prev::before {
-			content: '\f053';
-		}
-
-		&.next::before {
-			content: '\f054';
-		}
-	}
-
-	> span,
-	.nav-links > a,
-	.nav-links > span,
-	> a,
-	ul li {
-		&.page-numbers:not(:last-child),
-		&:not(:last-child) {
-			margin-right: 0.5rem;
-		}
-	}
-
-	.nav-links > span,
-	> span,
-	ul li span.current {
-		&:not(.dots) {
-			border-color: @border-color;
-		}
-	}
-
-	.nav-links > a,
-	> a,
-	ul li a {
-		transition: color @animation-duration;
-
-		&:hover {
-			color: @primary-font-color;
-		}
-	}
-}
-/*--------------------------------------------------------------
-17.0 HivePress
---------------------------------------------------------------*/
-
 .hp {
-	&-link {
-		transition: color @animation-duration;
-
-		&:hover {
-			color: @primary-font-color;
-		}
-
-		i {
-			color: @icon-color;
-			transition: color @animation-duration;
-		}
-
-		&:hover i {
-			color: @primary-font-color;
-		}
-	}
-
 	&-status {
 		span {
-			.styled-caption;
-			font-size: 0.6875rem;
 			border-radius: @border-radius;
 		}
-	}
-
-	&-meta {
-		.styled-caption;
-		font-size: 0.6875rem;
-	}
-
-	&-result-count {
-		.styled-caption;
-		font-size: 0.6875rem;
 	}
 
 	&-map {
 		border-radius: @border-radius;
 	}
-
-	&-menu {
-		&--site-header {
-			button {
-				@media only screen and (max-width: 47.99em) {
-					padding: 0.25rem 0.56rem;
-				}
-
-				i:first-child {
-					margin-right: 0.5rem;
-				}
-			}
-
-			a,
-			button {
-				@media only screen and (max-width: 47.99em) {
-					span {
-						display: none;
-					}
-
-					i:first-child {
-						margin-right: 0;
-					}
-				}
-			}
-		}
-
-		&--tabbed &__item {
-			&--current {
-				&::before {
-					background-color: @primary-background-color;
-					background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
-				}
-			}
-
-			a {
-				color: inherit;
-				transition: color @animation-duration;
-
-				&:hover {
-					color: @primary-font-color;
-				}
-			}
-
-			&--current a {
-				color: @primary-font-color;
-				font-weight: normal;
-			}
-		}
-	}
-
-	&-page,
-	&-section {
-		&__title {
-			.styled-title;
-		}
-	}
 	/*--------------------------------------------------------------
-	17.1 Forms
+	Forms
 	--------------------------------------------------------------*/
 	&-form {
 		&__messages {
@@ -1228,110 +262,10 @@ input[type=submit] {
 		&--vendor-search {
 			.block;
 			padding: 0.625rem;
-			align-items: center;
-			@media only screen and (max-width: 47.99em) {
-				align-items: stretch;
-			}
-
-			.home span[id^=more-] + &,
-			.tax-hp_listing_category & {
-				margin-top: -4.25rem;
-				@media only screen and (min-width: 48em) {
-					margin-top: -5.25rem;
-				}
-				@media only screen and (min-width: 75em) {
-					margin-top: -6.25rem;
-				}
-			}
-		}
-
-		&--listing-search &__field,
-		&--listing-search &__fields,
-		&--vendor-search &__field,
-		&--vendor-search &__fields {
-			&:not(:last-child) {
-				margin-right: 0.625rem;
-				@media only screen and (max-width: 47.99em) {
-					margin: 0;
-				}
-			}
-		}
-
-		&--listing-search &__fields,
-		&--vendor-search &__fields {
-			@media only screen and (max-width: 47.99em) {
-				&:not(:last-child) {
-					margin-bottom: 0.625rem;
-				}
-			}
-		}
-
-		&--listing-search &__field,
-		&--vendor-search &__field {
-			&:not(:last-child) {
-				border-right: 1px solid @border-color;
-				@media only screen and (max-width: 47.99em) {
-					border-right: none;
-					border-bottom: 1px solid @border-color;
-				}
-			}
-
-			input[type='color'],
-			input[type='date'],
-			input[type='datetime'],
-			input[type='datetime-local'],
-			input[type='email'],
-			input[type='month'],
-			input[type='number'],
-			input[type='password'],
-			input[type='range'],
-			input[type='min'],
-			input[type='max'],
-			input[type='value'],
-			input[type='step'],
-			input[type='search'],
-			input[type='tel'],
-			input[type='text'],
-			input[type='time'],
-			input[type='url'],
-			select,
-			textarea {
-				padding-top: 0;
-				padding-bottom: 0;
-				border: none;
-				font-size: 1.125rem;
-				line-height: 3rem;
-				height: 3rem;
-			}
-		}
-
-		&--listing-search &__button,
-		&--vendor-search &__button {
-			height: 3.125rem;
-			padding-left: 2rem;
-			padding-right: 2rem;
-			font-size: 1.125rem;
-		}
-
-		&--listing-sort,
-		&--vendor-sort {
-			select {
-				.styled-caption;
-				font-size: 0.6875rem;
-				padding: 0.25rem;
-			}
 		}
 	}
 
 	&-field {
-		&--number-range {
-			.ui {
-				&-slider-range {
-					background-color: @ternary-background-color;
-				}
-			}
-		}
-
 		&--attachment-upload {
 			> div {
 				&:first-child {
@@ -1343,98 +277,9 @@ input[type=submit] {
 				}
 			}
 		}
-
-		input[type=checkbox],
-		input[type=radio] {
-			& + span {
-				position: relative;
-				display: inline-block;
-				cursor: pointer;
-
-				&::after,
-				&::before {
-					display: block;
-					content: '';
-					position: absolute;
-				}
-
-				&::before {
-					width: 18px;
-					height: 18px;
-					transition: background-color @animation-duration, border-color @animation-duration;
-					border: 2px solid @border-color;
-					left: 0;
-					top: 3px;
-				}
-
-				&::after {
-					top: 7px;
-					left: 4px;
-					transition: opacity @animation-duration;
-					opacity: 0;
-				}
-			}
-
-			&:checked + span {
-				&::before {
-					border-color: @ternary-background-color;
-				}
-
-				&::after {
-					opacity: 1;
-				}
-			}
-		}
-
-		input[type=checkbox] {
-			& + span {
-				padding-left: 1.75rem;
-
-				&::before {
-					border-radius: 3px;
-				}
-
-				&::after {
-					width: 10px;
-					height: 6px;
-					transform: rotate(-45deg);
-					border: 2px solid #fff;
-					border-top-width: 0;
-					border-right-width: 0;
-				}
-			}
-
-			&:checked + span {
-				&::before {
-					background-color: @ternary-background-color;
-				}
-			}
-		}
-
-		input[type=radio] {
-			& + span {
-				padding-left: 1.65rem;
-
-				&::before {
-					border-radius: 50%;
-				}
-
-				&::after {
-					width: 10px;
-					height: 10px;
-					border-radius: 50%;
-					background-color: @ternary-background-color;
-				}
-			}
-		}
-
-		&__label {
-			.styled-caption;
-			font-size: 0.6875rem;
-		}
 	}
 	/*--------------------------------------------------------------
-	17.2 Listings
+	Listings
 	--------------------------------------------------------------*/
 	&-listing {
 		&--view-block {
@@ -1444,10 +289,6 @@ input[type=submit] {
 			&:hover {
 				box-shadow: @box-shadow-hover;
 			}
-		}
-
-		&--view-block&--featured {
-			border-color: @primary-background-color;
 		}
 
 		&--view-block &__content,
@@ -1474,54 +315,13 @@ input[type=submit] {
 			}
 		}
 
-		&--view-block &__featured-badge {
-			left: 0;
-			top: 1.5rem;
-			border-radius: 0 @border-radius @border-radius 0;
-			width: 1.5rem;
-			height: 1.5rem;
-			background-color: @primary-background-color;
-			background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
-
-			i {
-				font-size: 12px;
-			}
-		}
-
 		&__images {
 			&-slider {
 				border-radius: @border-radius;
-				overflow: hidden;
 			}
 
 			> img {
 				border-radius: @border-radius;
-			}
-
-			&-carousel {
-				.slick {
-					&-slide {
-						img {
-							border: 2px solid transparent;
-							border-radius: 4px;
-							opacity: 0.6;
-							transition: border-color @animation-duration, opacity @animation-duration;
-						}
-					}
-
-					&-current {
-						img {
-							border-color: @primary-background-color;
-							opacity: 1;
-						}
-					}
-				}
-			}
-		}
-
-		&--view-page &__title {
-			&:not(:last-child) {
-				margin-bottom: 1.25rem;
 			}
 		}
 
@@ -1529,110 +329,9 @@ input[type=submit] {
 			display: none!important;
 		}
 
-		&--view-block &__categories,
-		&--view-page &__categories {
-			display: flex;
-			flex-wrap: wrap;
-			margin-bottom: -.5rem;
-
-			&:not(:last-child) {
-				margin-bottom: 0;
-			}
-
-			a {
-				.styled-label;
-				margin-bottom: 0.5rem;
-
-				&:not(:last-child) {
-					margin-right: 0.5rem;
-				}
-
-				&:hover {
-					background-color: @ternary-background-color;
-					color: #fff;
-				}
-			}
-		}
-
-		&--view-block &__details,
-		&--view-block &__title {
-			&:not(:last-child) {
-				margin-bottom: 0.75rem;
-			}
-		}
-
-		&__location {
-			i {
-				color: @ternary-background-color;
-			}
-		}
-
-		&--view-block &__created-date,
-		&--view-block &__location,
-		&--view-block &__rating {
-			&:not(:last-child) {
-				margin-bottom: 0.5rem;
-			}
-		}
-
-		&--view-page &__created-date,
-		&--view-page &__location,
-		&--view-page &__rating {
-			&:not(:last-child) {
-				margin-bottom: 0.75rem;
-			}
-		}
-
-		&--view-block &__created-date,
-		&--view-page &__created-date {
-			.styled-caption;
-			font-size: 0.6875rem;
-			color: @secondary-font-color;
-		}
-
-		&--edit-block &__created-date {
-			color: @secondary-font-color;
-		}
-
-		&--view-block &__attributes--secondary {
-			margin-bottom: -.25rem;
-
-			&:not(:last-child) {
-				margin-bottom: 0.5rem;
-			}
-		}
-
-		&--view-page &__attributes--secondary {
-			margin-bottom: -.5rem;
-
-			&:not(:last-child) {
-				margin-bottom: 1rem;
-			}
-		}
-
-		&--view-block &__attributes--secondary &__attribute,
-		&--view-page &__attributes--secondary &__attribute {
-			strong {
-				color: @heading-font-color;
-			}
-		}
-
-		&--view-block &__attributes--secondary &__attribute {
-			font-size: 0.875rem;
-			margin-bottom: 0.25rem;
-		}
-
-		&--view-page &__attributes--secondary &__attribute {
-			margin-bottom: 0.5rem;
-		}
-
 		&--view-page &__attributes--primary {
 			.block;
 			padding: 1rem 1.5rem;
-		}
-
-		&--view-block &__attributes--primary &__attribute {
-			font-size: 1.125rem;
 		}
 
 		&--view-page &__attributes--primary &__attribute {
@@ -1645,38 +344,21 @@ input[type=submit] {
 				padding-bottom: 0.5rem;
 			}
 		}
-
-		&--view-block &__actions--primary &__action,
-		&--view-block &__actions--secondary &__action,
-		&--view-page &__actions--primary &__action,
-		&--view-page &__actions--secondary &__action {
-			&--favorite[data-state=active] {
-				i {
-					color: #ff5a5f;
-				}
-			}
-		}
 	}
 	/*--------------------------------------------------------------
-	17.3 Listing Categories
+	Listing Categories
 	--------------------------------------------------------------*/
 	&-listing-category {
 		&--submit-block,
 		&--view-block {
-			position: relative;
 			border-radius: @border-radius;
 			transition: transform @animation-duration;
 			color: #fff;
+			position: relative;
 
 			&:hover {
 				transform: translateY(-7px);
 			}
-		}
-
-		&--view-page &__header {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
 		}
 
 		&--submit-block &__content,
@@ -1688,42 +370,8 @@ input[type=submit] {
 			}
 		}
 
-		&--submit-block &__content,
-		&--view-block &__content {
-			.inherit-container;
-			position: absolute;
-			left: 0;
-			bottom: 0;
-			padding: 2rem;
-		}
-
-		&--submit-block &__image,
-		&--view-block &__image {
-			a::after {
-				.overlay;
-				border-radius: @border-radius;
-				background-image: linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.5));
-			}
-
-			img {
-				border-radius: @border-radius;
-			}
-		}
-
-		&--view-block &__description,
-		&--view-block &__name {
-			text-align: left;
-		}
-
-		&--view-page &__description,
-		&--view-page &__name {
-			text-align: center;
-		}
-
 		&__item-count {
-			.styled-label;
 			color: #fff;
-			background-color: @secondary-background-color-invert;
 		}
 
 		&--view-block &__item-count {
@@ -1733,18 +381,12 @@ input[type=submit] {
 			z-index: 1;
 		}
 
-		&--view-page &__item-count {
-			&:not(:last-child) {
-				margin-bottom: 1rem;
-			}
-		}
-
 		&--view-block &__content &__item-count {
 			display: none!important;
 		}
 	}
 	/*--------------------------------------------------------------
-	17.4 Listing Packages
+	Listing Packages
 	--------------------------------------------------------------*/
 	&-listing-package {
 		&--view-block {
@@ -1780,22 +422,9 @@ input[type=submit] {
 		&--view-block &__footer {
 			border-top: 1px solid @border-color;
 		}
-
-		&--view-block &__price {
-			color: @ternary-font-color;
-
-			del {
-				color: @secondary-font-color;
-			}
-		}
-
-		&--view-block &__select-button {
-			font-size: 1.125rem;
-			padding: 0.75rem 1.25rem;
-		}
 	}
 	/*--------------------------------------------------------------
-	17.5 Vendors
+	Vendors
 	--------------------------------------------------------------*/
 	&-vendor {
 		&--view-block {
@@ -1823,237 +452,11 @@ input[type=submit] {
 			border-top: 1px solid @border-color;
 			padding: 1rem 1.5rem;
 		}
-
-		&--view-block &__registered-date,
-		&--view-page &__registered-date {
-			.styled-caption;
-			font-size: 0.6875rem;
-		}
-
-		&--view-block &__attributes--secondary &__attribute {
-			font-size: 0.875rem;
-			margin-bottom: 0.25rem;
-		}
-
-		&--view-page &__attributes--secondary &__attribute {
-			margin-bottom: 0.5rem;
-		}
-
-		&--view-page &__attributes--primary {
-			.block;
-			padding: 1rem 1.5rem;
-		}
-
-		&--view-block &__attributes--primary &__attribute {
-			font-size: 1.125rem;
-		}
-
-		&--view-page &__attributes--primary &__attribute {
-			background-color: transparent;
-			padding: 0;
-
-			&:not(:last-child) {
-				border-bottom: 1px solid @border-color;
-				margin-bottom: 0.5rem;
-				padding-bottom: 0.5rem;
-			}
-		}
-
-		&__actions--secondary {
-			.block;
-			padding: 1.5rem 2rem;
-		}
-
-		&__actions--secondary &__balance {
-			padding: 0;
-			background-color: transparent;
-
-			&:not(:last-child) {
-				margin-bottom: 0.25rem;
-			}
-
-			strong {
-				.styled-caption;
-				color: @secondary-font-color;
-				font-size: 0.6875rem;
-				font-weight: normal;
-				margin-bottom: 0.25rem;
-			}
-
-			span {
-				font-size: 1.5625rem;
-				color: @heading-font-color;
-			}
-		}
-	}
-	/*--------------------------------------------------------------
-	17.6 Reviews
-	--------------------------------------------------------------*/
-	&-review {
-		&--view-block {
-			.block;
-			padding: 2rem;
-		}
-
-		&__author {
-			font-family: @heading-font-family;
-			font-weight: @heading-font-weight;
-		}
-
-		&__created-date {
-			.styled-caption;
-			font-size: 0.6875rem;
-		}
-	}
-	/*--------------------------------------------------------------
-	17.8 Messages
-	--------------------------------------------------------------*/
-	&-message {
-		&--view-block {
-			border-radius: @border-radius;
-			background-color: @secondary-background-color;
-			padding: 1.25rem 1.5rem;
-			position: relative;
-		}
-
-		&--view-block &__details {
-			flex-direction: column;
-			align-items: flex-start;
-		}
-
-		&--view-block &__sender,
-		&--view-block &__sent-date {
-			&:not(:last-child) {
-				margin-bottom: 0.25rem;
-			}
-		}
-
-		&--view-block &__sender {
-			font-size: 1.125rem;
-			font-weight: @heading-font-weight;
-			font-family: @heading-font-family;
-			color: @heading-font-color;
-
-			&::before {
-				border: 8px solid transparent;
-				position: absolute;
-				width: 0;
-				height: 0;
-				content: '';
-				display: block;
-				top: 1.6rem;
-				left: -16px;
-				border-right-color: @secondary-background-color;
-			}
-
-			&--current::before {
-				left: auto;
-				border-right-color: transparent;
-				right: -16px;
-				border-left-color: @secondary-background-color;
-			}
-		}
-
-		&--view-block &__sent-date {
-			.styled-caption;
-			font-size: 0.6875rem;
-			color: @secondary-font-color;
-		}
-
-		&--thread-block &__sent-date {
-			color: @secondary-font-color;
-		}
-	}
-	/*--------------------------------------------------------------
-	17.9 Memberships
-	--------------------------------------------------------------*/
-	&-membership-plan {
-		&--view-block {
-			.block;
-			transition: box-shadow @animation-duration;
-
-			&:hover {
-				box-shadow: @box-shadow-hover;
-			}
-		}
-
-		&--view-block &__content,
-		&--view-block &__footer,
-		&--view-block &__header {
-			&:not(:last-child) {
-				margin-bottom: 0;
-			}
-		}
-
-		&--view-block &__footer,
-		&--view-block &__header {
-			padding: 1rem 1.5rem;
-		}
-
-		&--view-block &__header {
-			border-bottom: 1px solid @border-color;
-		}
-
-		&--view-block &__content {
-			padding: 1.5rem;
-		}
-
-		&--view-block &__footer {
-			border-top: 1px solid @border-color;
-		}
-
-		&--view-block &__price {
-			color: @ternary-font-color;
-
-			del {
-				color: @secondary-font-color;
-			}
-		}
-
-		&--view-block &__select-button {
-			font-size: 1.125rem;
-			padding: 0.75rem 1.25rem;
-		}
-	}
-
-	&-membership {
-		&--view-block {
-			.block;
-			padding: 1.5rem;
-		}
-
-		&--view-block &__status {
-			span {
-				.styled-tag;
-				display: inline-block;
-			}
-
-			&--draft span {
-				color: #ff3860;
-				border-color: #ff3860;
-			}
-
-			&--pending span {
-				color: #ffcb00;
-				border-color: #ffcb00;
-			}
-
-			&--publish span {
-				color: #15cd72;
-				border-color: #15cd72;
-			}
-		}
-
-		&--view-block &__expired-date {
-			.styled-caption;
-			font-size: 0.6875rem;
-		}
 	}
 }
 /*--------------------------------------------------------------
-18.0 WooCommerce
+WooCommerce
 --------------------------------------------------------------*/
-
 .woocommerce {
 	&-error,
 	&-info,
@@ -2061,39 +464,9 @@ input[type=submit] {
 		border-bottom-left-radius: @border-radius;
 		border-bottom-right-radius: @border-radius;
 	}
-
-	span.onsale {
-		.styled-label;
-		background-color: @ternary-background-color;
-		background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2));
-	}
-
-	& &-result-count {
-		.styled-caption;
-		font-size: 0.6875rem;
-	}
-
-	& &-ordering {
-		select {
-			.styled-caption;
-			font-size: 0.6875rem;
-		}
-	}
 	/*--------------------------------------------------------------
-	18.1 Forms
+	Forms
 	--------------------------------------------------------------*/
-	&,
-	&-page {
-		form {
-			.form-row {
-				label {
-					.styled-caption;
-					font-size: 0.6875rem;
-				}
-			}
-		}
-	}
-
 	form.checkout_coupon,
 	form.login,
 	form.register {
@@ -2101,57 +474,26 @@ input[type=submit] {
 		padding: 1.5rem;
 	}
 	/*--------------------------------------------------------------
-	18.3 Buttons
+	Widgets
 	--------------------------------------------------------------*/
-	#respond input#submit,
-	a.button,
-	button.button,
-	input.button {
-		border-radius: @border-radius;
-		font-weight: @heading-font-weight;
-	}
-	/*--------------------------------------------------------------
-	18.4 Widgets
-	--------------------------------------------------------------*/
-	.widget_price_filter {
-		.price_slider_wrapper {
-			.ui {
-				&-slider-range {
-					background-color: @ternary-background-color;
-				}
-			}
-		}
-
-		.price_label {
-			.styled-caption;
-		}
-	}
-
-	ul.cart_list,
 	ul.product_list_widget {
 		li {
-			.reviewer {
-				.styled-caption;
-				font-size: 0.6875rem;
-			}
-		}
-	}
-
-	ul.product_list_widget {
-		li {
-			.product-title {
-				font-family: @heading-font-family;
-				font-weight: @heading-font-weight;
-			}
-
 			img {
 				border-radius: @border-radius;
 			}
 		}
 	}
 	/*--------------------------------------------------------------
-	18.5 Products
+	Products
 	--------------------------------------------------------------*/
+	div.product {
+		div.images {
+			img {
+				border-radius: @border-radius;
+			}
+		}
+	}
+
 	&,
 	&-page {
 		ul.products {
@@ -2172,16 +514,8 @@ input[type=submit] {
 			}
 		}
 	}
-
-	div.product {
-		div.images {
-			img {
-				border-radius: @border-radius;
-			}
-		}
-	}
 	/*--------------------------------------------------------------
-	18.6 Checkout
+	Checkout
 	--------------------------------------------------------------*/
 	#add_payment_method,
 	&-cart,
@@ -2201,17 +535,8 @@ input[type=submit] {
 		}
 	}
 	/*--------------------------------------------------------------
-	18.7 Account
+	Account
 	--------------------------------------------------------------*/
-	&-MyAccount-navigation {
-		.block;
-		padding: 2rem;
-
-		&:not(:last-child) {
-			margin-bottom: 2rem;
-		}
-	}
-
 	& &-customer-details {
 		address {
 			.block;
