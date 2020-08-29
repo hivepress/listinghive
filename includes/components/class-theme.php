@@ -1,23 +1,24 @@
 <?php
 /**
- * Template component.
+ * Theme component.
  *
  * @package HiveTheme\Components
  */
-// todo.
+
 namespace HiveTheme\Components;
 
 use HiveTheme\Helpers as ht;
+use HivePress\Helpers as hp;
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Template component class.
+ * Theme component class.
  *
- * @class Template
+ * @class Theme
  */
-final class Template extends Component {
+final class Theme extends Component {
 
 	/**
 	 * Class constructor.
@@ -28,6 +29,22 @@ final class Template extends Component {
 
 		// Set hero background.
 		add_action( 'wp_enqueue_scripts', [ $this, 'set_hero_background' ] );
+
+		// Render hero content.
+		add_filter( 'hivetheme/v1/areas/site_hero', [ $this, 'render_hero_content' ] );
+
+		// Check HivePress status.
+		if ( ! ht\is_plugin_active( 'hivepress' ) ) {
+			return;
+		}
+
+		if ( ! is_admin() ) {
+
+			// Alter templates.
+			add_filter( 'hivepress/v1/templates/listing_view_block', [ $this, 'alter_listing_view_block' ] );
+			add_filter( 'hivepress/v1/templates/listing_view_page', [ $this, 'alter_listing_view_page' ] );
+			add_filter( 'hivepress/v1/templates/listing_category_view_block', [ $this, 'alter_listing_category_view_block' ] );
+		}
 
 		parent::__construct( $args );
 	}
@@ -67,12 +84,12 @@ final class Template extends Component {
 	}
 
 	/**
-	 * Renders header.
+	 * Renders hero content.
 	 *
+	 * @param string $output Hero content.
 	 * @return string
 	 */
-	public function render_header() {
-		$output = '';
+	public function render_hero_content( $output ) {
 
 		// Get classes.
 		$classes = [];
@@ -123,9 +140,9 @@ final class Template extends Component {
 			// Render part.
 			if ( ! is_front_page() || $content ) {
 				if ( is_front_page() ) {
-					$output = $content;
+					$output .= $content;
 				} elseif ( ! in_array( get_the_ID(), $page_ids, true ) ) {
-					$output = $this->render_part( 'templates/page/page-title' );
+					$output .= hivetheme()->template->render_part( 'templates/page/page-title' );
 				}
 			}
 		} elseif ( is_singular( 'post' ) ) {
@@ -140,7 +157,7 @@ final class Template extends Component {
 			);
 
 			// Render part.
-			$output = $this->render_part( 'templates/post/single/post-header' );
+			$output .= hivetheme()->template->render_part( 'templates/post/single/post-header' );
 		} elseif ( ht\is_plugin_active( 'hivepress' ) && is_tax( 'hp_listing_category' ) ) {
 
 			// Add classes.
@@ -158,7 +175,7 @@ final class Template extends Component {
 			}
 
 			// Render part.
-			$output = $this->render_part(
+			$output .= hivetheme()->template->render_part(
 				'hivepress/listing-category/view/page/listing-category-header',
 				[
 					'listing_category' => \HivePress\Models\Listing_Category::query()->get_by_id( get_queried_object() ),
@@ -166,12 +183,9 @@ final class Template extends Component {
 			);
 		}
 
-		// Filter output.
-		$output = apply_filters( 'hivetheme/v1/areas/page_header', $output );
-
 		// Add wrapper.
 		if ( $output ) {
-			$output = $this->render_part(
+			$output = hivetheme()->template->render_part(
 				'templates/page/page-header',
 				[
 					'class'   => implode( ' ', $classes ),
@@ -181,5 +195,88 @@ final class Template extends Component {
 		}
 
 		return $output;
+	}
+
+	/**
+	 * Alters listing view block.
+	 *
+	 * @param array $template Template arguments.
+	 * @return array
+	 */
+	public function alter_listing_view_block( $template ) {
+		$category = hp\search_array_value( $template, [ 'blocks', 'listing_category' ] );
+
+		return hp\merge_trees(
+			$template,
+			[
+				'blocks' => [
+					'listing_content' => [
+						'blocks' => [
+							'listing_category' => array_merge(
+								$category,
+								[
+									'_order' => 5,
+								]
+							),
+						],
+					],
+				],
+			]
+		);
+	}
+
+	/**
+	 * Alters listing view page.
+	 *
+	 * @param array $template Template arguments.
+	 * @return array
+	 */
+	public function alter_listing_view_page( $template ) {
+		$category = hp\search_array_value( $template, [ 'blocks', 'listing_category' ] );
+
+		return hp\merge_trees(
+			$template,
+			[
+				'blocks' => [
+					'page_content' => [
+						'blocks' => [
+							'listing_category' => array_merge(
+								$category,
+								[
+									'_order' => 5,
+								]
+							),
+						],
+					],
+				],
+			]
+		);
+	}
+
+	/**
+	 * Alters listing category view block.
+	 *
+	 * @param array $template Template arguments.
+	 * @return array
+	 */
+	public function alter_listing_category_view_block( $template ) {
+		$count = hp\search_array_value( $template, [ 'blocks', 'listing_category_count' ] );
+
+		return hp\merge_trees(
+			$template,
+			[
+				'blocks' => [
+					'listing_category_header' => [
+						'blocks' => [
+							'listing_category_count' => $count,
+						],
+					],
+
+					'listing_category_name'   => [
+						'tag' => 'h3',
+					],
+				],
+			]
+		);
 	}
 }
