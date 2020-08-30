@@ -15,6 +15,81 @@ Variables
 --------------------------------------------------------------*/
 @border-radius: 3px;
 /*--------------------------------------------------------------
+Mixins
+--------------------------------------------------------------*/
+.inherit-container {
+	a,
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		color: inherit;
+	}
+}
+
+.container-overlay {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.block {
+	border: 1px solid @border-color;
+	border-radius: @border-radius;
+	box-shadow: @box-shadow;
+	background-color: #fff;
+}
+
+.styled-caption {
+	text-transform: uppercase;
+	white-space: nowrap;
+	line-height: 1;
+	letter-spacing: 1px;
+}
+
+.styled-label {
+	.styled-caption;
+	font-size: 0.6875rem;
+	background-color: rgba(0,0,0,0.06);
+	color: @secondary-font-color;
+	transition: color @animation-duration, background-color @animation-duration;
+	border-radius: 9999px;
+	padding: 0.5rem 0.75rem;
+}
+
+.styled-tag {
+	.styled-caption;
+	font-size: 0.6875rem;
+	border: 1px solid @border-color;
+	border-radius: @border-radius;
+	padding: 0.4rem 0.5rem;
+	color: inherit;
+	transition: color @animation-duration, border-color @animation-duration;
+}
+
+.styled-title {
+	padding-top: 1rem;
+	position: relative;
+
+	&::before {
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 4px;
+		width: 45px;
+		display: block;
+		content: '';
+		background-color: @primary-background-color;
+		background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+	}
+}
+/*--------------------------------------------------------------
 Typography
 --------------------------------------------------------------*/
 p {
@@ -82,6 +157,11 @@ textarea {
 	&-container--default &-selection {
 		border-radius: @border-radius;
 	}
+
+	&-container--default &-selection--inline &-selection__rendered {
+		.styled-caption;
+		font-size: 0.6875rem;
+	}
 }
 
 .pac {
@@ -131,11 +211,66 @@ Header
 				}
 			}
 		}
+
+		> ul {
+			> li {
+				&.current-menu-item {
+					&::before {
+						background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+					}
+				}
+			}
+		}
+	}
+
+	&__burger {
+		> ul {
+			> li {
+				&.current-menu-item {
+					&::before {
+						background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+					}
+				}
+			}
+		}
 	}
 }
 
 .header-hero {
 	background-image: linear-gradient(to right, rgba(0,0,0,0),rgba(0,0,0,.08));
+
+	&--cover {
+		.inherit-container;
+		background-position: center top;
+		background-repeat: no-repeat;
+		background-size: cover;
+		position: relative;
+		color: #fff;
+
+		&::after {
+			.container-overlay;
+			background-color: rgba(0,0,0,0.35);
+		}
+	}
+}
+/*--------------------------------------------------------------
+Content
+--------------------------------------------------------------*/
+.title {
+	.styled-title;
+
+	&:not(:last-child) {
+		margin-bottom: 1.5rem;
+	}
+
+	&--center {
+		text-align: center;
+
+		&::before {
+			left: 50%;
+			margin-left: -22px;
+		}
+	}
 }
 /*--------------------------------------------------------------
 Modal
@@ -151,9 +286,21 @@ Widgets
 .widget {
 	.site-sidebar & {
 		padding: 2rem;
+		.block;
 
 		&:not(:last-child) {
 			margin-bottom: 2rem;
+		}
+	}
+
+	.footer-widgets & {
+		&__title {
+			.styled-title;
+
+			&::before {
+				width: 30px;
+				height: 3px;
+			}
 		}
 	}
 
@@ -163,6 +310,24 @@ Widgets
 		box-shadow: none;
 		border: none;
 	}
+
+	&_calendar {
+		caption {
+			.styled-caption;
+			font-size: 0.875rem;
+		}
+	}
+
+	&_rss {
+		ul {
+			li {
+				.rss-date {
+					.styled-caption;
+					font-size: 0.6875rem;
+				}
+			}
+		}
+	}
 }
 /*--------------------------------------------------------------
 Blocks
@@ -171,6 +336,14 @@ Blocks
 	&-pullquote {
 		&.is-style-solid-color {
 			border-radius: @border-radius;
+		}
+	}
+
+	&-pullquote blockquote,
+	&-pullquote.is-style-solid-color blockquote,
+	&-quote {
+		cite {
+			.styled-caption;
 		}
 	}
 
@@ -194,9 +367,34 @@ Blocks
 	}
 }
 /*--------------------------------------------------------------
+Pages
+--------------------------------------------------------------*/
+.page {
+	&__title {
+		text-align: center;
+	}
+}
+/*--------------------------------------------------------------
 Posts
 --------------------------------------------------------------*/
 .post {
+	&--archive {
+		padding-bottom: 2rem;
+		border-bottom: 1px solid @border-color;
+	}
+
+	&--archive &__header {
+		&--cover {
+			.inherit-container;
+			color: #fff;
+			position: relative;
+
+			&:not(:last-child) {
+				margin-bottom: 1.5rem;
+			}
+		}
+	}
+
 	&--archive &__image {
 		position: relative;
 
@@ -205,9 +403,115 @@ Posts
 		}
 
 		a::after {
-			.overlay;
+			.container-overlay;
 			border-radius: @border-radius;
 			background-image: linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.5));
+		}
+	}
+
+	&--archive &__header--cover &__categories,
+	&--archive &__header--cover &__title {
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		padding: 0 2rem;
+	}
+
+	&--archive &__header--cover &__title {
+		bottom: 0;
+		padding-bottom: 2rem;
+	}
+
+	&__header--cover &__categories {
+		a {
+			background-color: @secondary-background-color-invert;
+			color: #fff;
+
+			&:hover {
+				background-color: #fff;
+				color: rgba(0,0,0,0.8);
+			}
+		}
+	}
+
+	&--archive &__header--cover &__categories {
+		top: 0;
+		padding-top: 2rem;
+	}
+
+	&__categories {
+		a {
+			.styled-label;
+
+			&:hover {
+				background-color: @ternary-background-color;
+				color: #fff;
+			}
+		}
+	}
+
+	&--single &__title {
+		text-align: center;
+
+		&:not(:last-child) {
+			margin-bottom: 1.25rem;
+		}
+	}
+
+	&--single &__categories,
+	&--single &__details {
+		justify-content: center;
+	}
+
+	&__details {
+		> * {
+			.styled-caption;
+			font-size: 0.6875rem;
+
+			&:not(:last-child) {
+				margin-right: 0.5rem;
+
+				&::after {
+					content: '';
+					display: block;
+					background-color: @icon-color;
+					border-radius: 50%;
+					width: 4px;
+					height: 4px;
+					margin-left: 0.5rem;
+				}
+			}
+		}
+	}
+
+	&__header--cover &__details {
+		> * {
+			color: inherit;
+
+			&:not(:last-child) {
+				&::after {
+					background-color: rgba(255,255,255,.8);
+				}
+			}
+		}
+	}
+}
+
+.post-navbar {
+	// todo.
+}
+/*--------------------------------------------------------------
+Tags
+--------------------------------------------------------------*/
+.tagcloud,
+.wp-block-tag-cloud {
+	a {
+		.styled-tag;
+		font-size: 0.6875rem!important;
+
+		&:hover {
+			border-color: @primary-font-color;
+			color: @primary-font-color;
 		}
 	}
 }
@@ -218,6 +522,32 @@ Comments
 	> ul {
 		> li {
 			.block;
+
+			> ul {
+				padding-top: 2rem;
+				padding-left: 2rem;
+				border-top: 1px solid @border-color;
+			}
+		}
+	}
+}
+
+.comment {
+	padding: 0 2rem 2rem 0;
+
+	.comments > ul > li > & {
+		padding-top: 2rem;
+		padding-left: 2rem;
+
+		ul {
+			padding-left: 2rem;
+		}
+	}
+
+	&__details {
+		> * {
+			.styled-caption;
+			font-size: 0.6875rem;
 		}
 	}
 }
@@ -235,6 +565,42 @@ Comments
 			padding-left: 0;
 		}
 	}
+
+	[class^='comment-form-'] {
+		> label {
+			&:first-child {
+				.styled-caption;
+				font-size: 0.6875rem;
+			}
+		}
+	}
+}
+/*--------------------------------------------------------------
+Pagination
+--------------------------------------------------------------*/
+.pagination {
+	justify-content: center;
+
+	> span,
+	.nav-links > a,
+	.nav-links > span,
+	> a,
+	ul li a,
+	ul li span.current,
+	ul li span.dots {
+		border: 2px solid transparent;
+		border-radius: 50%;
+		width: 3rem;
+		height: 3rem;
+	}
+
+	.nav-links > span,
+	> span,
+	ul li span.current {
+		&:not(.dots) {
+			border-color: @border-color;
+		}
+	}
 }
 /*--------------------------------------------------------------
 HivePress
@@ -243,11 +609,36 @@ HivePress
 	&-status {
 		span {
 			border-radius: @border-radius;
+			.styled-caption;
+			font-size: 0.6875rem;
 		}
 	}
 
 	&-map {
 		border-radius: @border-radius;
+	}
+
+	&-menu {
+		&--tabbed &__item {
+			&--current {
+				&::before {
+					background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+				}
+			}
+		}
+	}
+
+	&-meta,
+	&-result-count {
+		.styled-caption;
+		font-size: 0.6875rem;
+	}
+
+	&-page,
+	&-section {
+		&__title {
+			.styled-title;
+		}
 	}
 	/*--------------------------------------------------------------
 	Forms
@@ -262,6 +653,97 @@ HivePress
 		&--vendor-search {
 			.block;
 			padding: 0.625rem;
+			align-items: center;
+			@media only screen and (max-width: 47.99em) {
+				align-items: stretch;
+			}
+
+			.home span[id^=more-] + &,
+			.tax-hp_listing_category & {
+				margin-top: -4.25rem;
+				@media only screen and (min-width: 48em) {
+					margin-top: -5.25rem;
+				}
+				@media only screen and (min-width: 75em) {
+					margin-top: -6.25rem;
+				}
+			}
+		}
+
+		&--listing-search &__field,
+		&--listing-search &__fields,
+		&--vendor-search &__field,
+		&--vendor-search &__fields {
+			&:not(:last-child) {
+				margin-right: 0.625rem;
+				@media only screen and (max-width: 47.99em) {
+					margin: 0;
+				}
+			}
+		}
+
+		&--listing-search &__fields,
+		&--vendor-search &__fields {
+			@media only screen and (max-width: 47.99em) {
+				&:not(:last-child) {
+					margin-bottom: 0.625rem;
+				}
+			}
+		}
+
+		&--listing-search &__field,
+		&--vendor-search &__field {
+			&:not(:last-child) {
+				border-right: 1px solid @border-color;
+				@media only screen and (max-width: 47.99em) {
+					border-right: none;
+					border-bottom: 1px solid @border-color;
+				}
+			}
+
+			input[type='color'],
+			input[type='date'],
+			input[type='datetime'],
+			input[type='datetime-local'],
+			input[type='email'],
+			input[type='month'],
+			input[type='number'],
+			input[type='password'],
+			input[type='range'],
+			input[type='min'],
+			input[type='max'],
+			input[type='value'],
+			input[type='step'],
+			input[type='search'],
+			input[type='tel'],
+			input[type='text'],
+			input[type='time'],
+			input[type='url'],
+			select,
+			textarea {
+				padding-top: 0;
+				padding-bottom: 0;
+				border: none;
+				font-size: 1.125rem;
+				line-height: 3rem;
+				height: 3rem;
+			}
+		}
+
+		&--listing-search &__button,
+		&--vendor-search &__button {
+			height: 3.125rem;
+			padding-left: 2rem;
+			padding-right: 2rem;
+			font-size: 1.125rem;
+		}
+
+		&--listing-sort,
+		&--vendor-sort {
+			select {
+				.styled-caption;
+				font-size: 0.6875rem;
+			}
 		}
 	}
 
@@ -277,6 +759,11 @@ HivePress
 				}
 			}
 		}
+
+		&__label {
+			.styled-caption;
+			font-size: 0.6875rem;
+		}
 	}
 	/*--------------------------------------------------------------
 	Listings
@@ -288,6 +775,24 @@ HivePress
 
 			&:hover {
 				box-shadow: @box-shadow-hover;
+			}
+		}
+
+		&--view-block&--featured {
+			border-color: @primary-background-color;
+		}
+
+		&--view-block &__featured-badge {
+			left: 0;
+			top: 1.5rem;
+			border-radius: 0 @border-radius @border-radius 0;
+			width: 1.5rem;
+			height: 1.5rem;
+			background-color: @primary-background-color;
+			background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
+
+			i {
+				font-size: 12px;
 			}
 		}
 
@@ -320,13 +825,55 @@ HivePress
 				border-radius: @border-radius;
 			}
 
+			&-carousel {
+				.slick {
+					&-slide {
+						img {
+							border: 2px solid transparent;
+							border-radius: 4px;
+							opacity: 0.6;
+							transition: border-color @animation-duration, opacity @animation-duration;
+						}
+					}
+
+					&-current {
+						img {
+							border-color: @primary-background-color;
+							opacity: 1;
+						}
+					}
+				}
+			}
+
 			> img {
 				border-radius: @border-radius;
 			}
 		}
 
+		&--view-block &__created-date,
+		&--view-page &__created-date {
+			.styled-caption;
+			font-size: 0.6875rem;
+		}
+
 		&__details &__categories {
 			display: none!important;
+		}
+
+		&--view-block &__categories,
+		&--view-page &__categories {
+			&:not(:last-child) {
+				margin-bottom: 0;
+			}
+
+			a {
+				.styled-label;
+
+				&:hover {
+					background-color: @ternary-background-color;
+					color: #fff;
+				}
+			}
 		}
 
 		&--view-page &__attributes--primary {
@@ -370,7 +917,47 @@ HivePress
 			}
 		}
 
+		&--view-page &__header {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		&--submit-block &__content,
+		&--view-block &__content {
+			.inherit-container;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			padding: 2rem;
+		}
+
+		&--submit-block &__image,
+		&--view-block &__image {
+			a::after {
+				.container-overlay;
+				border-radius: @border-radius;
+				background-image: linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.5));
+			}
+
+			img {
+				border-radius: @border-radius;
+			}
+		}
+
+		&--view-block &__description,
+		&--view-block &__name {
+			text-align: left;
+		}
+
+		&--view-page &__description,
+		&--view-page &__name {
+			text-align: center;
+		}
+
 		&__item-count {
+			.styled-label;
+			background-color: @secondary-background-color-invert;
 			color: #fff;
 		}
 
@@ -452,6 +1039,117 @@ HivePress
 			border-top: 1px solid @border-color;
 			padding: 1rem 1.5rem;
 		}
+
+		&--view-block &__registered-date,
+		&--view-page &__registered-date {
+			.styled-caption;
+			font-size: 0.6875rem;
+		}
+
+		&--view-page &__attributes--primary {
+			.block;
+			padding: 1rem 1.5rem;
+		}
+
+		&--view-page &__attributes--primary &__attribute {
+			background-color: transparent;
+			padding: 0;
+
+			&:not(:last-child) {
+				border-bottom: 1px solid @border-color;
+				margin-bottom: 0.5rem;
+				padding-bottom: 0.5rem;
+			}
+		}
+
+		&__actions--secondary {
+			.block;
+			padding: 1.5rem 2rem;
+		}
+
+		&__actions--secondary &__balance {
+			strong {
+				.styled-caption;
+				font-size: 0.6875rem;
+			}
+		}
+	}
+	/*--------------------------------------------------------------
+	Reviews
+	--------------------------------------------------------------*/
+	&-review {
+		&--view-block {
+			.block;
+			padding: 2rem;
+		}
+
+		&__created-date {
+			.styled-caption;
+			font-size: 0.6875rem;
+		}
+	}
+	/*--------------------------------------------------------------
+	Messages
+	--------------------------------------------------------------*/
+	&-message {
+		&--view-block {
+			border-radius: @border-radius;
+		}
+
+		&--view-block &__sent-date {
+			.styled-caption;
+			font-size: 0.6875rem;
+		}
+	}
+	/*--------------------------------------------------------------
+	Memberships
+	--------------------------------------------------------------*/
+	&-membership-plan {
+		&--view-block {
+			.block;
+			transition: box-shadow @animation-duration;
+
+			&:hover {
+				box-shadow: @box-shadow-hover;
+			}
+		}
+
+		&--view-block &__content,
+		&--view-block &__footer,
+		&--view-block &__header {
+			&:not(:last-child) {
+				margin-bottom: 0;
+			}
+		}
+
+		&--view-block &__footer,
+		&--view-block &__header {
+			padding: 1rem 1.5rem;
+		}
+
+		&--view-block &__header {
+			border-bottom: 1px solid @border-color;
+		}
+
+		&--view-block &__content {
+			padding: 1.5rem;
+		}
+
+		&--view-block &__footer {
+			border-top: 1px solid @border-color;
+		}
+	}
+
+	&-membership {
+		&--view-block {
+			.block;
+			padding: 1.5rem;
+		}
+
+		&--view-block &__expired-date {
+			.styled-caption;
+			font-size: 0.6875rem;
+		}
 	}
 }
 /*--------------------------------------------------------------
@@ -464,9 +1162,38 @@ WooCommerce
 		border-bottom-left-radius: @border-radius;
 		border-bottom-right-radius: @border-radius;
 	}
+
+	& &-result-count {
+		.styled-caption;
+		font-size: 0.6875rem;
+	}
+
+	& &-ordering {
+		select {
+			.styled-caption;
+			font-size: 0.6875rem;
+		}
+	}
+
+	span.onsale {
+		.styled-label;
+		background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2));
+	}
 	/*--------------------------------------------------------------
 	Forms
 	--------------------------------------------------------------*/
+	&,
+	&-page {
+		form {
+			.form-row {
+				label {
+					.styled-caption;
+					font-size: 0.6875rem;
+				}
+			}
+		}
+	}
+
 	form.checkout_coupon,
 	form.login,
 	form.register {
@@ -474,12 +1201,37 @@ WooCommerce
 		padding: 1.5rem;
 	}
 	/*--------------------------------------------------------------
+	Buttons
+	--------------------------------------------------------------*/
+	#respond input#submit,
+	a.button,
+	button.button,
+	input.button {
+		border-radius: @border-radius;
+	}
+	/*--------------------------------------------------------------
 	Widgets
 	--------------------------------------------------------------*/
+	.widget_price_filter {
+		.price_label {
+			.styled-caption;
+		}
+	}
+
 	ul.product_list_widget {
 		li {
 			img {
 				border-radius: @border-radius;
+			}
+		}
+	}
+
+	ul.cart_list,
+	ul.product_list_widget {
+		li {
+			.reviewer {
+				.styled-caption;
+				font-size: 0.6875rem;
 			}
 		}
 	}
@@ -537,6 +1289,15 @@ WooCommerce
 	/*--------------------------------------------------------------
 	Account
 	--------------------------------------------------------------*/
+	&-MyAccount-navigation {
+		.block;
+		padding: 2rem;
+
+		&:not(:last-child) {
+			margin-bottom: 2rem;
+		}
+	}
+
 	& &-customer-details {
 		address {
 			.block;
