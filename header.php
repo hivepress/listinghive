@@ -10,10 +10,7 @@
 		if ( function_exists( 'wp_body_open' ) ) :
 			wp_body_open();
 		endif;
-
-		get_template_part( 'templates/page/page-loader' );
 		?>
-		<a href="#content" class="skip-link screen-reader-text"><?php esc_html_e( 'Skip to content', 'listinghive' ); ?></a>
 		<div class="site-container">
 			<header class="site-header">
 				<div class="header-navbar">
