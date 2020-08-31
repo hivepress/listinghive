@@ -1,6 +1,6 @@
 <?php if ( ( have_comments() || comments_open() ) && ! post_password_required() ) : ?>
-	<div id="comments" class="section">
-		<h2 class="section__title section__title--center"><?php esc_html_e( 'Comments', 'listinghive' ); ?></h2>
+	<div id="comments">
+		<h2 class="title title--center"><?php esc_html_e( 'Comments', 'listinghive' ); ?></h2>
 		<?php if ( have_comments() ) : ?>
 			<div class="comments">
 				<ul>
