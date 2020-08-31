@@ -4,7 +4,7 @@
  *
  * @package HiveTheme\Configs
  */
-// todo.
+
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
