@@ -17,9 +17,6 @@
 				});
 			});
 		}
-	});
-
-	$('body').imagesLoaded(function() {
 
 		// Parallax
 		hivetheme.getComponent('parallax').each(function() {
