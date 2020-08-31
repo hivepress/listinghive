@@ -79,7 +79,7 @@ final class Theme extends Component {
 				$style .= '.header-hero { color: #' . esc_attr( get_header_textcolor() ) . '; }';
 			}
 
-			wp_add_inline_style( 'hivetheme-core-frontend', $style );
+			wp_add_inline_style( 'hivetheme-parent-frontend', $style );
 		}
 	}
 
