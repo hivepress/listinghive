@@ -36,4 +36,4 @@ ListingHive is distributed under the terms of the GNU GPL
 * Screenshot image by Ostap Senyuk (CC0 License) https://stocksnap.io/photo/4DG8Y9WAPU
 * Screenshot image by Designecologist (CC0 License) https://stocksnap.io/photo/11VBKSE76A
 * Screenshot image by Tarren Bailey (CC0 License) https://stocksnap.io/photo/3DGVP8U32G
-* Placeholder image by HivePress (CC0 License)
+* Placeholder images by HivePress (CC0 License)
