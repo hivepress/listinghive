@@ -31,6 +31,11 @@ return [
 				'name'      => 'font-family',
 				'theme_mod' => 'heading_font',
 			],
+
+			[
+				'name'      => 'font-weight',
+				'theme_mod' => 'heading_font_weight',
+			],
 		],
 	],
 

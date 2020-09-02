@@ -23,12 +23,20 @@ return [
 
 	'fonts'        => [
 		'fields' => [
-			'heading_font' => [
-				'default' => 'Poppins:500',
+			'heading_font'        => [
+				'default' => 'Poppins',
 			],
 
-			'body_font'    => [
-				'default' => 'Open Sans:400,600',
+			'heading_font_weight' => [
+				'default' => '500',
+			],
+
+			'body_font'           => [
+				'default' => 'Open Sans',
+			],
+
+			'body_font_weight'    => [
+				'default' => '400,600',
 			],
 		],
 	],
