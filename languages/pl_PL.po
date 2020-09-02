@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 13:27+0000\n"
-"PO-Revision-Date: 2020-04-24 13:56+0000\n"
-"Last-Translator: dfg\n"
+"POT-Creation-Date: 2020-09-02 15:28+0000\n"
+"PO-Revision-Date: 2020-09-02 15:31+0000\n"
+"Last-Translator: \n"
 "Language-Team: Polish\n"
 "Language: pl_PL\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10 >= 2 && n%10<=4 "
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.3.3; wp-5.4"
+"X-Loco-Version: 2.4.3; wp-5.5.1"
 
 #: comments.php:3
 msgid "Comments"
@@ -22,10 +22,6 @@ msgstr "Komentarze"
 #: comments.php:36
 msgid "Cancel Reply"
 msgstr "Anuluj odpowiedź"
-
-#: header.php:16
-msgid "Skip to content"
-msgstr "Przejdź do treści"
 
 #: index.php:17
 msgid "Nothing found"
@@ -48,86 +44,16 @@ msgstr "Wyszukiwanie"
 msgid "Reply"
 msgstr "Odpowiedź"
 
-#. 1: theme name, 2: link URL.
-#: includes/components/class-hivepress.php:87
-#, php-format
-msgid ""
-"If you want to start with the %1$s demo content, please follow <a "
-"href=\"%2$s\" target=\"_blank\">this screencast</a> to import it."
-msgstr ""
-"Aby importować demo-treść %1$s, postępuj zgodnie z <a href=\"%2$s\" "
-"target=\"_blank\">tymi instrukcjami</a>."
-
-#: includes/configs/menu-locations.php:13
-msgid "Header"
-msgstr "Nagłówek"
-
-#: includes/configs/menu-locations.php:17
-msgid "Footer"
-msgstr "Stopka"
-
-#: includes/configs/theme-mods.php:15
-msgid "Copyright Notice"
-msgstr "Informacja o prawach autorskich"
-
-#: includes/configs/theme-mods.php:24
-msgid "Primary Color"
-msgstr "Kolor główny"
-
-#: includes/configs/theme-mods.php:30
-msgid "Secondary Color"
-msgstr "Kolor drugorzędny"
-
-#: includes/configs/theme-mods.php:40
+#: includes/configs/theme-mods.php:47
 msgid "Enable parallax effect"
 msgstr "Włącz efekt paralaksy"
-
-#: includes/configs/theme-mods.php:48
-msgid "Fonts"
-msgstr "Czcionki"
-
-#: includes/configs/theme-mods.php:52
-msgid "Heading Font"
-msgstr "Czcionka tytułowa"
-
-#: includes/configs/theme-mods.php:58
-msgid "Body Font"
-msgstr "Czcionka podstawowa"
-
-#: includes/configs/widget-areas.php:13
-msgid "Blog"
-msgstr "Blog"
-
-#: includes/configs/widget-areas.php:13 includes/configs/widget-areas.php:21
-#: includes/configs/widget-areas.php:30 includes/configs/widget-areas.php:39
-#: includes/configs/widget-areas.php:48 includes/configs/widget-areas.php:57
-#: includes/configs/widget-areas.php:66
-msgctxt "area"
-msgid "sidebar"
-msgstr "panel boczny"
-
-#: includes/configs/widget-areas.php:57
-msgid "Account"
-msgstr "Konto"
-
-#: includes/configs/widget-areas.php:66
-msgid "Shop"
-msgstr "Sklep"
-
-#: includes/configs/widget-areas.php:75
-msgid "Site"
-msgstr "Witryna"
-
-#: includes/configs/widget-areas.php:75
-msgctxt "area"
-msgid "footer"
-msgstr "stopka"
 
 #: templates/post/post-details.php:3
 msgctxt "post"
 msgid "Pinned"
 msgstr "Przyklejone"
 
+#. the post author.
 #: templates/post/post-details.php:10
 #, php-format
 msgid "By %s"
