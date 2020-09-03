@@ -316,7 +316,8 @@ Modal
 Widgets
 --------------------------------------------------------------*/
 .widget {
-	.site-sidebar & {
+	&--sidebar,
+	&.hp-menu {
 		padding: 2rem;
 		.block;
 
@@ -325,24 +326,20 @@ Widgets
 		}
 	}
 
-	.footer-widgets & {
-		&__title {
-			.styled-title;
+	&--footer &__title {
+		.styled-title;
 
-			&::before {
-				width: 30px;
-				height: 3px;
-			}
+		&::before {
+			width: 30px;
+			height: 3px;
 		}
 	}
 
 	&_product_search,
 	&_search {
-		.site-sidebar & {
-			padding: 0;
-			box-shadow: none;
-			border: none;
-		}
+		padding: 0;
+		box-shadow: none;
+		border: none;
 	}
 
 	&_calendar {
@@ -1224,6 +1221,7 @@ WooCommerce
 	span.onsale {
 		.styled-label;
 		background-image: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,.2));
+		color:#fff;
 	}
 	/*--------------------------------------------------------------
 	Forms
@@ -1349,5 +1347,11 @@ WooCommerce
 			.block;
 			padding: 1.5rem;
 		}
+	}
+	/*--------------------------------------------------------------
+	Pagination
+	--------------------------------------------------------------*/
+	& nav&-pagination {
+		.pagination;
 	}
 }
