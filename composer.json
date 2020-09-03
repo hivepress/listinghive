@@ -1,0 +1,5 @@
+{
+    "require": {
+        "hivepress/hivetheme": "^1.0.0"
+    }
+}

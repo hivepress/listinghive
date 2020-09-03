@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 13:27+0000\n"
-"PO-Revision-Date: 2020-04-24 13:48+0000\n"
-"Last-Translator: dfg\n"
+"POT-Creation-Date: 2020-09-03 14:14+0000\n"
+"PO-Revision-Date: 2020-09-03 14:19+0000\n"
+"Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.3.3; wp-5.4"
+"X-Loco-Version: 2.4.3; wp-5.5.1"
 
 #: comments.php:3
 msgid "Comments"
@@ -22,10 +22,6 @@ msgstr "Коментарі"
 #: comments.php:36
 msgid "Cancel Reply"
 msgstr "Відмінити відповідь"
-
-#: header.php:16
-msgid "Skip to content"
-msgstr "Перейти до змісту"
 
 #: index.php:17
 msgid "Nothing found"
@@ -48,86 +44,16 @@ msgstr "Пошук"
 msgid "Reply"
 msgstr "Відповісти"
 
-#. 1: theme name, 2: link URL.
-#: includes/components/class-hivepress.php:87
-#, php-format
-msgid ""
-"If you want to start with the %1$s demo content, please follow <a "
-"href=\"%2$s\" target=\"_blank\">this screencast</a> to import it."
-msgstr ""
-"Якщо ви хочете почати з демо-контенту %1$s, будь-ласка, слідуйте <a "
-"href=\"%2$s\" target=\"_blank\">цим інструкціям</a>, щоб імортувати його."
-
-#: includes/configs/menu-locations.php:13
-msgid "Header"
-msgstr "Шапка"
-
-#: includes/configs/menu-locations.php:17
-msgid "Footer"
-msgstr "Підвал"
-
-#: includes/configs/theme-mods.php:15
-msgid "Copyright Notice"
-msgstr "Повідомлення про авторські права"
-
-#: includes/configs/theme-mods.php:24
-msgid "Primary Color"
-msgstr "Головний колір"
-
-#: includes/configs/theme-mods.php:30
-msgid "Secondary Color"
-msgstr "Другорядний колір"
-
-#: includes/configs/theme-mods.php:40
+#: includes/configs/theme-mods.php:47
 msgid "Enable parallax effect"
 msgstr "Ввімкнути ефект паралаксу"
-
-#: includes/configs/theme-mods.php:48
-msgid "Fonts"
-msgstr "Шрифти"
-
-#: includes/configs/theme-mods.php:52
-msgid "Heading Font"
-msgstr "Заголовочний шрифт"
-
-#: includes/configs/theme-mods.php:58
-msgid "Body Font"
-msgstr "Основний шрифт"
-
-#: includes/configs/widget-areas.php:13
-msgid "Blog"
-msgstr "Блог"
-
-#: includes/configs/widget-areas.php:13 includes/configs/widget-areas.php:21
-#: includes/configs/widget-areas.php:30 includes/configs/widget-areas.php:39
-#: includes/configs/widget-areas.php:48 includes/configs/widget-areas.php:57
-#: includes/configs/widget-areas.php:66
-msgctxt "area"
-msgid "sidebar"
-msgstr "бокова панель"
-
-#: includes/configs/widget-areas.php:57
-msgid "Account"
-msgstr "Акаунт"
-
-#: includes/configs/widget-areas.php:66
-msgid "Shop"
-msgstr "Магазин"
-
-#: includes/configs/widget-areas.php:75
-msgid "Site"
-msgstr "Сайт"
-
-#: includes/configs/widget-areas.php:75
-msgctxt "area"
-msgid "footer"
-msgstr "підвал"
 
 #: templates/post/post-details.php:3
 msgctxt "post"
 msgid "Pinned"
 msgstr "Закріплено"
 
+#. the post author.
 #: templates/post/post-details.php:10
 #, php-format
 msgid "By %s"
@@ -136,6 +62,88 @@ msgstr "Автор %s"
 #: templates/post/post-details.php:20
 msgid "Read More"
 msgstr "Читати далі"
+
+#. 1: theme name, 2: link URL.
+#: vendor/hivepress/hivetheme/includes/components/class-hivepress.php:95
+#, php-format
+msgid ""
+"If you want to start with the %1$s demo content, please follow <a "
+"href=\"%2$s\" target=\"_blank\">this screencast</a> to import it."
+msgstr ""
+"Якщо ви хочете почати з демо-контенту %1$s, будь-ласка, слідуйте <a "
+"href=\"%2$s\" target=\"_blank\">цим інструкціям</a>, щоб імортувати його."
+
+#: vendor/hivepress/hivetheme/includes/components/class-template.php:159
+msgid "Skip to content"
+msgstr "Перейти до змісту"
+
+#: vendor/hivepress/hivetheme/includes/configs/menu-locations.php:13
+msgid "Header"
+msgstr "Шапка"
+
+#: vendor/hivepress/hivetheme/includes/configs/menu-locations.php:17
+msgid "Footer"
+msgstr "Підвал"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:15
+msgid "Copyright Notice"
+msgstr "Повідомлення про авторські права"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:22
+msgid "Colors"
+msgstr "Кольори"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:26
+msgid "Primary Color"
+msgstr "Головний колір"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:31
+msgid "Secondary Color"
+msgstr "Другорядний колір"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:38
+msgid "Fonts"
+msgstr "Шрифти"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:42
+msgid "Heading Font"
+msgstr "Заголовочний шрифт"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:51
+msgid "Body Font"
+msgstr "Основний шрифт"
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:13
+msgid "Blog"
+msgstr "Блог"
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:13
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:21
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:30
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:39
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:48
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:57
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:66
+msgctxt "area"
+msgid "sidebar"
+msgstr "бокова панель"
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:57
+msgid "Account"
+msgstr "Акаунт"
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:66
+msgid "Shop"
+msgstr "Магазин"
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:75
+msgid "Site"
+msgstr "Сайт"
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:75
+msgctxt "area"
+msgid "footer"
+msgstr "підвал"
 
 #. Name of the theme
 msgid "ListingHive"

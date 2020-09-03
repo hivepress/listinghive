@@ -1,9 +1,9 @@
 === ListingHive ===
 Contributors: hivepress
 Requires at least: 4.9
-Tested up to: 5.4
+Tested up to: 5.5
 Requires PHP: 5.6
-Stable tag: 1.1.3
+Stable tag: 1.2.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -36,4 +36,4 @@ ListingHive is distributed under the terms of the GNU GPL
 * Screenshot image by Ostap Senyuk (CC0 License) https://stocksnap.io/photo/4DG8Y9WAPU
 * Screenshot image by Designecologist (CC0 License) https://stocksnap.io/photo/11VBKSE76A
 * Screenshot image by Tarren Bailey (CC0 License) https://stocksnap.io/photo/3DGVP8U32G
-* Placeholder image by HivePress (CC0 License)
+* Placeholder images by HivePress (CC0 License)

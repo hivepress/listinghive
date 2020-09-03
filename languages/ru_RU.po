@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 13:27+0000\n"
-"PO-Revision-Date: 2020-04-24 13:41+0000\n"
-"Last-Translator: dfg\n"
+"POT-Creation-Date: 2020-09-03 14:14+0000\n"
+"PO-Revision-Date: 2020-09-03 14:19+0000\n"
+"Last-Translator: \n"
 "Language-Team: Russian\n"
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.3.3; wp-5.4"
+"X-Loco-Version: 2.4.3; wp-5.5.1"
 
 #: comments.php:3
 msgid "Comments"
@@ -22,10 +22,6 @@ msgstr "Комментарии"
 #: comments.php:36
 msgid "Cancel Reply"
 msgstr "Отменить ответ"
-
-#: header.php:16
-msgid "Skip to content"
-msgstr "Перейти к содержанию"
 
 #: index.php:17
 msgid "Nothing found"
@@ -48,8 +44,27 @@ msgstr "Поиск"
 msgid "Reply"
 msgstr "Ответить"
 
+#: includes/configs/theme-mods.php:47
+msgid "Enable parallax effect"
+msgstr "Включить эффект параллакса"
+
+#: templates/post/post-details.php:3
+msgctxt "post"
+msgid "Pinned"
+msgstr "Закреплено"
+
+#. the post author.
+#: templates/post/post-details.php:10
+#, php-format
+msgid "By %s"
+msgstr "Автор %s"
+
+#: templates/post/post-details.php:20
+msgid "Read More"
+msgstr "Читать далее"
+
 #. 1: theme name, 2: link URL.
-#: includes/components/class-hivepress.php:87
+#: vendor/hivepress/hivetheme/includes/components/class-hivepress.php:95
 #, php-format
 msgid ""
 "If you want to start with the %1$s demo content, please follow <a "
@@ -59,84 +74,77 @@ msgstr ""
 "href=\"%2$s\" target=\"_blank\">этим инструкциям</a>, чтобы импортировать "
 "его."
 
-#: includes/configs/menu-locations.php:13
+#: vendor/hivepress/hivetheme/includes/components/class-template.php:159
+msgid "Skip to content"
+msgstr "Перейти к содержанию"
+
+#: vendor/hivepress/hivetheme/includes/configs/menu-locations.php:13
 msgid "Header"
 msgstr "Шапка"
 
-#: includes/configs/menu-locations.php:17
+#: vendor/hivepress/hivetheme/includes/configs/menu-locations.php:17
 msgid "Footer"
 msgstr "Подвал"
 
-#: includes/configs/theme-mods.php:15
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:15
 msgid "Copyright Notice"
 msgstr "Уведомление об авторских правах"
 
-#: includes/configs/theme-mods.php:24
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:22
+msgid "Colors"
+msgstr "Цвета"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:26
 msgid "Primary Color"
 msgstr "Главный цвет"
 
-#: includes/configs/theme-mods.php:30
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:31
 msgid "Secondary Color"
 msgstr "Второстепенный цвет"
 
-#: includes/configs/theme-mods.php:40
-msgid "Enable parallax effect"
-msgstr "Включить эффект параллакса"
-
-#: includes/configs/theme-mods.php:48
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:38
 msgid "Fonts"
 msgstr "Шрифты"
 
-#: includes/configs/theme-mods.php:52
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:42
 msgid "Heading Font"
 msgstr "Заголовочный шрифт"
 
-#: includes/configs/theme-mods.php:58
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:51
 msgid "Body Font"
 msgstr "Основной шрифт"
 
-#: includes/configs/widget-areas.php:13
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:13
 msgid "Blog"
 msgstr "Блог"
 
-#: includes/configs/widget-areas.php:13 includes/configs/widget-areas.php:21
-#: includes/configs/widget-areas.php:30 includes/configs/widget-areas.php:39
-#: includes/configs/widget-areas.php:48 includes/configs/widget-areas.php:57
-#: includes/configs/widget-areas.php:66
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:13
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:21
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:30
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:39
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:48
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:57
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:66
 msgctxt "area"
 msgid "sidebar"
 msgstr "боковая панель"
 
-#: includes/configs/widget-areas.php:57
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:57
 msgid "Account"
 msgstr "Аккаунт"
 
-#: includes/configs/widget-areas.php:66
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:66
 msgid "Shop"
 msgstr "Магазин"
 
-#: includes/configs/widget-areas.php:75
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:75
 msgid "Site"
 msgstr "Сайт"
 
-#: includes/configs/widget-areas.php:75
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:75
 msgctxt "area"
 msgid "footer"
 msgstr "подвал"
-
-#: templates/post/post-details.php:3
-msgctxt "post"
-msgid "Pinned"
-msgstr "Закреплено"
-
-#: templates/post/post-details.php:10
-#, php-format
-msgid "By %s"
-msgstr "Автор %s"
-
-#: templates/post/post-details.php:20
-msgid "Read More"
-msgstr "Читать далее"
 
 #. Name of the theme
 msgid "ListingHive"

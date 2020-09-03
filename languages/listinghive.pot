@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-24 13:27+0000\n"
+"POT-Creation-Date: 2020-09-03 14:14+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -21,10 +21,6 @@ msgstr ""
 
 #: comments.php:36
 msgid "Cancel Reply"
-msgstr ""
-
-#: header.php:16
-msgid "Skip to content"
 msgstr ""
 
 #: index.php:17
@@ -46,77 +42,8 @@ msgstr ""
 msgid "Reply"
 msgstr ""
 
-#. 1: theme name, 2: link URL.
-#: includes/components/class-hivepress.php:87
-#, php-format
-msgid ""
-"If you want to start with the %1$s demo content, please follow <a "
-"href=\"%2$s\" target=\"_blank\">this screencast</a> to import it."
-msgstr ""
-
-#: includes/configs/menu-locations.php:13
-msgid "Header"
-msgstr ""
-
-#: includes/configs/menu-locations.php:17
-msgid "Footer"
-msgstr ""
-
-#: includes/configs/theme-mods.php:15
-msgid "Copyright Notice"
-msgstr ""
-
-#: includes/configs/theme-mods.php:24
-msgid "Primary Color"
-msgstr ""
-
-#: includes/configs/theme-mods.php:30
-msgid "Secondary Color"
-msgstr ""
-
-#: includes/configs/theme-mods.php:40
+#: includes/configs/theme-mods.php:47
 msgid "Enable parallax effect"
-msgstr ""
-
-#: includes/configs/theme-mods.php:48
-msgid "Fonts"
-msgstr ""
-
-#: includes/configs/theme-mods.php:52
-msgid "Heading Font"
-msgstr ""
-
-#: includes/configs/theme-mods.php:58
-msgid "Body Font"
-msgstr ""
-
-#: includes/configs/widget-areas.php:13
-msgid "Blog"
-msgstr ""
-
-#: includes/configs/widget-areas.php:13 includes/configs/widget-areas.php:21
-#: includes/configs/widget-areas.php:30 includes/configs/widget-areas.php:39
-#: includes/configs/widget-areas.php:48 includes/configs/widget-areas.php:57
-#: includes/configs/widget-areas.php:66
-msgctxt "area"
-msgid "sidebar"
-msgstr ""
-
-#: includes/configs/widget-areas.php:57
-msgid "Account"
-msgstr ""
-
-#: includes/configs/widget-areas.php:66
-msgid "Shop"
-msgstr ""
-
-#: includes/configs/widget-areas.php:75
-msgid "Site"
-msgstr ""
-
-#: includes/configs/widget-areas.php:75
-msgctxt "area"
-msgid "footer"
 msgstr ""
 
 #: templates/post/post-details.php:3
@@ -124,6 +51,7 @@ msgctxt "post"
 msgid "Pinned"
 msgstr ""
 
+#. the post author.
 #: templates/post/post-details.php:10
 #, php-format
 msgid "By %s"
@@ -131,6 +59,86 @@ msgstr ""
 
 #: templates/post/post-details.php:20
 msgid "Read More"
+msgstr ""
+
+#. 1: theme name, 2: link URL.
+#: vendor/hivepress/hivetheme/includes/components/class-hivepress.php:95
+#, php-format
+msgid ""
+"If you want to start with the %1$s demo content, please follow <a "
+"href=\"%2$s\" target=\"_blank\">this screencast</a> to import it."
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/components/class-template.php:159
+msgid "Skip to content"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/menu-locations.php:13
+msgid "Header"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/menu-locations.php:17
+msgid "Footer"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:15
+msgid "Copyright Notice"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:22
+msgid "Colors"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:26
+msgid "Primary Color"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:31
+msgid "Secondary Color"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:38
+msgid "Fonts"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:42
+msgid "Heading Font"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:51
+msgid "Body Font"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:13
+msgid "Blog"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:13
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:21
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:30
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:39
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:48
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:57
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:66
+msgctxt "area"
+msgid "sidebar"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:57
+msgid "Account"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:66
+msgid "Shop"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:75
+msgid "Site"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:75
+msgctxt "area"
+msgid "footer"
 msgstr ""
 
 #. Name of the theme
