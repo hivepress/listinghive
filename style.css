@@ -192,21 +192,23 @@ Modal
 /*--------------------------------------------------------------
 Widgets
 --------------------------------------------------------------*/
-.site-sidebar .widget {
+.widget--sidebar,
+.widget.hp-menu {
   padding: 2rem;
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 3px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
   background-color: #fff;
 }
-.site-sidebar .widget:not(:last-child) {
+.widget--sidebar:not(:last-child),
+.widget.hp-menu:not(:last-child) {
   margin-bottom: 2rem;
 }
-.footer-widgets .widget__title {
+.widget--footer .widget__title {
   padding-top: 1rem;
   position: relative;
 }
-.footer-widgets .widget__title::before {
+.widget--footer .widget__title::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -217,12 +219,12 @@ Widgets
   background-color: #ffc107;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
 }
-.footer-widgets .widget__title::before {
+.widget--footer .widget__title::before {
   width: 30px;
   height: 3px;
 }
-.site-sidebar .widget_product_search,
-.site-sidebar .widget_search {
+.widget_product_search,
+.widget_search {
   padding: 0;
   box-shadow: none;
   border: none;
@@ -1080,6 +1082,9 @@ WooCommerce
   /*--------------------------------------------------------------
 	Account
 	--------------------------------------------------------------*/
+  /*--------------------------------------------------------------
+	Pagination
+	--------------------------------------------------------------*/
 }
 .woocommerce-error,
 .woocommerce-info,
@@ -1113,6 +1118,7 @@ WooCommerce
   border-radius: 9999px;
   padding: 0.5rem 0.75rem;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
+  color: #fff;
 }
 .woocommerce form .form-row label,
 .woocommerce-page form .form-row label {
@@ -1205,4 +1211,24 @@ WooCommerce
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
   background-color: #fff;
   padding: 1.5rem;
+}
+.woocommerce nav.woocommerce-pagination {
+  justify-content: center;
+}
+.woocommerce nav.woocommerce-pagination > span,
+.woocommerce nav.woocommerce-pagination .nav-links > a,
+.woocommerce nav.woocommerce-pagination .nav-links > span,
+.woocommerce nav.woocommerce-pagination > a,
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span.current,
+.woocommerce nav.woocommerce-pagination ul li span.dots {
+  border: 2px solid transparent;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+}
+.woocommerce nav.woocommerce-pagination .nav-links > span:not(.dots),
+.woocommerce nav.woocommerce-pagination > span:not(.dots),
+.woocommerce nav.woocommerce-pagination ul li span.current:not(.dots) {
+  border-color: rgba(0, 0, 0, 0.06);
 }

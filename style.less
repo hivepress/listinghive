@@ -52,7 +52,7 @@ Mixins
 	bottom: 0;
 }
 
-.block {
+.styled-block {
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
 	box-shadow: @box-shadow;
@@ -319,7 +319,7 @@ Widgets
 	&--sidebar,
 	&.hp-menu {
 		padding: 2rem;
-		.block;
+		.styled-block;
 
 		&:not(:last-child) {
 			margin-bottom: 2rem;
@@ -560,7 +560,7 @@ Comments
 .comments {
 	> ul {
 		> li {
-			.block;
+			.styled-block;
 
 			> ul {
 				padding-top: 2rem;
@@ -598,7 +598,7 @@ Comments
 .comment-respond {
 	#comments > &,
 	.comments > ul > & {
-		.block;
+		.styled-block;
 		padding: 2rem;
 	}
 
@@ -694,7 +694,7 @@ HivePress
 
 		&--listing-search,
 		&--vendor-search {
-			.block;
+			.styled-block;
 			padding: 0.625rem;
 			align-items: center;
 			@media only screen and (max-width: 47.99em) {
@@ -813,7 +813,7 @@ HivePress
 	--------------------------------------------------------------*/
 	&-listing {
 		&--view-block {
-			.block;
+			.styled-block;
 			transition: box-shadow @animation-duration;
 
 			&:hover {
@@ -920,7 +920,7 @@ HivePress
 		}
 
 		&--view-page &__attributes--primary {
-			.block;
+			.styled-block;
 			padding: 1rem 1.5rem;
 		}
 
@@ -1020,7 +1020,7 @@ HivePress
 	--------------------------------------------------------------*/
 	&-listing-package {
 		&--view-block {
-			.block;
+			.styled-block;
 			transition: box-shadow @animation-duration;
 
 			&:hover {
@@ -1058,7 +1058,7 @@ HivePress
 	--------------------------------------------------------------*/
 	&-vendor {
 		&--view-block {
-			.block;
+			.styled-block;
 			transition: box-shadow @animation-duration;
 
 			&:hover {
@@ -1090,7 +1090,7 @@ HivePress
 		}
 
 		&--view-page &__attributes--primary {
-			.block;
+			.styled-block;
 			padding: 1rem 1.5rem;
 		}
 
@@ -1106,7 +1106,7 @@ HivePress
 		}
 
 		&__actions--secondary {
-			.block;
+			.styled-block;
 			padding: 1.5rem 2rem;
 		}
 
@@ -1122,7 +1122,7 @@ HivePress
 	--------------------------------------------------------------*/
 	&-review {
 		&--view-block {
-			.block;
+			.styled-block;
 			padding: 2rem;
 		}
 
@@ -1149,7 +1149,7 @@ HivePress
 	--------------------------------------------------------------*/
 	&-membership-plan {
 		&--view-block {
-			.block;
+			.styled-block;
 			transition: box-shadow @animation-duration;
 
 			&:hover {
@@ -1185,7 +1185,7 @@ HivePress
 
 	&-membership {
 		&--view-block {
-			.block;
+			.styled-block;
 			padding: 1.5rem;
 		}
 
@@ -1241,7 +1241,7 @@ WooCommerce
 	form.checkout_coupon,
 	form.login,
 	form.register {
-		.block;
+		.styled-block;
 		padding: 1.5rem;
 	}
 	/*--------------------------------------------------------------
@@ -1294,7 +1294,7 @@ WooCommerce
 	&-page {
 		ul.products {
 			li.product {
-				.block;
+				.styled-block;
 				padding: 1.5rem;
 				transition: box-shadow @animation-duration;
 
@@ -1334,7 +1334,7 @@ WooCommerce
 	Account
 	--------------------------------------------------------------*/
 	&-MyAccount-navigation {
-		.block;
+		.styled-block;
 		padding: 2rem;
 
 		&:not(:last-child) {
@@ -1344,7 +1344,7 @@ WooCommerce
 
 	& &-customer-details {
 		address {
-			.block;
+			.styled-block;
 			padding: 1.5rem;
 		}
 	}
