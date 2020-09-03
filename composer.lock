@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "hivepress/hivetheme",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hivepress/hivetheme.git",
-                "reference": "1ae01bb6fbf002d6be7913b183b257e648eb9019"
+                "reference": "4cad4387a4dcad558066ea59e8df7eddfa98dc54"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hivepress/hivetheme/zipball/1ae01bb6fbf002d6be7913b183b257e648eb9019",
-                "reference": "1ae01bb6fbf002d6be7913b183b257e648eb9019",
+                "url": "https://api.github.com/repos/hivepress/hivetheme/zipball/4cad4387a4dcad558066ea59e8df7eddfa98dc54",
+                "reference": "4cad4387a4dcad558066ea59e8df7eddfa98dc54",
                 "shasum": ""
             },
             "type": "wordpress-plugin",
@@ -26,7 +26,7 @@
                 "GPL-3.0-or-later"
             ],
             "description": "A framework for HivePress themes.",
-            "time": "2020-09-03T13:02:09+00:00"
+            "time": "2020-09-03T13:31:49+00:00"
         }
     ],
     "packages-dev": [],
