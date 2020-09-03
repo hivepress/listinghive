@@ -18,6 +18,8 @@ return [
 			.woocommerce a.button,
 			.woocommerce button.button,
 			.woocommerce input.button,
+			.wp-block-button__link,
+			.header-navbar__burger > ul > li > a,
 			.pagination > span,
 			.pagination .nav-links > a,
 			.pagination .nav-links > span,

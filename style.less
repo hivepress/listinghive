@@ -5,6 +5,8 @@ Author URI: https://hivepress.io
 Theme URI: https://hivepress.io/themes/listinghive
 Description: A multipurpose WordPress theme that allows you to build any type of directory and listing websites. Whether it’s a business directory, job board, real estate, classifieds or basically any listing website — ListingHive is a great choice for it.
 Version: 1.2.0
+Tested up to: 5.5
+Requires PHP: 5.6
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: right-sidebar, custom-colors, custom-menu, custom-logo, custom-header, featured-image-header, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready
@@ -13,6 +15,7 @@ Text Domain: listinghive
 /*--------------------------------------------------------------
 Variables
 --------------------------------------------------------------*/
+@heading-font-color: rgba(0,0,0,0.8);
 @primary-font-color: #ffc107;
 @primary-background-color: #ffc107;
 @secondary-font-color: rgba(0,0,0,0.4);
@@ -98,6 +101,21 @@ Mixins
 		background-color: @primary-background-color;
 		background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
 	}
+}
+
+/*--------------------------------------------------------------
+Normalize
+--------------------------------------------------------------*/
+.wp-caption,
+.wp-caption-text,
+.sticky,
+.screen-reader-text,
+.gallery-caption,
+.bypostauthor,
+.alignright,
+.alignleft,
+.aligncenter {
+	display:block;
 }
 /*--------------------------------------------------------------
 Typography
@@ -241,6 +259,10 @@ Header
 						background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, .2));
 					}
 				}
+
+				> a {
+					color: @heading-font-color;
+				}
 			}
 		}
 	}
@@ -316,9 +338,11 @@ Widgets
 
 	&_product_search,
 	&_search {
-		padding: 0;
-		box-shadow: none;
-		border: none;
+		.site-sidebar & {
+			padding: 0;
+			box-shadow: none;
+			border: none;
+		}
 	}
 
 	&_calendar {
@@ -359,6 +383,12 @@ Blocks
 
 	&-file {
 		& &__button {
+			border-radius: @border-radius;
+		}
+	}
+
+	&-button {
+		&__link {
 			border-radius: @border-radius;
 		}
 	}
@@ -416,6 +446,12 @@ Posts
 			.container-overlay;
 			border-radius: @border-radius;
 			background-image: linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.5));
+		}
+	}
+
+	&--archive &__text {
+		&:not(:last-child) {
+			margin-bottom:1.5rem;
 		}
 	}
 
@@ -533,6 +569,10 @@ Comments
 				padding-top: 2rem;
 				padding-left: 2rem;
 				border-top: 1px solid @border-color;
+			}
+
+			ul {
+				margin-top:0;
 			}
 		}
 	}
