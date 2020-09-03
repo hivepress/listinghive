@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-02 15:28+0000\n"
-"PO-Revision-Date: 2020-09-02 15:31+0000\n"
+"POT-Creation-Date: 2020-09-03 14:14+0000\n"
+"PO-Revision-Date: 2020-09-03 14:19+0000\n"
 "Last-Translator: \n"
 "Language-Team: Ukrainian\n"
 "Language: uk\n"
@@ -62,6 +62,88 @@ msgstr "Автор %s"
 #: templates/post/post-details.php:20
 msgid "Read More"
 msgstr "Читати далі"
+
+#. 1: theme name, 2: link URL.
+#: vendor/hivepress/hivetheme/includes/components/class-hivepress.php:95
+#, php-format
+msgid ""
+"If you want to start with the %1$s demo content, please follow <a "
+"href=\"%2$s\" target=\"_blank\">this screencast</a> to import it."
+msgstr ""
+"Якщо ви хочете почати з демо-контенту %1$s, будь-ласка, слідуйте <a "
+"href=\"%2$s\" target=\"_blank\">цим інструкціям</a>, щоб імортувати його."
+
+#: vendor/hivepress/hivetheme/includes/components/class-template.php:159
+msgid "Skip to content"
+msgstr "Перейти до змісту"
+
+#: vendor/hivepress/hivetheme/includes/configs/menu-locations.php:13
+msgid "Header"
+msgstr "Шапка"
+
+#: vendor/hivepress/hivetheme/includes/configs/menu-locations.php:17
+msgid "Footer"
+msgstr "Підвал"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:15
+msgid "Copyright Notice"
+msgstr "Повідомлення про авторські права"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:22
+msgid "Colors"
+msgstr "Кольори"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:26
+msgid "Primary Color"
+msgstr "Головний колір"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:31
+msgid "Secondary Color"
+msgstr "Другорядний колір"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:38
+msgid "Fonts"
+msgstr "Шрифти"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:42
+msgid "Heading Font"
+msgstr "Заголовочний шрифт"
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:51
+msgid "Body Font"
+msgstr "Основний шрифт"
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:13
+msgid "Blog"
+msgstr "Блог"
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:13
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:21
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:30
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:39
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:48
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:57
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:66
+msgctxt "area"
+msgid "sidebar"
+msgstr "бокова панель"
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:57
+msgid "Account"
+msgstr "Акаунт"
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:66
+msgid "Shop"
+msgstr "Магазин"
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:75
+msgid "Site"
+msgstr "Сайт"
+
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:75
+msgctxt "area"
+msgid "footer"
+msgstr "підвал"
 
 #. Name of the theme
 msgid "ListingHive"
