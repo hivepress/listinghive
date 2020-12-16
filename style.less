@@ -15,17 +15,17 @@ Text Domain: listinghive
 /*--------------------------------------------------------------
 Variables
 --------------------------------------------------------------*/
-@heading-font-color: rgba(0,0,0,0.8);
+@heading-font-color: rgba(15,23,39,.85);
 @primary-font-color: #ffc107;
 @primary-background-color: #ffc107;
-@secondary-font-color: rgba(0,0,0,0.4);
+@secondary-font-color: rgba(15,23,39, .45);
 @secondary-background-color-invert: rgba(255,255,255,.2);
 @ternary-background-color: #15cd72;
-@icon-color: rgba(0,0,0,0.15);
-@border-color: rgba(0,0,0,.06);
+@icon-color: rgba(7, 36, 86,0.25);
+@border-color: rgba(7, 36, 86, .075);
 @border-radius: 3px;
-@box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-@box-shadow-hover: 0 0 12px rgba(0,0,0,0.12);
+@box-shadow: 0 2px 4px 0 rgba(7, 36, 86, .075);
+@box-shadow-hover: 0 0 12px rgba(7, 36, 86,0.15);
 @animation-duration: 0.25s;
 /*--------------------------------------------------------------
 Mixins
@@ -69,7 +69,7 @@ Mixins
 .styled-label {
 	.styled-caption;
 	font-size: 0.6875rem;
-	background-color: rgba(0,0,0,0.06);
+	background-color: rgba(7, 36, 86, 0.085);
 	color: @secondary-font-color;
 	transition: color @animation-duration, background-color @animation-duration;
 	border-radius: 9999px;
@@ -472,7 +472,7 @@ Posts
 
 			&:hover {
 				background-color: #fff;
-				color: rgba(0,0,0,0.8);
+				color: @heading-font-color;
 			}
 		}
 	}
