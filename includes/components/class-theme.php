@@ -112,12 +112,10 @@ final class Theme extends Component {
 			// Get content.
 			$content = '';
 
-			if ( is_front_page() ) {
-				$parts = get_extended( get_post_field( 'post_content' ) );
+			$parts = get_extended( get_post_field( 'post_content' ) );
 
-				if ( $parts['extended'] ) {
-					$content = apply_filters( 'the_content', $parts['main'] );
-				}
+			if ( $parts['extended'] ) {
+				$content = apply_filters( 'the_content', $parts['main'] );
 
 				$classes[] = 'header-hero--large';
 			} else {
@@ -125,25 +123,26 @@ final class Theme extends Component {
 			}
 
 			// Get page IDs.
-			$page_ids = [];
+			$page_ids = [ absint( get_option( 'page_on_front' ) ) ];
 
 			if ( ht\is_plugin_active( 'hivepress' ) ) {
-				$page_ids = array_map(
-					'absint',
-					[
-						get_option( 'hp_page_listings' ),
-						get_option( 'hp_page_vendors' ),
-					]
+				$page_ids = array_merge(
+					$page_ids,
+					array_map(
+						'absint',
+						[
+							get_option( 'hp_page_listings' ),
+							get_option( 'hp_page_vendors' ),
+						]
+					)
 				);
 			}
 
 			// Render part.
-			if ( ! is_front_page() || $content ) {
-				if ( is_front_page() ) {
-					$output .= $content;
-				} elseif ( ! in_array( get_the_ID(), $page_ids, true ) ) {
-					$output .= hivetheme()->template->render_part( 'templates/page/page-title' );
-				}
+			if ( $content ) {
+				$output .= $content;
+			} elseif ( ! in_array( get_the_ID(), $page_ids, true ) ) {
+				$output .= hivetheme()->template->render_part( 'templates/page/page-title' );
 			}
 		} elseif ( is_singular( 'post' ) ) {
 
