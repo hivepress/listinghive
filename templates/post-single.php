@@ -1,11 +1,8 @@
 <div <?php post_class( 'post--single' ); ?>>
-	<?php if ( get_the_content() ) : ?>
-		<div class="post__text">
-			<?php the_content(); ?>
-		</div>
-		<?php
-	endif;
-
+	<div class="post__text">
+		<?php the_content(); ?>
+	</div>
+	<?php
 	wp_link_pages(
 		[
 			'before'      => '<nav class="pagination"><div class="nav-links">',
