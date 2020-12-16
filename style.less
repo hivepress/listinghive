@@ -4,7 +4,7 @@ Author: HivePress
 Author URI: https://hivepress.io
 Theme URI: https://hivepress.io/themes/listinghive
 Description: A multipurpose WordPress theme that allows you to build any type of directory and listing websites. Whether it’s a business directory, job board, real estate, classifieds or basically any listing website — ListingHive is a great choice for it.
-Version: 1.2.0
+Version: 1.2.1
 Tested up to: 5.5
 Requires PHP: 5.6
 License: GNU General Public License
@@ -15,17 +15,17 @@ Text Domain: listinghive
 /*--------------------------------------------------------------
 Variables
 --------------------------------------------------------------*/
-@heading-font-color: rgba(0,0,0,0.8);
+@heading-font-color: rgba(15,23,39,.85);
 @primary-font-color: #ffc107;
 @primary-background-color: #ffc107;
-@secondary-font-color: rgba(0,0,0,0.4);
+@secondary-font-color: rgba(15,23,39, .45);
 @secondary-background-color-invert: rgba(255,255,255,.2);
 @ternary-background-color: #15cd72;
-@icon-color: rgba(0,0,0,0.15);
-@border-color: rgba(0,0,0,.06);
+@icon-color: rgba(7, 36, 86,0.25);
+@border-color: rgba(7, 36, 86, .075);
 @border-radius: 3px;
-@box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-@box-shadow-hover: 0 0 12px rgba(0,0,0,0.12);
+@box-shadow: 0 2px 4px 0 rgba(7, 36, 86, .075);
+@box-shadow-hover: 0 0 12px rgba(7, 36, 86,0.125);
 @animation-duration: 0.25s;
 /*--------------------------------------------------------------
 Mixins
@@ -61,19 +61,17 @@ Mixins
 
 .styled-caption {
 	text-transform: uppercase;
-	white-space: nowrap;
-	line-height: 1;
 	letter-spacing: 1px;
 }
 
 .styled-label {
 	.styled-caption;
 	font-size: 0.6875rem;
-	background-color: rgba(0,0,0,0.06);
+	background-color: rgba(7, 36, 86, 0.085);
 	color: @secondary-font-color;
 	transition: color @animation-duration, background-color @animation-duration;
 	border-radius: 9999px;
-	padding: 0.5rem 0.75rem;
+	padding: 0.375rem 0.75rem;
 }
 
 .styled-tag {
@@ -81,7 +79,7 @@ Mixins
 	font-size: 0.6875rem;
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
-	padding: 0.4rem 0.5rem;
+	padding: 0.25rem 0.5rem;
 	color: inherit;
 	transition: color @animation-duration, border-color @animation-duration;
 }
@@ -189,6 +187,7 @@ textarea {
 	&-container--default &-selection--inline &-selection__rendered {
 		.styled-caption;
 		font-size: 0.6875rem;
+		line-height: 1;
 	}
 }
 
@@ -468,11 +467,11 @@ Posts
 	&__header--cover &__categories {
 		a {
 			background-color: @secondary-background-color-invert;
-			color: #fff;
+			color: inherit;
 
 			&:hover {
 				background-color: #fff;
-				color: rgba(0,0,0,0.8);
+				color: @heading-font-color;
 			}
 		}
 	}
@@ -1001,7 +1000,7 @@ HivePress
 		&__item-count {
 			.styled-label;
 			background-color: @secondary-background-color-invert;
-			color: #fff;
+			color: inherit;
 		}
 
 		&--view-block &__item-count {
@@ -1113,6 +1112,7 @@ HivePress
 		&__actions--secondary &__balance {
 			strong {
 				.styled-caption;
+				line-height: 1;
 				font-size: 0.6875rem;
 			}
 		}

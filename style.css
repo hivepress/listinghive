@@ -4,7 +4,7 @@ Author: HivePress
 Author URI: https://hivepress.io
 Theme URI: https://hivepress.io/themes/listinghive
 Description: A multipurpose WordPress theme that allows you to build any type of directory and listing websites. Whether it’s a business directory, job board, real estate, classifieds or basically any listing website — ListingHive is a great choice for it.
-Version: 1.2.0
+Version: 1.2.1
 Tested up to: 5.5
 Requires PHP: 5.6
 License: GNU General Public License
@@ -81,10 +81,9 @@ textarea {
 }
 .select2-container--default .select2-selection--inline .select2-selection__rendered {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
+  line-height: 1;
 }
 .pac-container {
   border-radius: 3px;
@@ -124,7 +123,7 @@ Header
   background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
 }
 .header-navbar__burger > ul > li > a {
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(15, 23, 39, 0.85);
 }
 .header-hero {
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
@@ -195,9 +194,9 @@ Widgets
 .widget--sidebar,
 .widget.hp-menu {
   padding: 2rem;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
 }
 .widget--sidebar:not(:last-child),
@@ -231,15 +230,11 @@ Widgets
 }
 .widget_calendar caption {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.875rem;
 }
 .widget_rss ul li .rss-date {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
@@ -253,8 +248,6 @@ Blocks
 .wp-block-pullquote.is-style-solid-color blockquote cite,
 .wp-block-quote cite {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
 }
 .wp-block-file .wp-block-file__button {
@@ -281,7 +274,7 @@ Posts
 --------------------------------------------------------------*/
 .post--archive {
   padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(7, 36, 86, 0.075);
 }
 .post--archive .post__header--cover {
   color: #fff;
@@ -332,11 +325,11 @@ Posts
 }
 .post__header--cover .post__categories a {
   background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  color: inherit;
 }
 .post__header--cover .post__categories a:hover {
   background-color: #fff;
-  color: rgba(0, 0, 0, 0.8);
+  color: rgba(15, 23, 39, 0.85);
 }
 .post--archive .post__header--cover .post__categories {
   top: 0;
@@ -344,15 +337,13 @@ Posts
 }
 .post__categories a {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
-  background-color: rgba(0, 0, 0, 0.06);
-  color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(7, 36, 86, 0.085);
+  color: rgba(15, 23, 39, 0.45);
   transition: color 0.25s, background-color 0.25s;
   border-radius: 9999px;
-  padding: 0.5rem 0.75rem;
+  padding: 0.375rem 0.75rem;
 }
 .post__categories a:hover {
   background-color: #15cd72;
@@ -370,8 +361,6 @@ Posts
 }
 .post__details > * {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
@@ -381,7 +370,7 @@ Posts
 .post__details > *:not(:last-child)::after {
   content: '';
   display: block;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(7, 36, 86, 0.25);
   border-radius: 50%;
   width: 4px;
   height: 4px;
@@ -399,13 +388,11 @@ Tags
 .tagcloud a,
 .wp-block-tag-cloud a {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  padding: 0.4rem 0.5rem;
+  padding: 0.25rem 0.5rem;
   color: inherit;
   transition: color 0.25s, border-color 0.25s;
   font-size: 0.6875rem!important;
@@ -419,15 +406,15 @@ Tags
 Comments
 --------------------------------------------------------------*/
 .comments > ul > li {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
 }
 .comments > ul > li > ul {
   padding-top: 2rem;
   padding-left: 2rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(7, 36, 86, 0.075);
 }
 .comments > ul > li ul {
   margin-top: 0;
@@ -444,16 +431,14 @@ Comments
 }
 .comment__details > * {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
 #comments > .comment-respond,
 .comments > ul > .comment-respond {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   padding: 2rem;
 }
@@ -467,8 +452,6 @@ Comments
 }
 .comment-respond [class^='comment-form-'] > label:first-child {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
@@ -493,7 +476,7 @@ Pagination
 .pagination .nav-links > span:not(.dots),
 .pagination > span:not(.dots),
 .pagination ul li span.current:not(.dots) {
-  border-color: rgba(0, 0, 0, 0.06);
+  border-color: rgba(7, 36, 86, 0.075);
 }
 /*--------------------------------------------------------------
 HivePress
@@ -527,8 +510,6 @@ HivePress
 .hp-status span {
   border-radius: 3px;
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
@@ -541,8 +522,6 @@ HivePress
 .hp-meta,
 .hp-result-count {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
@@ -569,9 +548,9 @@ HivePress
 }
 .hp-form--listing-search,
 .hp-form--vendor-search {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   padding: 0.625rem;
   align-items: center;
@@ -626,13 +605,13 @@ HivePress
 }
 .hp-form--listing-search .hp-form__field:not(:last-child),
 .hp-form--vendor-search .hp-form__field:not(:last-child) {
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
+  border-right: 1px solid rgba(7, 36, 86, 0.075);
 }
 @media only screen and (max-width: 47.99em) {
   .hp-form--listing-search .hp-form__field:not(:last-child),
   .hp-form--vendor-search .hp-form__field:not(:last-child) {
     border-right: none;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(7, 36, 86, 0.075);
   }
 }
 .hp-form--listing-search .hp-form__field input[type='color'],
@@ -692,8 +671,6 @@ HivePress
 .hp-form--listing-sort select,
 .hp-form--vendor-sort select {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
@@ -702,20 +679,18 @@ HivePress
 }
 .hp-field__label {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
 .hp-listing--view-block {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   transition: box-shadow 0.25s;
 }
 .hp-listing--view-block:hover {
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 12px rgba(7, 36, 86, 0.125);
 }
 .hp-listing--view-block.hp-listing--featured {
   border-color: #ffc107;
@@ -742,7 +717,7 @@ HivePress
 }
 .hp-listing--view-block .hp-listing__footer {
   padding: 1rem 1.5rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(7, 36, 86, 0.075);
 }
 .hp-listing--view-block .hp-listing__image img {
   border-top-left-radius: 3px;
@@ -767,8 +742,6 @@ HivePress
 .hp-listing--view-block .hp-listing__created-date,
 .hp-listing--view-page .hp-listing__created-date {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
@@ -782,15 +755,13 @@ HivePress
 .hp-listing--view-block .hp-listing__categories a,
 .hp-listing--view-page .hp-listing__categories a {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
-  background-color: rgba(0, 0, 0, 0.06);
-  color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(7, 36, 86, 0.085);
+  color: rgba(15, 23, 39, 0.45);
   transition: color 0.25s, background-color 0.25s;
   border-radius: 9999px;
-  padding: 0.5rem 0.75rem;
+  padding: 0.375rem 0.75rem;
 }
 .hp-listing--view-block .hp-listing__categories a:hover,
 .hp-listing--view-page .hp-listing__categories a:hover {
@@ -798,9 +769,9 @@ HivePress
   color: #fff;
 }
 .hp-listing--view-page .hp-listing__attributes--primary {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   padding: 1rem 1.5rem;
 }
@@ -809,7 +780,7 @@ HivePress
   padding: 0;
 }
 .hp-listing--view-page .hp-listing__attributes--primary .hp-listing__attribute:not(:last-child) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(7, 36, 86, 0.075);
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
 }
@@ -884,17 +855,15 @@ HivePress
 }
 .hp-listing-category__item-count {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
-  background-color: rgba(0, 0, 0, 0.06);
-  color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(7, 36, 86, 0.085);
+  color: rgba(15, 23, 39, 0.45);
   transition: color 0.25s, background-color 0.25s;
   border-radius: 9999px;
-  padding: 0.5rem 0.75rem;
+  padding: 0.375rem 0.75rem;
   background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  color: inherit;
 }
 .hp-listing-category--view-block .hp-listing-category__item-count {
   position: absolute;
@@ -906,14 +875,14 @@ HivePress
   display: none!important;
 }
 .hp-listing-package--view-block {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   transition: box-shadow 0.25s;
 }
 .hp-listing-package--view-block:hover {
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 12px rgba(7, 36, 86, 0.125);
 }
 .hp-listing-package--view-block .hp-listing-package__content:not(:last-child),
 .hp-listing-package--view-block .hp-listing-package__footer:not(:last-child),
@@ -925,23 +894,23 @@ HivePress
   padding: 1rem 1.5rem;
 }
 .hp-listing-package--view-block .hp-listing-package__header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(7, 36, 86, 0.075);
 }
 .hp-listing-package--view-block .hp-listing-package__content {
   padding: 1.5rem;
 }
 .hp-listing-package--view-block .hp-listing-package__footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(7, 36, 86, 0.075);
 }
 .hp-vendor--view-block {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   transition: box-shadow 0.25s;
 }
 .hp-vendor--view-block:hover {
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 12px rgba(7, 36, 86, 0.125);
 }
 .hp-vendor--view-block .hp-vendor__header {
   padding: 3rem 2rem 0;
@@ -953,21 +922,19 @@ HivePress
   margin-bottom: 0;
 }
 .hp-vendor--view-block .hp-vendor__footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(7, 36, 86, 0.075);
   padding: 1rem 1.5rem;
 }
 .hp-vendor--view-block .hp-vendor__registered-date,
 .hp-vendor--view-page .hp-vendor__registered-date {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
 .hp-vendor--view-page .hp-vendor__attributes--primary {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   padding: 1rem 1.5rem;
 }
@@ -976,35 +943,32 @@ HivePress
   padding: 0;
 }
 .hp-vendor--view-page .hp-vendor__attributes--primary .hp-vendor__attribute:not(:last-child) {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(7, 36, 86, 0.075);
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
 }
 .hp-vendor__actions--secondary {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   padding: 1.5rem 2rem;
 }
 .hp-vendor__actions--secondary .hp-vendor__balance strong {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
+  line-height: 1;
   font-size: 0.6875rem;
 }
 .hp-review--view-block {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   padding: 2rem;
 }
 .hp-review__created-date {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
@@ -1013,20 +977,18 @@ HivePress
 }
 .hp-message--view-block .hp-message__sent-date {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
 .hp-membership-plan--view-block {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   transition: box-shadow 0.25s;
 }
 .hp-membership-plan--view-block:hover {
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 12px rgba(7, 36, 86, 0.125);
 }
 .hp-membership-plan--view-block .hp-membership-plan__content:not(:last-child),
 .hp-membership-plan--view-block .hp-membership-plan__footer:not(:last-child),
@@ -1038,25 +1000,23 @@ HivePress
   padding: 1rem 1.5rem;
 }
 .hp-membership-plan--view-block .hp-membership-plan__header {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(7, 36, 86, 0.075);
 }
 .hp-membership-plan--view-block .hp-membership-plan__content {
   padding: 1.5rem;
 }
 .hp-membership-plan--view-block .hp-membership-plan__footer {
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-top: 1px solid rgba(7, 36, 86, 0.075);
 }
 .hp-membership--view-block {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   padding: 1.5rem;
 }
 .hp-membership--view-block .hp-membership__expired-date {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
@@ -1094,46 +1054,38 @@ WooCommerce
 }
 .woocommerce .woocommerce-result-count {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
 .woocommerce .woocommerce-ordering select {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
 .woocommerce span.onsale {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
-  background-color: rgba(0, 0, 0, 0.06);
-  color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(7, 36, 86, 0.085);
+  color: rgba(15, 23, 39, 0.45);
   transition: color 0.25s, background-color 0.25s;
   border-radius: 9999px;
-  padding: 0.5rem 0.75rem;
+  padding: 0.375rem 0.75rem;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
   color: #fff;
 }
 .woocommerce form .form-row label,
 .woocommerce-page form .form-row label {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
 .woocommerce form.checkout_coupon,
 .woocommerce form.login,
 .woocommerce form.register {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   padding: 1.5rem;
 }
@@ -1145,8 +1097,6 @@ WooCommerce
 }
 .woocommerce .widget_price_filter .price_label {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
 }
 .woocommerce ul.product_list_widget li img {
@@ -1155,8 +1105,6 @@ WooCommerce
 .woocommerce ul.cart_list li .reviewer,
 .woocommerce ul.product_list_widget li .reviewer {
   text-transform: uppercase;
-  white-space: nowrap;
-  line-height: 1;
   letter-spacing: 1px;
   font-size: 0.6875rem;
 }
@@ -1165,16 +1113,16 @@ WooCommerce
 }
 .woocommerce ul.products li.product,
 .woocommerce-page ul.products li.product {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   padding: 1.5rem;
   transition: box-shadow 0.25s;
 }
 .woocommerce ul.products li.product:hover,
 .woocommerce-page ul.products li.product:hover {
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 0 12px rgba(7, 36, 86, 0.125);
 }
 .woocommerce ul.products li.product a img,
 .woocommerce-page ul.products li.product a img {
@@ -1196,9 +1144,9 @@ WooCommerce
   border-radius: 3px;
 }
 .woocommerce-MyAccount-navigation {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   padding: 2rem;
 }
@@ -1206,9 +1154,9 @@ WooCommerce
   margin-bottom: 2rem;
 }
 .woocommerce .woocommerce-customer-details address {
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 36, 86, 0.075);
   border-radius: 3px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 4px 0 rgba(7, 36, 86, 0.075);
   background-color: #fff;
   padding: 1.5rem;
 }
@@ -1230,5 +1178,5 @@ WooCommerce
 .woocommerce nav.woocommerce-pagination .nav-links > span:not(.dots),
 .woocommerce nav.woocommerce-pagination > span:not(.dots),
 .woocommerce nav.woocommerce-pagination ul li span.current:not(.dots) {
-  border-color: rgba(0, 0, 0, 0.06);
+  border-color: rgba(7, 36, 86, 0.075);
 }
