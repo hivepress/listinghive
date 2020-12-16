@@ -1,7 +1,7 @@
 (function($) {
 	'use strict';
 
-	$(window).on('load', function() {
+	$('body').imagesLoaded(function() {
 
 		// Sticky
 		if (typeof hivepress === 'undefined' && $(window).width() >= 768) {
