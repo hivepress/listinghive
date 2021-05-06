@@ -6,7 +6,7 @@ if ( ! is_page() ) :
 endif;
 ?>
 <div class="page__text">
-	<?php the_content(); ?>
+	<?php the_content( null, true ); ?>
 </div>
 <?php
 wp_link_pages(
