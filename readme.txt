@@ -31,7 +31,6 @@ ListingHive is distributed under the terms of the GNU GPL
 * Flexboxgrid CSS by Kristofer Joseph (Apache License) https://github.com/kristoferjoseph/flexboxgrid
 * Minireset CSS by Jeremy Thomas (MIT License) https://github.com/jgthms/minireset.css/
 * Focus Visible JS library by WICG (W3C License) https://github.com/WICG/focus-visible
-* Sticky Sidebar jQuery plugin by Ahmed Bouhuolia (MIT License) https://github.com/abouolia/sticky-sidebar
 * FitVids jQuery plugin by Chris Coyier, Dave Rupert (WTFPL License) https://github.com/davatron5000/FitVids.js/
 * Screenshot image by Burst (CC0 License) https://stocksnap.io/photo/OE0F9BHXJQ
 * Screenshot image by Ostap Senyuk (CC0 License) https://stocksnap.io/photo/4DG8Y9WAPU

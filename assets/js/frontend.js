@@ -3,25 +3,6 @@
 
 	$('body').imagesLoaded(function() {
 
-		// Sticky
-		if (typeof hivepress === 'undefined' && $(window).width() >= 768) {
-			hivetheme.getComponent('sticky').each(function() {
-				var container = $(this),
-					spacing = 32;
-
-				if ($('#wpadminbar').length) {
-					spacing = spacing + $('#wpadminbar').height();
-				}
-
-				container.wrapInner('<div />');
-
-				container.children('div').stickySidebar({
-					topSpacing: spacing,
-					bottomSpacing: spacing,
-				});
-			});
-		}
-
 		// Parallax
 		hivetheme.getComponent('parallax').each(function() {
 			var container = $(this),
