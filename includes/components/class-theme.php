@@ -94,15 +94,11 @@ final class Theme extends Component {
 		// Get classes.
 		$classes = [];
 
-		if ( is_page() || is_singular( 'post' ) ) {
-			the_post();
+		if ( get_header_image() || has_post_thumbnail() ) {
+			$classes[] = 'header-hero--cover';
 
-			if ( get_header_image() || has_post_thumbnail() ) {
-				$classes[] = 'header-hero--cover';
-
-				if ( is_single() ) {
-					$classes[] = 'header-hero--large';
-				}
+			if ( is_single() ) {
+				$classes[] = 'header-hero--large';
 			}
 		}
 
