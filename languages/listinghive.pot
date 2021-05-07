@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-03 14:14+0000\n"
+"POT-Creation-Date: 2021-05-07 17:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -15,102 +15,21 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.3.0; wp-5.2.2"
 
-#: comments.php:3
-msgid "Comments"
-msgstr ""
-
-#: comments.php:36
-msgid "Cancel Reply"
-msgstr ""
-
-#: index.php:17
-msgid "Nothing found"
-msgstr ""
-
-#: index.php:18
+#. Description of the theme
 msgid ""
-"Sorry, but nothing matched your search terms. Please try again with some "
-"different keywords."
+"A multipurpose WordPress theme that allows you to build any type of "
+"directory and listing websites. Whether it’s a business directory, job board,"
+" real estate, classifieds or basically any listing website — ListingHive is "
+"a great choice for it."
 msgstr ""
 
-#: searchform.php:2
-msgctxt "noun"
-msgid "Search"
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:57
+msgid "Account"
 msgstr ""
 
-#: templates/comment.php:16
-msgid "Reply"
-msgstr ""
-
-#: includes/configs/theme-mods.php:47
-msgid "Enable parallax effect"
-msgstr ""
-
-#: templates/post/post-details.php:3
-msgctxt "post"
-msgid "Pinned"
-msgstr ""
-
-#. the post author.
-#: templates/post/post-details.php:10
-#, php-format
-msgid "By %s"
-msgstr ""
-
-#: templates/post/post-details.php:20
-msgid "Read More"
-msgstr ""
-
-#. 1: theme name, 2: link URL.
-#: vendor/hivepress/hivetheme/includes/components/class-hivepress.php:95
-#, php-format
-msgid ""
-"If you want to start with the %1$s demo content, please follow <a "
-"href=\"%2$s\" target=\"_blank\">this screencast</a> to import it."
-msgstr ""
-
-#: vendor/hivepress/hivetheme/includes/components/class-template.php:159
-msgid "Skip to content"
-msgstr ""
-
-#: vendor/hivepress/hivetheme/includes/configs/menu-locations.php:13
-msgid "Header"
-msgstr ""
-
-#: vendor/hivepress/hivetheme/includes/configs/menu-locations.php:17
-msgid "Footer"
-msgstr ""
-
-#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:15
-msgid "Copyright Notice"
-msgstr ""
-
-#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:22
-msgid "Colors"
-msgstr ""
-
-#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:26
-msgid "Primary Color"
-msgstr ""
-
-#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:31
-msgid "Secondary Color"
-msgstr ""
-
-#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:38
-msgid "Fonts"
-msgstr ""
-
-#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:42
-msgid "Heading Font"
-msgstr ""
-
-#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:51
-msgid "Body Font"
-msgstr ""
-
-#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:13
-msgid "Blog"
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:75
+msgctxt "area"
+msgid "footer"
 msgstr ""
 
 #: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:13
@@ -124,8 +43,112 @@ msgctxt "area"
 msgid "sidebar"
 msgstr ""
 
-#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:57
-msgid "Account"
+#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:13
+msgid "Blog"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:61
+msgid "Body Font"
+msgstr ""
+
+#. the post author.
+#: templates/post/post-details.php:10
+#, php-format
+msgid "By %s"
+msgstr ""
+
+#: comments.php:36
+msgid "Cancel Reply"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:32
+msgid "Colors"
+msgstr ""
+
+#: comments.php:3
+msgid "Comments"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:15
+msgid "Copyright Notice"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:24
+msgid "Enable page loading screen"
+msgstr ""
+
+#: includes/configs/theme-mods.php:47
+msgid "Enable parallax effect"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:48
+msgid "Fonts"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/menu-locations.php:17
+msgid "Footer"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/menu-locations.php:13
+msgid "Header"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:52
+msgid "Heading Font"
+msgstr ""
+
+#. Author of the theme
+msgid "HivePress"
+msgstr ""
+
+#. Author URI of the theme
+msgid "https://hivepress.io"
+msgstr ""
+
+#. URI of the theme
+msgid "https://hivepress.io/themes/listinghive"
+msgstr ""
+
+#. 1: theme name, 2: link URL.
+#: vendor/hivepress/hivetheme/includes/components/class-hivepress.php:95
+#, php-format
+msgid ""
+"If you want to start with the %1$s demo content, please follow <a "
+"href=\"%2$s\" target=\"_blank\">this screencast</a> to import it."
+msgstr ""
+
+#. Name of the theme
+msgid "ListingHive"
+msgstr ""
+
+#: index.php:17
+msgid "Nothing found"
+msgstr ""
+
+#: searchform.php:2
+msgctxt "noun"
+msgid "Search"
+msgstr ""
+
+#: templates/post/post-details.php:3
+msgctxt "post"
+msgid "Pinned"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:36
+msgid "Primary Color"
+msgstr ""
+
+#: templates/post/post-details.php:20
+msgid "Read More"
+msgstr ""
+
+#: templates/comment.php:16
+msgid "Reply"
+msgstr ""
+
+#: vendor/hivepress/hivetheme/includes/configs/theme-mods.php:41
+msgid "Secondary Color"
 msgstr ""
 
 #: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:66
@@ -136,31 +159,12 @@ msgstr ""
 msgid "Site"
 msgstr ""
 
-#: vendor/hivepress/hivetheme/includes/configs/widget-areas.php:75
-msgctxt "area"
-msgid "footer"
+#: vendor/hivepress/hivetheme/includes/components/class-template.php:161
+msgid "Skip to content"
 msgstr ""
 
-#. Name of the theme
-msgid "ListingHive"
-msgstr ""
-
-#. Description of the theme
+#: index.php:18
 msgid ""
-"A multipurpose WordPress theme that allows you to build any type of "
-"directory and listing websites. Whether it’s a business directory, job board,"
-" real estate, classifieds or basically any listing website — ListingHive is "
-"a great choice for it."
-msgstr ""
-
-#. URI of the theme
-msgid "https://hivepress.io/themes/listinghive"
-msgstr ""
-
-#. Author of the theme
-msgid "HivePress"
-msgstr ""
-
-#. Author URI of the theme
-msgid "https://hivepress.io"
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
 msgstr ""

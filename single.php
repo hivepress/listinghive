@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+the_post();
+
+get_header();
+?>
 <div class="row">
 	<main class="col-sm-8 col-sm-offset-2 col-xs-12">
 		<?php

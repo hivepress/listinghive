@@ -1,12 +1,10 @@
 <?php
-get_header();
+the_post();
 
-if ( ! is_page() ) :
-	the_post();
-endif;
+get_header();
 ?>
 <div class="page__text">
-	<?php the_content(); ?>
+	<?php the_content( null, true ); ?>
 </div>
 <?php
 wp_link_pages(
