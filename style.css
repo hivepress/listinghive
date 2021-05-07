@@ -561,23 +561,23 @@ HivePress
     align-items: stretch;
   }
 }
-.home span[id^=more-] + .hp-form--listing-search,
-.home span[id^=more-] + .hp-form--vendor-search,
+.page span[id^=more-] + .hp-form--listing-search,
+.page span[id^=more-] + .hp-form--vendor-search,
 .tax-hp_listing_category .hp-form--listing-search,
 .tax-hp_listing_category .hp-form--vendor-search {
   margin-top: -4.25rem;
 }
 @media only screen and (min-width: 48em) {
-  .home span[id^=more-] + .hp-form--listing-search,
-  .home span[id^=more-] + .hp-form--vendor-search,
+  .page span[id^=more-] + .hp-form--listing-search,
+  .page span[id^=more-] + .hp-form--vendor-search,
   .tax-hp_listing_category .hp-form--listing-search,
   .tax-hp_listing_category .hp-form--vendor-search {
     margin-top: -5.25rem;
   }
 }
 @media only screen and (min-width: 75em) {
-  .home span[id^=more-] + .hp-form--listing-search,
-  .home span[id^=more-] + .hp-form--vendor-search,
+  .page span[id^=more-] + .hp-form--listing-search,
+  .page span[id^=more-] + .hp-form--vendor-search,
   .tax-hp_listing_category .hp-form--listing-search,
   .tax-hp_listing_category .hp-form--vendor-search {
     margin-top: -6.25rem;
