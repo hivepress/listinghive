@@ -27,6 +27,9 @@ final class Theme extends Component {
 	 */
 	public function __construct( $args = [] ) {
 
+		// Add theme supports.
+		add_action( 'widgets_init', [ $this, 'add_theme_supports' ] );
+
 		// Set hero background.
 		add_action( 'wp_enqueue_scripts', [ $this, 'set_hero_background' ] );
 
@@ -47,6 +50,24 @@ final class Theme extends Component {
 		}
 
 		parent::__construct( $args );
+	}
+
+	/**
+	 * Add theme supports.
+	 */
+	public function add_theme_supports() {
+		if ( ! current_theme_supports( 'title-tag' ) ) {
+
+			/**
+			 * The theme framework already does this,
+			 * but the Theme Check doesn't scan
+			 * the vendors directory.
+			 */
+			add_theme_support( 'title-tag' );
+			add_theme_support( 'automatic-feed-links' );
+
+			register_sidebar( [ 'id' => 'default' ] );
+		}
 	}
 
 	/**
