@@ -4,7 +4,7 @@ Author: HivePress
 Author URI: https://hivepress.io
 Theme URI: https://hivepress.io/themes/listinghive
 Description: A multipurpose WordPress theme that allows you to build any type of directory and listing websites. Whether it’s a business directory, job board, real estate, classifieds or basically any listing website — ListingHive is a great choice for it.
-Version: 1.2.4
+Version: 1.2.5
 Tested up to: 5.8
 Requires PHP: 7.0
 License: GNU General Public License
@@ -157,11 +157,13 @@ Header
 /*--------------------------------------------------------------
 Content
 --------------------------------------------------------------*/
-.title {
+.title,
+.content-title {
   padding-top: 1rem;
   position: relative;
 }
-.title::before {
+.title::before,
+.content-title::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -172,13 +174,20 @@ Content
   background-color: #ffc107;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2));
 }
-.title:not(:last-child) {
+.title:not(:last-child),
+.content-title:not(:last-child) {
   margin-bottom: 1.5rem;
 }
-.title--center {
+.title--center,
+.content-title--center,
+.title.has-text-align-center,
+.content-title.has-text-align-center {
   text-align: center;
 }
-.title--center::before {
+.title--center::before,
+.content-title--center::before,
+.title.has-text-align-center::before,
+.content-title.has-text-align-center::before {
   left: 50%;
   margin-left: -22px;
 }
@@ -660,6 +669,19 @@ HivePress
   font-size: 1.125rem;
   line-height: 3rem;
   height: 3rem;
+}
+.hp-form--primary .select2-container--default .select2-selection {
+  border: none;
+}
+.hp-form--primary .select2-container--default .select2-selection__rendered {
+  padding-top: 0;
+  padding-bottom: 0;
+  font-size: 1.125rem;
+  line-height: 3rem;
+  height: 3rem;
+}
+.hp-form--primary .select2-container--default .select2-selection__arrow {
+  top: 0.75rem;
 }
 .hp-form--listing-search .hp-form__button,
 .hp-form--vendor-search .hp-form__button {

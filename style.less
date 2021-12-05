@@ -4,7 +4,7 @@ Author: HivePress
 Author URI: https://hivepress.io
 Theme URI: https://hivepress.io/themes/listinghive
 Description: A multipurpose WordPress theme that allows you to build any type of directory and listing websites. Whether it’s a business directory, job board, real estate, classifieds or basically any listing website — ListingHive is a great choice for it.
-Version: 1.2.4
+Version: 1.2.5
 Tested up to: 5.8
 Requires PHP: 7.0
 License: GNU General Public License
@@ -287,14 +287,16 @@ Header
 /*--------------------------------------------------------------
 Content
 --------------------------------------------------------------*/
-.title {
+.title,
+.content-title {
 	.styled-title;
 
 	&:not(:last-child) {
 		margin-bottom: 1.5rem;
 	}
 
-	&--center {
+	&--center,
+	&.has-text-align-center {
 		text-align: center;
 
 		&::before {
@@ -769,6 +771,22 @@ HivePress
 				font-size: 1.125rem;
 				line-height: 3rem;
 				height: 3rem;
+			}
+		}
+
+		&--primary .select2-container--default .select2-selection {
+			border: none;
+
+			&__rendered {
+				padding-top: 0;
+				padding-bottom: 0;
+				font-size: 1.125rem;
+				line-height: 3rem;
+				height: 3rem;
+			}
+
+			&__arrow {
+				top: 0.75rem;
 			}
 		}
 

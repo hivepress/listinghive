@@ -27,6 +27,9 @@ final class Theme extends Component {
 	 */
 	public function __construct( $args = [] ) {
 
+		// Add theme supports.
+		add_action( 'widgets_init', [ $this, 'add_theme_supports' ] );
+
 		// Set hero background.
 		add_action( 'wp_enqueue_scripts', [ $this, 'set_hero_background' ] );
 
@@ -47,6 +50,24 @@ final class Theme extends Component {
 		}
 
 		parent::__construct( $args );
+	}
+
+	/**
+	 * Add theme supports.
+	 */
+	public function add_theme_supports() {
+		if ( ! current_theme_supports( 'title-tag' ) ) {
+
+			/**
+			 * The theme framework already does this,
+			 * but the Theme Check doesn't scan
+			 * the vendors directory.
+			 */
+			add_theme_support( 'title-tag' );
+			add_theme_support( 'automatic-feed-links' );
+
+			register_sidebar( [ 'id' => 'default' ] );
+		}
 	}
 
 	/**
@@ -75,7 +96,7 @@ final class Theme extends Component {
 		if ( $image_url ) {
 			$style = '.header-hero { background-image: url(' . esc_url( $image_url ) . '); }';
 
-			if ( get_header_textcolor() ) {
+			if ( get_header_textcolor() && get_header_textcolor() !== 'blank' ) {
 				$style .= '.header-hero { color: #' . esc_attr( get_header_textcolor() ) . '; }';
 			}
 
@@ -118,26 +139,17 @@ final class Theme extends Component {
 				$classes[] = 'header-hero--title';
 			}
 
-			// Get page IDs.
-			$page_ids = [ absint( get_option( 'page_on_front' ) ) ];
+			// Check title.
+			$title = get_the_ID() !== absint( get_option( 'page_on_front' ) );
 
 			if ( ht\is_plugin_active( 'hivepress' ) ) {
-				$page_ids = array_merge(
-					$page_ids,
-					array_map(
-						'absint',
-						[
-							get_option( 'hp_page_listings' ),
-							get_option( 'hp_page_vendors' ),
-						]
-					)
-				);
+				$title = $title && ! hivepress()->request->get_context( 'post_query' );
 			}
 
 			// Render part.
 			if ( $content ) {
 				$output .= $content;
-			} elseif ( ! in_array( get_the_ID(), $page_ids, true ) ) {
+			} elseif ( $title ) {
 				$output .= hivetheme()->template->render_part( 'templates/page/page-title' );
 			}
 		} elseif ( is_singular( 'post' ) ) {
