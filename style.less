@@ -287,14 +287,16 @@ Header
 /*--------------------------------------------------------------
 Content
 --------------------------------------------------------------*/
-.title {
+.title,
+.content-title {
 	.styled-title;
 
 	&:not(:last-child) {
 		margin-bottom: 1.5rem;
 	}
 
-	&--center {
+	&--center,
+	&.has-text-align-center {
 		text-align: center;
 
 		&::before {
