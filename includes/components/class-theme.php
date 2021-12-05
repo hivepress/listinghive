@@ -96,7 +96,7 @@ final class Theme extends Component {
 		if ( $image_url ) {
 			$style = '.header-hero { background-image: url(' . esc_url( $image_url ) . '); }';
 
-			if ( get_header_textcolor() ) {
+			if ( get_header_textcolor() && get_header_textcolor() !== 'blank' ) {
 				$style .= '.header-hero { color: #' . esc_attr( get_header_textcolor() ) . '; }';
 			}
 
