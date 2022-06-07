@@ -8,17 +8,22 @@
     "packages": [
         {
             "name": "hivepress/hivetheme",
-            "version": "1.0.12",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hivepress/hivetheme.git",
-                "reference": "f59403a76f1e1e382d93e899e5a1f214d7bebf83"
+                "reference": "4d9e202fd2bae32daa461b876d1e62a31de28416"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hivepress/hivetheme/zipball/f59403a76f1e1e382d93e899e5a1f214d7bebf83",
-                "reference": "f59403a76f1e1e382d93e899e5a1f214d7bebf83",
+                "url": "https://api.github.com/repos/hivepress/hivetheme/zipball/4d9e202fd2bae32daa461b876d1e62a31de28416",
+                "reference": "4d9e202fd2bae32daa461b876d1e62a31de28416",
                 "shasum": ""
+            },
+            "require-dev": {
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "phpcompatibility/phpcompatibility-wp": "^2.1.0",
+                "wp-coding-standards/wpcs": "~2.3.0"
             },
             "type": "wordpress-plugin",
             "notification-url": "https://packagist.org/downloads/",
@@ -26,7 +31,7 @@
                 "GPL-3.0-or-later"
             ],
             "description": "A framework for HivePress themes.",
-            "time": "2021-12-04T18:21:41+00:00"
+            "time": "2022-06-07T21:22:53+00:00"
         }
     ],
     "packages-dev": [],
@@ -36,5 +41,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }
