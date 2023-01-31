@@ -32,7 +32,11 @@
 					</div>
 					<div class="header-navbar__end">
 						<div class="header-navbar__burger" data-component="burger">
-							<a href="#"><i class="fas fa-bars"></i></a>
+							<a href="#" class="header-navbar__burger-notice-wrapper"><i class="fas fa-bars"></i>
+							<?php if ( function_exists( 'hivepress' ) && hivepress()->request->get_context( 'notice_count' ) ) : ?>
+								<small><?php echo esc_html( hivepress()->request->get_context( 'notice_count' ) ); ?></small>
+							<?php endif; ?>
+							</a>
 							<?php
 							wp_nav_menu(
 								[
