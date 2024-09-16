@@ -1,10 +1,9 @@
 === ListingHive ===
 Contributors: hivepress
-Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=7785WBVGMNB44&source=url
 Requires at least: 5.0
-Tested up to: 6.0
-Requires PHP: 7.0
-Stable tag: 1.2.7
+Tested up to: 6.6
+Requires PHP: 7.4
+Stable tag: 1.2.10
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -14,7 +13,7 @@ A multipurpose WordPress theme that allows you to build any type of directory an
 
 ListingHive is a clean and modern multipurpose WordPress theme. Paired with the free [HivePress](https://wordpress.org/plugins/hivepress/) plugin, it allows you to build any type of directory and listing websites.
 
-[Demo](https://listinghive.hivepress.io/) | [Documentation](https://help.hivepress.io/category/21-listinghive) | [Support](https://community.hivepress.io/?utm_medium=referral&utm_source=wordpress.org)
+[Demo](https://listinghive.hivepress.io/) | [Docs](https://help.hivepress.io/category/21-listinghive) | [Support](https://community.hivepress.io/)
 
 ListingHive WordPress Theme, Copyright 2019 HivePress
 ListingHive is distributed under the terms of the GNU GPL
@@ -31,7 +30,6 @@ ListingHive is distributed under the terms of the GNU GPL
 * Flexboxgrid CSS by Kristofer Joseph (Apache License) https://github.com/kristoferjoseph/flexboxgrid
 * Minireset CSS by Jeremy Thomas (MIT License) https://github.com/jgthms/minireset.css/
 * Focus Visible JS library by WICG (W3C License) https://github.com/WICG/focus-visible
-* FitVids jQuery plugin by Chris Coyier, Dave Rupert (WTFPL License) https://github.com/davatron5000/FitVids.js/
 * Screenshot image by Burst (CC0 License) https://stocksnap.io/photo/OE0F9BHXJQ
 * Screenshot image by Ostap Senyuk (CC0 License) https://stocksnap.io/photo/4DG8Y9WAPU
 * Screenshot image by Designecologist (CC0 License) https://stocksnap.io/photo/11VBKSE76A
