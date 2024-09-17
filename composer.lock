@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "hivepress/hivetheme",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hivepress/hivetheme.git",
-                "reference": "4d9e202fd2bae32daa461b876d1e62a31de28416"
+                "reference": "26cbedfbe75781ee840e5ebeefc3d41e1f70e8c3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hivepress/hivetheme/zipball/4d9e202fd2bae32daa461b876d1e62a31de28416",
-                "reference": "4d9e202fd2bae32daa461b876d1e62a31de28416",
+                "url": "https://api.github.com/repos/hivepress/hivetheme/zipball/26cbedfbe75781ee840e5ebeefc3d41e1f70e8c3",
+                "reference": "26cbedfbe75781ee840e5ebeefc3d41e1f70e8c3",
                 "shasum": ""
             },
             "require-dev": {
@@ -32,9 +32,9 @@
             ],
             "description": "A framework for HivePress themes.",
             "support": {
-                "source": "https://github.com/hivepress/hivetheme/tree/1.1.0"
+                "source": "https://github.com/hivepress/hivetheme/tree/1.1.1"
             },
-            "time": "2022-06-07T21:22:53+00:00"
+            "time": "2024-09-16T23:15:22+00:00"
         }
     ],
     "packages-dev": [

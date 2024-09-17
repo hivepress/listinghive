@@ -143,7 +143,9 @@ final class Theme extends Component {
 			$title = get_the_ID() !== absint( get_option( 'page_on_front' ) );
 
 			if ( ht\is_plugin_active( 'hivepress' ) ) {
-				$title = $title && ! hivepress()->request->get_context( 'post_query' );
+
+				// @todo change condition when common category pages are added.
+				$title = $title && ! hivepress()->request->get_context( 'post_query' ) && hivepress()->router->get_current_route_name() !== 'listings_view_page';
 			}
 
 			// Render part.
@@ -211,21 +213,17 @@ final class Theme extends Component {
 	 * @return array
 	 */
 	public function alter_listing_view_block( $template ) {
-		$category = hp\search_array_value( $template, [ 'blocks', 'listing_category' ] );
-
-		return hp\merge_trees(
+		return hivepress()->template->merge_blocks(
 			$template,
 			[
-				'blocks' => [
-					'listing_content' => [
-						'blocks' => [
-							'listing_category' => array_merge(
-								$category,
-								[
-									'_order' => 5,
-								]
-							),
-						],
+				'listing_content' => [
+					'blocks' => [
+						'listing_category' => array_merge(
+							hivepress()->template->fetch_block( $template, 'listing_category' ),
+							[
+								'_order' => 5,
+							]
+						),
 					],
 				],
 			]
@@ -239,21 +237,17 @@ final class Theme extends Component {
 	 * @return array
 	 */
 	public function alter_listing_view_page( $template ) {
-		$category = hp\search_array_value( $template, [ 'blocks', 'listing_category' ] );
-
-		return hp\merge_trees(
+		return hivepress()->template->merge_blocks(
 			$template,
 			[
-				'blocks' => [
-					'page_content' => [
-						'blocks' => [
-							'listing_category' => array_merge(
-								$category,
-								[
-									'_order' => 5,
-								]
-							),
-						],
+				'page_content' => [
+					'blocks' => [
+						'listing_category' => array_merge(
+							hivepress()->template->fetch_block( $template, 'listing_category' ),
+							[
+								'_order' => 5,
+							]
+						),
 					],
 				],
 			]
@@ -267,21 +261,17 @@ final class Theme extends Component {
 	 * @return array
 	 */
 	public function alter_listing_category_view_block( $template ) {
-		$count = hp\search_array_value( $template, [ 'blocks', 'listing_category_count' ] );
-
-		return hp\merge_trees(
+		return hivepress()->template->merge_blocks(
 			$template,
 			[
-				'blocks' => [
-					'listing_category_header' => [
-						'blocks' => [
-							'listing_category_count' => $count,
-						],
+				'listing_category_header' => [
+					'blocks' => [
+						'listing_category_count' => hivepress()->template->fetch_block( $template, 'listing_category_count' ),
 					],
+				],
 
-					'listing_category_name'   => [
-						'tag' => 'h3',
-					],
+				'listing_category_name'   => [
+					'tag' => 'h3',
 				],
 			]
 		);
