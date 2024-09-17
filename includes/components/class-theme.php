@@ -143,7 +143,9 @@ final class Theme extends Component {
 			$title = get_the_ID() !== absint( get_option( 'page_on_front' ) );
 
 			if ( ht\is_plugin_active( 'hivepress' ) ) {
-				$title = $title && ! hivepress()->request->get_context( 'post_query' );
+
+				// @todo change condition when common category pages are added.
+				$title = $title && ! hivepress()->request->get_context( 'post_query' ) && hivepress()->router->get_current_route_name()!=='listings_view_page';
 			}
 
 			// Render part.
