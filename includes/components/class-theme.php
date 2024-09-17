@@ -145,7 +145,7 @@ final class Theme extends Component {
 			if ( ht\is_plugin_active( 'hivepress' ) ) {
 
 				// @todo change condition when common category pages are added.
-				$title = $title && ! hivepress()->request->get_context( 'post_query' ) && hivepress()->router->get_current_route_name()!=='listings_view_page';
+				$title = $title && ! hivepress()->request->get_context( 'post_query' ) && hivepress()->router->get_current_route_name() !== 'listings_view_page';
 			}
 
 			// Render part.
