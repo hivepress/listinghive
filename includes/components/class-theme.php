@@ -151,7 +151,7 @@ final class Theme extends Component {
 			// Render part.
 			if ( $content ) {
 				$output .= $content;
-			} elseif ( $title ) {
+			} elseif ( $title && ! get_post_meta( get_the_ID(), 'ht_hide_title', true ) ) {
 				$output .= hivetheme()->template->render_part( 'templates/page/page-title' );
 			}
 		} elseif ( is_singular( 'post' ) ) {
