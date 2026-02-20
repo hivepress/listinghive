@@ -1,7 +1,7 @@
-				</div>
+</div>
 			</div>
 		</div>
-		<?php if ( ! is_page() || ! get_post_meta( get_the_ID(), 'ht_hide_footer', true ) ) : ?>
+		<?php if ( ! is_singular( [ 'post', 'page' ] ) || ! get_post_meta( get_the_ID(), 'ht_hide_footer', true ) ) : ?>
 			<footer class="site-footer">
 				<div class="container">
 					<?php if ( is_active_sidebar( 'site_footer' ) ) : ?>

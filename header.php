@@ -12,7 +12,7 @@
 		endif;
 		?>
 		<div class="site-container">
-			<?php if ( ! is_page() || ! get_post_meta( get_the_ID(), 'ht_hide_header', true ) ) : ?>
+			<?php if ( ! is_singular( [ 'post', 'page' ] ) || ! get_post_meta( get_the_ID(), 'ht_hide_header', true ) ) : ?>
 				<header class="site-header">
 					<div class="header-navbar">
 						<div class="header-navbar__start">

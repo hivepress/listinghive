@@ -154,7 +154,7 @@ final class Theme extends Component {
 			} elseif ( $title ) {
 				$output .= hivetheme()->template->render_part( 'templates/page/page-title' );
 			}
-		} elseif ( is_singular( 'post' ) ) {
+		} elseif ( is_singular( 'post' ) && ! get_post_meta( get_the_ID(), 'ht_hide_hero', true ) ) {
 
 			// Add classes.
 			$classes = array_merge(
