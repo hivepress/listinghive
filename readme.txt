@@ -1,9 +1,9 @@
 === ListingHive ===
 Contributors: hivepress
 Requires at least: 5.0
-Tested up to: 6.6
+Tested up to: 6.9
 Requires PHP: 7.4
-Stable tag: 1.2.10
+Stable tag: 1.2.12
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
@@ -13,7 +13,7 @@ A multipurpose WordPress theme that allows you to build any type of directory an
 
 ListingHive is a clean and modern multipurpose WordPress theme. Paired with the free [HivePress](https://wordpress.org/plugins/hivepress/) plugin, it allows you to build any type of directory and listing websites.
 
-[Demo](https://listinghive.hivepress.io/) | [Docs](https://help.hivepress.io/category/21-listinghive) | [Support](https://community.hivepress.io/)
+[Demo](https://listinghive.hivepress.io/) | [Docs](https://help.hivepress.io/) | [Support](https://community.hivepress.io/)
 
 ListingHive WordPress Theme, Copyright 2019 HivePress
 ListingHive is distributed under the terms of the GNU GPL
