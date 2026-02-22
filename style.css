@@ -148,6 +148,24 @@ Header
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.08));
 }
 
+@media only screen and (min-width: 75em) {
+	.header-hero--small {
+		padding: 4rem 0;
+	}
+}
+
+@media only screen and (min-width: 48em) {
+	.header-hero--medium {
+		padding: 4rem 0;
+	}
+}
+
+@media only screen and (min-width: 75em) {
+	.header-hero--medium {
+		padding: 6rem 0;
+	}
+}
+
 .header-hero--cover {
 	background-position: center top;
 	background-repeat: no-repeat;
@@ -417,6 +435,12 @@ Posts
 	color: #fff;
 }
 
+@media only screen and (max-width: 47.99em) {
+	.post--archive .post__title {
+		font-size: 1.5625rem;
+	}
+}
+
 .post--single .post__title {
 	text-align: center;
 }
@@ -456,6 +480,38 @@ Posts
 
 .post__header--cover .post__details>*:not(:last-child)::after {
 	background-color: rgba(255, 255, 255, 0.8);
+}
+
+/*--------------------------------------------------------------
+Categories
+--------------------------------------------------------------*/
+.category--single .category__header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.category--single .category__description,
+.category--single .category__name {
+	text-align: center;
+}
+
+.category--single .category__name {
+	margin-top: 0;
+}
+
+.category--single .category__count {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-size: 0.6875rem;
+	background-color: rgba(7, 36, 86, 0.085);
+	color: rgba(15, 23, 39, 0.45);
+	transition: color 0.25s, background-color 0.25s;
+	border-radius: 9999px;
+	padding: 0.375rem 0.75rem;
+	background-color: rgba(255, 255, 255, 0.2);
+	color: inherit;
+	margin-bottom: 1rem;
 }
 
 /*--------------------------------------------------------------

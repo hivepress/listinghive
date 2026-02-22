@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ListingHive\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-06-07 21:42+0000\n"
+"POT-Creation-Date: 2026-02-22 14:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,12 +16,20 @@ msgstr ""
 "X-Loco-Version: 2.6.2; wp-6.0\n"
 "X-Domain: listinghive"
 
+#. %s: posts number.
+#: templates/category/category-header.php:9
+#, php-format
+msgid "%s Post"
+msgid_plural "%s Posts"
+msgstr[0] ""
+msgstr[1] ""
+
 #. Description of the theme
 msgid ""
 "A multipurpose WordPress theme that allows you to build any type of "
-"directory and listing websites. Whether it’s a business directory, job board,"
-" real estate, classifieds or basically any listing website — ListingHive is "
-"a great choice for it."
+"directory and listing website. Whether it’s a business directory, service "
+"marketplace, job board, real estate, classifieds, or basically any listing "
+"website — ListingHive is a solid choice for it."
 msgstr ""
 
 #. the post author.

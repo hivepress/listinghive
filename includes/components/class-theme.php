@@ -140,7 +140,7 @@ final class Theme extends Component {
 			}
 
 			// Check title.
-			$title = get_the_ID() !== absint( get_option( 'page_on_front' ) );
+			$title = get_the_ID() !== absint( get_option( 'page_on_front' ) ) && ! get_post_meta( get_the_ID(), 'ht_hide_title', true );
 
 			if ( ht\is_plugin_active( 'hivepress' ) ) {
 
@@ -154,7 +154,7 @@ final class Theme extends Component {
 			} elseif ( $title ) {
 				$output .= hivetheme()->template->render_part( 'templates/page/page-title' );
 			}
-		} elseif ( is_singular( 'post' ) ) {
+		} elseif ( is_singular( 'post' ) && ! get_post_meta( get_the_ID(), 'ht_hide_hero', true ) ) {
 
 			// Add classes.
 			$classes = array_merge(
@@ -167,6 +167,25 @@ final class Theme extends Component {
 
 			// Render part.
 			$output .= hivetheme()->template->render_part( 'templates/post/single/post-header' );
+		} elseif ( is_category() || is_tag() ) {
+
+			// Add classes.
+			$classes = array_merge(
+				$classes,
+				[
+					'category',
+					'category--single',
+				]
+			);
+
+			if ( term_description() ) {
+				$classes[] = 'header-hero--medium';
+			} else {
+				$classes[] = 'header-hero--small';
+			}
+
+			// Render part.
+			$output .= hivetheme()->template->render_part( 'templates/category/category-header' );
 		} elseif ( ht\is_plugin_active( 'hivepress' ) && is_tax( 'hp_listing_category' ) ) {
 
 			// Add classes.

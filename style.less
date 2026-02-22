@@ -280,6 +280,22 @@ Header
 .header-hero {
 	background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, .08));
 
+	&--small {
+		@media only screen and (min-width: 75em) {
+			padding: 4rem 0;
+		}
+	}
+
+	&--medium {
+		@media only screen and (min-width: 48em) {
+			padding: 4rem 0;
+		}
+
+		@media only screen and (min-width: 75em) {
+			padding: 6rem 0;
+		}
+	}
+
 	&--cover {
 		.inherit-container;
 		background-position: center top;
@@ -512,6 +528,12 @@ Posts
 		}
 	}
 
+	&--archive &__title {
+		@media only screen and (max-width: 47.99em) {
+			font-size: 1.5625rem;
+		}
+	}
+
 	&--single &__title {
 		text-align: center;
 
@@ -556,6 +578,33 @@ Posts
 				}
 			}
 		}
+	}
+}
+
+/*--------------------------------------------------------------
+Categories
+--------------------------------------------------------------*/
+.category {
+	&--single &__header {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&--single &__description,
+	&--single &__name {
+		text-align: center;
+	}
+
+	&--single &__name {
+		margin-top: 0;
+	}
+
+	&--single &__count {
+		.styled-label;
+		background-color: @secondary-background-color-invert;
+		color: inherit;
+		margin-bottom: 1rem;
 	}
 }
 
