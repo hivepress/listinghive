@@ -1,4 +1,4 @@
-</div>
+				</div>
 			</div>
 		</div>
 		<?php if ( ! is_singular( [ 'post', 'page' ] ) || ! get_post_meta( get_the_ID(), 'ht_hide_footer', true ) ) : ?>
