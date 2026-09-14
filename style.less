@@ -5,16 +5,16 @@ Author URI: https://hivepress.io
 Theme URI: https://hivepress.io/themes/listinghive
 Description: A multipurpose WordPress theme that allows you to build any type of directory and listing website. Whether it’s a business directory, service marketplace, job board, real estate, classifieds, or basically any listing website — ListingHive is a solid choice for it.
 Version: 1.2.12
-Tested up to: 6.9
+Tested up to: 7.1
 Requires PHP: 7.4
 License: GNU General Public License
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Tags: right-sidebar, custom-colors, custom-menu, custom-logo, custom-header, featured-image-header, featured-images, footer-widgets, theme-options, threaded-comments, translation-ready
 Text Domain: listinghive
 */
-/*--------------------------------------------------------------
-Variables
---------------------------------------------------------------*/
+//--------------------------------------------------------------
+// Variables
+//--------------------------------------------------------------
 @heading-font-color: rgba(15, 23, 39, .85);
 @primary-font-color: #ffc107;
 @primary-background-color: #ffc107;
@@ -28,10 +28,10 @@ Variables
 @box-shadow-hover: 0 0 12px rgba(7, 36, 86, 0.125);
 @animation-duration: 0.25s;
 
-/*--------------------------------------------------------------
-Mixins
---------------------------------------------------------------*/
-.inherit-container {
+//--------------------------------------------------------------
+// Mixins
+//--------------------------------------------------------------
+.inherit-container() {
 
 	a,
 	h1,
@@ -44,7 +44,7 @@ Mixins
 	}
 }
 
-.container-overlay {
+.container-overlay() {
 	content: '';
 	display: block;
 	position: absolute;
@@ -54,19 +54,19 @@ Mixins
 	bottom: 0;
 }
 
-.styled-block {
+.styled-block() {
 	border: 1px solid @border-color;
 	border-radius: @border-radius;
 	box-shadow: @box-shadow;
 	background-color: #fff;
 }
 
-.styled-caption {
+.styled-caption() {
 	text-transform: uppercase;
 	letter-spacing: 1px;
 }
 
-.styled-label {
+.styled-label() {
 	.styled-caption;
 	font-size: 0.6875rem;
 	background-color: rgba(7, 36, 86, 0.085);
@@ -76,7 +76,7 @@ Mixins
 	padding: 0.375rem 0.75rem;
 }
 
-.styled-tag {
+.styled-tag() {
 	.styled-caption;
 	font-size: 0.6875rem;
 	border: 1px solid @border-color;
@@ -86,7 +86,7 @@ Mixins
 	transition: color @animation-duration, border-color @animation-duration;
 }
 
-.styled-title {
+.styled-title() {
 	padding-top: 1rem;
 	position: relative;
 

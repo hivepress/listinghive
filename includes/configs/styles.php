@@ -14,5 +14,6 @@ return [
 		'src'     => hivetheme()->get_url( 'parent' ) . '/style.css',
 		'version' => hivetheme()->get_version( 'parent' ),
 		'scope'   => [ 'frontend', 'editor' ],
+		'rtl'     => true,
 	],
 ];
