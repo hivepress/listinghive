@@ -1,0 +1,29 @@
+name: Compile assets
+
+on:
+  push:
+    branches-ignore: [ main, master ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
+      - name: Compile LESS
+        uses: hivepress/action-compile-assets/less@v1.1.0
+        with:
+          target: 'style.less'
+
+      - name: Generate RTL styles
+        run: npx --yes rtlcss@4 style.css style-rtl.css
+
+      - name: Commit changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git diff --quiet HEAD || (git commit -am "Compile assets" && git push)
