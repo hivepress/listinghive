@@ -8,22 +8,22 @@
     "packages": [
         {
             "name": "hivepress/hivetheme",
-            "version": "1.1.2",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hivepress/hivetheme.git",
-                "reference": "ecb22d65464f92cd077e37c093a81a0fc25158fc"
+                "reference": "f54c732ebc76010e346e144bd19fe5886548932f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hivepress/hivetheme/zipball/ecb22d65464f92cd077e37c093a81a0fc25158fc",
-                "reference": "ecb22d65464f92cd077e37c093a81a0fc25158fc",
+                "url": "https://api.github.com/repos/hivepress/hivetheme/zipball/f54c732ebc76010e346e144bd19fe5886548932f",
+                "reference": "f54c732ebc76010e346e144bd19fe5886548932f",
                 "shasum": ""
             },
             "require-dev": {
-                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "dealerdirect/phpcodesniffer-composer-installer": "^1.0",
                 "phpcompatibility/phpcompatibility-wp": "^2.1.0",
-                "wp-coding-standards/wpcs": "~2.3.0"
+                "wp-coding-standards/wpcs": "^3.4"
             },
             "type": "wordpress-plugin",
             "notification-url": "https://packagist.org/downloads/",
@@ -32,9 +32,9 @@
             ],
             "description": "A framework for HivePress themes.",
             "support": {
-                "source": "https://github.com/hivepress/hivetheme/tree/1.1.2"
+                "source": "https://github.com/hivepress/hivetheme/tree/1.1.4"
             },
-            "time": "2026-02-22T14:02:46+00:00"
+            "time": "2026-09-16T17:18:07+00:00"
         }
     ],
     "packages-dev": [
@@ -675,5 +675,5 @@
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},
-    "plugin-api-version": "2.6.0"
+    "plugin-api-version": "2.9.0"
 }
