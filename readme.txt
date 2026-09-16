@@ -7,11 +7,11 @@ Stable tag: 1.2.13
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-A multipurpose WordPress theme that allows you to build any type of directory and listing websites.
+A multipurpose WordPress theme that allows you to build any type of directory or listing website.
 
 == Description ==
 
-ListingHive is a clean and modern multipurpose WordPress theme. Paired with the free [HivePress](https://wordpress.org/plugins/hivepress/) plugin, it allows you to build any type of directory and listing websites.
+ListingHive is a multipurpose WordPress theme designed for directories, classifieds, and marketplaces. By default, it's a lightweight yet customizable blog theme that allows changing colors, fonts, and backgrounds to match your brand. Paired with the [HivePress](https://wordpress.org/plugins/hivepress/) plugin, it can be used to build any type of directory or listing website — from business directories and job boards to real estate, classifieds, and service marketplaces. There are no niche limitations for listing-based websites, so whether it’s a car dealership, member or staff directory, store locator, event or restaurant guide, neighborhood directory, or basically any website based on posting and searching listings — ListingHive is a solid choice.
 
 [Demo](https://listinghive.hivepress.io/) | [Docs](https://help.hivepress.io/) | [Support](https://community.hivepress.io/)
 
