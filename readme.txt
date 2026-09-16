@@ -11,7 +11,7 @@ A multipurpose WordPress theme that allows you to build any type of directory or
 
 == Description ==
 
-ListingHive is a multipurpose WordPress theme designed for directories, classifieds, and marketplaces. By default, it's a lightweight yet customizable blog theme that allows changing colors, fonts, and backgrounds to match your brand. Paired with the [HivePress](https://wordpress.org/plugins/hivepress/) plugin, it can be used to build any type of directory or listing website — from business directories and job boards to real estate, classifieds, and service marketplaces. There are no niche limitations for listing-based websites, so whether it’s a car dealership, member or staff directory, store locator, event or restaurant guide, neighborhood directory, or basically any website based on posting and searching listings — ListingHive is a solid choice.
+ListingHive is a multipurpose WordPress theme designed for directories, classifieds, and marketplaces. By default, it's a lightweight yet customizable blog theme that allows changing colors, fonts, and backgrounds to match your brand. Paired with the [HivePress](https://wordpress.org/plugins/hivepress/) plugin, it can be used to build any type of directory or listing website — from business directories and job boards to real estate, classified ads, and service marketplaces. There are no niche limitations for listing-based websites, so whether it’s a car dealership, member or staff directory, store locator, event or restaurant guide, neighborhood business directory, or basically any website based on posting and searching listings — ListingHive is a solid choice.
 
 [Demo](https://listinghive.hivepress.io/) | [Docs](https://help.hivepress.io/) | [Support](https://community.hivepress.io/)
 
